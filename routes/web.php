@@ -14,5 +14,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/dashboard');
 });
+// Auth::routes();
+// Route::group([
+//     'prefix'     => 'teacher',
+//     'middleware' => array_merge(
+//         (array) config('backpack.base.web_middleware', 'web'),
+//         (array) 'role:Teacher',
+        
+//     ),
+//     'namespace'  => 'App\Http\Controllers\Teacher',
+// ], function () { // custom Teacher routes
+//     Route::crud('course', 'TeacherCourseController');
+//     Route::get('dashboard', 'TeacherCourseController@test')->name('teacher.dashboard');
+// }); //
+
+

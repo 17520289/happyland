@@ -2,23 +2,22 @@
 
 @php
 
-
+  $course = \App\Models\Course::find(\Route::current()->parameter('id'));
 
   // if breadcrumbs aren't defined in the CrudController, use the default breadcrumbs
 
 @endphp
-
 @section('header')
   <div class="container-fluid">
-   
+    <h2>{{$course->name}}</h2>
   </div>
 @endsection
 
 @section('content')
   <!-- Default box -->
-  <div class="row">
-    <div class="col-md-2">
-      @include('admin.course.sidebar')
+  <div class="row mt-4">
+    <div class="col-md-2 " style="height: 100%">
+      @include('layouts.sidebar')
     </div>
    <div class="col-md-10">
         <div class="row mb-2">
@@ -166,7 +165,8 @@
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.1/sweetalert2.d.ts"></script>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript">
   $(function () {
     var table = $('.yajra-datatable').DataTable({
@@ -196,42 +196,47 @@
     
   });
   $('body').on('click', '.sa-params', function(){
-            var id = $(this).data('user-id');
-
+            var user_id = $(this).data('user-id');
+            var course_id = "{{ \Route::current()->parameter('id')}}";
             swal({
-                title: "test",
-                text: "test",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#DD6B55",
-                confirmButtonText: "ok",
-                cancelButtonText: "cancle",
-                closeOnConfirm: true,
-                closeOnCancel: true
-            }, function(isConfirm){
-                if (isConfirm) {
-
-                    var url = "";
-                    url = url.replace(':id', id);
-
+              title: "Are you sure?",
+              text: "Delete this person in the course!",
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+            })
+            .then((willDelete) => {
+              if (willDelete) {
+                var url = "{{route('course.deletePeople.post', ['id'=>':id', 'userId' => ':user_id'])}}";
+                url = url.replace(':id', course_id);
+                url = url.replace(':user_id', user_id);
                     var token = "{{ csrf_token() }}";
-
-                    $.easyAjax({
+                    $.ajax({
                         type: 'POST',
-                            url: url,
-                            data: {'_token': token, '_method': 'DELETE'},
+                        url: url,
+                        data: {'_token': token},   
                         success: function (response) {
                             if (response.status == "success") {
-                                $('#total-employee').html(`<span class="" >${ response.data.totalEmployees }</span>`);
-                                $('#free-employee').html(`<span class="" >${ response.data.freeEmployees }</span>`);
-                                $.easyBlockUI('#employees-table');
-                                loadTable();
-                                $.easyUnblockUI('#employees-table');
+                              swal("Teacher has been deleted!", {
+                               icon: "success",
+                              });
+                              window.setTimeout(function(){ 
+                                  location.reload();
+                              } ,2000);
+                            }else{
+                              swal("Teacher dosen't exist in course!", {
+                               icon: "error",
+                              });
                             }
                         }
                     });
-                }
+               
+              
+              } else {
+               
+              }
             });
+          
         });
 
 </script>

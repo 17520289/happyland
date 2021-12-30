@@ -16,6 +16,7 @@ use App\Models\Address;
 use App\Models\User;
 use DataTables;
 use App\Models\GroupEnrollment;
+
 /**
  * Class CourseCrudController
  * @package App\Http\Controllers\Admin
@@ -212,7 +213,6 @@ class CourseCrudController extends CrudController
         if ($request->ajax()) {
             $role = \Route::current()->parameter('role');
             $course_id = \Route::current()->parameter('id');
-            
             $enrollment = Enrollment::where('course_id', $course_id)->pluck('user_id')->toArray();
           
                 $data = User::whereIn('id', $enrollment)->whereHas('roles', function($q) use ($role){
@@ -222,7 +222,7 @@ class CourseCrudController extends CrudController
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
-                    $actionBtn = '<a href="'.route('user.edit',["id"=>$row->id]).'" class="edit btn btn-success btn-sm">Edit</a>';
+                    $actionBtn = '<a href="'.route('user.edit',["id"=>$row->id]).'" class="edit btn btn-success btn-sm">Edit</a>&nbsp;&nbsp;';
                     if(backpack_user()->hasRole('Admin')){
                         $actionBtn .='<a href="javascript:;"  data-user-id="' . $row->id . '"  class="sa-params delete btn btn-danger btn-sm">Delete</a>';
                     }
@@ -248,11 +248,11 @@ class CourseCrudController extends CrudController
         $role =  $role = \Route::current()->parameter('role');
      
         if($this->array_has_dupes($emails)){
-            return response()->json(['errors'=> 'One of emails are duplicated!']);
+            return response()->json(['errors'=> 'There are duplicate accounts.']);
         }
   
        if( $this->checkUserExistInCourse($emails, $course_id)==true){
-            return response()->json(['errors'=> 'One of emails already exists in the course!']);
+            return response()->json(['errors'=> 'An account with this email already exists.']);
        }
   
         foreach ($emails as $email) {
@@ -271,7 +271,8 @@ class CourseCrudController extends CrudController
                     'start_time' =>  Carbon::now(),
                 ]);
             }else{
-                return response()->json(['errors'=> 'Error role!']);
+                $err = "All accounts added must be.".$role."'s accounts.";
+                return response()->json(['errors'=> $err]);
             }
            
             DB::commit();
@@ -281,7 +282,7 @@ class CourseCrudController extends CrudController
           }
         }
   
-        return response()->json(['success'=>'Data is successfully added']);
+        return response()->json(['success'=>'Successfully added.']);
          
       }
     /**
@@ -348,6 +349,31 @@ class CourseCrudController extends CrudController
       public function array_has_dupes($array) {
           // streamline per @Felix
           return count($array) !== count(array_unique($array));
-       }
+    }
+
+    public function deletePeopleInCourse(Request $request){
+        $enrollment = Enrollment::where('user_id', $request->userId)->where('course_id', $request->id)->first()->delete();
+        
+        if($enrollment){
+            return response()->json(['status'=> 'success']);
+        }
+        return response()->json(['status'=> 'error']);
+    }
+
+
+    //
+    public function getCourse(Request $request){
+        $this->data['course'] = Course::find($request->id);
+        return view('student.course.show', $this->data);
+    }
+    public function getAssessment(Request $request){
+        $this->data['course'] = Course::find($request->id);
+        return view('student.assessment.list', $this->data);
+    }
+
+    
+
+    
+
   
 }

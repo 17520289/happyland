@@ -8,6 +8,14 @@ use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use App\Http\Traits\LimitAccessAccordingToUserPermissions;
 use App\Models\Course;
 use App\Models\Enrollment;
+use Illuminate\Http\Request;
+use Carbon\Carbon;
+use DB;
+use Illuminate\Support\Facades\Hash;
+use App\Models\Address;
+use App\Models\User;
+use DataTables;
+use App\Models\GroupEnrollment;
 /**
  * Class CourseCrudController
  * @package App\Http\Controllers\Admin
@@ -79,6 +87,13 @@ class CourseCrudController extends CrudController
             'default'     => 'unpublish',
         ]);
 
+
+        if(backpack_user()->hasRole('Student')){
+            $enrollments = Enrollment::where('user_id', backpack_user()->id)->pluck('course_id')->toArray();
+            $courses = Course::whereIn('id', $enrollments)->where('status', 'publish')->get();
+            $this->data['courses'] = $courses;
+            $this->crud->setListView('student.course.list', $this->data);
+        }
         // CRUD::column('status');
         //  CRUD::column('user_id');
         
@@ -149,11 +164,190 @@ class CourseCrudController extends CrudController
        
 
     }
+    /**
+     * Define what happens when the show operation is loaded.
+     * override view show course
+     * Edric - 29-12-2021
+     * @see https://backpackforlaravel.com/docs/crud-operation-update
+     * @return void
+     */
     protected function setupShowOperation(){
          
          $this->crud->setshowView('admin.course.show');
     }
-    public function getListCourseForTeacher($user_id){
-        
+     /**
+      * Edric - 29-12-2021
+
+     * Show the view list student for admin, teacher.
+     * 
+     * @return void
+     */
+    public function indexListStudent(){
+        return view('admin.course.list_student');
     }
+      /**
+      * Edric - 29-12-2021
+      
+     * Show the view list Teacher for admin, teacher.
+     * 
+     * @return void
+     */
+    public function indexListTeacher(){
+      
+        return view('admin.course.list_teacher');
+    }
+   
+
+    /**
+    * Edric - 29-12-2021
+    * 
+     * get datatable for list student, teacher
+     * 
+     * @param Request $request
+     * @return Datatables
+     */
+    public function getListPeople(Request $request)
+    {
+       
+        if ($request->ajax()) {
+            $role = \Route::current()->parameter('role');
+            $course_id = \Route::current()->parameter('id');
+            
+            $enrollment = Enrollment::where('course_id', $course_id)->pluck('user_id')->toArray();
+          
+                $data = User::whereIn('id', $enrollment)->whereHas('roles', function($q) use ($role){
+                    $q->where('name', $role);
+               })->get();
+             
+            return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function($row){
+                    $actionBtn = '<a href="'.route('user.edit',["id"=>$row->id]).'" class="edit btn btn-success btn-sm">Edit</a>';
+                    if(backpack_user()->hasRole('Admin')){
+                        $actionBtn .='<a href="javascript:;"  data-user-id="' . $row->id . '"  class="sa-params delete btn btn-danger btn-sm">Delete</a>';
+                    }
+                    return $actionBtn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+    }
+     /**
+      * Edric - 29-12-2021
+
+     * Store a new user if user not exist, add user to course
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function postAddPeople(Request $request){
+
+        
+        $emails = explode( ',' ,$request->emails );
+        $course_id = \Route::current()->parameter('id');
+        $role =  $role = \Route::current()->parameter('role');
+     
+        if($this->array_has_dupes($emails)){
+            return response()->json(['errors'=> 'One of emails are duplicated!']);
+        }
+  
+       if( $this->checkUserExistInCourse($emails, $course_id)==true){
+            return response()->json(['errors'=> 'One of emails already exists in the course!']);
+       }
+  
+        foreach ($emails as $email) {
+          DB::beginTransaction();
+          try{
+              
+            if(User::where('email', $email)->first() === null ){
+              $this->addNewUser($email, $role);
+            }
+            $user = User::where('email' , $email)->first();
+
+            if($user->hasRole($role)){
+                Enrollment::create([
+                    'user_id' => $user->id,
+                    'course_id' => $course_id,
+                    'start_time' =>  Carbon::now(),
+                ]);
+            }else{
+                return response()->json(['errors'=> 'Error role!']);
+            }
+           
+            DB::commit();
+          } catch (Exception $e) {
+              DB::rollBack();
+              throw new Exception($e->getMessage());
+          }
+        }
+  
+        return response()->json(['success'=>'Data is successfully added']);
+         
+      }
+    /**
+    * Edric - 29-12-2021
+    * 
+     * check if the user already exists in the course.
+     *
+     * @param  $emails , $course_id
+     * @return boolean
+     */
+      public function checkUserExistInCourse($emails, $course_id){
+          foreach ($emails as $email) {
+              $user = User::where('email' , $email)->first();
+              if($user !== null){
+                $enrollment = $user->enrollment()->where('course_id', $course_id)->first();
+                if($enrollment !== null){
+                    return true;
+                }
+              }
+          }
+          return false;
+      }
+       /**
+    * Edric - 29-12-2021
+    * 
+     * Store a new user, and add address for new user 
+     *
+     * @param  $emails , $course_id
+     * @return void
+     */
+      public function addNewUser($email, $role){
+          DB::beginTransaction();
+          try {
+              $address = Address::create([
+                  'street' => '',
+                  'city' => '',
+                  'state' => '',
+                  'postal_code' => 0,
+                  'country' => ''
+              ]);
+              $user = User::create([
+                  'name' => 'name - '.$email,
+                  'address_id' => $address->id,
+                  'email' => $email,
+                  'status' => 'active',
+                  'password' => Hash::make('12345678')
+              ]);
+              $user->assignRole($role);
+              DB::commit();
+          } catch (Exception $e) {
+              DB::rollBack();
+              throw new Exception($e->getMessage());
+          }
+    }
+
+    /**
+    * Edric - 29-12-2021
+    * 
+     * Check the list of emails for duplicates.
+     *
+     * @param  $array ($emails)
+     * @return boolean
+     */
+      public function array_has_dupes($array) {
+          // streamline per @Felix
+          return count($array) !== count(array_unique($array));
+       }
+  
 }

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 
-
+use DB;
 use Illuminate\Support\Str;
 use App\Http\Requests\UserUpdateCrudRequest as UpdateRequest;
 use App\Http\Controllers\Controller;
@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 use Backpack\PermissionManager\app\Http\Controllers\UserCrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use Backpack\PermissionManager\app\Http\Requests\UserStoreCrudRequest as StoreRequest;
-
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Address;
 use App\Models\User;
@@ -24,29 +24,29 @@ use App\Http\Traits\EditProfileOperation;
 use App\Http\Traits\AllowAccessOnlyAdmin;
 use App\Http\Traits\CreateOperation;
 use App\Http\Traits\UpdateOperation;
+
 use Backpack\CRUD\app\Http\Requests\ChangePasswordRequest;
 
 class UserController extends UserCrudController 
 {
     
     use AllowAccessOnlyAdmin;
+    
     use CreateOperation  { store as traitStoreCustom; }
     use UpdateOperation  { store as traitUpdateCustom; }
     use \Backpack\CRUD\app\Http\Controllers\Operations\InlineCreateOperation;
     public function setup()
     {
-       
         CRUD::setModel(\App\Models\User::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/user');
         CRUD::setEntityNameStrings('user', 'users');
         $this->denyAccessIfNotAdmin();
-       
+        $id = \Route::current()->parameter('id');
         if($this->crud->getCurrentOperation() == 'update'){
-            $id = \Route::current()->parameter('id');
             if((backpack_user()->id == $id) || backpack_user()->hasRole('Admin')){
                 $this->crud->allowAccess('update');
             }else{
-                abort(403, 'Access denied');
+                $this->crud->denyAccess( 'create');
             }
         }
        
@@ -56,9 +56,19 @@ class UserController extends UserCrudController
        
         if(!backpack_user()->hasRole('Admin')){
             $this->crud->denyAccess( 'create');
-            $this->crud->denyAccess( 'update');
             $this->crud->denyAccess( 'delete');
         }
+
+        //allow teacher edit user in course
+        if(backpack_user()->hasRole('Teacher')){
+            $enrollment =  Enrollment::where('user_id', backpack_user()->id )->first();
+            if($enrollment !=null){
+                if(Enrollment::where('user_id', $id)->where('course_id', $enrollment->course_id)->first() != null ){
+                    $this->crud->allowAccess('update');
+                }
+            }
+           
+        } 
       
       
     }
@@ -93,7 +103,6 @@ class UserController extends UserCrudController
                 'model'     => config('permission.models.permission'), // foreign key model
             ],
         ]);
-
         // Role Filter
         $this->crud->addFilter(
             [
@@ -108,7 +117,6 @@ class UserController extends UserCrudController
                 });
             }
         );
-
         // Extra Permission Filter
         $this->crud->addFilter(
             [
@@ -147,7 +155,7 @@ class UserController extends UserCrudController
         $this->crud->setEditView('admin.user.edit');
         
     }
-        /**
+    /**
      * Store a newly created resource in the database.
      *
      * @return \Illuminate\Http\RedirectResponse
@@ -411,6 +419,8 @@ class UserController extends UserCrudController
 
         
     }
+
+
     
     
 

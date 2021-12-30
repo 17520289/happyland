@@ -41,7 +41,7 @@ class Course extends Model
         // or use your own disk, defined in config/filesystems.php
         $disk = config('backpack.base.root_disk_name'); 
         // destination path relative to the disk above
-        $destination_path = "public/storage/courses/"; 
+        $destination_path = "public/storage/courses"; 
 
         // if the image was erased
         if ($value==null) {

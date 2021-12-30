@@ -72,11 +72,10 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Address::class);
     }
-
-    public function test()
-    {
-        dd("aadfasd");
+    public function enrollment(){
+        return $this->hasMany('App\Models\Enrollment', 'user_id');
     }
+ 
     public function setImageAttribute($value)
     {
         $attribute_name = "image";

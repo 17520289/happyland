@@ -6,6 +6,7 @@
     <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-users"></i> Courses</a>
     <ul class="nav-dropdown-items">
         <li class='nav-item'><a class='nav-link' href='{{ backpack_url('course') }}'><i class='nav-icon la la-question'></i> List</a></li>
+        {{-- <li class='nav-item'><a class='nav-link' href='{{route('course.people.index')}}'><i class='nav-icon la la-question'></i> People</a></li> --}}
        
     </ul>
 </li>

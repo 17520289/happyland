@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use App\Models\Course;
+use App\Models\User;
 class CreateGroupsTable extends Migration
 {
     /**
@@ -16,6 +17,7 @@ class CreateGroupsTable extends Migration
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Course::class);
+            $table->foreignIdFor(User::class);
             $table->string('name');
             $table->string('description')->nullable();
             $table->timestamps();

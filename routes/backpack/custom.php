@@ -24,11 +24,14 @@ Route::group([
         Route::post('edit-account-info', 'MyAccountCustomController@postAccountInfoForm')->name('backpack.account.info.store');
         Route::post('change-password', 'MyAccountCustomController@postChangePasswordForm')->name('backpack.account.password');
     }
-    // Route::crud('user', 'UserCrudController');
+    
     Route::crud('level', 'LevelCrudController');
     Route::crud('permission', 'PermissionCrudController');
     Route::crud('role', 'RoleCrudController');
+
+   // Route::crud('user', 'UserCrudController');
     Route::crud('user', 'UserCrudController');
+    Route::post('/user/updateStatus', 'UserController@updateStatus')->name('user.update-status.post');
     Route::group(['prefix' => 'course'], function (){
         //route couse admin, student
         Route::get('/{id}/list-teacher', 'CourseCrudController@indexListTeacher')->name('course.list-teacher');
@@ -43,4 +46,5 @@ Route::group([
         
     });
    
+    Route::crud('account-type', 'AccountTypeCrudController');
 }); // this should be the absolute last line of this file

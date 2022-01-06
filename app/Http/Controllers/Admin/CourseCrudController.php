@@ -16,6 +16,7 @@ use App\Models\Address;
 use App\Models\User;
 use DataTables;
 use App\Models\GroupEnrollment;
+use App\Models\AccountTypeDetail;
 
 /**
  * Class CourseCrudController
@@ -47,6 +48,7 @@ class CourseCrudController extends CrudController
             $this->crud->denyAccess( 'update');
             $this->crud->denyAccess( 'delete');
         }
+       
         // $this->crud->denyAccess( 'create');
         // $this->crud->denyAccess( 'delete');
       
@@ -89,9 +91,11 @@ class CourseCrudController extends CrudController
         ]);
 
 
-        if(backpack_user()->hasRole('Student')){
+        if(backpack_user()->hasRole(['Student', 'Parent'])){
             $enrollments = Enrollment::where('user_id', backpack_user()->id)->pluck('course_id')->toArray();
             $courses = Course::whereIn('id', $enrollments)->where('status', 'publish')->get();
+
+            
             $this->data['courses'] = $courses;
             $this->crud->setListView('student.course.list', $this->data);
         }

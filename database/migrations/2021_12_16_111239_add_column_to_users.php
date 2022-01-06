@@ -19,7 +19,7 @@ class AddColumnToUsers extends Migration
             $table->string('gender')->nullable();
             $table->string('phone')->nullable();
             $table->dateTime('last_login')->nullable();
-            $table->string('status')->default('inactive');
+            $table->string('status')->default('active');
             $table->dateTime('expired_in')->nullable();
             $table->dateTime('start_time')->nullable();
             $table->string('image')->nullable();

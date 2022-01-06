@@ -30,8 +30,13 @@
                     <div class="card-text">
                         Start date: {{$course->start_date}}
                     </div>
+                    @if ($accountTypeDetail != null)
+                        @if ( $accountTypeDetail->status =='active')
+                            <a href="{{route('student.course.get', ['id'=>$course->id])}}" class="card-button"> Show</a>
+                        @endif
+                    @endif
                     
-                    <a href="{{route('student.course.get', ['id'=>$course->id])}}" class="card-button"> Show</a>
+                    
                 </div>
             </div>
             @endforeach

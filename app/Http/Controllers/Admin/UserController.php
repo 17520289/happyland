@@ -12,18 +12,21 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Backpack\PermissionManager\app\Http\Controllers\UserCrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
-use Backpack\PermissionManager\app\Http\Requests\UserStoreCrudRequest as StoreRequest;
+use App\Http\Requests\UserStoreCrudRequest as StoreRequest;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Address;
 use App\Models\User;
 use App\Models\Enrollment;
 use App\Models\GroupEnrollment;
+use App\Models\AccountType;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Traits\EditProfileOperation;
 use App\Http\Traits\AllowAccessOnlyAdmin;
 use App\Http\Traits\CreateOperation;
 use App\Http\Traits\UpdateOperation;
+use App\Models\AccountTypeDetail;
+
 
 use Backpack\CRUD\app\Http\Requests\ChangePasswordRequest;
 
@@ -84,7 +87,7 @@ class UserController extends UserCrudController
             [
                 'name'  => 'email',
                 'label' => trans('backpack::permissionmanager.email'),
-                'type'  => 'email',
+                'type'  => 'string',
             ],
             [ // n-n relationship (with pivot table)
                 'label'     => trans('backpack::permissionmanager.roles'), // Table column heading
@@ -94,14 +97,14 @@ class UserController extends UserCrudController
                 'attribute' => 'name', // foreign key attribute that is shown to user
                 'model'     => config('permission.models.role'), // foreign key model
             ],
-            [ // n-n relationship (with pivot table)
-                'label'     => trans('backpack::permissionmanager.extra_permissions'), // Table column heading
-                'type'      => 'select_multiple',
-                'name'      => 'permissions', // the method that defines the relationship in your Model
-                'entity'    => 'permissions', // the method that defines the relationship in your Model
-                'attribute' => 'name', // foreign key attribute that is shown to user
-                'model'     => config('permission.models.permission'), // foreign key model
-            ],
+            // [ // n-n relationship (with pivot table)
+            //     'label'     => trans('backpack::permissionmanager.extra_permissions'), // Table column heading
+            //     'type'      => 'select_multiple',
+            //     'name'      => 'permissions', // the method that defines the relationship in your Model
+            //     'entity'    => 'permissions', // the method that defines the relationship in your Model
+            //     'attribute' => 'name', // foreign key attribute that is shown to user
+            //     'model'     => config('permission.models.permission'), // foreign key model
+            // ],
         ]);
         // Role Filter
         $this->crud->addFilter(
@@ -132,6 +135,57 @@ class UserController extends UserCrudController
             }
         );
       
+        $this->crud->addColumn([   
+            // CustomHTML
+            'name'     => 'accout_type',
+              'label'    => 'Account Type',
+              'type'     => 'account_type',
+              'escaped' => true ,
+      ]);
+      $this->crud->addColumn([   
+        // CustomHTML
+        'name'     => 'status_account',
+          'label'    => 'Status',
+          'type'     => 'status_column',
+          'escaped' => true ,
+  ]);
+        $this->crud->addColumn([   
+              // CustomHTML
+              'name'     => 'start_time',
+                'label'    => 'Start Time',
+                'type'     => 'start_time_html',
+                'escaped' => true ,
+              
+
+            
+        ]);
+        $this->crud->addColumn([ 
+            // CustomHTML
+            'name'     => 'end_time',
+              'label'    => 'End Time',
+              'type'     => 'end_time_html',
+              'escaped' => true ,
+            
+      ]);
+
+
+        // $this->crud->addColumn([
+        //     'name'    => 'test',
+        //     'label'   => 'Start Time',
+        //     'default' =>'adsf',
+            // 'options' => [0 => '<a href="https://google.com">active</a>'], // optional
+            // 'wrapper' => [
+            //     'element' => 'a',
+            //     'class' => function ($crud, $column, $entry, $related_key) {
+            //         if ($column['text'] == 'Yes') {
+            //             return 'badge badge-success';
+            //         }
+        
+            //         return 'badge badge-success';
+            //     },
+            // ],
+        // ]);
+      
         
     }
 
@@ -145,12 +199,15 @@ class UserController extends UserCrudController
       
         $this->crud->setValidation(StoreRequest::class);
         
+        $this->data['accountTypes'] = AccountType::all()->pluck('duration', 'id');
+        $this->crud->setCreateView('admin.user.create');
     }
 
     public function setupUpdateOperation()
     {
-       
+        $user_id =  \Route::current()->parameter('id');
         $this->addUserFields();
+        $this->data['accountTypeDetail'] = AccountTypeDetail::where('user_id', $user_id)->orderBy('id', 'desc')->first();
         $this->crud->setValidation(UpdateRequest::class);
         $this->crud->setEditView('admin.user.edit');
         
@@ -164,6 +221,12 @@ class UserController extends UserCrudController
     {
         $request = $this->crud->getRequest();
         
+        $this->crud->setRequest($this->crud->validateRequest());
+      
+        $this->crud->setRequest($this->handlePasswordInput($this->crud->getRequest()));
+       
+        $this->crud->unsetValidation(); // validation has already been run
+        
         $address = Address::create([
             'street' => $request->street,
             'city' => $request->city,
@@ -171,21 +234,29 @@ class UserController extends UserCrudController
             'postal_code' => $request->postal_code,
             'country' => $request->country,
         ]);
-       
-       
-        $this->crud->setRequest($this->crud->validateRequest());
-      
-        $this->crud->setRequest($this->handlePasswordInput($this->crud->getRequest()));
-       
-        $this->crud->unsetValidation(); // validation has already been run
         
         $store = $this->traitStoreCustom($address->id);
-
        
         $entryId = $this->data['entry']->id;
-   
-      
+        $this->storeAccountTypeDetail($request, $entryId);
+       
         return $store;
+    }
+
+    public function storeAccountTypeDetail($request, $user_id){
+           //set endtime 
+           $endTime = new Carbon($request->start_time);
+           $duration = AccountType::find($request->account_type_id)->duration;
+           $endTime->addDays($duration)->toDateString();
+   
+           //Add account type for user
+           $accountTypeDetail = AccountTypeDetail::create([
+               'account_type_id'=> $request->account_type_id,
+               'user_id' => $user_id,
+               'start_time' => $request->start_time,
+               'end_time'=> $endTime,
+               'status' => $request->status_account ?? 'active',
+           ]);
     }
        /**
      * Handle password input fields.
@@ -226,7 +297,7 @@ class UserController extends UserCrudController
     {
         $user_id = \Route::current()->parameter('id');
         $this->crud->setRequest($this->crud->validateRequest());
-       $this->crud->setRequest($this->handlePasswordInput($this->crud->getRequest()));
+        $this->crud->setRequest($this->handlePasswordInput($this->crud->getRequest()));
       
         $this->crud->unsetValidation(); // validation has already been run
        
@@ -241,6 +312,29 @@ class UserController extends UserCrudController
         $address->postal_code = $request->postal_code;
         $address->country = $request->country;
         $address->save();
+
+        if(backpack_user()->hasRole('Admin') && backpack_user()->id != \Route::current()->parameter('id')){
+              //update accountTypeDetail 
+        $accountTypeDetailOld = AccountTypeDetail::where('user_id', $user_id)->orderBy('id', 'desc')->first();
+       
+        if($accountTypeDetailOld == null){
+            $this->storeAccountTypeDetail($request, $user->id);
+        }else{
+            if($accountTypeDetailOld->start_time != $request->start_time." 00:00:00" || $accountTypeDetailOld->account_type_id != $request->account_type_id){
+                //update status of accountTypeDetailOld 
+                $accountTypeDetailOld->update(['status'=>'inactive']);
+                
+                //store new AccountTypeDetail
+                $this->storeAccountTypeDetail($request, $user->id);
+            }else{
+                if($accountTypeDetailOld->status != $request->status_account){
+                    $accountTypeDetailOld->update(['status'=>$request->status_account]);
+                }
+            }
+        }
+      
+        }
+      
         return $this->traitUpdate();
     }
 
@@ -334,6 +428,7 @@ class UserController extends UserCrudController
         if($this->crud->getCurrentOperation() == 'update'){
             $user = User::find(\Route::current()->parameter('id'));
             $addressOld = Address::find($user->address_id);
+            $accountTypeDetail = AccountTypeDetail::where('user_id', $user->id)->orderBy('id', 'desc')->first();
         }
        
         $address = [
@@ -411,7 +506,49 @@ class UserController extends UserCrudController
                     ],
                 ],
                 'tab'             => 'Role & Permissions',
-            ],];
+            ],
+           
+             [   // DateTime
+                'name'  => 'start_time',
+                'label' => 'Start Time',
+                'type'  => 'date',
+                'tab'             => 'Active / InActive',
+                'value' => isset($accountTypeDetail) ? $accountTypeDetail->start_time : '',
+                'attributes' => [
+                    'id'=> 'start_time',
+                    'onchange'    => 'setEndTime()',
+                  ],
+               
+
+            ],
+            [   // DateTime
+                'name'  => 'end_time',
+                'label' => 'End Time',
+                'type'  => 'date',
+                'tab'             => 'Active / InActive',
+                'value' => isset($accountTypeDetail) ? $accountTypeDetail->end_time : '',
+                'attributes' => [
+                    'readonly' =>'readonly',
+                    'id'=>'end_time'
+                  ],
+               
+            ],
+            [   // radio
+                'name'        => 'status_account', // the name of the db column
+                'label'       => 'Status', // the input label
+                'type'        => 'radio',
+                
+                'options'     => [
+                    // the key will be stored in the db, the value will be shown as label; 
+                    'active' => "Active",
+                    'inactive' => "InActive"
+                ],
+                'default' => isset($accountTypeDetail) ? $accountTypeDetail->status : 'active',
+                'inline'      => true,
+                'tab'             => 'Active / InActive',
+            ],
+            
+        ];
         }else{
             $permission = [];
         }

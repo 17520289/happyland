@@ -11,6 +11,7 @@ use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Support\Str;
 use Intervention\Image\ImageManagerStatic as Image;
 use App\Models\Level;
+use App\Models\AccountType;
 class User extends Authenticatable
 {
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
@@ -33,7 +34,7 @@ class User extends Authenticatable
         'last_login',
         'status',
         'expired_in',
-        'start_time',
+        
         'image',
         'level_id',
         'gender', 
@@ -62,11 +63,12 @@ class User extends Authenticatable
     {
         parent::boot();
         static::deleting(function($obj) {
-            \Storage::disk('public/storage/profile_images/')->delete($obj->image);
+            \Storage::disk('root')->delete($obj->image);
         });
     }
-    public function level(){
-        return $this->belongsTo(Level::class );
+   
+    public function accountType(){
+        return $this->belongsTo(AccountType::class );
     }
     public function address()
     {
@@ -83,7 +85,7 @@ class User extends Authenticatable
         // or use your own disk, defined in config/filesystems.php
         $disk = config('backpack.base.root_disk_name'); 
         // destination path relative to the disk above
-        $destination_path = "public/storage/profile_images/"; 
+        $destination_path = "public/storage/profile_images"; 
 
         // if the image was erased
         if ($value==null) {

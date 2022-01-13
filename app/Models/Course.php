@@ -6,12 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use App\Models\User;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Course extends Model
 {
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasFactory;
-
+    use SoftDeletes;
+    
     protected $table = 'courses';
 
     protected $fillable = [

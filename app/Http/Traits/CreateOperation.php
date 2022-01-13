@@ -84,11 +84,11 @@ trait CreateOperation
         //add address_id  
         $fields = $this->crud->getStrippedSaveRequest();
         $fields['address_id'] = $address_id;
-       
+         $fields['status'] =   $this->crud->getRequest()->status;
         $item = $this->crud->create($fields);
        
         $this->data['entry'] = $this->crud->entry = $item;
-
+       
         // show a success message
         \Alert::success(trans('backpack::crud.insert_success'))->flash();
 

@@ -33,14 +33,14 @@ Route::group([
     Route::crud('user', 'UserCrudController');
     Route::post('/user/updateStatus', 'UserController@updateStatus')->name('user.update-status.post');
     Route::group(['prefix' => 'course'], function (){
-        //route couse admin, student
+       
+        Route::get('/{id}/infomations', 'CourseCrudController@getInfomations')->name('course.infomations.get');
         Route::get('/{id}/list-teacher', 'CourseCrudController@indexListTeacher')->name('course.list-teacher');
         Route::get('/{id}/ajax-list-people/role={role}', 'CourseCrudController@getListPeople')->name('course.ajax-list-people');
         Route::post('/list-people/{id}/role={role}', 'CourseCrudController@postAddPeople')->name('course.postAddPeople');
         Route::get('/{id}/list-student', 'CourseCrudController@indexListStudent')->name('course.list-student');
         Route::post('/{id}/detete-people/userId={userId}', 'CourseCrudController@deletePeopleInCourse')->name('course.deletePeople.post');
 
-        //Route couse Student
         Route::get('/{id}', 'CourseCrudController@getCourse')->name('student.course.get');
         Route::get('/{id}/assessment', 'CourseCrudController@getAssessment')->name('student.assessment.get');
         

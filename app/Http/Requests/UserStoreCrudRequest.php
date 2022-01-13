@@ -28,8 +28,8 @@ class UserStoreCrudRequest extends FormRequest
             'email'    => 'required|unique:'.config('permission.table_names.users', 'users').',email',
             'name'     => 'required',
             'password' => 'required|confirmed',
-            'account_type_id' => 'required',
-            'start_time' => 'required'
+            
         ];
     }
+   
 }

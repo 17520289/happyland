@@ -32,7 +32,7 @@
                     </div>
                     @if ($accountTypeDetail != null)
                         @if ( $accountTypeDetail->status =='active')
-                            <a href="{{route('student.course.get', ['id'=>$course->id])}}" class="card-button"> Show</a>
+                            <a href="{{route('course.show', ['id'=>$course->id])}}" class="card-button"> Show</a>
                         @endif
                     @endif
                     

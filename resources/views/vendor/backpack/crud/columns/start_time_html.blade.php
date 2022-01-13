@@ -10,8 +10,8 @@
     }
 
     $accountTypeDetail = \App\Models\AccountTypeDetail::where('user_id', $entry->id)->orderBy('id', 'desc')->first();
-   
-    $start_time = $accountTypeDetail !== null ?  Carbon\Carbon::parse($accountTypeDetail->start_time)->format('m / d / Y') :'';
+    $status = \App\Models\User::find( $entry->id)->status;
+    $start_time = $accountTypeDetail !== null && ($status == 'active' || $status == 'pending' ) ?  Carbon\Carbon::parse($accountTypeDetail->start_time)->format('m / d / Y') :'';
     // dd($start_time);
 @endphp
 

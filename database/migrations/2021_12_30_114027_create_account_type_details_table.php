@@ -16,7 +16,9 @@ class CreateAccountTypeDetailsTable extends Migration
     {
         Schema::create('account_type_details', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(AccountType::class);
+            $table->foreignIdFor(AccountType::class)
+            ->constrained()
+            ->restrictOnDelete();
             $table->foreignIdFor(User::class)
             ->onUpdate('cascade')
             ->onDelete('cascade');;

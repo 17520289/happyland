@@ -246,18 +246,26 @@ class CourseCrudController extends CrudController
      */
     public function postAddPeople(Request $request){
 
-        
+       
         $emails = explode( ',' ,$request->emails );
         $course_id = \Route::current()->parameter('id');
         $role =  $role = \Route::current()->parameter('role');
-     
-        if($this->array_has_dupes($emails)){
-            return response()->json(['errors'=> 'There are duplicate accounts.']);
+        $regex = '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/'; 
+        $errors = [];
+        foreach ($emails as $key => $email) {
+            # code...
+            if(!preg_match($regex, $email)){
+                $errors[$email] =  "Invalid email format"; 
+            }
         }
-  
-       if( $this->checkUserExistInCourse($emails, $course_id)==true){
-            return response()->json(['errors'=> 'An account with this email already exists.']);
-       }
+        
+        if($this->array_has_dupes($emails)){
+            $errors[] =  "There are duplicate accounts."; 
+        }
+        
+        if( $this->checkUserExistInCourse($emails, $course_id)==true){
+            $errors[$email] =  "An account with this email already exists."; 
+        }
   
         foreach ($emails as $email) {
           DB::beginTransaction();
@@ -275,8 +283,8 @@ class CourseCrudController extends CrudController
                     'start_time' =>  Carbon::now(),
                 ]);
             }else{
-                $err = "All accounts added must be.".$role."'s accounts.";
-                return response()->json(['errors'=> $err]);
+                $errors[] = "All accounts added must be.".$role."'s accounts.";
+                return response()->json(['errors'=> $errors]);
             }
            
             DB::commit();
@@ -285,7 +293,10 @@ class CourseCrudController extends CrudController
               throw new Exception($e->getMessage());
           }
         }
-  
+        if(sizeof($errors) != 0){
+            
+            return response()->json(['errors'=> $errors]);
+        }
         return response()->json(['success'=>'Successfully added.']);
          
       }
@@ -368,12 +379,14 @@ class CourseCrudController extends CrudController
     //
     public function getCourse(Request $request){
         $this->data['course'] = Course::find($request->id);
-        return view('student.course.show', $this->data);
+        return view('admin.course.infomations', $this->data);
     }
     public function getAssessment(Request $request){
         $this->data['course'] = Course::find($request->id);
         return view('student.assessment.list', $this->data);
     }
+
+    
 
     
 

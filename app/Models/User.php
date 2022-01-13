@@ -12,12 +12,13 @@ use Illuminate\Support\Str;
 use Intervention\Image\ImageManagerStatic as Image;
 use App\Models\Level;
 use App\Models\AccountType;
+use Illuminate\Database\Eloquent\SoftDeletes;
 class User extends Authenticatable
 {
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasRoles;
     use HasApiTokens, HasFactory, Notifiable;
-
+    use SoftDeletes;
     protected $guard_name = 'backpack';
     /**
      * The attributes that are mass assignable.

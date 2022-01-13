@@ -30,10 +30,10 @@ class PermissionSeeder extends Seeder
                         'List Material', 'Create Material', 'Update Material'];
 
         //permission Parent
-        $permissionsParent = ['List Course',   'List Material' ];
+        $permissionsParent = ['List Course',   'List Material', 'Show Course' ];
         
         //permission Student
-        $permissionsStudent = ['List Course',   'List Material' ];
+        $permissionsStudent = ['List Course',   'List Material', 'Show Course' ];
 
        
         

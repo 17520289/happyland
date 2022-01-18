@@ -45,13 +45,19 @@ class CourseCrudController extends CrudController
         CRUD::setRoute(config('backpack.base.route_prefix') . '/course');
         CRUD::setEntityNameStrings('course', 'courses');
         $this->denyAccessIfNoPermission();
-
-        if(!backpack_user()->hasRole('Admin')){
+        if(!backpack_user()->can('Create Course')){
             $this->crud->denyAccess( 'create');
-            $this->crud->denyAccess( 'update');
+        }
+        if(!backpack_user()->can('Update Course')){
+            $this->crud->denyAccess('update');
+        }
+        if(!backpack_user()->can('Delete Course')){
             $this->crud->denyAccess( 'delete');
         }
-       
+        
+        if(backpack_user()->hasRole('Parent')){
+            $this->allowAccessRoleParent();
+        }
         // $this->crud->denyAccess( 'create');
         // $this->crud->denyAccess( 'delete');
       
@@ -395,10 +401,7 @@ class CourseCrudController extends CrudController
 
 
     //
-    public function getCourse(Request $request){
-        $this->data['course'] = Course::find($request->id);
-        return view('admin.course.infomations', $this->data);
-    }
+  
     public function getAssessment(Request $request){
         $this->data['course'] = Course::find($request->id);
         return view('student.assessment.list', $this->data);

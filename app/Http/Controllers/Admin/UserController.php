@@ -26,7 +26,7 @@ use App\Http\Traits\AllowAccessOnlyAdmin;
 use App\Http\Traits\CreateOperation;
 use App\Http\Traits\UpdateOperation;
 use App\Models\AccountTypeDetail;
-
+use App\Models\ParentStudent;
 
 use Backpack\CRUD\app\Http\Requests\ChangePasswordRequest;
 
@@ -53,10 +53,6 @@ class UserController extends UserCrudController
             }
         }
        
-        if(backpack_user()->hasRole('Teacher')){
-            $this->crud->allowAccess('show');
-        }
-       
         if(!backpack_user()->hasRole('Admin')){
             $this->crud->denyAccess( 'create');
             $this->crud->denyAccess( 'delete');
@@ -64,6 +60,7 @@ class UserController extends UserCrudController
 
         //allow teacher edit user in course
         if(backpack_user()->hasRole('Teacher')){
+            $this->crud->allowAccess('show');
             $enrollment =  Enrollment::where('user_id', backpack_user()->id )->first();
             if($enrollment !=null){
                 if(Enrollment::where('user_id', $id)->where('course_id', $enrollment->course_id)->first() != null ){
@@ -198,7 +195,7 @@ class UserController extends UserCrudController
     public function store()
     {
         $request = $this->crud->getRequest();
-
+       
         if( AccountType::find($request->account_type_id) == null && $request->status == 'on'){
             \Alert::add('error', 'Account type is required.')->flash();
             return redirect()->back();
@@ -210,10 +207,10 @@ class UserController extends UserCrudController
         $this->crud->setRequest($this->handleStatus($this->crud->getRequest()));
 
         $this->crud->unsetValidation(); // validation has already been run
-        
+       
         DB::beginTransaction();
         try{
-            
+           
             $address = Address::create([
                 'street' => $request->street,
                 'city' => $request->city,
@@ -228,6 +225,18 @@ class UserController extends UserCrudController
             if($request->status == 'on'){
                 $this->storeAccountTypeDetail($request, $entryId);
             }
+
+            $roleStudent = array_filter($request->roles_show, function($v, $k) {
+                return $v == '4'  ;
+            }, ARRAY_FILTER_USE_BOTH);
+            //tao quan he giua hoc sinh va phu huynh. table parent_students
+            if(sizeof($roleStudent) == 1){
+                ParentStudent::create([
+                    "parent_id" => $request->parent_id,
+                    "student_id" => $entryId,
+                ]);  
+            }
+           
             DB::commit();
           } catch (Exception $e) {
               DB::rollBack();
@@ -330,41 +339,64 @@ class UserController extends UserCrudController
         $this->crud->setRequest($this->handleStatus($this->crud->getRequest()));
         $this->crud->unsetValidation(); // validation has already been run
 
-        //update status 
-        $user->status =$this->crud->getRequest()->status;
-        $user->save();
+        DB::beginTransaction();
+        try{
+            //update status 
+            $user->status =$this->crud->getRequest()->status;
+            $user->save();
 
-        //update address 
-        $address = Address::find($user->address_id);
-        $address->street = $request->street;
-        $address->city = $request->city;
-        $address->state = $request->state;
-        $address->postal_code = $request->postal_code;
-        $address->country = $request->country;
-        $address->save();
-      
-        if(backpack_user()->hasRole('Admin') && backpack_user()->id != \Route::current()->parameter('id') && $this->crud->getRequest()->status != 'disable'){
-              //update accountTypeDetail 
-            $accountTypeDetailOld = AccountTypeDetail::where('user_id', $user_id)->orderBy('id', 'desc')->first();
-            if($accountTypeDetailOld == null){
-                $this->storeAccountTypeDetail($request, $user->id);
-            }else{
-                if($accountTypeDetailOld->start_time != $request->start_time." 00:00:00" || $accountTypeDetailOld->account_type_id != $request->account_type_id){
-                    //update status of accountTypeDetailOld 
-                    $accountTypeDetailOld->update(['status'=>'inactive']);
-                    
-                    //store new AccountTypeDetail
-                
+            //update address 
+            $address = Address::find($user->address_id);
+            $address->street = $request->street;
+            $address->city = $request->city;
+            $address->state = $request->state;
+            $address->postal_code = $request->postal_code;
+            $address->country = $request->country;
+            $address->save();
+            
+            //update parent for role student
+            $roleStudent = array_filter($request->roles_show, function($v, $k) {
+                return $v == '4'  ;
+            }, ARRAY_FILTER_USE_BOTH);
+            //cap nhat hoac tao quan he giua hoc sinh va phu huynh. table parent_students
+            if(sizeof($roleStudent) == 1){
+                $parentStudent = ParentStudent::where('student_id', $user_id )->first();
+                if($parentStudent != null){
+                    $parentStudent->update(["parent_id"=>$request->parent_id]);
+                }else{
+                    ParentStudent::create([
+                        "parent_id" => $request->parent_id,
+                        "student_id" => $user_id,
+                    ]);  
+                }
+             
+            }
+        
+            if(backpack_user()->hasRole('Admin') && backpack_user()->id != \Route::current()->parameter('id') && $this->crud->getRequest()->status != 'disable'){
+              
+                //update accountTypeDetail 
+                $accountTypeDetailOld = AccountTypeDetail::where('user_id', $user_id)->orderBy('id', 'desc')->first();
+                if($accountTypeDetailOld == null){
                     $this->storeAccountTypeDetail($request, $user->id);
                 }else{
-                    if($accountTypeDetailOld->status != $request->status_account){
-                        $accountTypeDetailOld->update(['status'=>$request->status_account]);
+                    if($accountTypeDetailOld->start_time != $request->start_time." 00:00:00" || $accountTypeDetailOld->account_type_id != $request->account_type_id){
+                        //update status of accountTypeDetailOld 
+                        $accountTypeDetailOld->update(['status'=>'inactive']); 
+                        //store new AccountTypeDetail
+                        $this->storeAccountTypeDetail($request, $user->id);
+                    }else{
+                        if($accountTypeDetailOld->status != $request->status_account){
+                            $accountTypeDetailOld->update(['status'=>$request->status_account]);
+                        }
                     }
                 }
+        
             }
-      
+            DB::commit();
+        } catch (Exception $e) {
+            DB::rollBack();
+            throw new Exception($e->getMessage());
         }
-      
         return $this->traitUpdate();
     }
 
@@ -459,6 +491,7 @@ class UserController extends UserCrudController
             $user = User::find(\Route::current()->parameter('id'));
             $addressOld = Address::find($user->address_id);
             $accountTypeDetail = AccountTypeDetail::where('user_id', $user->id)->orderBy('id', 'desc')->first();
+            $parentStudent = ParentStudent::where('student_id', $user->id)->first();
         }
        
         $address = [
@@ -537,6 +570,31 @@ class UserController extends UserCrudController
                 ],
                 'tab'             => 'Role & Permissions',
             ],
+           
+            [  // Select
+                'label'     => "Parent",
+                'type'      => 'select2',
+                'name'      => 'parent_id', // the db column for the foreign key
+             
+                // optional
+                // 'entity' should point to the method that defines the relationship in your Model
+                // defining entity will make Backpack guess 'model' and 'attribute'
+                'entity'    => 'parent',
+              
+                // optional - manually specify the related model and attribute
+                'model'     => "App\Models\User", // related model
+                'attribute' => 'name', // foreign key attribute that is shown to user
+                'default'   => isset($parentStudent) ? $parentStudent->parent_id : null,
+                // optional - force the related options to be a custom query, instead of all();
+                'options'   => (function ($query) {
+                     return $query->whereHas('roles', function ($q) {
+                        $q->where('name', 'Parent');
+                    })->get();
+                 }), //  you can use this to filter the results show in the select
+                 'view_namespace' => 'admin.user.fields',
+                 'tab'             => 'Role & Permissions',
+                 
+             ],
           
             [   // radio
                 'name'        => 'status_account', // the name of the db column

@@ -33,21 +33,26 @@ Route::group([
     Route::crud('user', 'UserCrudController');
     Route::post('/user/updateStatus', 'UserController@updateStatus')->name('user.update-status.post');
     Route::group(['prefix' => 'course'], function (){
-       
-        Route::get('/{id}/infomations', 'CourseCrudController@getInfomations')->name('course.infomations.get');
+        // Route::get('/{id}/infomations', 'CourseCrudController@getInfomations')->name('course.infomations.get');
         Route::get('/{id}/list-teacher', 'CourseCrudController@indexListTeacher')->name('course.list-teacher');
         Route::get('/{id}/ajax-list-people/role={role}', 'CourseCrudController@getListPeople')->name('course.ajax-list-people');
         Route::post('/list-people/{id}/role={role}', 'CourseCrudController@postAddPeople')->name('course.postAddPeople');
         Route::get('/{id}/list-student', 'CourseCrudController@indexListStudent')->name('course.list-student');
         Route::post('/{id}/detete-people/userId={userId}', 'CourseCrudController@deletePeopleInCourse')->name('course.deletePeople.post');
         Route::get('/{id}/getGrades' , 'CourseCrudController@getGrades')->name('course.grades.get');
-        Route::get('/{id}', 'CourseCrudController@getCourse')->name('student.course.get');
+        // Route::get('/{id}', 'CourseCrudController@getCourse')->name('student.course.get');
         Route::get('/{id}/assessment', 'CourseCrudController@getAssessment')->name('student.assessment.get');
         //grades
         Route::post('/{id}/addColumnGrade', 'CourseCrudController@postAddColumnGrade')->name('course.grade.addColumn.post');
         Route::get('/{id}/ajax-grades', 'CourseCrudController@getGradesCourse')->name('course.ajax-grades.get');
         Route::post('/{id}/update-grade', 'CourseCrudController@postUpdateGrade')->name('course.update-grade.post');
     });
-   
+    Route::name('parent.')->prefix('parent')->group( function (){
+        Route::get('/{id}/listChildren', 'ParentController@getListChildren')->name('list-children.get');
+        Route::get('/{id}/ajax-listChildren', 'ParentController@ajaxListChildren')->name('ajax-listChildren.get');
+        Route::get('/{id}/children/{student_id}/course', 'ParentController@getChildrenCourse')->name('childrenCourse.get');
+    });
     Route::crud('account-type', 'AccountTypeCrudController');
+
+
 }); // this should be the absolute last line of this file

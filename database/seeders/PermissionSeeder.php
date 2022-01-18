@@ -22,11 +22,11 @@ class PermissionSeeder extends Seeder
         
 
         //permissions Admin
-        $permissions = ['List Course', 'Create Course', 'Update Course' , 'Delete Course', 'Show Course', 'Show Material',
-                            'List Material', 'Create Material', 'Update Material', 'Delete Material'];
+        $permissions = ['List Course', 'Create Course', 'Update Course' , 'Delete Course', 'Show Course', 'Show Material', 'Create AccountType',
+        'Update AccountType', 'Delete AccountType' , 'Show AccountType',  'List Material', 'Create Material', 'Update Material', 'Delete Material'];
 
         //permission Teacher
-        $permissionsTeacher = ['List Course', 'Update Course' , 'Show Course',
+        $permissionsTeacher = ['List Course', 'Update Course' , 'Show Course', 'Show Material',
                         'List Material', 'Create Material', 'Update Material'];
 
         //permission Parent

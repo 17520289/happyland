@@ -29,6 +29,16 @@ class AccountTypeCrudController extends CrudController
         CRUD::setModel(\App\Models\AccountType::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/account-type');
         CRUD::setEntityNameStrings('account type', 'account types');
+        if(!backpack_user()->can('Create AccountType')){
+            $this->crud->denyAccess('create');
+        }
+        if(!backpack_user()->can('Update AccountType')){
+            $this->crud->denyAccess('update');
+        }
+        if(!backpack_user()->can('Delete AccountType')){
+            $this->crud->denyAccess( 'delete');
+        }
+        
     }
 
     /**

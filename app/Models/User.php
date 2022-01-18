@@ -67,7 +67,19 @@ class User extends Authenticatable
             \Storage::disk('root')->delete($obj->image);
         });
     }
-   
+   public function parent(){
+    return $this->hasMany('App\Models\User', 'id');
+   }
+   public function enrollmentOfChildren(){
+    return $this->hasManyThrough(
+        'App\Models\Enrollment',
+        'App\Models\ParentStudent',
+        'parent_id',
+        'user_id',
+        'id',
+        'student_id',
+    );
+   }
     public function accountType(){
         return $this->belongsTo(AccountType::class );
     }

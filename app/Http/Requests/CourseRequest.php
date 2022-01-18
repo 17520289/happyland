@@ -27,6 +27,8 @@ class CourseRequest extends FormRequest
     {
         return [
             'name' => 'required|min:5|max:255',
+            'start_date' => 'required',
+            'end_date' => 'required|after_or_equal:start_date',
             
         ];
     }

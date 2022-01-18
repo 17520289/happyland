@@ -320,7 +320,7 @@ class UserController extends UserCrudController
         $request = $this->crud->getRequest();
         $user_id = \Route::current()->parameter('id');
         $user = User::find($user_id);
-        
+
         if( AccountType::find($request->account_type_id) == null && $request->status == 'on'){
             \Alert::add('error', 'Account type is required.')->flash();
             return redirect()->back();
@@ -331,7 +331,7 @@ class UserController extends UserCrudController
         $this->crud->unsetValidation(); // validation has already been run
 
         //update status 
-        $user->status = $request->status;
+        $user->status =$this->crud->getRequest()->status;
         $user->save();
 
         //update address 
@@ -342,12 +342,11 @@ class UserController extends UserCrudController
         $address->postal_code = $request->postal_code;
         $address->country = $request->country;
         $address->save();
-
-        if(backpack_user()->hasRole('Admin') && backpack_user()->id != \Route::current()->parameter('id') && $request->status != 'disable'){
+      
+        if(backpack_user()->hasRole('Admin') && backpack_user()->id != \Route::current()->parameter('id') && $this->crud->getRequest()->status != 'disable'){
               //update accountTypeDetail 
             $accountTypeDetailOld = AccountTypeDetail::where('user_id', $user_id)->orderBy('id', 'desc')->first();
             if($accountTypeDetailOld == null){
-              
                 $this->storeAccountTypeDetail($request, $user->id);
             }else{
                 if($accountTypeDetailOld->start_time != $request->start_time." 00:00:00" || $accountTypeDetailOld->account_type_id != $request->account_type_id){

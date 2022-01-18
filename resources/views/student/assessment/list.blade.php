@@ -5,7 +5,8 @@
 @section('header')
     <section class="container-fluid d-print-none">
         <h2><a href="{{ route('course.show', ['id' => \Route::current()->parameter('id')]) }}"><i
-                    class="la la-backward nav-icon"></i></a> <span class="text-capitalize">{{ $course->name }}</span>
+                    class="la la-backward nav-icon"></i></a>
+            <span class="text-capitalize">{{ $course->name }}</span>
             <small> >> Assessment</small>
         </h2>
     </section>
@@ -14,8 +15,7 @@
 
 @section('content')
     <div class="row mt-4">
-
-        <iframe src="{{ asset('animation/Level-1A/index.html') }}" width="100%" height="800" frameborder="5"></iframe>
+        <iframe src="{{ asset('animation/English/index.html') }}" width="100%" height="800" frameborder="5"></iframe>
         {{-- <div id="accordion">
             <div class="card">
               <div class="card-header" id="headingOne">

@@ -152,8 +152,6 @@ $breadcrumbs = [
                             text += `${property} - ${response.errors[property]}\n`;
                             
                         }
-                        // response.errors.forEach(element => {
-                       
                         if (response.errors) {
                             new Noty({
                                 theme: 'light',

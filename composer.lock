@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "844a19e6c66ca3e39b01a90e8e3606f8",
+    "content-hash": "a34c12cb473fca3f8c6eeccf0004470a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1695,6 +1695,57 @@
                 }
             ],
             "time": "2021-12-16T16:49:26+00:00"
+        },
+        {
+            "name": "johan-code/backpack-ckeditor",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/johangit/backpack-ckeditor.git",
+                "reference": "6937dd1cdf22b4785d997c045de9b1d4e281c8da"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/johangit/backpack-ckeditor/zipball/6937dd1cdf22b4785d997c045de9b1d4e281c8da",
+                "reference": "6937dd1cdf22b4785d997c045de9b1d4e281c8da",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "JohanCode\\BackpackCkeditor\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "JohanCode\\BackpackCkeditor\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "johan",
+                    "email": "misha2web@yandex.ru"
+                }
+            ],
+            "description": "backpack laravel widget ckeditor with custom options",
+            "homepage": "https://github.com/johangit/backpack-ckeditor",
+            "keywords": [
+                "CKEditor",
+                "backpack",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/johangit/backpack-ckeditor/issues",
+                "source": "https://github.com/johangit/backpack-ckeditor/tree/v1.0.3"
+            },
+            "abandoned": true,
+            "time": "2018-03-04T16:33:37+00:00"
         },
         {
             "name": "laravel/framework",

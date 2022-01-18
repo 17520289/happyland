@@ -10,8 +10,8 @@
 @endsection
 
 @section('content')
-     <div class="container" style="margin-top:50px; margin-left:50px;">
-        <div class="row">
+     <div class="container" style="">
+        <div class="row" style="width: 100%">
             @foreach ($courses as $course)
             <div class="col-md-3">
                 <div class="card-sl">
@@ -59,7 +59,7 @@
     /* Card Styles */
 
     .card-sl {
-        margin-right: 20px;
+        margin-top: 20px;
         border-radius: 8px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }

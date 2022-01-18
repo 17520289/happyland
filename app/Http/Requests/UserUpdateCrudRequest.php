@@ -33,6 +33,7 @@ class UserUpdateCrudRequest extends FormRequest
             'name'     => 'required',
             'password' => 'confirmed',
             'full_name' => 'required',
+            'role' => 'required'
         ];
     }
     public function withValidator($validator)

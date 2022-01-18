@@ -24,7 +24,12 @@ class Course extends Model
         'user_id',
         'status',
         'image',
+        'description',
     ];
+    public function grades()
+    {
+        return $this->hasManyThrough( Grade::class,ColumnScore::class);
+    }
     public function enrollment(){
         return $this->hasMany('App\Models\Enrollment', 'course_id');
     }

@@ -17,6 +17,9 @@ use App\Models\User;
 use DataTables;
 use App\Models\GroupEnrollment;
 use App\Models\AccountTypeDetail;
+use App\Models\Grade;
+use App\Models\ColumnScore;
+
 
 /**
  * Class CourseCrudController
@@ -115,7 +118,7 @@ class CourseCrudController extends CrudController
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
+         * - CRUD::addColumn(['name' => 'price', 'type'dd($request->name); => 'number']); 
          */
     }
 
@@ -153,7 +156,11 @@ class CourseCrudController extends CrudController
                 // 'prefix'    => 'uploads/images/profile_pictures/' // in case your db value is only the file name (no path), you can use this to prepend your path to the image src (in HTML), before it's shown to the user;
                
             ],
+           
         ],);
+        CRUD::field('description')->type('ckeditor');
+       
+      
       
     }
 
@@ -177,8 +184,15 @@ class CourseCrudController extends CrudController
      * @return void
      */
     protected function setupShowOperation(){
-         
-         $this->crud->setshowView('admin.course.show');
+        $course_id = $this->crud->getCurrentEntryId();
+        $enrollment = Enrollment::where('course_id',$course_id)->pluck('user_id')->toArray();
+        $this->data['quantityStudent'] = User::whereIn('id', $enrollment)->whereHas('roles', function($q) {
+            $q->where('name', 'Student');
+        })->get()->count();
+        $this->data['teachers'] = User::whereIn('id', $enrollment)->whereHas('roles', function($q) {
+            $q->where('name', 'Teacher');
+        })->get();
+         $this->crud->setshowView('admin.course.show', $this->data);
     }
      /**
       * Edric - 29-12-2021
@@ -247,7 +261,7 @@ class CourseCrudController extends CrudController
     public function postAddPeople(Request $request){
 
        
-        $emails = explode( ',' ,$request->emails );
+        $emails = explode( ',' , trim($request->emails, " ") );
         $course_id = \Route::current()->parameter('id');
         $role =  $role = \Route::current()->parameter('role');
         $regex = '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/'; 
@@ -256,6 +270,7 @@ class CourseCrudController extends CrudController
             # code...
             if(!preg_match($regex, $email)){
                 $errors[$email] =  "Invalid email format"; 
+               
             }
         }
         
@@ -267,35 +282,37 @@ class CourseCrudController extends CrudController
             $errors[$email] =  "An account with this email already exists."; 
         }
   
-        foreach ($emails as $email) {
-          DB::beginTransaction();
-          try{
-              
-            if(User::where('email', $email)->first() === null ){
-              $this->addNewUser($email, $role);
-            }
-            $user = User::where('email' , $email)->first();
-
-            if($user->hasRole($role)){
-                Enrollment::create([
-                    'user_id' => $user->id,
-                    'course_id' => $course_id,
-                    'start_time' =>  Carbon::now(),
-                ]);
-            }else{
-                $errors[] = "All accounts added must be.".$role."'s accounts.";
-                return response()->json(['errors'=> $errors]);
-            }
-           
-            DB::commit();
-          } catch (Exception $e) {
-              DB::rollBack();
-              throw new Exception($e->getMessage());
-          }
-        }
+       
         if(sizeof($errors) != 0){
-            
+                
             return response()->json(['errors'=> $errors]);
+        }else{
+            foreach ($emails as $email) {
+                DB::beginTransaction();
+                try{
+                    
+                  if(User::where('email', $email)->first() === null ){
+                    $this->addNewUser($email, $role);
+                  }
+                  $user = User::where('email' , $email)->first();
+      
+                  if($user->hasRole($role)){
+                      Enrollment::create([
+                          'user_id' => $user->id,
+                          'course_id' => $course_id,
+                          'start_time' =>  Carbon::now(),
+                      ]);
+                  }else{
+                      $errors[] = "All accounts added must be.".$role."'s accounts.";
+                      return response()->json(['errors'=> $errors]);
+                  }
+                 
+                  DB::commit();
+                } catch (Exception $e) {
+                    DB::rollBack();
+                    throw new Exception($e->getMessage());
+                }
+              }
         }
         return response()->json(['success'=>'Successfully added.']);
          
@@ -340,9 +357,10 @@ class CourseCrudController extends CrudController
               ]);
               $user = User::create([
                   'name' => 'name - '.$email,
+                  'full_name' => 'full name - '.$email,
                   'address_id' => $address->id,
                   'email' => $email,
-                  'status' => 'active',
+                  'status' => 'disable',
                   'password' => Hash::make('12345678')
               ]);
               $user->assignRole($role);
@@ -386,11 +404,126 @@ class CourseCrudController extends CrudController
         return view('student.assessment.list', $this->data);
     }
 
-    
+    public function getGrades(Request $request){
+        $this->data['course'] = Course::find($request->id);
+        $columnScores = ColumnScore::where('course_id', $request->id)->get(); 
 
-    
+        if(backpack_user()->hasAnyRole(['Admin', 'Teacher'])){
+            $enrollment = Enrollment::where('course_id',$request->id)->pluck('user_id')->toArray();
+            $users = User::whereIn('id', $enrollment)->whereHas('roles', function($q) {
+                $q->where('name', 'Student');
+            })->get();
+            $grades = $this->data['course']->grades()->getResults()->toArray();
+           
+        }else{
+            $users = User::where('id', backpack_user()->id)->get();
+            $grades = Grade::where('user_id', backpack_user()->id)->whereIn('column_score_id',  $columnScores->pluck('id')->toArray())->get()->toArray();
+           
+        }
 
-    
+        foreach ($columnScores as $key => $column) {
+            foreach ($users as $key => $user) {
+                if(Grade::where('user_id', $user->id)->where('column_score_id', $column->id)->count() ==0){
+                   $grades[] = [
+                       'user_id' => $user->id,
+                       'column_score_id' => $column->id,
+                       'user' => $user,
+                       'scores' => backpack_user()->hasAnyRole(['Admin', 'Teacher']) ? 0 : null,
+                       'comment' =>'',
 
+                   ];
+                }
+            }
+        }
+        
+        foreach ($grades as $key=>$grade) {
+            $user = User::find($grade['user_id'])->toArray();
+            $grades[$key]['user'] = $user;
+        }
+       
+        $this->data['grades'] = $grades;
+       
+        // dd($this->data['course']->grades()->getResults()->toArray());
+        $this->data['columnScores'] = ColumnScore::where('course_id', $request->id)->get(); 
+        if(backpack_user()->hasAnyRole(['Admin', 'Teacher'])){
+            return view('admin.course.grades', $this->data);
+        }else{
+            return view('student.course.grades', $this->data);
+        }
+       
+    }
+    public function postAddColumnGrade(Request $request){
+       
+        //check column exist in grades
+        $columnScore = ColumnScore::where('course_id', $request->course_id)->where('name', $request->name)->count();
+        $col=null;
+        if($columnScore == 0){
+            $col = ColumnScore::create([
+                'name' => $request->name,
+                'description' => $request->description,
+                'course_id' => $request->course_id,
+            ]);
+           
+        }
+        return $col != null ? response()->json(['status'=> 'success']) :response()->json(['status'=> 'error']);
+    }
+    
+    public function getGradesCourse(Request $request)
+    {
+        
+        if ($request->ajax()) {
+            $course_id = $request->id;
+          
+            if(backpack_user()->hasAnyRole(['Admin', 'Teacher'])){
+                $enrollment = Enrollment::where('course_id', $course_id)->pluck('user_id')->toArray();
+                $data = User::whereIn('id', $enrollment)->whereHas('roles', function($q) {
+                    $q->where('name', 'Student');
+                })->get();
+            }else{
+                $data = User::where('id', backpack_user()->id)->get();
+               
+            }
+    
+            $columnScores = ColumnScore::where('course_id', $course_id)->get(); 
+            $data->map(function ($item, $key) use($columnScores) {
+                foreach ($columnScores as $key => $columnScore) {
+                    $grade = Grade::where('user_id', $item->id)->where('column_score_id', $columnScore->id)->first();
+                    $score = ($grade == null|| $grade->scores ==null)  ? 0 : $grade->scores;
+                 
+                    $actionScore = $item->id.'/'.$columnScore->id.'/'.$score;
+                    $item[$columnScore->name] =  $actionScore;
+                }
+                return $item;
+            });
+         
+            return Datatables::of($data)
+                ->addIndexColumn()
+             
+                ->rawColumns(['name_profile'])
+                ->make(true);
+        }
+    }
+    public function postUpdateGrade(Request $request){
+      
+       $score = Grade::where('user_id', $request->userId)->where('column_score_id', $request->columnId)->first();
+       
+       if($score == null){
+        $score = Grade::create([
+            'user_id' => $request->userId,
+            'column_score_id' => $request->columnId,
+            'comment' => $request->comment,
+            'scores' => $request->scores,
+        ]);
+        
+       }else{
+        $score->update([
+            'user_id' => $request->userId,
+            'column_score_id' => $request->columnId,
+            'comment' => $request->comment,
+            'scores' => $request->scores,
+        ]);
+       }
+       return response()->json(['status'=> 'success']);
+    }
   
 }

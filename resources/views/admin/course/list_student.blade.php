@@ -16,8 +16,8 @@ $breadcrumbs = [
 @section('header')
     <div class="container-fluid">
         <h2><a href="{{ route('course.show', ['id' => \Route::current()->parameter('id')]) }}"><i
-          class="la la-backward nav-icon"></i></a>
-          <span class="text-capitalize">{{ $course->name }}</span>
+                    class="la la-backward nav-icon"></i></a>
+            <span class="text-capitalize">{{ $course->name }}</span>
             <small> >> List Student</small>
         </h2>
     </div>
@@ -25,13 +25,13 @@ $breadcrumbs = [
 @endsection
 
 @section('content')
- 
+
     <!-- Default box -->
-    <div class="row mt-4">
-        <div class="col-md-2">
+    <div class="row mt-4 pr-5 pl-5">
+        {{-- <div class="col-md-2">
             @include('layouts.sidebar')
-        </div>
-        <div class="col-md-10">
+        </div> --}}
+        <div class="col-md-12">
             <div class="row mb-2">
                 @if (backpack_user()->hasRole('Admin') || backpack_user()->hasRole('Teacher'))
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPeopleModal">
@@ -39,28 +39,29 @@ $breadcrumbs = [
                     </button>
                 @endif
             </div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <div id="datatable_search_stack" class="mt-sm-0 mt-2 d-print-none"></div>
-                </div>
-            </div>
-            <div class="table-responsive">
-                <table class="table table-bordered yajra-datatable">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Gender</th>
-                            <th>Phone</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div id="datatable_search_stack" class="mt-sm-0 mt-2 d-print-none"></div>
             </div>
         </div>
+        <div class="table-responsive">
+            <table class="table table-bordered yajra-datatable">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Gender</th>
+                        <th>Phone</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
     </div>
     </div>
 
@@ -148,7 +149,7 @@ $breadcrumbs = [
                         var text = '';
                         for (const property in response.errors) {
                             text += `${property} - ${response.errors[property]}\n`;
-                            
+
                         }
                         if (response.errors) {
                             new Noty({
@@ -205,8 +206,8 @@ $breadcrumbs = [
                         name: 'DT_RowIndex'
                     },
                     {
-                        data: 'name',
-                        name: 'name'
+                        data: 'full_name',
+                        name: 'full_name'
                     },
                     {
                         data: 'email',

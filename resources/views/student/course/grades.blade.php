@@ -1,14 +1,21 @@
 @extends(backpack_view('blank'))
 @php
+$studentId = \Route::current()->parameter('student_id');
 $breadcrumbs = [
     backpack_user()->roles[0]->name => url(config('backpack.base.route_prefix'), 'dashboard'),
     'Course' => route('course.index'),
     'Score' => false,
 ];
+if(backpack_user()->hasRole('Parent')){
+    $urlBack = route('parent.showCourses.get', ['id'=>backpack_user()->id,'course_id' => $course->id, 'student_id'=>  \Route::current()->parameter('student_id')]);;
+}else{
+    $urlBack = route('course.show', ['id' => $course->id]);
+}
+
 @endphp
 @section('header')
     <div class="container-fluid">
-        <h2><a href="{{ route('course.show', ['id' => $course->id]) }}"><i class="la la-backward nav-icon"></i></a>
+        <h2><a href="{{ $urlBack }}"><i class="la la-backward nav-icon"></i></a>
             <span class="text-capitalize">{{ $course->name }}</span>
             <small> >> Grades</small>
         </h2>
@@ -17,11 +24,11 @@ $breadcrumbs = [
 @endsection
 @section('content')
     <!-- Default box -->
-    <div class="row mt-4">
-        <div class="col-md-2">
+    <div class="row mt-4 pl-5 pr-5">
+        {{-- <div class="col-md-2">
             @include('layouts.sidebar')
-        </div>
-        <div class="col-md-10">
+        </div> --}}
+        {{-- <div class="col-md-10">
             <div class="row mb-2 " id="new_colums">
                 <div class="col-md-12">
                     @if (backpack_user()->hasAnyRole('Admin', 'Teacher'))
@@ -30,8 +37,8 @@ $breadcrumbs = [
                         </button>
                     @endif
                 </div>
-            </div>
-            <div class="row">
+            </div> --}}
+            <div class="col-md-12">
                 <table class="table table-responsive-sm table-sm table-grades">
                     <thead>
                       <tr>
@@ -45,7 +52,7 @@ $breadcrumbs = [
                        
                         @foreach ($columnScores as $column)
                         @php
-                            $grade = \App\Models\Grade::where('user_id', backpack_user()->id)->where('column_score_id', $column->id)->first();
+                            $grade = \App\Models\Grade::where('user_id', $studentId)->where('column_score_id', $column->id)->first();
                         @endphp
                         <tr>
                             <td ><b>{{$column->name}}</b></td>
@@ -58,7 +65,7 @@ $breadcrumbs = [
                     </tbody>
                   </table>
             </div>
-        </div>
+        {{-- </div> --}}
     </div>
     </div>
 

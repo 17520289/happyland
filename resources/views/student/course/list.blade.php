@@ -49,7 +49,15 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
                         </div>
                         @if ($accountTypeDetail != null)
                             @if ($accountTypeDetail->status == 'active')
-                                <a href="{{ route('course.show', ['id' => $course->id]) }}" class="card-button"> Show</a>
+                              @php
+                                  if(backpack_user()->hasRole('Parent')){
+                                      $studentId = \Route::current()->parameter('student_id');
+                                    $url = route('parent.showCourses.get', ['id'=>backpack_user()->id,'course_id' => $course->id, 'student_id'=> $studentId]);
+                                  }else{
+                                    $url = route('course.show', ['id' => $course->id]);
+                                  }
+                              @endphp
+                                <a href="{{$url }}" class="card-button"> Show</a>
                             @endif
                         @endif
 

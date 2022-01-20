@@ -1,10 +1,16 @@
 @extends(backpack_view('blank'))
 
 
-
+@php
+    if(backpack_user()->hasRole('Parent')){
+    $urlBack = route('parent.showCourses.get', ['id'=>backpack_user()->id,'course_id' => $course->id, 'student_id'=>  \Route::current()->parameter('student_id')]);;
+}else{
+    $urlBack = route('course.show', ['id' => $course->id]);
+}
+@endphp
 @section('header')
     <section class="container-fluid d-print-none">
-        <h2><a href="{{ route('course.show', ['id' => \Route::current()->parameter('id')]) }}"><i
+        <h2><a href="{{ $urlBack }}"><i
                     class="la la-backward nav-icon"></i></a>
             <span class="text-capitalize">{{ $course->name }}</span>
             <small> >> Assessment</small>
@@ -16,54 +22,7 @@
 @section('content')
     <div class="row mt-4">
         <iframe src="{{ asset('animation/English/index.html') }}" width="100%" height="800" frameborder="5"></iframe>
-        {{-- <div id="accordion">
-            <div class="card">
-              <div class="card-header" id="headingOne">
-                <h3 class="mb-0">
-                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                   <h5>Unit 1</h5>
-                  </button>
-                </h3>
-              </div>
-          
-              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                <div class="card-body">
-                    
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header" id="headingTwo">
-                <h3 class="mb-0">
-                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    <h5>Unit 2</h5>
-                  </button>
-                </h3>
-              </div>
-              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                <div class="card-body">
-                 
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header" id="headingThree">
-                <h3 class="mb-0">
-                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    <h5>Unit 3</h5>
-                  </button>
-                </h3>
-              </div>
-              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                <div class="card-body">
-                 
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> --}}
-        {{-- <iframe src="https://sotaydoanhtri.com/thuat-ngu/assessment-670/" frameborder="0"></iframe> --}}
-
+     
 
     </div>
 @endsection

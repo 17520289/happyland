@@ -24,41 +24,41 @@ $breadcrumbs = [
 
 @section('content')
     <!-- Default box -->
-    <div class="row mt-4">
-        <div class="col-md-2">
+    <div class="row mt-4 pr-5 pl-5">
+        {{-- <div class="col-md-2">
             @include('layouts.sidebar')
-        </div>
-        <div class="col-md-10">
+        </div> --}}
+        <div class="col-md-12">
             <div class="row mb-2">
                 @if (backpack_user()->hasRole('Admin'))
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPeopleModal">
                         Add Teacher
                     </button>
                 @endif
-
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <div id="datatable_search_stack" class="mt-sm-0 mt-2 d-print-none"></div>
-                </div>
-            </div>
-            <div class="table-responsive">
-                <table class="table table-bordered yajra-datatable">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Gender</th>
-                            <th>Phone</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
             </div>
         </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div id="datatable_search_stack" class="mt-sm-0 mt-2 d-print-none"></div>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered yajra-datatable">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Gender</th>
+                        <th>Phone</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
 
 
 
@@ -150,7 +150,7 @@ $breadcrumbs = [
                         var text = '';
                         for (const property in response.errors) {
                             text += `${property} - ${response.errors[property]}\n`;
-                            
+
                         }
                         if (response.errors) {
                             new Noty({
@@ -187,8 +187,8 @@ $breadcrumbs = [
     </script>
 
     <!-- CRUD LIST CONTENT - crud_list_scripts stack -->
-   
-  
+
+
     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
@@ -205,8 +205,8 @@ $breadcrumbs = [
                         name: 'DT_RowIndex'
                     },
                     {
-                        data: 'name',
-                        name: 'name'
+                        data: 'full_name',
+                        name: 'full_name'
                     },
                     {
                         data: 'email',

@@ -8,6 +8,9 @@
             $viewDisplay="";
             $checked = '';
         }
+
+        $start_time = \Carbon\Carbon::parse($accountTypeDetail->start_time ?? null)->format('Y-m-d') ;
+        $end_time = \Carbon\Carbon::parse($accountTypeDetail->start_time ?? null)->addDays($accountType->duration ?? 0)->format('m/d/Y') ;
     }
 
   
@@ -35,7 +38,7 @@
                 @foreach ($accountTypes as $accountType)
                     <option value="{{$accountType->id}}"
                         @if ($action == 'edit' && $accountTypeDetail != null)
-                        @if ($accountType->id == $accountTypeDetail->account_type_id)
+                        @if ($accountType->id == $accountTypeDetail->account_type_id ?? null)
                             selected
                         @endif
                         @endif
@@ -54,12 +57,13 @@
             type="date"
             name="start_time"
             id="start_time" 
+            value="{{ $start_time ?? '' }}"
             @include('crud::fields.inc.attributes')
             />
         </div>
         <div class="form-group col-sm-12 required"  element="div">
             <label >End Time</label>
-            <p id="text" readonly @include('crud::fields.inc.attributes')>{{$value ?? ''}}</p>
+            <p id="text" readonly @include('crud::fields.inc.attributes')>{{$end_time ?? ''}}</p>
         </div>
     </div>
     <div class="view-detail col-md-12" id="view-detail" style="display: {{$viewDisplay}} ">

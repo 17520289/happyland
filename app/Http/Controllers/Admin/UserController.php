@@ -183,6 +183,7 @@ class UserController extends UserCrudController
         $user_id =  \Route::current()->parameter('id');
         $this->addUserFields();
         $this->data['accountTypeDetail'] = AccountTypeDetail::where('user_id', $user_id)->orderBy('id', 'desc')->first();
+        $this->data['accountType'] = AccountType::find($this->data['accountTypeDetail']->account_type_id ?? null);
         $this->crud->setValidation(UpdateRequest::class);
         $this->crud->setEditView('admin.user.edit');
         
@@ -286,7 +287,7 @@ class UserController extends UserCrudController
         }else{
             $request->request->set('status', 'disable');
         }
-
+        
         return $request;
     }
        /**
@@ -342,8 +343,12 @@ class UserController extends UserCrudController
         DB::beginTransaction();
         try{
             //update status 
-            $user->status =$this->crud->getRequest()->status;
-            $user->save();
+            if(backpack_user()->id != \Route::current()->parameter('id')){
+                $user->status =$this->crud->getRequest()->status;
+                $user->save();
+            }  
+           
+         
 
             //update address 
             $address = Address::find($user->address_id);
@@ -355,23 +360,26 @@ class UserController extends UserCrudController
             $address->save();
             
             //update parent for role student
-            $roleStudent = array_filter($request->roles_show, function($v, $k) {
-                return $v == '4'  ;
-            }, ARRAY_FILTER_USE_BOTH);
-            //cap nhat hoac tao quan he giua hoc sinh va phu huynh. table parent_students
-            if(sizeof($roleStudent) == 1){
-                $parentStudent = ParentStudent::where('student_id', $user_id )->first();
-                if($parentStudent != null){
-                    $parentStudent->update(["parent_id"=>$request->parent_id]);
-                }else{
-                    ParentStudent::create([
-                        "parent_id" => $request->parent_id,
-                        "student_id" => $user_id,
-                    ]);  
+            if(backpack_user()->hasRole(['Admin']) && backpack_user()->id != \Route::current()->parameter('id')){
+                    $roleStudent = array_filter($request->roles_show, function($v, $k) {
+                        return $v == '4'  ;
+                    }, ARRAY_FILTER_USE_BOTH);
+                    //cap nhat hoac tao quan he giua hoc sinh va phu huynh. table parent_students
+                if(sizeof($roleStudent) == 1){
+                    $parentStudent = ParentStudent::where('student_id', $user_id )->first();
+                    if($parentStudent != null){
+                        $parentStudent->update(["parent_id"=>$request->parent_id]);
+                    }else{
+                        ParentStudent::create([
+                            "parent_id" => $request->parent_id,
+                            "student_id" => $user_id,
+                        ]);  
+                    }
+                
                 }
-             
             }
         
+          
             if(backpack_user()->hasRole('Admin') && backpack_user()->id != \Route::current()->parameter('id') && $this->crud->getRequest()->status != 'disable'){
               
                 //update accountTypeDetail 
@@ -384,10 +392,6 @@ class UserController extends UserCrudController
                         $accountTypeDetailOld->update(['status'=>'inactive']); 
                         //store new AccountTypeDetail
                         $this->storeAccountTypeDetail($request, $user->id);
-                    }else{
-                        if($accountTypeDetailOld->status != $request->status_account){
-                            $accountTypeDetailOld->update(['status'=>$request->status_account]);
-                        }
                     }
                 }
         

@@ -18,11 +18,11 @@ $breadcrumbs = [
 
 @section('content')
     <!-- Default box -->
-    <div class="row mt-4">
-        <div class="col-md-2">
+    <div class="row mt-4 pl-5 pr-5">
+        {{-- <div class="col-md-2">
             @include('layouts.sidebar')
-        </div>
-        <div class="col-md-10">
+        </div> --}}
+        <div class="col-md-12">
             <div class="row mb-2 " id="new_colums">
                 <div class="col-md-12">
                     @if (backpack_user()->hasAnyRole('Admin', 'Teacher'))
@@ -79,8 +79,8 @@ $breadcrumbs = [
                     <div class="form-group">
                         <label class="form-label"><b>Name:</b> </label><input id="nameCol" type="text"
                             name="name" class="form-control m-input" placeholder="Enter name" autocomplete="off">
-                        <label class="form-label"><b>Desctiption:</b> </label><input id="descriptionCol"
-                            type="text" name="description" class="form-control m-input" placeholder="Enter descripts"
+                        <label class="form-label"><b>Description:</b> </label><input id="descriptionCol"
+                            type="text" name="description" class="form-control m-input" placeholder="Enter description"
                             autocomplete="off">
 
                     </div>

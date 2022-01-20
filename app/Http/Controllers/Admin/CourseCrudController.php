@@ -45,6 +45,7 @@ class CourseCrudController extends CrudController
         CRUD::setRoute(config('backpack.base.route_prefix') . '/course');
         CRUD::setEntityNameStrings('course', 'courses');
         $this->denyAccessIfNoPermission();
+        $this->denyAccessIfNoCourse();
         if(!backpack_user()->can('Create Course')){
             $this->crud->denyAccess( 'create');
         }
@@ -55,9 +56,7 @@ class CourseCrudController extends CrudController
             $this->crud->denyAccess( 'delete');
         }
         
-        if(backpack_user()->hasRole('Parent')){
-            $this->allowAccessRoleParent();
-        }
+      
         // $this->crud->denyAccess( 'create');
         // $this->crud->denyAccess( 'delete');
       
@@ -78,7 +77,7 @@ class CourseCrudController extends CrudController
             $this->crud->addClause('whereIn', 'id', $courseIds );
         }
        
-        CRUD::column('id');
+        // CRUD::column('id');
         CRUD::column('name');
         CRUD::column('start_date');
         CRUD::column('end_date');
@@ -100,7 +99,7 @@ class CourseCrudController extends CrudController
         ]);
 
 
-        if(backpack_user()->hasRole(['Student', 'Parent'])){
+        if(backpack_user()->hasRole(['Student'])){
             $enrollments = Enrollment::where('user_id', backpack_user()->id)->pluck('course_id')->toArray();
             $courses = Course::whereIn('id', $enrollments)->where('status', 'publish')->get();
 

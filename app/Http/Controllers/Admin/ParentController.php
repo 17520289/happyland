@@ -12,14 +12,34 @@ use App\Models\AccountTypeDetail;
 use Carbon\Carbon;
 use App\Models\Enrollment;
 use App\Models\Course;
+use App\Models\ColumnScore;
+use App\Models\Grade;
 class ParentController extends Controller
 {   
     public function __construct()
     {
         $this->middleware(function ($request, $next) {
-             if(\Route::current()->parameter('id') != backpack_user()->id)
+            $course_id = \Route::current()->parameter('course_id');
+            $student_id = \Route::current()->parameter('student_id');
+            if(\Route::current()->parameter('id') != backpack_user()->id)
             {
                 return abort(403);
+            }
+            if($course_id !=null || $student_id !=null ){
+                $parentStudent = ParentStudent::where('parent_id', backpack_user()->id)->where('student_id',  $student_id)->get();
+                if($parentStudent->count() == 0){
+                    
+                    return abort(404);
+
+                }else{
+                    if($course_id !=null){
+                        $enrollment = Enrollment::where('course_id', $course_id)->where('user_id', $student_id)->get();
+                        if($enrollment->count() == 0 ){
+                            return abort(404);
+                        }
+                    }
+                   
+                }
             }
             return $next($request);
         });
@@ -59,5 +79,26 @@ class ParentController extends Controller
         $this->data['courses'] = Course::whereIn('id', $enrollments)->where('status', 'publish')->get();
         $this->data['accountTypeDetail'] = AccountTypeDetail::where('user_id', $studentId)->orderBy('id', 'desc')->first();
         return view('student.course.list', $this->data);
+    }
+    public function getShowCourse(Request $request){
+        $course_id = $request->course_id;
+        $this->data['course'] = Course::find($course_id);
+        $enrollment = Enrollment::where('course_id',$course_id)->pluck('user_id')->toArray();
+        $this->data['quantityStudent'] = User::whereIn('id', $enrollment)->whereHas('roles', function($q) {
+            $q->where('name', 'Student');
+        })->get()->count();
+        $this->data['teachers'] = User::whereIn('id', $enrollment)->whereHas('roles', function($q) {
+            $q->where('name', 'Teacher');
+        })->get();
+        return view('parent.course.show', $this->data);
+    }
+    public function getGradesChildren(Request $request){
+       
+        $this->data['course'] = Course::find($request->course_id);
+        $columnScores = ColumnScore::where('course_id', $request->course_id)->get(); 
+        $this->data['columnScores'] = $columnScores ; 
+       
+        return view('student.course.grades', $this->data);
+        
     }
 }

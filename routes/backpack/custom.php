@@ -51,6 +51,9 @@ Route::group([
         Route::get('/{id}/listChildren', 'ParentController@getListChildren')->name('list-children.get');
         Route::get('/{id}/ajax-listChildren', 'ParentController@ajaxListChildren')->name('ajax-listChildren.get');
         Route::get('/{id}/children/{student_id}/course', 'ParentController@getChildrenCourse')->name('childrenCourse.get');
+        Route::get('/{id}/course/{course_id}/children/{student_id}/show', 'ParentController@getShowCourse')->name('showCourses.get');
+        Route::get('/{id}/course/{course_id}/children/{student_id}/grades', 'ParentController@getGradesChildren')->name('gradeChildren.get');
+        Route::get('/{id}/course/{course_id}/children/{student_id}/assessment', 'CourseCrudController@getAssessment')->name('assessmentChildren.get');
     });
     Route::crud('account-type', 'AccountTypeCrudController');
 

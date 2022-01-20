@@ -55,7 +55,7 @@ class UserUpdateCrudRequest extends FormRequest
         });
         }
         $validator->after(function ($validator) {
-            if(backpack_user()->hasRole(['Admin'])){
+            if(backpack_user()->hasRole(['Admin']) && backpack_user()->id != \Route::current()->parameter('id')){
                 $roleStudent = array_filter($this->input('roles_show'), function($v, $k) {
                     return $v == '4'  ;
                 }, ARRAY_FILTER_USE_BOTH);

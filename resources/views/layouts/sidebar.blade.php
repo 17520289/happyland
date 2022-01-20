@@ -1,6 +1,21 @@
+@php
+        if(backpack_user()->hasRole('Parent')){
+                $para = ['id'=>backpack_user()->id,'course_id' => $course->id, 'student_id'=>  \Route::current()->parameter('student_id')];
+                $urlGrades=  route('parent.gradeChildren.get', $para);
+                $urlInfo = route('parent.showCourses.get', $para);
+                $urlAssess = route('parent.assessmentChildren.get' , $para );
+        }else{
+                $urlGrades = route('course.grades.get', ['id' => \Route::current()->parameter('id')]);
+                $urlInfo = route('course.show', ['id' => \Route::current()->parameter('id')]);
+                $urlAssess = route('student.assessment.get', ['id' => \Route::current()->parameter('id')]);
+        }
+   
+   
+
+@endphp
 <ul class="list-unstyled">
     <li class="nav-item"><a class="nav-link"
-            href="{{ route('course.show', ['id' => \Route::current()->parameter('id')]) }}">Infomations</a></li>
+            href="{{ $urlInfo }}">Infomations</a></li>
     @if (backpack_user()->status == 'active')
         @if (backpack_user()->hasAnyRole('Admin', 'Teacher'))
             <li class="nav-item"><a class="nav-link"
@@ -11,9 +26,9 @@
                     Student</a></li>
         @endif
         <li class="nav-item"><a class="nav-link"
-                href="{{ route('course.grades.get', ['id' => \Route::current()->parameter('id')]) }}">Grades</a></li>
+                href="{{ $urlGrades }}">Grades</a></li>
         <li class="nav-item"><a class="nav-link"
-                href="{{ route('student.assessment.get', ['id' => \Route::current()->parameter('id')]) }}">Assessment</a>
+                href="{{ $urlAssess }}">Assessment</a>
         </li>
     @endif
 </ul>

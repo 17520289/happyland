@@ -81,7 +81,7 @@ function setEndTime(){
 	endTime1 = endTime.yyyymmdd();
 	console.log(endTime1);
 	console.log( endTime1[1]+'-'+endTime1[2]+'-'+endTime1[0]);
-	document.getElementById("text").innerHTML = endTime1[1]+' / '+endTime1[2]+' / '+endTime1[0];
+	document.getElementById("text").innerHTML = endTime1[1]+'/'+endTime1[2]+'/'+endTime1[0];
 	}
 	
 }

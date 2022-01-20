@@ -57,7 +57,7 @@ class MaterialCrudController extends CrudController
         if(backpack_user()->hasAnyRole(['Student', 'Parent'])){
             $this->crud->addClause('where', 'status', '=', 'publish');
         }
-        CRUD::column('id');
+        // CRUD::column('id');
         CRUD::column('title');
         CRUD::column('description');
         // CRUD::column('content');

@@ -19,6 +19,9 @@ class ParentStudent extends Model
     public function parent(){
         return $this->hasMany('\App\Models\User');
     }
+    public function parentOfStudent(){
+        return $this->belongsTo('\App\Models\User', 'parent_id', 'id');
+    }
     public function enrollments(){
         return $this->hasMany('\App\Models\Enrollement' , 'user_id', 'student_id');
     }

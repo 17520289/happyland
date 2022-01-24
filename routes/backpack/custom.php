@@ -46,6 +46,9 @@ Route::group([
         Route::post('/{id}/addColumnGrade', 'CourseCrudController@postAddColumnGrade')->name('course.grade.addColumn.post');
         Route::get('/{id}/ajax-grades', 'CourseCrudController@getGradesCourse')->name('course.ajax-grades.get');
         Route::post('/{id}/update-grade', 'CourseCrudController@postUpdateGrade')->name('course.update-grade.post');
+        
+        //show information of student
+        Route::get('/{id}/student/{student_id}/show' , 'CourseCrudController@showStudent')->name('course.showStudent.get');
     });
     Route::name('parent.')->prefix('parent')->group( function (){
         Route::get('/{id}/listChildren', 'ParentController@getListChildren')->name('list-children.get');

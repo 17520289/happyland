@@ -152,6 +152,7 @@ $breadcrumbs = [
                             text += `${property} - ${response.errors[property]}\n`;
 
                         }
+                        console.log(text);
                         if (response.errors) {
                             new Noty({
                                 theme: 'light',
@@ -241,7 +242,7 @@ $breadcrumbs = [
             var course_id = "{{ \Route::current()->parameter('id') }}";
             swal({
                     title: "Are you sure?",
-                    text: "Delete this person in the course!",
+                    text: "Remove this person from the course!",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,

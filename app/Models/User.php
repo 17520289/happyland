@@ -12,7 +12,9 @@ use Illuminate\Support\Str;
 use Intervention\Image\ImageManagerStatic as Image;
 use App\Models\Level;
 use App\Models\AccountType;
+use App\Models\Course;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\DB;
 class User extends Authenticatable
 {
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
@@ -79,6 +81,19 @@ class User extends Authenticatable
         'id',
         'student_id',
     );
+   }
+ 
+   
+   public function course(){
+     
+       $courses = DB::table('enrollments')
+                ->join('users', 'users.id', '=','enrollments.user_id')
+                ->join('courses', 'courses.id', '=','enrollments.course_id')
+                ->where('enrollments.user_id', backpack_user()->id)
+                ->where('courses.status' ,'=', 'publish' )
+                ->select('courses.name', 'courses.id')
+                ->get();
+        return backpack_user()->hasRole('Admin') ? Course::all() : $courses; 
    }
     public function accountType(){
         return $this->belongsTo(AccountType::class );

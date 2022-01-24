@@ -22,12 +22,13 @@
     <div class="well well-sm existing-file" id="file-preview">
     	@foreach($values as $key => $file_path)
     		<div class="file-preview" >
-				<a href="#" class="btn btn-light btn-sm float-right file-clear-button" title="Clear image" data-filename="{{ $file_path }}"><i class="la la-remove"></i></a>
+				<a href="#" class="btn btn-light btn-sm float-right file-clear-button" title="Clear image" data-filename="{{ $file_path['link'] ?? '' }}"><i class="la la-remove"></i></a>
     			@if (isset($field['temporary']))
-		            <a target="_blank" href="{{ isset($field['disk'])?asset(\Storage::disk($field['disk'])->temporaryUrl($file_path, Carbon\Carbon::now()->addMinutes($field['temporary']))):asset($file_path) }}">{{ $file_path }}</a>
+		            <a target="_blank" href="{{ isset($field['disk'])?asset(\Storage::disk($field['disk'])->temporaryUrl($file_path['link'], Carbon\Carbon::now()->addMinutes($field['temporary']))):asset($file_path['link']) }}">{{ $file_path['link'] }}</a>
 		        @else
-		            <a target="_blank" href="{{asset('storage/'.$file_path)}}">
-						<img style="max-width: 300px" src="{{asset('storage/'.$file_path)}}" alt="">
+			
+		            <a target="_blank" href="{{ isset($field['disk'])?asset(\Storage::disk($field['disk'] ?? '')->url($file_path['link'] ?? '')):asset($file_path['link'] ?? '') }}">
+						<img style="max-width: 300px" src="{{ isset($field['disk'])?asset(\Storage::disk($field['disk'])->url($file_path['link'] ?? '')):asset($file_path['link'] ?? '') }}" alt="">
 						<hr>
 					</a>
 		        @endif

@@ -62,6 +62,7 @@ class UserController extends UserCrudController
         if(backpack_user()->hasRole('Teacher')){
             $this->crud->allowAccess('show');
             $enrollment =  Enrollment::where('user_id', backpack_user()->id )->first();
+            
             if($enrollment !=null){
                 if(Enrollment::where('user_id', $id)->where('course_id', $enrollment->course_id)->first() != null ){
                     $this->crud->allowAccess('update');
@@ -416,6 +417,7 @@ class UserController extends UserCrudController
                     'label' => 'Old password',
                     'type'  => 'password',
                     'tab'             => 'Login Infomation',
+
                 ],
                 [
                     'name'  => 'password',

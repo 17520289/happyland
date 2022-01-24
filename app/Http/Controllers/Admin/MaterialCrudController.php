@@ -42,6 +42,10 @@ class MaterialCrudController extends CrudController
         if(!backpack_user()->hasPermissionTo('Update Material')){
             $this->crud->denyAccess( 'update');
         }
+        if(!backpack_user()->hasPermissionTo('Show Material')){
+            $this->crud->denyAccess( 'show');
+        }
+
 
 
     }
@@ -54,8 +58,10 @@ class MaterialCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        if(backpack_user()->hasAnyRole(['Student', 'Parent'])){
-            $this->crud->addClause('where', 'status', '=', 'publish');
+        
+        $courses = backpack_user()->course()->pluck('id')->toArray();
+        if(backpack_user()->hasRole('Teacher') || backpack_user()->hasRole('Student')){
+            $this->crud->addClause('whereIn','id', $courses);
         }
         // CRUD::column('id');
         CRUD::column('title');
@@ -88,7 +94,7 @@ class MaterialCrudController extends CrudController
         CRUD::field('id')->type('hidden');
         CRUD::field('title');
         CRUD::field('content')->type('ckeditor');
-        CRUD::field('course_id');
+        // CRUD::field('course_id');
         $this->crud->addField(
             [  // Select
                 'label'     => "Level",
@@ -110,12 +116,34 @@ class MaterialCrudController extends CrudController
                  }), //  you can use this to filter the results show in the select
              ],
         );
-    
+        $courses = backpack_user()->course()->pluck('id')->toArray();
+        $this->crud->addField(
+            [  // Select
+                'label'     => "Course",
+                'type'      => 'select',
+                'name'      => 'course_id', // the db column for the foreign key
+             
+                // optional 
+                // 'entity' should point to the method that defines the relationship in your Model
+                // defining entity will make Backpack guess 'model' and 'attribute'
+                'entity'    => 'course', 
+             
+                // optional - manually specify the related model and attribute
+                'model'     => "App\Models\Course", // related model
+                'attribute' => 'name', // foreign key attribute that is shown to user
+             
+                // optional - force the related options to be a custom query, instead of all();
+                'options'   => (function ($query) use ($courses) {
+                     return $query->whereIn('id', $courses)->orderBy('name', 'ASC')->get();
+                 }), //  you can use this to filter the results show in the select
+             ],
+        );
 
         $this->crud->addField([   
             'name' => 'images',
             'label' => 'Images',
             'type' => 'upload_multiple',
+            
             'upload' => true,
            
         ]);
@@ -175,7 +203,7 @@ class MaterialCrudController extends CrudController
     {
         CRUD::setValidation(MaterialUpdateRequest::class);
         $this->setupCreateOperation();
-        $this->crud->removeField('course_id');
+        // $this->crud->removeField('course_id');
         
         $this->crud->setEditView('admin.material.edit');
     }

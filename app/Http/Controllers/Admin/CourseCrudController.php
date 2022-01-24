@@ -19,6 +19,7 @@ use App\Models\GroupEnrollment;
 use App\Models\AccountTypeDetail;
 use App\Models\Grade;
 use App\Models\ColumnScore;
+use App\Models\ParentStudent;
 
 
 /**
@@ -244,10 +245,12 @@ class CourseCrudController extends CrudController
              
             return Datatables::of($data)
                 ->addIndexColumn()
-                ->addColumn('action', function($row){
-                    $actionBtn = '<a href="'.route('user.edit',["id"=>$row->id]).'" class="edit btn btn-success btn-sm">Edit</a>&nbsp;&nbsp;';
+                ->addColumn('action', function($row) use ($course_id){
                     if(backpack_user()->hasRole('Admin')){
-                        $actionBtn .='<a href="javascript:;"  data-user-id="' . $row->id . '"  class="sa-params delete btn btn-danger btn-sm">Delete</a>';
+                        $actionBtn = '<a href="'.route('user.edit',["id"=>$row->id]).'" class="edit btn btn-success btn-sm">Edit</a>&nbsp;&nbsp;';
+                        $actionBtn .='<a href="javascript:;"  data-user-id="' . $row->id . '"  class="sa-params delete btn btn-danger btn-sm" title="Remove from course">Remove</a>';
+                    }else{
+                        $actionBtn = '<a href="'.route('course.showStudent.get',["id"=>$course_id, 'student_id'=>$row->id]).'" class="edit btn btn-success btn-sm">View</a>&nbsp;&nbsp;';
                     }
                     return $actionBtn;
                 })
@@ -264,95 +267,92 @@ class CourseCrudController extends CrudController
      * @return \Illuminate\Http\Response
      */
     public function postAddPeople(Request $request){
-
-       
         $emails = explode( ',' , trim($request->emails, " ") );
         $course_id = \Route::current()->parameter('id');
         $role =  $role = \Route::current()->parameter('role');
         $regex = '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/'; 
         $errors = [];
-        foreach ($emails as $key => $email) {
-            # code...
-            if(!preg_match($regex, $email)){
-                $errors[$email] =  "Invalid email format"; 
-               
-            }
-        }
-        
-        if($this->array_has_dupes($emails)){
-            $errors[] =  "There are duplicate accounts."; 
-        }
-        
-        if( $this->checkUserExistInCourse($emails, $course_id)==true){
-            $errors[$email] =  "An account with this email already exists."; 
-        }
-  
-       
-        if(sizeof($errors) != 0){
+        DB::beginTransaction();
+        try{
+            foreach ($emails as $key => $email) {
+                # code...
+                if(!preg_match($regex, $email)){
+                    $errors[$email] =  "Invalid email format"; 
+                }else{
+                   
+                    $user = User::where('email', $email)->first();
                 
-            return response()->json(['errors'=> $errors]);
-        }else{
-            foreach ($emails as $email) {
-                DB::beginTransaction();
-                try{
-                    
-                  if(User::where('email', $email)->first() === null ){
-                    $this->addNewUser($email, $role);
-                  }
-                  $user = User::where('email' , $email)->first();
-      
-                  if($user->hasRole($role)){
-                      Enrollment::create([
-                          'user_id' => $user->id,
-                          'course_id' => $course_id,
-                          'start_time' =>  Carbon::now(),
-                      ]);
-                  }else{
-                      $errors[] = "All accounts added must be.".$role."'s accounts.";
-                      return response()->json(['errors'=> $errors]);
-                  }
-                 
-                  DB::commit();
-                } catch (Exception $e) {
-                    DB::rollBack();
-                    throw new Exception($e->getMessage());
+                    if($user === null ){
+                        // role admin duoc them moi user
+                        if(backpack_user()->hasRole('Admin')){
+                            $user = $this->addNewUser($email, $role);
+                            $errors  = $this->addEnrollCourse($user, $course_id, $role, $errors );
+                            
+                        }else{
+                            $errors[$email] =  "Not found."; 
+                        }
+                    }else{
+                        $errors= $this->addEnrollCourse($user, $course_id, $role, $errors );
+                       
+                    }
                 }
-              }
+            }
+           
+            if(sizeof($errors) != 0){
+              
+                DB::rollBack();
+                return response()->json(['errors'=> $errors]);
+            }else{
+               DB::commit();
+            }
+            
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
         }
         return response()->json(['success'=>'Successfully added.']);
          
       }
+      /**
+    * Edric - 29-12-2021
+    * 
+     * add people to course 
+     *
+     * @param  $user , $course_id, $role, $errors
+     * @return void
+     */
+      public function addEnrollCourse($user, $course_id, $role, $errors){
+        $enrollment = Enrollment::where('user_id', $user->id)->where('course_id' , $course_id)->first();
+        if($enrollment == null){
+            if($user->hasRole($role)){
+                Enrollment::create([
+                    'user_id' => $user->id,
+                    'course_id' => $course_id,
+                    'start_time' =>  Carbon::now(),
+                ]);
+            }else{
+                $errors[$user->email] = "Does not have ".$role."'s role.";
+            }   
+        }else{
+            $user = $enrollment->user()->getResults();
+            if(!$user->hasRole($role)){
+                $errors[$user->email] = "Does not have ".$role."'s role.";
+            }
+        }
+        return $errors;
+      }
+    
+      
     /**
     * Edric - 29-12-2021
     * 
-     * check if the user already exists in the course.
-     *
-     * @param  $emails , $course_id
-     * @return boolean
-     */
-      public function checkUserExistInCourse($emails, $course_id){
-          foreach ($emails as $email) {
-              $user = User::where('email' , $email)->first();
-              if($user !== null){
-                $enrollment = $user->enrollment()->where('course_id', $course_id)->first();
-                if($enrollment !== null){
-                    return true;
-                }
-              }
-          }
-          return false;
-      }
-       /**
-    * Edric - 29-12-2021
-    * 
      * Store a new user, and add address for new user 
-     *
+     * and asign role for user
+     * 
      * @param  $emails , $course_id
-     * @return void
+     * @return $user
      */
       public function addNewUser($email, $role){
-          DB::beginTransaction();
-          try {
+         
               $address = Address::create([
                   'street' => '',
                   'city' => '',
@@ -369,25 +369,11 @@ class CourseCrudController extends CrudController
                   'password' => Hash::make('12345678')
               ]);
               $user->assignRole($role);
-              DB::commit();
-          } catch (Exception $e) {
-              DB::rollBack();
-              throw new Exception($e->getMessage());
-          }
+          
+          return $user;
     }
 
-    /**
-    * Edric - 29-12-2021
-    * 
-     * Check the list of emails for duplicates.
-     *
-     * @param  $array ($emails)
-     * @return boolean
-     */
-      public function array_has_dupes($array) {
-          // streamline per @Felix
-          return count($array) !== count(array_unique($array));
-    }
+   
 
     public function deletePeopleInCourse(Request $request){
         $enrollment = Enrollment::where('user_id', $request->userId)->where('course_id', $request->id)->first()->delete();
@@ -526,6 +512,29 @@ class CourseCrudController extends CrudController
         ]);
        }
        return response()->json(['status'=> 'success']);
+    }
+    public function showStudent(Request $request){
+        $courses = backpack_user()->enrollment()->join('courses', 'courses.id', '=', 'enrollments.course_id')
+        ->where('courses.status' ,'=', 'publish')
+        ->select('courses.id')->pluck('courses.id')->toArray();
+       $enrollOfStd = Enrollment::whereIn('course_id', $courses)->where('user_id', $request->student_id)->get();
+       
+       if($enrollOfStd->count() == 0){
+          return abort(404);
+       }
+       $student = User::find($request->student_id);
+       $parent = ParentStudent::where('student_id',$request->student_id)
+       ->join('users', 'users.id', '=', 'parent_students.parent_id')
+       ->select('users.*')
+       ->first();
+
+       $this->data['course'] = Course::find($request->id);
+        $columnScores = ColumnScore::where('course_id', $request->id)->get(); 
+        $this->data['columnScores'] = $columnScores ; 
+
+       $this->data['student'] = $student;
+       $this->data['parent'] = $parent;
+       return view('admin.user.show', $this->data);
     }
   
 }

@@ -95,27 +95,7 @@ class MaterialCrudController extends CrudController
         CRUD::field('title');
         CRUD::field('content')->type('ckeditor');
         // CRUD::field('course_id');
-        $this->crud->addField(
-            [  // Select
-                'label'     => "Level",
-                'type'      => 'select',
-                'name'      => 'level_id', // the db column for the foreign key
-             
-                // optional 
-                // 'entity' should point to the method that defines the relationship in your Model
-                // defining entity will make Backpack guess 'model' and 'attribute'
-                'entity'    => 'level', 
-             
-                // optional - manually specify the related model and attribute
-                'model'     => "App\Models\Level", // related model
-                'attribute' => 'name', // foreign key attribute that is shown to user
-             
-                // optional - force the related options to be a custom query, instead of all();
-                'options'   => (function ($query) {
-                     return $query->orderBy('name', 'ASC')->get();
-                 }), //  you can use this to filter the results show in the select
-             ],
-        );
+      
         $courses = backpack_user()->course()->pluck('id')->toArray();
         $this->crud->addField(
             [  // Select

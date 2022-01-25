@@ -57,7 +57,7 @@
                     })
                     .get() // Get array.
     
-                    const result = enabledSettings.filter(id => id =='4');
+                    const result = enabledSettings.filter(id => id =='5');
             if(result.length == 1){
                 $('#choose_parent').css({"display" : "inline"});
             }else{
@@ -72,7 +72,7 @@
                     })
                     .get() // Get array.
     
-                    const result = enabledSettings.filter(id => id =='4');
+                    const result = enabledSettings.filter(id => id =='5');
            
             if(result.length == 1){
                 $('#choose_parent').css({"display" : "inline"});

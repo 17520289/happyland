@@ -52,9 +52,10 @@ class InactiveAccount extends Command
                 //update status user 
                 $user = User::find($account->user_id)->update(['status'=>'active']);
             }
-            if($toDate->equalTo($end_time)){
+            if($toDate->greaterThanOrEqualTo($end_time)){
                 // $user = User::find($account->user_id)->update(['status'=>'disable']);
                 $account->update(['status'=>'inactive']);
+                $user = User::find($account->user_id)->update(['status'=>'inactive']);
             }
           
         }

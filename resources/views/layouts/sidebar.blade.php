@@ -10,14 +10,14 @@
                 $urlAssess = route('student.assessment.get', ['id' => \Route::current()->parameter('id')]);
         }
    
-   
 
 @endphp
 <ul class="list-unstyled">
     <li class="nav-item"><a class="nav-link"
             href="{{ $urlInfo }}">Infomations</a></li>
+
     @if (backpack_user()->status == 'active')
-        @if (backpack_user()->hasAnyRole('Admin', 'Teacher'))
+        @if (backpack_user()->hasAnyRole(['Super Admin','Admin', 'Teacher']))
             <li class="nav-item"><a class="nav-link"
                     href="{{ route('course.list-teacher', ['id' => \Route::current()->parameter('id')]) }}">List
                     Teacher</a></li>

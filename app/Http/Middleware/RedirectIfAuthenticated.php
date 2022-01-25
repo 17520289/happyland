@@ -46,12 +46,12 @@ class RedirectIfAuthenticated
             // }
             return redirect(backpack_url('dashboard'));
         }
-        
+       
         // when session expire then it reload user to login page
         if ($request->ajax()) {
             return response('Session Expire', 401);
         }
-
+       
         return $next($request);
     }
    

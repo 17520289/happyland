@@ -34,7 +34,7 @@ class PermissionCrudController extends CrudController
         if (config('backpack.permissionmanager.allow_permission_delete') == false) {
             $this->crud->denyAccess('delete');
         }
-        $this->denyAccessIfNotAdmin();
+        $this->denyAccessIfNotSuperAdmin();
     }
 
     public function setupListOperation()

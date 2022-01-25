@@ -27,7 +27,7 @@ use App\Http\Traits\CreateOperation;
 use App\Http\Traits\UpdateOperation;
 use App\Models\AccountTypeDetail;
 use App\Models\ParentStudent;
-
+use App\Models\Role;
 use Backpack\CRUD\app\Http\Requests\ChangePasswordRequest;
 
 class UserController extends UserCrudController 
@@ -53,7 +53,7 @@ class UserController extends UserCrudController
             }
         }
        
-        if(!backpack_user()->hasRole('Admin')){
+        if(!backpack_user()->hasAnyRole(['Admin','Super Admin'])){
             $this->crud->denyAccess( 'create');
             $this->crud->denyAccess( 'delete');
         }
@@ -75,6 +75,11 @@ class UserController extends UserCrudController
     }
     public function setupListOperation()
     {
+        
+       
+            $this->crud->addClause('whereHas', 'roles', function ($query)  {
+                $query->where('name', '!=', 'Super Admin');
+              });
        
         $this->crud->addColumns([
             [
@@ -229,7 +234,7 @@ class UserController extends UserCrudController
             }
 
             $roleStudent = array_filter($request->roles_show, function($v, $k) {
-                return $v == '4'  ;
+                return $v == '5'  ;
             }, ARRAY_FILTER_USE_BOTH);
             //tao quan he giua hoc sinh va phu huynh. table parent_students
             if(sizeof($roleStudent) == 1){
@@ -271,12 +276,17 @@ class UserController extends UserCrudController
         if($request->status == 'on'){
             $startTime = new Carbon($request->start_time);
             $endTime = new Carbon($request->start_time);
-            $acocuntType = AccountType::find($request->account_type_id);
+           
+            $accountType = AccountType::find($request->account_type_id);
+            $endTime = $endTime->addDays($accountType->duration);
             $toDate =  Carbon::now();
-            if($acocuntType !=null ){
-                $status = $toDate->between($startTime, $endTime->addDays($acocuntType->duration)) ? 'active' : 'pending'; 
+            if($accountType !=null ){
+                $status = $toDate->between($startTime, $endTime) ? 'active' : 'pending'; 
             }else{
                 $status= 'pending';
+            }
+            if($toDate->greaterThanOrEqualTo($endTime)){
+                $status= 'inactive';
             }
            
             // if($request->status == 'on'){
@@ -361,9 +371,10 @@ class UserController extends UserCrudController
             $address->save();
             
             //update parent for role student
-            if(backpack_user()->hasRole(['Admin']) && backpack_user()->id != \Route::current()->parameter('id')){
+            if(backpack_user()->hasRole(['Admin', 'Super Admin']) && backpack_user()->id != \Route::current()->parameter('id')){
                     $roleStudent = array_filter($request->roles_show, function($v, $k) {
-                        return $v == '4'  ;
+                        $nameRole = Role::where('name' , 'Student')->first();
+                        return $v == $nameRole->id  ;;
                     }, ARRAY_FILTER_USE_BOTH);
                     //cap nhat hoac tao quan he giua hoc sinh va phu huynh. table parent_students
                 if(sizeof($roleStudent) == 1){
@@ -545,7 +556,7 @@ class UserController extends UserCrudController
             
         ];
        
-        if(backpack_user()->hasRole('Admin') && backpack_user()->id != \Route::current()->parameter('id')){
+        if(backpack_user()->hasAnyRole(['Super Admin','Admin']) && backpack_user()->id != \Route::current()->parameter('id')){
             $permission = [[
                 // two interconnected entities
                 'label'             => trans('backpack::permissionmanager.user_role_permission'),
@@ -562,6 +573,7 @@ class UserController extends UserCrudController
                         'model'            => config('permission.models.role'), // foreign key model
                         'pivot'            => true, // on create&update, do you need to add/delete pivot table entries?]
                         'number_columns'   => 3, //can be 1,2,3,4,6
+                       
                     ],
                     'secondary' => [
                         'label'          => ucfirst(trans('backpack::permissionmanager.permission_singular')),
@@ -574,6 +586,7 @@ class UserController extends UserCrudController
                         'number_columns' => 3, //can be 1,2,3,4,6
                     ],
                 ],
+                'view_namespace'=> 'admin.user.fields',
                 'tab'             => 'Role & Permissions',
             ],
            

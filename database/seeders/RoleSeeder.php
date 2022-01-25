@@ -19,6 +19,11 @@ class RoleSeeder extends Seeder
         //
         \DB::table('roles')->delete();
         Role::create([
+          'name' => 'Super Admin',
+          'guard_name' => 'backpack',
+      ]
+      );
+        Role::create([
             'name' => 'Admin',
             'guard_name' => 'backpack',
         ]

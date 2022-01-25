@@ -2,19 +2,33 @@
 
 @section('content')
     <div class="row justify-content-center">
+        @if (Session::has('accountInactive'))
+            <div class="col-12 col-md-8 col-lg-6">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>{{ Session::get('accountInactive')}}</strong> 
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+            </div>
+        @endif
+    </div>
+    <div class="row justify-content-center">
+
         <div class="col-12 col-md-8 col-lg-4">
             <h3 class="text-center mb-4">{{ trans('backpack::base.login') }}</h3>
             <div class="card">
                 <div class="card-body">
                     <form class="col-md-12 p-t-10" role="form" method="POST" action="{{ route('backpack.auth.login') }}">
                         {!! csrf_field() !!}
-                       
+
                         <div class="form-group">
-                            <label class="control-label" for="{{ $username }}">{{ config('backpack.base.authentication_column_name') }}</label>
+                            <label class="control-label"
+                                for="{{ $username }}">{{ config('backpack.base.authentication_column_name') }}</label>
 
                             <div>
-                                <input type="text" class="form-control{{ $errors->has($username) ? ' is-invalid' : '' }}" name="{{ $username }}" value="{{ old($username) }}" id="{{ $username }}">
-
+                                <input type="text" class="form-control{{ $errors->has($username) ? ' is-invalid' : '' }}"
+                                    name="{{ $username }}" value="{{ old($username) }}" id="{{ $username }}">
                                 @if ($errors->has($username))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first($username) }}</strong>
@@ -27,7 +41,9 @@
                             <label class="control-label" for="password">{{ trans('backpack::base.password') }}</label>
 
                             <div>
-                                <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" id="password">
+                                <input type="password"
+                                    class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
+                                    name="password" id="password">
 
                                 @if ($errors->has('password'))
                                     <span class="invalid-feedback">
@@ -58,11 +74,13 @@
                 </div>
             </div>
             @if (backpack_users_have_email() && config('backpack.base.setup_password_recovery_routes', true))
-                <div class="text-center"><a href="{{ route('backpack.auth.password.reset') }}">{{ trans('backpack::base.forgot_your_password') }}</a></div>
+                <div class="text-center"><a
+                        href="{{ route('backpack.auth.password.reset') }}">{{ trans('backpack::base.forgot_your_password') }}</a>
+                </div>
             @endif
-            @if (config('backpack.base.registration_open'))
+            {{-- @if (config('backpack.base.registration_open'))
                 <div class="text-center"><a href="{{ route('backpack.auth.register') }}">{{ trans('backpack::base.register') }}</a></div>
-            @endif
+            @endif --}}
         </div>
     </div>
 @endsection

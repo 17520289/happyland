@@ -19,6 +19,7 @@ class Course extends Model
     protected $fillable = [
         'id',
         'name',
+        'level_id',
         'start_date',
         'end_date',
         'user_id',
@@ -40,7 +41,9 @@ class Course extends Model
     {
         return $this->hasMany(Material::class, 'course_id');
     }
-     
+    public function level(){
+        return $this->belongsTo(Level::class );
+    }
     public function setImageAttribute($value)
     {
         $attribute_name = "image";

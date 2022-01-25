@@ -3,7 +3,7 @@
 namespace  App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-
+use App\Models\Role;
 class UserStoreCrudRequest extends FormRequest
 {
     /**
@@ -37,7 +37,8 @@ class UserStoreCrudRequest extends FormRequest
         if($this->input('roles_show') != null){
             $validator->after(function ($validator) {
                 $roleStudent = array_filter($this->input('roles_show'), function($v, $k) {
-                    return $v == '4'  ;
+                    $nameRole = Role::where('name' , 'Student')->first();
+                    return $v == $nameRole->id  ;
                 }, ARRAY_FILTER_USE_BOTH);
                 if(sizeof($roleStudent) == 1){
                     if($this->input('parent_id') == null){

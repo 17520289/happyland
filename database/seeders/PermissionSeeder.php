@@ -23,6 +23,7 @@ class PermissionSeeder extends Seeder
 
         //permissions Admin
         $permissions = ['List Course', 'Create Course', 'Update Course' , 'Delete Course', 'Show Course', 'Show Material', 'Create AccountType',
+        'List AccountType', 'List Level', 'Update Level',
         'Update AccountType', 'Delete AccountType' , 'Show AccountType',  'List Material', 'Create Material', 'Update Material', 'Delete Material'];
 
         //permission Teacher
@@ -30,10 +31,10 @@ class PermissionSeeder extends Seeder
                         'List Material', 'Create Material', 'Update Material'];
 
         //permission Parent
-        $permissionsParent = ['List Course',   'List Material', 'Show Course' ];
+        $permissionsParent = [   'Show Course' ];
         
         //permission Student
-        $permissionsStudent = ['List Course',   'List Material', 'Show Course' ];
+        $permissionsStudent = ['List Course', 'Show Course' ];
 
        
         
@@ -43,6 +44,8 @@ class PermissionSeeder extends Seeder
         }
         
         //assign permission for admin
+        $this->givePermissionToRole( $permissions, 'Super Admin');
+
         $this->givePermissionToRole( $permissions, 'Admin');
         //assign permission for teacher
         $this->givePermissionToRole( $permissionsTeacher, 'Teacher');

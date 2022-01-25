@@ -15,7 +15,10 @@ use Illuminate\Support\Facades\Route;
 Route::group(
 [
     'namespace'  => 'Backpack\CRUD\app\Http\Controllers',
-    'middleware' => config('backpack.base.web_middleware', 'web'),
+    'middleware' => array_merge(
+        (array) config('backpack.base.web_middleware', 'web'),
+       
+        (array) 'checkstatus'),
     'prefix'     => config('backpack.base.route_prefix'),
 ],
 function () {

@@ -16,7 +16,6 @@ class Material extends Model
     protected $fillable = [
         'id',
         'title',
-        'level_id',
         'description',
         'content',
         'images',
@@ -38,9 +37,7 @@ class Material extends Model
     public function course(){
         return $this->belongsTo(Course::class);
     }
-    public function level(){
-        return $this->belongsTo(Level::class );
-    }
+   
 
    
     public function setImagesAttribute($value)

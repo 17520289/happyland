@@ -28,7 +28,7 @@ class MaterialUpdateRequest extends FormRequest
         return [
             'title' => 'required|min:5|max:255',
            
-            'level_id' => 'required',
+          
         ];
     }
 

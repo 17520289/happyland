@@ -13,6 +13,7 @@ Route::group([
     'middleware' => array_merge(
         (array) config('backpack.base.web_middleware', 'web'),
         (array) backpack_middleware(),
+        (array) 'checkstatus',
     ),
     'namespace'  => 'App\Http\Controllers\Admin',
 ], function () { // custom admin routes

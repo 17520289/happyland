@@ -32,6 +32,9 @@ class LevelCrudController extends CrudController
         if(!backpack_user()->hasRole('Admin')){
             abort(403, 'Access denied');
         }
+        $this->crud->denyAccess( 'delete');
+        $this->crud->denyAccess( 'show');
+        $this->crud->denyAccess( 'create');
     }
 
     /**

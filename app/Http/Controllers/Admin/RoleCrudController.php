@@ -36,7 +36,7 @@ class RoleCrudController extends CrudController
         if (config('backpack.permissionmanager.allow_role_delete') == false) {
             $this->crud->denyAccess('delete');
         }
-        $this->denyAccessIfNotAdmin();
+        $this->denyAccessIfNotSuperAdmin();
         
     }
 

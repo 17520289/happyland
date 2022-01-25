@@ -13,7 +13,7 @@ trait LimitAccessAccordingToUserPermissions {
         $this->data['accountTypeDetail'] = $accountTypeDetail;
         
         if($permission == ' course'){
-            if( $user->hasRole('Admin') != true){
+            if( $user->hasAnyRole(['Super Admin','Admin']) != true){
                 if($accountTypeDetail !==null){
                     if($accountTypeDetail->status == 'inactive' || backpack_user()->status == 'disable'){
                         return abort(403);

@@ -25,6 +25,36 @@ class UserSeeder extends Seeder
         $this->createTeacher();
         $this->createParent();
         $this->createStudent();
+        $this->createSuperAdmin();
+    }
+    private function createSuperAdmin()
+    {
+        DB::beginTransaction();
+        try {
+            $address = Address::create([
+                'street' => '',
+                'city' => '',
+                'state' => '',
+                'postal_code' => 0,
+                'country' => ''
+            ]);
+            $user = User::create([
+                'name' => 'Super Admin',
+                'address_id' => $address->id,
+                'email' => 'superadmin@happyland.com',
+                'status' => 'active',
+                'password' => Hash::make('12345678')
+            ]);
+          
+            $user->assignRole('Super Admin');
+            
+            DB::commit();
+        } catch (Exception $e) {
+            DB::rollBack();
+            
+            throw new Exception($e->getMessage());
+        }
+      
     }
     private function createAdmin()
     {

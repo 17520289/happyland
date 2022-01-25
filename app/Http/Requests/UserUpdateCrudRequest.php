@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Hash;
-
+use App\Models\Role;
 class UserUpdateCrudRequest extends FormRequest
 {
     /**
@@ -57,8 +57,10 @@ class UserUpdateCrudRequest extends FormRequest
         $validator->after(function ($validator) {
             if(backpack_user()->hasRole(['Admin']) && backpack_user()->id != \Route::current()->parameter('id')){
                 $roleStudent = array_filter($this->input('roles_show'), function($v, $k) {
-                    return $v == '4'  ;
+                   $nameRole = Role::where('name' , 'Student')->first();
+                    return $v == $nameRole->id  ;
                 }, ARRAY_FILTER_USE_BOTH);
+               
                 if(sizeof($roleStudent) == 1){
                     if($this->input('parent_id') == null){
                         $validator->    errors()->add('old_password', 'Add student account need choose a parent.');

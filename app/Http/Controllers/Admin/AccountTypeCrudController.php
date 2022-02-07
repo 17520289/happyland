@@ -49,9 +49,9 @@ class AccountTypeCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-              CRUD::column('name');
-        CRUD::column('duration');
-        CRUD::column('descriptions');
+              CRUD::column('name')->label(trans('backpack::crud.name'));
+        CRUD::column('duration')->label(trans('backpack::crud.duration'));
+        CRUD::column('descriptions')->label(trans('backpack::crud.description'));
         
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -71,9 +71,14 @@ class AccountTypeCrudController extends CrudController
         CRUD::setValidation(AccountTypeRequest::class);
 
         // CRUD::field('id');
-        CRUD::field('name');
-        CRUD::field('duration');
-        CRUD::field('descriptions');
+        CRUD::field('name')->label(trans('backpack::crud.name'));
+        // CRUD::field('duration');
+        $this->crud->addField([
+            'name' => 'duration',
+            'label' => trans('backpack::crud.duration'),
+            'type' => 'number',
+        ]);
+        CRUD::field('descriptions')->label(trans('backpack::crud.description'));
         // CRUD::field('created_at');
         // CRUD::field('updated_at');
 

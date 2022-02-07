@@ -42,19 +42,28 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
             <h3>Welcome to {{ ucwords($course->name) }} Course </h3>
             <p><b>Current Users:</b></p>
             <ul>
-                <li>Teachers: {{ $teachers->count() }} 
-                    @if ($teachers->count()> 0)
+                <li>Teachers: {{ $teachers->count() }}. 
+                    {{-- @if ($teachers->count()> 0)
                          (
                         @foreach ($teachers as $teacher)
                             {{ $teacher->full_name . ',' }}
                         @endforeach
                         )
+                    @endif --}}
+                    @if (!backpack_user()->hasAnyRole(['Parent','Student']))
+                    &nbsp; &nbsp;
+                    <a href="{{route('course.list-teacher', ['id' => \Route::current()->parameter('id')])}}">Teacher List</a>
+                   @endif
+                </li>
+                <li>Students: {{ $quantityStudent }}.  
+                    @if (!backpack_user()->hasAnyRole(['Parent','Student']))
+                        &nbsp; &nbsp;
+                        <a href="{{route('course.list-student', ['id' => \Route::current()->parameter('id')])}}">Student List</a>
                     @endif
                 </li>
-                <li>Students: {{ $quantityStudent }}</li>
             </ul>
             <p><b>Start Date:</b> {{ $course->start_date ?? '' }}</p>
-            <p><b>End Date:</b> {{ $course->end_date ?? '' }}</p>
+            <p><b>End Date:</b> {{ $course->end_date ?? '' }} </p>
             @if ($course->description != null)
                 <p><b>Description: </b></p>
                 {!! html_entity_decode($course->description) ?? '' !!}

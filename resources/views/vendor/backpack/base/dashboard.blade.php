@@ -11,7 +11,7 @@
 @section('before_styles')
     <style>
         .hero-image{
-            background-image: linear-gradient(rgba(155, 155, 155, 0.5), rgba(129, 129, 129, 0.5)), url("{{asset('animation/English/public/img/background/intro.png')}}");
+            background-image: linear-gradient(rgba(155, 155, 155, 0.5), rgba(129, 129, 129, 0.5)), url("{{asset('images/intro.png')}}");
             height: 50%;
             background-position: center;
             background-repeat: no-repeat;

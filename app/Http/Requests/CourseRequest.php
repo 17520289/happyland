@@ -26,7 +26,7 @@ class CourseRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|min:5|max:255',
+            'name' => 'required',
             'start_date' => 'required',
             'end_date' => 'required|after_or_equal:start_date',
             'level_id' => 'required',

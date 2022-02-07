@@ -10,11 +10,16 @@
         "production": "mix --production"
     },
     "devDependencies": {
-        "axios": "^0.21",
-        "laravel-mix": "^6.0.39",
+        "@digitallyhappy/backstrap": "^0.4.0",
+        "animate.css": "^3.7.2",
+        "axios": "^0.21.4",
+        "laravel-mix": "^6.0.41",
         "lodash": "^4.17.19",
+        "noty": "^3.2.0-beta-deprecated",
         "postcss": "^8.4.5",
+        "sass": "^1.49.0",
         "sass-loader": "^12.4.0",
         "webpack": "^5.65.0"
-    }
+    },
+    "dependencies": {}
 }

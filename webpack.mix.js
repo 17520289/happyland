@@ -15,3 +15,8 @@ mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
         //
     ]);
+    mix.sass('resources/scss/custom-backpack-bundle.scss', 'public/packages/backpack/base/css/')
+    .options({
+      processCssUrls: false
+    });
+    // mix.sass('resources/scss/backpack-override.scss', 'public/packages/backpack/base/css/');

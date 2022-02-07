@@ -1,12 +1,12 @@
 @extends(backpack_view('blank'))
-
-
 @php
+
     if(backpack_user()->hasRole('Parent')){
     $urlBack = route('parent.showCourses.get', ['id'=>backpack_user()->id,'course_id' => $course->id, 'student_id'=>  \Route::current()->parameter('student_id')]);;
 }else{
     $urlBack = route('course.show', ['id' => $course->id]);
 }
+    $level = 'Level-'.$course->level->id;
 @endphp
 @section('header')
     <section class="container-fluid d-print-none">
@@ -21,7 +21,7 @@
 
 @section('content')
     <div class="row mt-4">
-        <iframe src="{{ asset('animation/English/index.html') }}" width="100%" height="800" frameborder="5"></iframe>
+        <iframe src="{{ asset('animation/'.$level.'/English/index.html') }}" width="100%" height="800" frameborder="5"></iframe>
      
 
     </div>

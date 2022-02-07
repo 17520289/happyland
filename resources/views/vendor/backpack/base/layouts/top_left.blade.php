@@ -4,7 +4,6 @@
 
 <head>
   @include(backpack_view('inc.head'))
- 
 </head>
 
 <body class="{{ config('backpack.base.body_class') }}">
@@ -47,7 +46,13 @@
   @stack('before_scripts')
 
   @include(backpack_view('inc.scripts'))
-
+  <script type="text/javascript">
+    var url = "{{ route('LangChange') }}";
+    $(".Langchange").change(function(){
+        window.location.href = url + "?lang="+ $(this).val();
+    });
+   
+</script>
   @yield('after_scripts')
   @stack('after_scripts')
 </body>

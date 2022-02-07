@@ -29,7 +29,7 @@ class LevelCrudController extends CrudController
         CRUD::setModel(\App\Models\Level::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/level');
         CRUD::setEntityNameStrings('level', 'levels');
-        if(!backpack_user()->hasRole('Admin')){
+        if(!backpack_user()->hasAnyRole(['Admin', 'Super Admin'])){
             abort(403, 'Access denied');
         }
         $this->crud->denyAccess( 'delete');
@@ -46,8 +46,8 @@ class LevelCrudController extends CrudController
     protected function setupListOperation()
     {
         
-        CRUD::column('name');
-        CRUD::column('description');
+        CRUD::column('name')->label(trans('backpack::crud.name'));
+        CRUD::column('description')->label(trans('backpack::crud.description'));
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -67,8 +67,8 @@ class LevelCrudController extends CrudController
         CRUD::setValidation(LevelRequest::class);
 
         
-        CRUD::field('name');
-        CRUD::field('description');
+        CRUD::field('name')->label(trans('backpack::crud.description'));
+        CRUD::field('description')->label(trans('backpack::crud.description'));
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:

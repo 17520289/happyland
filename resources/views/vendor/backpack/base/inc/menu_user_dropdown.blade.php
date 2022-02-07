@@ -1,3 +1,4 @@
+
 <li class="nav-item dropdown pr-4">
   <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="position: relative;width: 35px;height: 35px;margin: 0 10px;">
     <img class="img-avatar" src="{{asset(backpack_user()->image)}}" alt="{{ backpack_auth()->user()->name }}" onerror="this.style.display='none'" style="margin: 0;position: absolute;left: 0;z-index: 1;">

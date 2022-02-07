@@ -35,7 +35,7 @@ $breadcrumbs = [
             <div class="row mb-2">
                 @if (backpack_user()->hasRole('Admin') || backpack_user()->hasRole('Teacher'))
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPeopleModal">
-                        Add Student
+                        <span class="ladda-label"><i class="la la-plus"></i> Add Student</span>
                     </button>
                 @endif
             </div>
@@ -189,12 +189,12 @@ $breadcrumbs = [
 
     <!-- CRUD LIST CONTENT - crud_list_scripts stack -->
     @stack('crud_list_scripts')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+   
     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.1/sweetalert2.d.ts"></script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script type="text/javascript">
         $(function() {
             var table = $('.yajra-datatable').DataTable({
@@ -206,8 +206,8 @@ $breadcrumbs = [
                         name: 'DT_RowIndex'
                     },
                     {
-                        data: 'full_name',
-                        name: 'full_name'
+                        data: 'full_name_custom',
+                        name: 'full_name_custom'
                     },
                     {
                         data: 'email',

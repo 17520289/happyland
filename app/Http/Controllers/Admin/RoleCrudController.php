@@ -19,6 +19,9 @@ class RoleCrudController extends CrudController
     use AllowAccessOnlyAdmin;
     public function setup()
     {
+        $language = \Session::get('locale', config('app.locale'));
+        // Lấy dữ liệu lưu trong Session, không có thì trả về default lấy trong config
+        config(['app.locale' => $language]);
         $this->role_model = $role_model = config('backpack.permissionmanager.models.role');
         $this->permission_model = $permission_model = config('backpack.permissionmanager.models.permission');
 

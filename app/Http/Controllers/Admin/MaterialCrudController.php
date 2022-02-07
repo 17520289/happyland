@@ -60,14 +60,14 @@ class MaterialCrudController extends CrudController
     {
         
         $courses = backpack_user()->course()->pluck('id')->toArray();
-        if(backpack_user()->hasRole('Teacher') || backpack_user()->hasRole('Student')){
-            $this->crud->addClause('whereIn','id', $courses);
+        if(backpack_user()->hasRole('Teacher')){
+            $this->crud->addClause('whereIn','course_id', $courses);
         }
         // CRUD::column('id');
-        CRUD::column('title');
-        CRUD::column('description');
+        CRUD::column('title')->label(trans('backpack::crud.title'));
+        // CRUD::column('description')->label(trans('backpack::crud.description'));
         // CRUD::column('content');
-        CRUD::column('status');
+        CRUD::column('status')->label(trans('backpack::crud.status'));
         // CRUD::column('image')->type('image');
         // CRUD::column('course_id');
         // CRUD::column('created_at');
@@ -92,14 +92,14 @@ class MaterialCrudController extends CrudController
         CRUD::setValidation(MaterialRequest::class);
 
         CRUD::field('id')->type('hidden');
-        CRUD::field('title');
-        CRUD::field('content')->type('ckeditor');
+        CRUD::field('title')->label(trans('backpack::crud.title'));
+        CRUD::field('content')->type('ckeditor')->label(trans('backpack::crud.content'));
         // CRUD::field('course_id');
       
         $courses = backpack_user()->course()->pluck('id')->toArray();
         $this->crud->addField(
             [  // Select
-                'label'     => "Course",
+                'label'     => trans('backpack::base.course'),
                 'type'      => 'select',
                 'name'      => 'course_id', // the db column for the foreign key
              
@@ -121,7 +121,7 @@ class MaterialCrudController extends CrudController
 
         $this->crud->addField([   
             'name' => 'images',
-            'label' => 'Images',
+            'label' => trans('backpack::crud.images'),
             'type' => 'upload_multiple',
             
             'upload' => true,
@@ -130,7 +130,7 @@ class MaterialCrudController extends CrudController
     
         $this->crud->addField([   // select_from_array
             'name'        => 'status',
-            'label'       => "Status",
+            'label'       => trans('backpack::crud.status'),
             'type'        => 'select_from_array',
             'options'     => ['unpublish' => 'UnPublish', 'publish' => 'Publish'],
             'allows_null' => false,

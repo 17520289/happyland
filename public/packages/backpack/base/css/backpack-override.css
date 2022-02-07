@@ -1,0 +1,46 @@
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .dataTables_wrapper .dataTables_paginate .paginate_button.current:not(:disabled):not(.disabled).active, .dataTables_wrapper .dataTables_paginate .paginate_button.current:not(:disabled):not(.disabled):active, .dataTables_wrapper .dataTables_paginate .show > .dropdown-toggle.paginate_button.current, .show > .btn-primary.dropdown-toggle {
+  background-color: #568d49;
+  border-color: #568d49;
+}
+
+.btn-primary:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+  background-color: #568d49;
+  border-color: #568d49;
+}
+
+.btn-primary, .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+  background-color: #6DAB5E;
+  border-color: #6DAB5E;
+}
+
+.page-item.active .page-link {
+  background-color: #6DAB5E;
+  border-color: #6DAB5E;
+}
+
+.sidebar .nav-link.active {
+  background-color: #568d49;
+}
+
+.sidebar .nav-link:hover {
+  background-color: #6DAB5E;
+}
+
+.bg-custom-primary {
+  background-color: #6DAB5E;
+}
+
+.bg-custom-primary {
+  color: white;
+}
+
+.sidebar .nav-link.active .nav-icon {
+  color: white;
+}
+
+a, .btn-link {
+  color: #568d49;
+}
+a:hover, .btn-link:hover {
+  color: #426b38;
+}

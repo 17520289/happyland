@@ -28,6 +28,7 @@ use App\Http\Traits\UpdateOperation;
 use App\Models\AccountTypeDetail;
 use App\Models\ParentStudent;
 use App\Models\Role;
+use App\Models\Grade;
 use Backpack\CRUD\app\Http\Requests\ChangePasswordRequest;
 
 class UserController extends UserCrudController 
@@ -40,6 +41,10 @@ class UserController extends UserCrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\InlineCreateOperation;
     public function setup()
     {
+        $language = \Session::get('locale', config('app.locale'));
+        // Lấy dữ liệu lưu trong Session, không có thì trả về default lấy trong config
+        config(['app.locale' => $language]);
+
         CRUD::setModel(\App\Models\User::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/user');
         CRUD::setEntityNameStrings('user', 'users');
@@ -56,6 +61,7 @@ class UserController extends UserCrudController
         if(!backpack_user()->hasAnyRole(['Admin','Super Admin'])){
             $this->crud->denyAccess( 'create');
             $this->crud->denyAccess( 'delete');
+            $this->crud->denyAccess( 'list');
         }
 
         //allow teacher edit user in course
@@ -77,14 +83,14 @@ class UserController extends UserCrudController
     {
         
        
-            $this->crud->addClause('whereHas', 'roles', function ($query)  {
-                $query->where('name', '!=', 'Super Admin');
-              });
-       
+        // $this->crud->addClause('whereHas', 'roles', function ($query)  {
+        //         $query->where('name', '!=', 'Super Admin');
+        //       });
+         
         $this->crud->addColumns([
             [
                 'name'  => 'name',
-                'label' => trans('backpack::permissionmanager.name'),
+                'label' => trans('backpack::crud.firstName'),
                 'type'  => 'text',
             ],
             [
@@ -141,33 +147,39 @@ class UserController extends UserCrudController
         $this->crud->addColumn([   
             // CustomHTML
             'name'     => 'accout_type',
-            'label'    => 'Account Type',
+            'label'    => trans('backpack::base.Accounttype'),
             'type'     => 'account_type',
             'escaped' => true ,
         ]);
         $this->crud->addColumn([   
             // CustomHTML
             'name'     => 'status',
-            'label'    => 'Status',
+            'label'    => trans('backpack::crud.status'),
             'type'     => 'string',
         ]);
         $this->crud->addColumn([   
             // CustomHTML
             'name'     => 'start_time',
-            'label'    => 'Start Time',
+            'label'    => trans('backpack::crud.startTime'),
             'type'     => 'start_time_html',
             'escaped' => true ,   
         ]);
         $this->crud->addColumn([ 
             // CustomHTML
             'name'     => 'end_time',
-            'label'    => 'End Time',
+            'label'    => trans('backpack::crud.endTime'),
             'type'     => 'end_time_html',
             'escaped' => true ,
             
       ]);
 
-        
+      $this->crud->removeButton('delete');
+      $this->crud->removeButton('update');
+      $this->crud->addButton('line', 'update', 'view', 'admin.user.buttons.update', 'end');
+      $this->crud->addButton('line', 'delete', 'view', 'admin.user.buttons.delete', 'end');
+     
+    
+      $this->crud->setListView('admin.user.list');
     }
 
    
@@ -207,6 +219,7 @@ class UserController extends UserCrudController
             \Alert::add('error', 'Account type is required.')->flash();
             return redirect()->back();
         }
+       
         $this->crud->setRequest($this->crud->validateRequest());
       
         $this->crud->setRequest($this->handlePasswordInput($this->crud->getRequest()));
@@ -214,7 +227,7 @@ class UserController extends UserCrudController
         $this->crud->setRequest($this->handleStatus($this->crud->getRequest()));
 
         $this->crud->unsetValidation(); // validation has already been run
-       
+      
         DB::beginTransaction();
         try{
            
@@ -225,9 +238,9 @@ class UserController extends UserCrudController
                 'postal_code' => $request->postal_code,
                 'country' => $request->country,
             ]);
-            
+           
             $store = $this->traitStoreCustom($address->id);
-        
+            
             $entryId = $this->data['entry']->id;
             if($request->status == 'on'){
                 $this->storeAccountTypeDetail($request, $entryId);
@@ -355,11 +368,10 @@ class UserController extends UserCrudController
         try{
             //update status 
             if(backpack_user()->id != \Route::current()->parameter('id')){
-                $user->status =$this->crud->getRequest()->status;
+                $user->status = $this->crud->getRequest()->status;
                 $user->save();
+              
             }  
-           
-         
 
             //update address 
             $address = Address::find($user->address_id);
@@ -466,13 +478,13 @@ class UserController extends UserCrudController
         $fields = [
             [
                 'name'  => 'name',
-                'label' => trans('backpack::permissionmanager.name'),
+                'label' => trans('backpack::crud.firstName'),
                 'type'  => 'text',
                 'tab'             => 'Login Infomation',
             ],
             [
                 'name'  => 'full_name',
-                'label' => 'Full Name',
+                'label' => trans('backpack::crud.lastName'),
                 'type'  => 'text',
                 'tab'             => 'Login Infomation',
             ],
@@ -623,7 +635,7 @@ class UserController extends UserCrudController
               
                 'default' => isset($accountTypeDetail) ? $accountTypeDetail->status : 'active',
                 'inline'      => true,
-                'tab'             => 'Active / InActive',
+                'tab'             => 'Active / Inactive',
             ],
             
         ];
@@ -633,6 +645,25 @@ class UserController extends UserCrudController
         $this->crud->addFields(array_merge($fields, $fieldsPwd, $image, $address, $permission));
 
         
+    }
+    public function updateStatus(Request $request){
+        
+        $user = User::find($request->user_id);
+        if($user == null || $user->hasRole('Super Admin')){
+            return abort(404);
+        }
+        
+        if($request->action_active == 'true'){
+            $user->deleted_at = null;
+
+        }else{
+            $user->deleted_at = Carbon::now();
+            $user->status = 'disable';
+            Grade::where('user_id', $user->id)->update(['status' => 'inactive']);
+        }
+        $user->save();
+        return response()->json(['success'=>'Successfully']);
+       
     }
 
 

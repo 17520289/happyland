@@ -182,11 +182,16 @@ $breadcrumbs = [
                 name: `${columnScores[id].name}`,
                 render: function(data, type) {
                     var dataId = data.split('/');
-                    var html = '<a href="#bannerformmodal" data-score="' + dataId[2] +
+                    if(dataId[3] == 'active'){
+                        var html = '<a href="#bannerformmodal" data-score="' + dataId[2] +
                         '"  data-toggle="modal" data-target="#bannerformmodal"';
                     html += 'class="view-grade" data-user-id="' + dataId[0] + '"  data-column-id="' +
                         dataId[1] + '"><p id="score[' + dataId[0] + '][' + dataId[1] + ']">' + dataId[
                             2] + '</p></a>';
+                    }else{
+                        var html = '<p >' + dataId[2] + '</p>';
+                    }
+                   
                     return html;
                 },
 

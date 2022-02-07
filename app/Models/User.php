@@ -20,7 +20,7 @@ class User extends Authenticatable
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasRoles;
     use HasApiTokens, HasFactory, Notifiable;
-    use SoftDeletes;
+    // use SoftDeletes;
     protected $guard_name = 'backpack';
     /**
      * The attributes that are mass assignable.

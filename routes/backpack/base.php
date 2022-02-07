@@ -17,8 +17,8 @@ Route::group(
     'namespace'  => 'Backpack\CRUD\app\Http\Controllers',
     'middleware' => array_merge(
         (array) config('backpack.base.web_middleware', 'web'),
-       
         (array) 'checkstatus'),
+        (array) 'locale',
     'prefix'     => config('backpack.base.route_prefix'),
 ],
 function () {
@@ -45,7 +45,7 @@ function () {
 
     // if not otherwise configured, setup the dashboard routes
     if (config('backpack.base.setup_dashboard_routes')) {
-        Route::get('dashboard', 'AdminController@dashboard')->name('backpack.dashboard');
+        Route::get('dashboard', 'AdminController@dashboard')->name('backpack.dashboard')->middleware('locale');
         Route::get('/', 'AdminController@redirect')->name('backpack');
     }
     

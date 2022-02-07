@@ -77,12 +77,10 @@ trait CreateOperation
 
         // execute the FormRequest authorization and validation, if one is required
         $request = $this->crud->validateRequest();
-
-        // insert item in the db
-        // $this->crud->getStrippedSaveRequest()->address_id = $address_id;
        
-        //add address_id  
+         // insert item in the db
         $fields = $this->crud->getStrippedSaveRequest();
+         //add address_id  
         $fields['address_id'] = $address_id;
          $fields['status'] =   $this->crud->getRequest()->status;
         $item = $this->crud->create($fields);

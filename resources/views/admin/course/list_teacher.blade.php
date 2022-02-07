@@ -30,9 +30,9 @@ $breadcrumbs = [
         </div> --}}
         <div class="col-md-12">
             <div class="row mb-2">
-                @if (backpack_user()->hasRole('Admin'))
+                @if (backpack_user()->hasAnyRole(['Admin', 'Super Admin']))
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPeopleModal">
-                        Add Teacher
+                        <span class="ladda-label"><i class="la la-plus"></i> Add Teacher</span>
                     </button>
                 @endif
             </div>
@@ -206,8 +206,8 @@ $breadcrumbs = [
                         name: 'DT_RowIndex'
                     },
                     {
-                        data: 'full_name',
-                        name: 'full_name'
+                        data: 'full_name_custom',
+                        name: 'full_name_custom'
                     },
                     {
                         data: 'email',
@@ -231,7 +231,7 @@ $breadcrumbs = [
                     },
                 ]
             });
-            if ("{{ !backpack_user()->hasRole('Admin') }}" == "1") {
+            if ("{{ !backpack_user()->hasAnyRole(['Super Admin','Admin']) }}" == "1") {
                 table.column(5).visible(false);
             }
 

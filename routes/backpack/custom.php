@@ -14,6 +14,7 @@ Route::group([
         (array) config('backpack.base.web_middleware', 'web'),
         (array) backpack_middleware(),
         (array) 'checkstatus',
+        (array) 'locale',
     ),
     'namespace'  => 'App\Http\Controllers\Admin',
 ], function () { // custom admin routes
@@ -32,7 +33,7 @@ Route::group([
 
    // Route::crud('user', 'UserCrudController');
     Route::crud('user', 'UserCrudController');
-    Route::post('/user/updateStatus', 'UserController@updateStatus')->name('user.update-status.post');
+    Route::post('/user/update-status', 'UserController@updateStatus')->name('user.update-status.post');
     Route::group(['prefix' => 'course'], function (){
         // Route::get('/{id}/infomations', 'CourseCrudController@getInfomations')->name('course.infomations.get');
         Route::get('/{id}/list-teacher', 'CourseCrudController@indexListTeacher')->name('course.list-teacher');
@@ -57,9 +58,15 @@ Route::group([
         Route::get('/{id}/children/{student_id}/course', 'ParentController@getChildrenCourse')->name('childrenCourse.get');
         Route::get('/{id}/course/{course_id}/children/{student_id}/show', 'ParentController@getShowCourse')->name('showCourses.get');
         Route::get('/{id}/course/{course_id}/children/{student_id}/grades', 'ParentController@getGradesChildren')->name('gradeChildren.get');
-        Route::get('/{id}/course/{course_id}/children/{student_id}/assessment', 'CourseCrudController@getAssessment')->name('assessmentChildren.get');
+        Route::get('/{id}/course/{course_id}/children/{student_id}/assessment', 'ParentController@getAssessment')->name('assessmentChildren.get');
+    });
+    Route::name('settings.')->prefix('settings')->group( function (){
+        Route::get('/', 'SettingsController@index')->name('index.get');
+        Route::post('/update', 'SettingsController@update')->name('update.post');
     });
     Route::crud('account-type', 'AccountTypeCrudController');
+
+    Route::get('change/lang', 'LocalizationController@lang_change')->name('LangChange');
 
 
 }); // this should be the absolute last line of this file

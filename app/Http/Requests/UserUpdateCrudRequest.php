@@ -28,12 +28,20 @@ class UserUpdateCrudRequest extends FormRequest
     {
       
         $id = $this->get('id') ?? request()->route('id');
-        return [
+      
+        $rules = [
             'email'    => 'required|unique:'.config('permission.table_names.users', 'users').',email,'.$id,
             'name'     => 'required',
+            'full_name'     => 'required',
             'password' => 'confirmed',
-            'full_name' => 'required',
+            'roles_show' => 'required'
+            
         ];
+        if($this->input('status') == 'on'){
+          $rules['start_time'] = 'required';
+           
+        }
+         return $rules;
     }
     public function withValidator($validator)
     {
@@ -55,15 +63,19 @@ class UserUpdateCrudRequest extends FormRequest
         });
         }
         $validator->after(function ($validator) {
-            if(backpack_user()->hasRole(['Admin']) && backpack_user()->id != \Route::current()->parameter('id')){
+           
+            if(backpack_user()->hasAnyRole(['Super Admin','Admin']) && backpack_user()->id != \Route::current()->parameter('id') && $this->input('roles_show') != null){
+
                 $roleStudent = array_filter($this->input('roles_show'), function($v, $k) {
                    $nameRole = Role::where('name' , 'Student')->first();
                     return $v == $nameRole->id  ;
                 }, ARRAY_FILTER_USE_BOTH);
-               
+              
                 if(sizeof($roleStudent) == 1){
+                   
                     if($this->input('parent_id') == null){
-                        $validator->    errors()->add('old_password', 'Add student account need choose a parent.');
+                       
+                        $validator->    errors()->add('parent_id', 'Please add parent to your student account.');
                     }
                     
                 }

@@ -85,12 +85,12 @@ class CourseCrudController extends CrudController
         }
        
         // CRUD::column('id');
-        CRUD::column('name');
-        CRUD::column('start_date');
-        CRUD::column('end_date');
+        CRUD::column('name')->label(trans('backpack::crud.name')); // This line;
+        CRUD::column('start_date')->label(trans('backpack::crud.startDate'));
+        CRUD::column('end_date')->label(trans('backpack::crud.endDate'));
         $this->crud->addColumn([
             'name' => 'status',
-            'label' => 'Status',
+            'label' => trans('backpack::crud.status'),
             'type'        => 'select_from_array',
             'options'     => ['publish' => 'Publish', 'unpublish' => 'UnPublish'],
             'allows_null' => false,
@@ -98,7 +98,7 @@ class CourseCrudController extends CrudController
         ]);
         $this->crud->addField([   
             'name' => 'status',
-            'label' => 'Status',
+            'label' => trans('backpack::crud.status'),
             'type'        => 'select_from_array',
             'options'     => ['publish' => 'Publish', 'unpublish' => 'UnPublish'],
             'allows_null' => false,
@@ -145,10 +145,10 @@ class CourseCrudController extends CrudController
         CRUD::setValidation(CourseRequest::class);
 
         // CRUD::field('id');
-        CRUD::field('name');
+        CRUD::field('name')->label(trans('backpack::crud.name'));
         $this->crud->addField(
             [  // Select
-                'label'     => "Level",
+                'label'     => "trans('backpack::base.level')",
                 'type'      => 'select',
                 'name'      => 'level_id', // the db column for the foreign key
              
@@ -167,14 +167,14 @@ class CourseCrudController extends CrudController
                  }), //  you can use this to filter the results show in the select
              ],
         );
-        CRUD::field('start_date');
-        CRUD::field('end_date');
+        CRUD::field('start_date')->label(trans('backpack::crud.startDate'));
+        CRUD::field('end_date')->label(trans('backpack::crud.endDate'));
         CRUD::field('user_id')->type('hidden')->value(backpack_user()->id); // notice the name is the foreign key attribute
        
         $this->crud->addFields([
             [   
             'name' => 'status',
-            'label' => 'Status',
+            'label' => trans('backpack::crud.status'),
             'type'        => 'select_from_array',
             'options'     => ['publish' => 'Publish', 'unpublish' => 'UnPublish'],
             'allows_null' => false,
@@ -191,7 +191,7 @@ class CourseCrudController extends CrudController
             ],
            
         ],);
-        CRUD::field('description')->type('ckeditor');
+        CRUD::field('description')->type('ckeditor')->label(trans('backpack::crud.description'));
        
       
       
@@ -271,9 +271,10 @@ class CourseCrudController extends CrudController
                })->get();
              
             return Datatables::of($data)
+                ->removeColumn('full_name')
                 ->addIndexColumn()
                 ->addColumn('action', function($row) use ($course_id){
-                    if(backpack_user()->hasRole('Admin')){
+                    if(backpack_user()->hasAnyRole(['Admin', 'Super Admin'])){
                         $actionBtn = '<a href="'.route('user.edit',["id"=>$row->id]).'" class="edit btn btn-success btn-sm">Edit</a>&nbsp;&nbsp;';
                         $actionBtn .='<a href="javascript:;"  data-user-id="' . $row->id . '"  class="sa-params delete btn btn-danger btn-sm" title="Remove from course">Remove</a>';
                     }else{
@@ -281,7 +282,10 @@ class CourseCrudController extends CrudController
                     }
                     return $actionBtn;
                 })
-                ->rawColumns(['action'])
+                ->addColumn('full_name_custom', function($row) {
+                    return $row->name.' '.$row->full_name;
+                })
+                ->rawColumns(['action', 'full_name_custom'])
                 ->make(true);
         }
     }
@@ -501,11 +505,12 @@ class CourseCrudController extends CrudController
     
             $columnScores = ColumnScore::where('course_id', $course_id)->get(); 
             $data->map(function ($item, $key) use($columnScores) {
+
                 foreach ($columnScores as $key => $columnScore) {
                     $grade = Grade::where('user_id', $item->id)->where('column_score_id', $columnScore->id)->first();
                     $score = ($grade == null|| $grade->scores ==null)  ? 0 : $grade->scores;
-                 
-                    $actionScore = $item->id.'/'.$columnScore->id.'/'.$score;
+                    $status = ($grade == null|| $grade->status == null)  ? 'active' : $grade->status;
+                    $actionScore = $item->id.'/'.$columnScore->id.'/'.$score.'/'.$status;
                     $item[$columnScore->name] =  $actionScore;
                 }
                 return $item;
@@ -528,6 +533,7 @@ class CourseCrudController extends CrudController
             'column_score_id' => $request->columnId,
             'comment' => $request->comment,
             'scores' => $request->scores,
+            'status' => 'active',
         ]);
         
        }else{

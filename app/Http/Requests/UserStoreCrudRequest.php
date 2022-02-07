@@ -24,13 +24,19 @@ class UserStoreCrudRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $rules = [
             'email'    => 'required|unique:'.config('permission.table_names.users', 'users').',email',
             'name'     => 'required',
+            'full_name'     => 'required',
             'password' => 'required|confirmed',
             'roles_show' => 'required'
             
         ];
+        if($this->input('status') == 'on'){
+          $rules['start_time'] = 'required';
+           
+        }
+         return $rules;
     }
     public function withValidator($validator)
     {
@@ -42,14 +48,15 @@ class UserStoreCrudRequest extends FormRequest
                 }, ARRAY_FILTER_USE_BOTH);
                 if(sizeof($roleStudent) == 1){
                     if($this->input('parent_id') == null){
-                        $validator->    errors()->add('old_password', 'Add student account need choose a parent.');
+                        $validator->    errors()->add('parent_id', 'Please add parent to your student account.');
                     }
                     
                 }
             
             });
          }
-         
+        
+        
     }
    
 }

@@ -101,4 +101,9 @@ class ParentController extends Controller
         return view('student.course.grades', $this->data);
         
     }
+    public function getAssessment(Request $request){
+        $this->data['course'] = Course::find($request->course_id);
+        return view('student.assessment.list', $this->data);
+    }
+
 }

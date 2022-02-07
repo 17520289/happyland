@@ -14,16 +14,16 @@
 @endphp
 <ul class="list-unstyled">
     <li class="nav-item"><a class="nav-link"
-            href="{{ $urlInfo }}">Infomations</a></li>
+            href="{{ $urlInfo }}">Infomation</a></li>
 
     @if (backpack_user()->status == 'active')
         @if (backpack_user()->hasAnyRole(['Super Admin','Admin', 'Teacher']))
             <li class="nav-item"><a class="nav-link"
-                    href="{{ route('course.list-teacher', ['id' => \Route::current()->parameter('id')]) }}">List
-                    Teacher</a></li>
+                    href="{{ route('course.list-teacher', ['id' => \Route::current()->parameter('id')]) }}">
+                    Teacher List</a></li>
             <li class="nav-item"><a class="nav-link"
-                    href="{{ route('course.list-student', ['id' => \Route::current()->parameter('id')]) }}">List
-                    Student</a></li>
+                    href="{{ route('course.list-student', ['id' => \Route::current()->parameter('id')]) }}">
+                    Student List</a></li>
         @endif
         <li class="nav-item"><a class="nav-link"
                 href="{{ $urlGrades }}">Grades</a></li>

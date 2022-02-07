@@ -17,7 +17,7 @@
 @endphp
 
     <div class="form-group col-sm-12" style="padding-left: 30px" element="div" >
-        <label >Able / Disable</label>
+        <label >Enable / Disable</label>
         <br>
         <label class="switch switch-3d switch-primary">
             <input type="checkbox" class="switch-input" name="status"

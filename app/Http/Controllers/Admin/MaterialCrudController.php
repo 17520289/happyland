@@ -132,9 +132,9 @@ class MaterialCrudController extends CrudController
             'name'        => 'status',
             'label'       => trans('backpack::crud.status'),
             'type'        => 'select_from_array',
-            'options'     => ['unpublish' => 'UnPublish', 'publish' => 'Publish'],
+            'options'     => ['unpublished' => 'Unpublished', 'published' => 'Published'],
             'allows_null' => false,
-            'default'     => 'unpublish',
+            'default'     => 'unpublished',
             // 'allows_multiple' => true, // OPTIONAL; needs you to cast this to array in your model;
         ],);
     
@@ -186,5 +186,16 @@ class MaterialCrudController extends CrudController
         // $this->crud->removeField('course_id');
         
         $this->crud->setEditView('admin.material.edit');
+    }
+      /**
+     * Define what happens when the Update operation is loaded.
+     * 
+     * @see https://backpackforlaravel.com/docs/crud-operation-show
+     * @return void
+     */
+    protected function setupShowOperation()
+    {
+       
+        $this->crud->setShowView('admin.material.show');
     }
 }

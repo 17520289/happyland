@@ -37,7 +37,7 @@ class User extends Authenticatable
         'last_login',
         'status',
         'expired_in',
-        
+        'deleted_at',
         'image',
         'level_id',
         'gender', 
@@ -90,10 +90,10 @@ class User extends Authenticatable
                 ->join('users', 'users.id', '=','enrollments.user_id')
                 ->join('courses', 'courses.id', '=','enrollments.course_id')
                 ->where('enrollments.user_id', backpack_user()->id)
-                ->where('courses.status' ,'=', 'publish' )
+                ->where('courses.status' ,'=', 'published' )
                 ->select('courses.name', 'courses.id')
                 ->get();
-        return backpack_user()->hasRole('Admin') ? Course::all() : $courses; 
+        return backpack_user()->hasAnyRole(['Super Admin','Admin']) ? Course::all() : $courses; 
    }
     public function accountType(){
         return $this->belongsTo(AccountType::class );

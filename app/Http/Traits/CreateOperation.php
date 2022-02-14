@@ -82,7 +82,7 @@ trait CreateOperation
         $fields = $this->crud->getStrippedSaveRequest();
          //add address_id  
         $fields['address_id'] = $address_id;
-         $fields['status'] =   $this->crud->getRequest()->status;
+        $fields['status'] =   $this->crud->getRequest()->status;
         $item = $this->crud->create($fields);
        
         $this->data['entry'] = $this->crud->entry = $item;

@@ -55,6 +55,7 @@ class PermissionCrudController extends CrudController
                 'type'  => 'text',
             ]);
         }
+        $this->crud->removeAllButtonsFromStack('line');
     }
 
     public function setupCreateOperation()

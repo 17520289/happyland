@@ -89,9 +89,12 @@ class UserController extends UserCrudController
          
         $this->crud->addColumns([
             [
-                'name'  => 'name',
-                'label' => trans('backpack::crud.firstName'),
-                'type'  => 'text',
+                'name'  => 'fullName',
+                'label' => trans('backpack::crud.fullName'),
+                'type'  => 'full_name',
+                'searchLogic' => function ($query, $column, $searchTerm) {
+                    $query->orWhere('name', 'like', '%'.$searchTerm.'%');
+                }
             ],
             [
                 'name'  => 'email',
@@ -655,7 +658,9 @@ class UserController extends UserCrudController
         
         if($request->action_active == 'true'){
             $user->deleted_at = null;
-
+            if($user->hasRole('Admin')){
+                $user->status = 'active';
+            }
         }else{
             $user->deleted_at = Carbon::now();
             $user->status = 'disable';

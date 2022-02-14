@@ -18,7 +18,7 @@ $breadcrumbs = [
         <h2><a href="{{ route('course.show', ['id' => \Route::current()->parameter('id')]) }}"><i
                     class="la la-backward nav-icon"></i></a>
             <span class="text-capitalize">{{ $course->name }}</span>
-            <small> >> List Student</small>
+            <small> >> Student List</small>
         </h2>
     </div>
     <hr style="width:100%;">
@@ -33,7 +33,7 @@ $breadcrumbs = [
         </div> --}}
         <div class="col-md-12">
             <div class="row mb-2">
-                @if (backpack_user()->hasRole('Admin') || backpack_user()->hasRole('Teacher'))
+                @if (backpack_user()->hasAnyRole(['Super Admin','Admin']) || backpack_user()->hasRole('Teacher'))
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPeopleModal">
                         <span class="ladda-label"><i class="la la-plus"></i> Add Student</span>
                     </button>
@@ -258,14 +258,14 @@ $breadcrumbs = [
                             },
                             success: function(response) {
                                 if (response.status == "success") {
-                                    swal("Teacher has been deleted!", {
+                                    swal("Student has been deleted!", {
                                         icon: "success",
                                     });
                                     window.setTimeout(function() {
                                         location.reload();
                                     }, 2000);
                                 } else {
-                                    swal("Teacher dosen't exist in course!", {
+                                    swal("Student dosen't exist in course!", {
                                         icon: "error",
                                     });
                                 }

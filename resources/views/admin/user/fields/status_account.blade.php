@@ -1,12 +1,14 @@
 @php
     $inputDisplay = "";
     $viewDisplay="none";
-    $checked = 'checked';
+    $checked = '';
     if($action == 'edit'){
         if($crud->getCurrentEntry()->status == "disable"){
             $inputDisplay = "none";
             $viewDisplay="";
             $checked = '';
+        }else{
+            $checked = 'checked';
         }
 
         $start_time = \Carbon\Carbon::parse($accountTypeDetail->start_time ?? null)->format('Y-m-d') ;

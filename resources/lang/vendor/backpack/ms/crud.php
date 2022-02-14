@@ -24,6 +24,10 @@ return [
     "endTime" => "Masa Tamat",
     "images" => "Imej",
     "content" => "Kandungan",
+    'fullName'         => 'Nama Penuh',
+    'firstName'         => 'Nama Pertama',
+    'lastName'         => 'Nama Terakhir',
+
     "save_action_save_and_new" => "Simpan dan item baru",
     "save_action_save_and_edit" => "Simpan dan edit item ini",
     "save_action_save_and_back" => "Simpan dan kembali",

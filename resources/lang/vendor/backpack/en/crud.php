@@ -24,6 +24,7 @@ return [
     'endTime'           => 'End Time',
     'images'           => 'Images',
     'content'           => 'Content',
+    'fullName'         => 'Full Name',
     'firstName'         => 'First Name',
     'lastName'         => 'Last Name',
 

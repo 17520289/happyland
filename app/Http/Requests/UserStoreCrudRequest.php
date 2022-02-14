@@ -40,6 +40,7 @@ class UserStoreCrudRequest extends FormRequest
     }
     public function withValidator($validator)
     {
+        //   dd($this->input('roles_show'));
         if($this->input('roles_show') != null){
             $validator->after(function ($validator) {
                 $roleStudent = array_filter($this->input('roles_show'), function($v, $k) {

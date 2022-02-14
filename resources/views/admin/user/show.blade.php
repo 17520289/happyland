@@ -120,14 +120,14 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label for="fullName">Name</label>
+                                        <label for="fullName">First Name</label>
                                         <p class="form-control">{{$student->name ?? 'Name'}}</p>
                                         {{-- <input type="text" class="form-control" id="fullName" placeholder="Enter full name"> --}}
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label for="fullName">Full Name</label>
+                                        <label for="fullName">Last Name</label>
                                         <p class="form-control">{{$student->full_name ?? 'Full Name'}}</p>
                                         {{-- <input type="text" class="form-control" id="fullName" placeholder="Enter full name"> --}}
                                     </div>
@@ -203,14 +203,14 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label for="fullName">Name</label>
+                                        <label for="fullName">First Name</label>
                                         <p class="form-control">{{$parent->name ?? 'Name'}}</p>
                                         {{-- <input type="text" class="form-control" id="fullName" placeholder="Enter full name"> --}}
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label for="fullName">Full Name</label>
+                                        <label for="fullName">Last Name</label>
                                         <p class="form-control">{{$parent->full_name ?? 'Full Name'}}</p>
                                         {{-- <input type="text" class="form-control" id="fullName" placeholder="Enter full name"> --}}
                                     </div>

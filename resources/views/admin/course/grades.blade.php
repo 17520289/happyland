@@ -25,7 +25,7 @@ $breadcrumbs = [
         <div class="col-md-12">
             <div class="row mb-2 " id="new_colums">
                 <div class="col-md-12">
-                    @if (backpack_user()->hasAnyRole('Admin', 'Teacher'))
+                    @if (backpack_user()->hasAnyRole('Super Admin','Admin', 'Teacher'))
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addNewCol">
                             <i class="la la-plus"></i> New Column
                         </button>
@@ -166,37 +166,41 @@ $breadcrumbs = [
     <script type="text/javascript">
      
         var columnScores = {!! json_encode($columnScores->toArray()) !!};
-        var columns = [{
+        function getColumn(){
+            var columns = [{
                 data: 'DT_RowIndex',
                 name: 'DT_RowIndex'
             },
             {
-                data: 'full_name',
-                name: 'full_name'
+                data: 'full_name_custom',
+                name: 'full_name_custom'
             },
-        ];
+            ];
 
-        for (id in columnScores) {
-            var value = {
-                data: `${columnScores[id].name}`,
-                name: `${columnScores[id].name}`,
-                render: function(data, type) {
-                    var dataId = data.split('/');
-                    if(dataId[3] == 'active'){
-                        var html = '<a href="#bannerformmodal" data-score="' + dataId[2] +
-                        '"  data-toggle="modal" data-target="#bannerformmodal"';
-                    html += 'class="view-grade" data-user-id="' + dataId[0] + '"  data-column-id="' +
-                        dataId[1] + '"><p id="score[' + dataId[0] + '][' + dataId[1] + ']">' + dataId[
-                            2] + '</p></a>';
-                    }else{
-                        var html = '<p >' + dataId[2] + '</p>';
-                    }
-                   
-                    return html;
-                },
+                for (id in columnScores) {
+                    var value = {
+                        data: `${columnScores[id].name}` + 'score',
+                        name: `${columnScores[id].name}`,
+                        render: function(data, type) {
+                            var dataId = data.split('/');
+                            if(dataId[3] == 'active'){
+                                var html = '<a href="#bannerformmodal" data-score="' + dataId[2] +
+                                '"  data-toggle="modal" data-target="#bannerformmodal"';
+                            html += 'class="view-grade" data-user-id="' + dataId[0] + '"  data-column-id="' +
+                                dataId[1] + '"><p id="score[' + dataId[0] + '][' + dataId[1] + ']">' + dataId[
+                                    2] + '</p></a>';
+                            }else{
+                                var html = '<p >' + dataId[2] + '</p>';
+                            }
+                        
+                            return html;
+                        },
 
-            };
-            columns.push(value);
+                    };
+                    
+                    columns.push(value);
+                }
+          return columns;
         }
 
         var table = $('.yajra-datatable').DataTable({
@@ -204,7 +208,7 @@ $breadcrumbs = [
             serverSide: true,
             responsive: true,
             ajax: "{{ route('course.ajax-grades.get', ['id' => $course->id]) }}",
-            columns: columns,
+            columns: getColumn(),
 
         });
 

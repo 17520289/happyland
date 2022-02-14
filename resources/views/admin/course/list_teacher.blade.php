@@ -16,7 +16,7 @@ $breadcrumbs = [
         <h2><a href="{{ route('course.show', ['id' => \Route::current()->parameter('id')]) }}"><i
                     class="la la-backward nav-icon"></i></a>
             <span class="text-capitalize">{{ $course->name }}</span>
-            <small> >> List Teacher</small>
+            <small> >> Teacher List</small>
         </h2>
     </div>
     <hr style="width:100%;">

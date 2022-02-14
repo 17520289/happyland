@@ -3,10 +3,15 @@
 
 	<!-- Single edit button -->
 	<a href="{{ url($crud->route.'/'.$entry->getKey().'/edit') }}" 
-		@if ($entry->hasAnyRole(['Admin','Super Admin']))
-			style="  pointer-events: none;
-			cursor: default; color: gray"
-		@endif
+
+		@if ($entry->hasAnyRole(['Super Admin']) ||  $entry->deleted_at != null)
+		style="  pointer-events: none;
+		cursor: default; color: gray"
+	@endif
+
+			
+
+	
 		class="btn btn-sm btn-link"><i class="la la-edit"></i> {{ trans('backpack::crud.edit') }}</a>
 
 	@else

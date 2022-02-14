@@ -67,7 +67,7 @@ class LevelCrudController extends CrudController
         CRUD::setValidation(LevelRequest::class);
 
         
-        CRUD::field('name')->label(trans('backpack::crud.description'));
+        CRUD::field('name')->label(trans('backpack::crud.name'));
         CRUD::field('description')->label(trans('backpack::crud.description'));
 
         /**

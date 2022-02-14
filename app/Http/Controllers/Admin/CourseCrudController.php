@@ -79,15 +79,15 @@ class CourseCrudController extends CrudController
     protected function setupListOperation()
     {
         if(!backpack_user()->hasAnyRole(['Super Admin','Admin'])){
-            $this->crud->addClause('where', 'status', '=', 'publish');
+            $this->crud->addClause('where', 'status', '=', 'published');
             $courseIds = Enrollment::where('user_id', backpack_user()->id)->pluck('course_id')->toArray();
             $this->crud->addClause('whereIn', 'id', $courseIds );
         }
        
         // CRUD::column('id');
         CRUD::column('name')->label(trans('backpack::crud.name')); // This line;
-        CRUD::column('start_date')->label(trans('backpack::crud.startDate'));
-        CRUD::column('end_date')->label(trans('backpack::crud.endDate'));
+        CRUD::column('start_date')->label(trans('backpack::crud.startDate'))->format('MM-DD-YYYY')->type('date');
+        CRUD::column('end_date')->label(trans('backpack::crud.endDate'))->format('MM-DD-YYYY')->type('date');
         $this->crud->addColumn([
             'name' => 'status',
             'label' => trans('backpack::crud.status'),
@@ -108,7 +108,7 @@ class CourseCrudController extends CrudController
 
         if(backpack_user()->hasRole(['Student'])){
             $enrollments = Enrollment::where('user_id', backpack_user()->id)->pluck('course_id')->toArray();
-            $courses = Course::whereIn('id', $enrollments)->where('status', 'publish')->get();
+            $courses = Course::whereIn('id', $enrollments)->where('status', 'published')->get();
 
             
             $this->data['courses'] = $courses;
@@ -148,7 +148,7 @@ class CourseCrudController extends CrudController
         CRUD::field('name')->label(trans('backpack::crud.name'));
         $this->crud->addField(
             [  // Select
-                'label'     => "trans('backpack::base.level')",
+                'label'     => trans('backpack::base.level'),
                 'type'      => 'select',
                 'name'      => 'level_id', // the db column for the foreign key
              
@@ -176,7 +176,7 @@ class CourseCrudController extends CrudController
             'name' => 'status',
             'label' => trans('backpack::crud.status'),
             'type'        => 'select_from_array',
-            'options'     => ['publish' => 'Publish', 'unpublish' => 'UnPublish'],
+            'options'     => ['published' => 'Published', 'unpublished' => 'Unpublished'],
             'allows_null' => false,
             'default'     => 'unpublish',
             ],
@@ -464,7 +464,7 @@ class CourseCrudController extends CrudController
        
         // dd($this->data['course']->grades()->getResults()->toArray());
         $this->data['columnScores'] = ColumnScore::where('course_id', $request->id)->get(); 
-        if(backpack_user()->hasAnyRole(['Admin', 'Teacher'])){
+        if(backpack_user()->hasAnyRole(['Super Admin','Admin', 'Teacher'])){
             return view('admin.course.grades', $this->data);
         }else{
             return view('student.course.grades', $this->data);
@@ -493,7 +493,7 @@ class CourseCrudController extends CrudController
         if ($request->ajax()) {
             $course_id = $request->id;
           
-            if(backpack_user()->hasAnyRole(['Admin', 'Teacher'])){
+            if(backpack_user()->hasAnyRole(['Super Admin','Admin', 'Teacher'])){
                 $enrollment = Enrollment::where('course_id', $course_id)->pluck('user_id')->toArray();
                 $data = User::whereIn('id', $enrollment)->whereHas('roles', function($q) {
                     $q->where('name', 'Student');
@@ -509,10 +509,11 @@ class CourseCrudController extends CrudController
                 foreach ($columnScores as $key => $columnScore) {
                     $grade = Grade::where('user_id', $item->id)->where('column_score_id', $columnScore->id)->first();
                     $score = ($grade == null|| $grade->scores ==null)  ? 0 : $grade->scores;
-                    $status = ($grade == null|| $grade->status == null)  ? 'active' : $grade->status;
+                    $status = $item->status =='active'  ? 'active' : 'disable';
                     $actionScore = $item->id.'/'.$columnScore->id.'/'.$score.'/'.$status;
-                    $item[$columnScore->name] =  $actionScore;
+                    $item[$columnScore->name.'score'] =  $actionScore;
                 }
+                $item->full_name_custom = $item->name .' '. $item->full_name;
                 return $item;
             });
          
@@ -548,7 +549,7 @@ class CourseCrudController extends CrudController
     }
     public function showStudent(Request $request){
         $courses = backpack_user()->enrollment()->join('courses', 'courses.id', '=', 'enrollments.course_id')
-        ->where('courses.status' ,'=', 'publish')
+        ->where('courses.status' ,'=', 'published')
         ->select('courses.id')->pluck('courses.id')->toArray();
        $enrollOfStd = Enrollment::whereIn('course_id', $courses)->where('user_id', $request->student_id)->get();
        

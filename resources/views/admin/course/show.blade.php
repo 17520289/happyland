@@ -7,7 +7,7 @@ $defaultBreadcrumbs = [
     trans('backpack::crud.preview') => false,
 ];
 $course = $crud->getCurrentEntry();
-$url_img = $course->image != null ? $course->image : 'animation/English/public/img/background/intro.png';
+$url_img = $course->image != null ? $course->image : 'images/intro.png';
 // if breadcrumbs aren't defined in the CrudController, use the default breadcrumbs
 $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
 @endphp

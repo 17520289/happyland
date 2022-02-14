@@ -7,7 +7,7 @@ $defaultBreadcrumbs = [
     'Course' => false,
 ];
 // $course = $crud->getCurrentEntry();
-$url_img = $course->image != null ? $course->image : 'animation/English/public/img/background/intro.png';
+$url_img = $course->image != null ? $course->image : 'images/intro.png';
 // if breadcrumbs aren't defined in the CrudController, use the default breadcrumbs
  $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
 @endphp
@@ -42,7 +42,7 @@ $url_img = $course->image != null ? $course->image : 'animation/English/public/i
                     @if ($teachers->count()> 0)
                          (
                         @foreach ($teachers as $teacher)
-                            {{ $teacher->full_name . ',' }}
+                            {{  $teacher->name.' '. $teacher->full_name . ',' }}
                         @endforeach
                         )
                     @endif

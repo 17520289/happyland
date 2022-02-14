@@ -45,6 +45,7 @@ class UserUpdateCrudRequest extends FormRequest
     }
     public function withValidator($validator)
     {
+        // dd($this->input('roles_show'));
         $id = $this->get('id') ?? request()->route('id');
         if(backpack_user()->id == $id){
         $validator->after(function ($validator) {

@@ -1,0 +1,1 @@
+<span>{{$entry->name . ' '. $entry->full_name}}</span>

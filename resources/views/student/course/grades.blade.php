@@ -42,10 +42,10 @@ if(backpack_user()->hasRole('Parent')){
                 <table class="table table-responsive-sm table-sm table-grades">
                     <thead>
                       <tr>
-                        <th scope="col">#Column </th>
-                        <th scope="col">Scores</th>
+                        <th scope="col">#Name </th>
+                        <th scope="col">Score</th>
                         <th scope="col">Comment</th>
-                        <th scope="col">Classification</th>
+                        {{-- <th scope="col">Classification</th> --}}
                       </tr>
                     </thead>
                     <tbody>
@@ -58,7 +58,7 @@ if(backpack_user()->hasRole('Parent')){
                             <td ><b>{{$column->name}}</b></td>
                             <td >{{ $grade->scores ?? '...'}}</td>
                             <td style="word-wrap: break-word;  max-width: 150px;padding-right: 30px">{{ $grade->comment ?? '...'}}</td>
-                            <td  >{{ $grade->classification ?? '...'}}</td>
+                            {{-- <td  >{{ $grade->classification ?? '...'}}</td> --}}
                           </tr>
                         @endforeach
                  

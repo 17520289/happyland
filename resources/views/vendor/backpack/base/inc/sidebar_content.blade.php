@@ -8,10 +8,10 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('material') }}'><i class='nav-icon la la-folder-open'></i> {{ trans('backpack::base.Materials') }}</a></li>
 @endcan
 @can('List AccountType')
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('account-type') }}'><i class='nav-icon la la-outdent'></i> {{ trans('backpack::base.Accounttypes') }}</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('account-type') }}'><i class='nav-icon la la-object-group'></i> {{ trans('backpack::base.Accounttypes') }}</a></li>
 @endcan
 @can('List Level')
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('level') }}'><i class='nav-icon la la-indent'></i> {{ trans('backpack::base.Levels') }}</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('level') }}'><i class='nav-icon la la-sort-numeric-asc'></i> {{ trans('backpack::base.Levels') }}</a></li>
 @endcan
 {{-- menu cho role Admin --}}
 @if (backpack_user()->hasAnyRole(['Admin', 'Super Admin']))

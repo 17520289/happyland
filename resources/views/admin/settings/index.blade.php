@@ -40,7 +40,7 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
                             <span data-value="save_and_back">{{trans('backpack::base.save')}}</span>
 
                         </button>
-                        <a href="http://lms.hihi.io/course" class="btn btn-default"><span class="la la-ban"></span>
+                        <a href="javascript:history.back()" class="btn btn-default"><span class="la la-ban"></span>
                             &nbsp;{{trans('backpack::base.cancel')}}</a>
                     </div>
 

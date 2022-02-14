@@ -25,6 +25,9 @@ return [
     'endTime'           => '时间结束',
     'images'           => '图片',
     'content'           => '内容',
+    'fullName'         => '全名',
+    'firstName'         => '名',
+    'lastName'         => '姓',
 
 
 

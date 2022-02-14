@@ -76,7 +76,7 @@ class ParentController extends Controller
         $parentId = $request->id;
         $studentId = $request->student_id;
         $enrollments = Enrollment::where('user_id', $studentId)->pluck('course_id')->toArray();
-        $this->data['courses'] = Course::whereIn('id', $enrollments)->where('status', 'publish')->get();
+        $this->data['courses'] = Course::whereIn('id', $enrollments)->where('status', 'published')->get();
         $this->data['accountTypeDetail'] = AccountTypeDetail::where('user_id', $studentId)->orderBy('id', 'desc')->first();
         return view('student.course.list', $this->data);
     }

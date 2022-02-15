@@ -48,9 +48,14 @@ Route::group([
         Route::post('/{id}/addColumnGrade', 'CourseCrudController@postAddColumnGrade')->name('course.grade.addColumn.post');
         Route::get('/{id}/ajax-grades', 'CourseCrudController@getGradesCourse')->name('course.ajax-grades.get');
         Route::post('/{id}/update-grade', 'CourseCrudController@postUpdateGrade')->name('course.update-grade.post');
-        
+        Route::post('/{id}/update-column', 'CourseCrudController@postUpdateColumn')->name('course.update-column.post');
+        Route::post('/{id}/delete-column', 'CourseCrudController@postDeleteColumn')->name('course.delete-column.post');
+
         //show information of student
         Route::get('/{id}/student/{student_id}/show' , 'CourseCrudController@showStudent')->name('course.showStudent.get');
+
+        //GET flashcard
+        Route::get('/{id}/flash-card', 'CourseCrudController@getFlashCard')->name('course.flashCard.get');
     });
     Route::name('parent.')->prefix('parent')->group( function (){
         Route::get('/{id}/listChildren', 'ParentController@getListChildren')->name('list-children.get');
@@ -59,6 +64,7 @@ Route::group([
         Route::get('/{id}/course/{course_id}/children/{student_id}/show', 'ParentController@getShowCourse')->name('showCourses.get');
         Route::get('/{id}/course/{course_id}/children/{student_id}/grades', 'ParentController@getGradesChildren')->name('gradeChildren.get');
         Route::get('/{id}/course/{course_id}/children/{student_id}/assessment', 'ParentController@getAssessment')->name('assessmentChildren.get');
+        Route::get('/{id}/course/{course_id}/children/{student_id}/flash-card', 'ParentController@getFlashCard')->name('flashCard.get');
     });
     Route::name('settings.')->prefix('settings')->group( function (){
         Route::get('/', 'SettingsController@index')->name('index.get');

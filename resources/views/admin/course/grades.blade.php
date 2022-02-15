@@ -29,6 +29,9 @@ $breadcrumbs = [
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addNewCol">
                             <i class="la la-plus"></i> New Column
                         </button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editColumn">
+                            <i class="la la-edit"></i> Edit 
+                        </button>
                     @endif
                 </div>
             </div>
@@ -61,8 +64,7 @@ $breadcrumbs = [
     </div>
     </div>
 
-@endsection
-<div class="modal fade" id="addNewCol" tabindex="-1" role="dialog" aria-labelledby="addNewColGrade"
+    <div class="modal fade" id="addNewCol" tabindex="-1" role="dialog" aria-labelledby="addNewColGrade"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -90,6 +92,56 @@ $breadcrumbs = [
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-success" id="addColumn">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade show"  id="editColumn" tabindex="-1" role="dialog" aria-labelledby="addNewColGrade"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" >Edit column</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-danger" style="display:none"></div>
+                <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col" style="width: 5%;">#</th>
+                        <th scope="col" style="width: 30%;">Name</th>
+                        <th scope="col" >Description</th>
+                        <th scope="col" style="width: 20%;">Action</th>
+                      </tr>
+                    </thead>
+                    <form class="" id="formEditColumn" method="post" id="add-column" action="" enctype="multipart/form-data">
+                    <tbody>
+                        @foreach ($allColumnScores as $key=>$column)
+                        <tr>
+                            <th scope="row">{{$key+1}}</th>
+                            <td><input class="form-control"  name="columns[{{$column->id}}][name]" type="text" value="{{$column->name ?? ''}}"></td>
+                            <td><input class="form-control" name="columns[{{$column->id}}][description]" type="text" value="{{$column->description ?? ''}}"></td>
+                            <td style="text-align: center">
+                                <label class="switch switch-label switch-pill switch-primary mb-0 pt-1">
+                                    <input class="switch-input action-delete"  name="columns[{{$column->id}}][action]"
+                                        type="checkbox" @if ($column->deleted_at == null)  checked  @endif 
+                                    ><span class="switch-slider" data-checked="On" data-unchecked="Off"></span>
+                                </label>
+                                <a href="javascript:;"  data-column-edit-id="{{$column->id}}" data-column-edit-name="{{$column->name}}" class="sa-params delete btn btn-danger btn-sm" title="Remove from course"><i class="la la-trash"></i></a>
+                            </td>
+                          </tr>
+                        @endforeach
+                    
+                    </tbody>
+                    </form>
+                  </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success" id="editColumnGrade">Save</button>
             </div>
         </div>
     </div>
@@ -130,6 +182,8 @@ $breadcrumbs = [
         </div>
     </div>
 </div>
+
+@endsection
 
 @section('after_styles')
     <style>
@@ -338,11 +392,87 @@ $breadcrumbs = [
                         new Noty({
                             theme: 'light',
                             type: "error",
+                            text: 'Item has already been added.',
+                        }).show();
+                    }
+                }
+            });
+        });
+        $('body').on('click', '#editColumnGrade', function() {
+            var form = $('#formEditColumn');
+            var course_id = "{{ $course->id }}";
+            var url = "{{ route('course.update-column.post', ['id' => ':id']) }}";
+            url = url.replace(':id', course_id);
+            $.ajax({
+                type: 'POST',
+                url: url,
+                data: form.serialize(),
+                success: function(response){
+                    if (response.success) {
+                        new Noty({
+                            theme: 'light',
+                            type: "success",
+                            text: response.success,
+                        }).show();
+                        window.setTimeout(function() {
+                            location.reload();
+                        }, 2000);
+                    } else {
+                        new Noty({
+                            theme: 'light',
+                            type: "error",
                             text: 'Error',
                         }).show();
                     }
                 }
             });
+        });
+        $('body').on('click', '.sa-params', function() {
+            var column_id = $(this).data('column-edit-id');
+            var column_name = $(this).data('column-edit-name');
+            var course_id = "{{ \Route::current()->parameter('id') }}";
+            swal({
+                    title: "Are you sure?",
+                    text: "Happy Land will permanently delete this column. Do you want to continue?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        var url =
+                            "{{ route('course.delete-column.post', ['id' => ':id']) }}";
+                        url = url.replace(':id', course_id);
+                        var token = "{{ csrf_token() }}";
+                        $.ajax({
+                            type: 'POST',
+                            url: url,
+                            data: {
+                                'column_id' : column_id,
+                                '_token': token
+                            },
+                            success: function(response) {
+                                if (response.success) {
+                                    swal(response.success, {
+                                        icon: "success",
+                                    });
+                                    window.setTimeout(function() {
+                                        location.reload();
+                                    }, 2000);
+                                } else {
+                                    swal(response.error, {
+                                        icon: "error",
+                                    });
+                                }
+                            }
+                        });
+
+
+                    } else {
+
+                    }
+                });
+
         });
     </script>
 

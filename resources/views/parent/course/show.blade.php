@@ -49,8 +49,8 @@ $url_img = $course->image != null ? $course->image : 'images/intro.png';
                 </li>
                 <li>Students: {{ $quantityStudent }}</li>
             </ul>
-            <p><b>Start Date:</b> {{ $course->start_date ?? '' }}</p>
-            <p><b>End Date:</b> {{ $course->end_date ?? '' }}</p>
+            <p><b>Start Date:</b> {{  \Carbon\Carbon::parse($course->start_date)->format('m-d-Y') ?? '' }}</p>
+            <p><b>End Date:</b> {{  \Carbon\Carbon::parse($course->end_date)->format('m-d-Y') ?? '' }}</p>
             @if ($course->description != null)
                 <p><b>Description: </b></p>
                 {!! html_entity_decode($course->description) ?? '' !!}

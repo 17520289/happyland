@@ -105,5 +105,10 @@ class ParentController extends Controller
         $this->data['course'] = Course::find($request->course_id);
         return view('student.assessment.list', $this->data);
     }
+    public function getFlashCard(Request $request){
+        $this->data['course'] = Course::find($request->course_id);
+        return view('student.flash_card.index', $this->data);
+    }
+
 
 }

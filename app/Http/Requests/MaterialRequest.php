@@ -27,7 +27,7 @@ class MaterialRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            "images.*" => "sometimes|mimes:png,jpeg,jpg,bmp,gif,svg"
+            "images.*" => "nullable:sometimes|mimes:png,jpeg,jpg,bmp,gif,svg"
            
         ];
     }

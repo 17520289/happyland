@@ -4,10 +4,12 @@
                 $urlGrades=  route('parent.gradeChildren.get', $para);
                 $urlInfo = route('parent.showCourses.get', $para);
                 $urlAssess = route('parent.assessmentChildren.get' , $para );
+                $urlFlashCard = route('parent.flashCard.get', $para);
         }else{
                 $urlGrades = route('course.grades.get', ['id' => \Route::current()->parameter('id')]);
                 $urlInfo = route('course.show', ['id' => \Route::current()->parameter('id')]);
                 $urlAssess = route('student.assessment.get', ['id' => \Route::current()->parameter('id')]);
+                $urlFlashCard = route('course.flashCard.get', ['id' => \Route::current()->parameter('id')]);
         }
    
 
@@ -29,6 +31,9 @@
                 href="{{ $urlGrades }}">Grades</a></li>
         <li class="nav-item"><a class="nav-link"
                 href="{{ $urlAssess }}">Assessment</a>
+        </li>
+        <li class="nav-item"><a class="nav-link"
+                href="{{ $urlFlashCard }}">Flash Card</a>
         </li>
     @endif
 </ul>

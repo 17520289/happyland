@@ -464,6 +464,7 @@ class CourseCrudController extends CrudController
        
         // dd($this->data['course']->grades()->getResults()->toArray());
         $this->data['columnScores'] = ColumnScore::where('course_id', $request->id)->get(); 
+        $this->data['allColumnScores'] = ColumnScore::where('course_id', $request->id)->withTrashed()->get(); 
         if(backpack_user()->hasAnyRole(['Super Admin','Admin', 'Teacher'])){
             return view('admin.course.grades', $this->data);
         }else{
@@ -570,5 +571,34 @@ class CourseCrudController extends CrudController
        $this->data['parent'] = $parent;
        return view('admin.user.show', $this->data);
     }
-  
+    public function getFlashCard(Request $request){
+        $this->data['course'] = Course::find($request->id);
+        return view('student.flash_card.index', $this->data);
+    }
+    public function postUpdateColumn(Request $request){
+        $columns = $request->columns;
+        foreach ($columns as $key => $column) {
+            $update = ['name' => $column['name'],
+            'description' =>  $column['description'],     
+                ];
+            if(!isset($column['action'])){
+                $update['deleted_at'] = Carbon::now();
+            }else{
+                $update['deleted_at']= null;
+            }
+            $column = DB::table('column_scores')
+                    ->where('id', $key)
+                    ->update($update);
+        }
+        return response()->json(['success'=>'Successfully updated.']);
+    }
+    public function postDeleteColumn(Request $request){
+        $columnId = $request->column_id;
+        $columnScore = ColumnScore::where( 'id', $columnId)->forceDelete();
+        Grade::where('column_score_id', $columnId)->delete();
+        if($columnScore == 1){
+            return response()->json(['success'=> 'Successfully!']);
+        }
+        return response()->json(['error'=> 'The column does not exist.']);
+    }
 }

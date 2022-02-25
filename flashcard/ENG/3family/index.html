@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<style>
+.modal{
+ bottom: initial!important;
+ position: relative;
+ z-index: 2000;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #0026ff;
+  color: white;
+}
+
+.next {
+  background-color: #0026ff;
+  color: white;
+}
+
+.round {
+  border-radius: 50%;
+}
+</style>
+<body>
+<div class="container d-flex justify-content-between" style="height: 40vw;">
+    <div style="display: flex; align-items: center; justify-content: center;">
+        <a href="#" class="previous round" onclick="backButton();">&#8249;</a>
+    </div>
+    <div style="width: 100%;">
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" data-backdrop="false">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content d-flex flex-row justify-content-around">
+                <div style="height: 30vw;width: 30vw;"  class="d-flex align-self-center ">
+                    <img id="img" src="img/body/001 body.jpg" style="width: 100%;height: 100%;object-fit: contain"></img>
+                </div>
+               
+                <div class="d-flex align-self-center">
+                    <b id="text" style = " font-size: 6rem " >BODY</b>
+                </div>
+              
+            </div>
+            </div>
+        </div>
+    </div>
+    <div style="display: flex; align-items: center; justify-content: center;">
+        <a href="#" class="next round" onclick="nextButton(); return false;">&#8250;</a>
+    </div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script>
+    const data = [
+    {
+      "id": 39,
+      "picture": "./img/039 family.jpg",
+      "vocabulary": "family",
+      "sound": "./sound/family.wav"
+    },
+    {
+      "id": 40,
+      "picture": "./img/040 grandfather.jpg",
+      "vocabulary": "grandfather",
+      "sound": "./sound/grandfather.wav"
+    },
+    {
+      "id": 41,
+      "picture": "./img/041 grandmother.jpg",
+      "vocabulary": "grandmother",
+      "sound": "./sound/grandmother.wav"
+    },
+    {
+      "id": 42,
+      "picture": "./img/042 father.jpg",
+      "vocabulary": "father",
+      "sound": "./sound/father.wav"
+    },
+    {
+      "id": 43,
+      "picture": "./img/043 mother.jpg",
+      "vocabulary": "mother",
+      "sound": "./sound/mother.wav"
+    },
+    {
+      "id": 44,
+      "picture": "./img/044 uncle.jpg",
+      "vocabulary": "uncle",
+      "sound": "./sound/uncle.wav"
+    },
+    {
+      "id": 45,
+      "picture": "./img/045 aunt.jpg",
+      "vocabulary": "aunt",
+      "sound": "./sound/aunt.wav"
+    },
+    {
+      "id": 46,
+      "picture": "./img/046 elder brother.jpg",
+      "vocabulary": "elder brother",
+      "sound": "./sound/elder brother.wav"
+    },
+    {
+      "id": 47,
+      "picture": "./img/047 elder sister.jpg",
+      "vocabulary": "elder sister",
+      "sound": "./sound/elder sister.wav"
+    },
+    {
+      "id": 48,
+      "picture": "./img/048 younger sister.jpg",
+      "vocabulary": "younger sister",
+      "sound": "./sound/younger sister.wav"
+    },
+    {
+      "id": 49,
+      "picture": "./img/049 younger brother.jpg",
+      "vocabulary": "younger brother",
+      "sound": "./sound/younger brother.wav"
+    }
+    ]
+    $('.modal').modal('show');
+
+</script>
+<script>
+    async function animation(id) {
+        $('.modal').modal('hide');
+        await sleep(300);
+        $('.modal').modal('show');
+
+        $("#img").attr("src", data[id].picture);
+        $('#text').text(data[id].vocabulary)
+        var audio = new Audio(data[id].sound);
+        audio.play();
+    }
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+    function init(){
+        $("#img").attr("src", data[0].picture);
+        $('#text').text(data[0].vocabulary)
+        var audio = new Audio(data[0].sound);
+        audio.play();
+    }
+    init();
+    var index = 0;
+    function nextButton(){
+        index ++;
+        if(index > data.length - 1){
+            index = data.length - 1;
+        }
+        animation(index);
+    }
+    function backButton(){
+        index--;
+        if(index < 0){
+            index = 0;
+        }
+        animation(index);
+    }
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<style>
+.modal{
+ bottom: initial!important;
+ position: relative;
+ z-index: 2000;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #0026ff;
+  color: white;
+}
+
+.next {
+  background-color: #0026ff;
+  color: white;
+}
+
+.round {
+  border-radius: 50%;
+}
+</style>
+<body>
+<div class="container d-flex justify-content-between" style="height: 40vw;">
+    <div style="display: flex; align-items: center; justify-content: center;">
+        <a href="#" class="previous round" onclick="backButton();">&#8249;</a>
+    </div>
+    <div style="width: 100%;">
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" data-backdrop="false">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content d-flex flex-row justify-content-around">
+                <div style="height: 30vw; width: 30vw;"  class="d-flex align-self-center ">
+                    <img id="img" src="img/001 body.jpg" style="width: 100%;height: 100%;object-fit: contain"></img>
+                </div>
+               
+                <div class="d-flex align-self-center">
+                    <b id="text" style = " font-size: 6rem " >BODY</b>
+                </div>
+              
+            </div>
+            </div>
+        </div>
+    </div>
+    <div style="display: flex; align-items: center; justify-content: center;">
+        <a href="#" class="next round" onclick="nextButton(); return false;">&#8250;</a>
+    </div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script>
+    const data = [
+    {
+      "id": 1,
+      "picture": "./img/001 body.jpg",
+      "vocabulary": "body",
+      "sound": "./sound/body.wav"
+    },
+    {
+      "id": 2,
+      "picture": "./img/002 head.jpg",
+      "vocabulary": "head",
+      "sound": "./sound/head.wav"
+    },
+    {
+      "id": 3,
+      "picture": "./img/003 neck.jpg",
+      "vocabulary": "neck",
+      "sound": "./sound/neck.wav"
+    },
+    {
+      "id": 4,
+      "picture": "./img/004 shoulder.jpg",
+      "vocabulary": "shoulder",
+      "sound": "./sound/shoulder.wav"
+    },
+    {
+      "id": 5,
+      "picture": "./img/005 hand.jpg",
+      "vocabulary": "hand",
+      "sound": "./sound/hand.wav"
+    },
+    {
+      "id": 6,
+      "picture": "./img/006 arm.jpg",
+      "vocabulary": "arm",
+      "sound": "./sound/arm.wav"
+    },
+    {
+      "id": 7,
+      "picture": "./img/007 elbow.jpeg",
+      "vocabulary": "elbow",
+      "sound": "./sound/elbow.wav"
+    },
+    {
+      "id": 8,
+      "picture": "./img/008 wrist.jpg",
+      "vocabulary": "wrist",
+      "sound": "./sound/wrist.wav"
+    },
+    {
+      "id": 9,
+      "picture": "./img/009 fingers.jpg",
+      "vocabulary": "fingers",
+      "sound": "./sound/fingers.wav"
+    },
+    {
+      "id": 10,
+      "picture": "./img/010 nails.jpg",
+      "vocabulary": "nails",
+      "sound": "./sound/nails.wav"
+    },
+    {
+      "id": 11,
+      "picture": "./img/011 armpit.jpg",
+      "vocabulary": "armpit",
+      "sound": "./sound/armpit.wav"
+    },
+    {
+      "id": 12,
+      "picture": "./img/012 back.jpg",
+      "vocabulary": "back",
+      "sound": "./sound/back.wav"
+    },
+    {
+      "id": 13,
+      "picture": "./img/013 chest.jpg",
+      "vocabulary": "chest",
+      "sound": "./sound/chest.wav"
+    },
+    {
+      "id": 14,
+      "picture": "./img/014 waist.jpg",
+      "vocabulary": "waist",
+      "sound": "./sound/waist.wav"
+    },
+    {
+      "id": 15,
+      "picture": "./img/015 stomach.png",
+      "vocabulary": "stomach",
+      "sound": "./sound/stomach.wav"
+    },
+    {
+      "id": 16,
+      "picture": "./img/016 legs.jpg",
+      "vocabulary": "legs",
+      "sound": "./sound/legs.wav"
+    },
+    {
+      "id": 17,
+      "picture": "./img/017 knees.jpg",
+      "vocabulary": "knees",
+      "sound": "./sound/knees.wav"
+    },
+    {
+      "id": 18,
+      "picture": "./img/018 thigh.png",
+      "vocabulary": "thigh",
+      "sound": "./sound/thigh.wav"
+    },
+    {
+      "id": 19,
+      "picture": "./img/019 calf.jpg",
+      "vocabulary": "calf",
+      "sound": "./sound/calf.wav"
+    },
+    {
+      "id": 20,
+      "picture": "./img/020 feet.jpg",
+      "vocabulary": "feet",
+      "sound": "./sound/feet.wav"
+    },
+    {
+      "id": 21,
+      "picture": "./img/021 ankle.jpg",
+      "vocabulary": "ankle",
+      "sound": "./sound/ankle.wav"
+    },
+    {
+      "id": 22,
+      "picture": "./img/022 toes.jpg",
+      "vocabulary": "toes",
+      "sound": "./sound/toes.wav"
+    },
+    {
+      "id": 23,
+      "picture": "./img/023 skin.png",
+      "vocabulary": "feet",
+      "sound": "./sound/feet.wav"
+    },
+    ]
+    $('.modal').modal('show');
+
+</script>
+<script>
+    async function animation(id) {
+        $('.modal').modal('hide');
+        await sleep(300);
+        $('.modal').modal('show');
+
+        $("#img").attr("src", data[id].picture);
+        $('#text').text(data[id].vocabulary)
+        var audio = new Audio(data[id].sound);
+        audio.play();
+    }
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+    function init(){
+        $("#img").attr("src", data[0].picture);
+        $('#text').text(data[0].vocabulary)
+        var audio = new Audio(data[0].sound);
+        audio.play();
+    }
+    init();
+    var index = 0;
+    function nextButton(){
+        index ++;
+        if(index > data.length - 1){
+            index = data.length - 1;
+        }
+        animation(index);
+    }
+    function backButton(){
+        index--;
+        if(index < 0){
+            index = 0;
+        }
+        animation(index);
+    }
+</script>
+
+</body>
+</html>
+

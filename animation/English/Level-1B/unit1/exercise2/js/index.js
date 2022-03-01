@@ -1,57 +1,57 @@
 const questions = [
   {
     question: "1-6",
-    picture: "./img/garlic.jpg",
-    choose1: "garlic",
-    choose2: "corn",
-    sound1: "./sound/garlic.wav",
-    sound2: "./sound/corn.wav",
+    picture: "./img/shirt.jpg",
+    choose1: "shirt",
+    choose2: "pajamas",
+    sound1: "./sound/shirt.wav",
+    sound2: "./sound/pajamas.wav",
     ans: "1",
   },
   {
     question: "2-6",
-    picture: "./img/onion.jpg",
-    choose1: "cucumber",
-    choose2: "onion",
-    sound1: "./sound/cucumber.wav",
-    sound2: "./sound/onion.wav",
+    picture: "./img/tshirt.jpg",
+    choose1: "singlets",
+    choose2: "tshirt",
+    sound1: "./sound/singlets.wav",
+    sound2: "./sound/T-shirt.wav",
     ans: "2",
   },
   {
     question: "3-6",
-    picture: "./img/spring onion.jpg",
-    choose1: "spring onion",
-    choose2: "mustard",
-    sound1: "./sound/spring onion.wav",
-    sound2: "./sound/mustard.wav",
+    picture: "./img/blouse.jpg",
+    choose1: "blouse",
+    choose2: "uniform",
+    sound1: "./sound/blouse.wav",
+    sound2: "./sound/uniform.wav",
     ans: "1",
   },
   {
     question: "4-6",
-    picture: "./img/long bean.jpg",
-    choose1: "celery",
-    choose2: "long bean",
-    sound1: "./sound/celery.wav",
-    sound2: "./sound/long bean.wav",
-    ans: "2",
+    picture: "./img/singlets.jpg",
+    choose1: "singlets",
+    choose2: "sandals",
+    sound1: "./sound/singlets.wav",
+    sound2: "./sound/sandals.wav",
+    ans: "1",
   },
   {
     question: "5-6",
-    picture: "./img/cauliflower.jpg",
-    choose1: "sweet potato",
-    choose2: "cauliflower",
-    sound1: "./sound/sweet potato.wav",
-    sound2: "./sound/cauliflower.wav",
+    picture: "./img/coat.jpg",
+    choose1: "glove",
+    choose2: "coat",
+    sound1: "./sound/glove.wav",
+    sound2: "./sound/coat.wav",
     ans: "2",
   },
   {
     question: "6-6",
-    picture: "./img/radish.jpg",
-    choose1: "radish",
-    choose2: "carrot",
-    sound1: "./sound/radish.wav",
-    sound2: "./sound/carrot.wav",
-    ans: "1",
+    picture: "./img/pants.jpg",
+    choose1: "necktie",
+    choose2: "pants",
+    sound1: "./sound/necktie.wav",
+    sound2: "./sound/pants.wav",
+    ans: "2",
   },
 ];
 
@@ -79,15 +79,10 @@ function playCorrect() {
   var audioElement = document.createElement("audio");
   audioElement.setAttribute("src", "./sound/correct.wav");
   audioElement.play();
-  document.getElementById("exercise").innerHTML +=
-    "<div class='container' id='yeah' style='position: absolute; z-index: 4;top: 15px; left: 20px; margin: 0px 50px 0px 50px;'><img src='../public/img/yeah3.gif' style='height: 600px'/></div>";
+  $("#exercise").append(
+    "<div class='container' id='yeah' style='position: absolute; z-index: 4;top: 15px; left: 20px; margin: 0px 50px 0px 50px;'><img src='../public/img/yeah3.gif' style='height: 600px'/></div>"
+  );
   setTimeout('document.getElementById("yeah").remove()', 900);
-  // $("#exercise").append(
-  //   "<div class='container' id='yeah1' style='position: absolute; top: 230px; left: 20px; margin: 0px 50px 0px 50px; z-index:1;'><img src='./img/blue-ice.png' style='height: 300px'/></div>" +
-  //     "<div class='container' id='yeah2' style='position: absolute; top: 230px; left: 230px; margin: 0px 50px 0px 50px;z-index:1;'><img src='./img/pink-ice.png' style='height: 300px'/></div>"
-  // );
-  // setTimeout('$("#yeah1").remove()', 900);
-  // setTimeout('$("#yeah2").remove()', 900);
 }
 
 function checkAnswer(clicked_id) {
@@ -96,9 +91,15 @@ function checkAnswer(clicked_id) {
     playWord(clicked_id + "_sound");
     document.getElementById(clicked_id + "_ans_sound").hidden = false;
     document.getElementById(clicked_id + "_img").hidden = false;
-    document.getElementById(clicked_id + "_img").innerHTML =
-      "<img src='../public/img/tick.png' style='height: 100px; margin: 15px; position: absolute; right:-16%; top:-30%' id='tick'/>";
-    console.log("đáp án đúng");
+    if (clicked_id === "buttonChoose2") {
+      document.getElementById(clicked_id + "_img").innerHTML =
+        "<img src='../public/img/tick.png' style='height: 100px;margin: 15px;position: absolute;left: 5%;top: 10%;z-index: 4;' id='tick'/>";
+    } else {
+      document.getElementById(clicked_id + "_img").innerHTML =
+        "<img src='../public/img/tick.png' style='height: 100px;margin: 15px;position: absolute;right: 5%;top: 10%;z-index: 4;' id='tick'/>";
+    }
+
+    console.log("đáp án đúng", user_ans === 1);
     clicked_id === "buttonChoose1"
       ? (idButton = clicked_id.replace(/1/g, "2"))
       : (idButton = clicked_id.replace(/2/g, "1"));
@@ -110,8 +111,13 @@ function checkAnswer(clicked_id) {
   } else {
     playWord(clicked_id + "_sound");
     document.getElementById(clicked_id + "_img").hidden = false;
-    document.getElementById(clicked_id + "_img").innerHTML =
-      "<img src='../public/img/wrong.png' style='height: 50px; margin: 15px; id='wrong''/>";
+    if (clicked_id === "buttonChoose2") {
+      document.getElementById(clicked_id + "_img").innerHTML =
+        "<img src='../public/img/wrong.png' style='height: 100px;margin: 15px;position: absolute;right: 5%;top: 10%;z-index: 4;' id='wrong'/>";
+    } else {
+      document.getElementById(clicked_id + "_img").innerHTML =
+        "<img src='../public/img/wrong.png' style='height: 100px;margin: 15px;position: absolute;left: 5%;top: 10%;z-index: 4;' id='wrong'/>";
+    }
     console.log("dap án sai");
     setTimeout(playWrong, 500);
     clicked_id === "buttonChoose1"
@@ -127,6 +133,9 @@ function checkAnswer(clicked_id) {
 }
 
 function getQuestion() {
+  document.getElementById("exercise").innerHTML +=
+    "<div class='container' id='yeah'</div>";
+  setTimeout('document.getElementById("yeah").remove()', 900);
   document.getElementById("image").src = questions[iQuestion].picture;
   document.getElementById("markboard").innerHTML =
     questions[iQuestion].question;

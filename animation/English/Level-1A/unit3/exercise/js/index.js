@@ -18,7 +18,7 @@ const questions = [
     sound1: "./sound/grandmother.wav",
     sound2: "./sound/father.wav",
     ans: "2",
-    bg: "./img/speakbubble-52.png",
+    bg: "./img/speakbubble-53.png",
     color: "black",
   },
   {
@@ -28,16 +28,16 @@ const questions = [
     choose2: "grandfather",
     sound1: "./sound/mother.wav",
     sound2: "./sound/grandfather.wav",
-    ans: "2",
-    bg: "./img/speakbubble-53.png",
+    ans: "1",
+    bg: "./img/speakbubble-52.png",
     color: "white",
   },
   {
     question: "4-8",
-    picture: "./img/grandmother.jpg",
-    choose1: "grandmother",
+    picture: "./img/younger brother.jpg",
+    choose1: "younger brother",
     choose2: "father",
-    sound1: "./sound/grandmother.wav",
+    sound1: "./sound/younger brother.wav",
     sound2: "./sound/father.wav",
     ans: "1",
     bg: "./img/speakbubble-49.png",
@@ -45,33 +45,33 @@ const questions = [
   },
   {
     question: "5-8",
-    picture: "./img/grandmother.jpg",
-    choose1: "grandmother",
-    choose2: "father",
-    sound1: "./sound/grandmother.wav",
-    sound2: "./sound/father.wav",
+    picture: "./img/elder brother.jpg",
+    choose1: "elder brother",
+    choose2: "elder sister",
+    sound1: "./sound/elder brother.wav",
+    sound2: "./sound/elder sister.wav",
     ans: "1",
     bg: "./img/speakbubble-52.png",
     color: "white",
   },
   {
     question: "6-8",
-    picture: "./img/grandmother.jpg",
-    choose1: "grandmother",
-    choose2: "father",
-    sound1: "./sound/grandmother.wav",
-    sound2: "./sound/father.wav",
+    picture: "./img/younger sister.jpg",
+    choose1: "younger sister",
+    choose2: "younger brother",
+    sound1: "./sound/younger sister.wav",
+    sound2: "./sound/younger brother.wav",
     ans: "1",
     bg: "./img/speakbubble-53.png",
     color: "black",
   },
   {
     question: "7-8",
-    picture: "./img/grandmother.jpg",
-    choose1: "grandmother",
-    choose2: "father",
-    sound1: "./sound/grandmother.wav",
-    sound2: "./sound/father.wav",
+    picture: "./img/elder sister.jpg",
+    choose1: "elder sister",
+    choose2: "mother",
+    sound1: "./sound/elder sister.wav",
+    sound2: "./sound/mother.wav",
     ans: "1",
     bg: "./img/speakbubble-49.png",
     color: "white",
@@ -114,7 +114,7 @@ function playCorrect() {
   audioElement.setAttribute("src", "./sound/correct.wav");
   audioElement.play();
   document.getElementById("exercise").innerHTML +=
-    "<div class='container' id='yeah' style='position: absolute; z-index: 4;top: 15px; left: 20px; margin: 0px 50px 0px 50px;'><img src='./img/yeah3.gif' style='height: 600px'/></div>";
+    "<div class='container' id='yeah' style='position: absolute; z-index: 4;top: 15px; left: 20px; margin: 0px 50px 0px 50px;'><img src='./img/yeah3.gif' style='height:100% ; width: 100%'/></div>";
   setTimeout('document.getElementById("yeah").remove()', 900);
 }
 

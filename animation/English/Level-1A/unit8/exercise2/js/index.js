@@ -74,20 +74,17 @@ function playWrong() {
   var audioElement = document.createElement("audio");
   audioElement.setAttribute("src", "./sound/wrong.wav");
   audioElement.play();
+  document.getElementById("exercise").innerHTML +=
+    "<img src='../public/img/sad.gif' id='sad' style='height: 450px; margin-top:-10%; z-index: 5; position: absolute; bottom: 0%; left: 40%;'/>";
+  document.getElementById("thinking").style.visibility = "hidden";
 }
 function playCorrect() {
   var audioElement = document.createElement("audio");
   audioElement.setAttribute("src", "./sound/correct.wav");
   audioElement.play();
   document.getElementById("exercise").innerHTML +=
-    "<div class='container' id='yeah' style='position: absolute; z-index: 4;top: 15px; left: 20px; margin: 0px 50px 0px 50px;'><img src='../public/img/yeah3.gif' style='height: 600px'/></div>";
-  setTimeout('document.getElementById("yeah").remove()', 900);
-  // $("#exercise").append(
-  //   "<div class='container' id='yeah1' style='position: absolute; top: 230px; left: 20px; margin: 0px 50px 0px 50px; z-index:1;'><img src='./img/blue-ice.png' style='height: 300px'/></div>" +
-  //     "<div class='container' id='yeah2' style='position: absolute; top: 230px; left: 230px; margin: 0px 50px 0px 50px;z-index:1;'><img src='./img/pink-ice.png' style='height: 300px'/></div>"
-  // );
-  // setTimeout('$("#yeah1").remove()', 900);
-  // setTimeout('$("#yeah2").remove()', 900);
+    "<img src='../public/img/yeah.gif' id='yeah' style='height: 500px; margin-top:-10%; z-index: 5; position: absolute; bottom: 0%; left: 36%;'/>";
+  document.getElementById("thinking").style.visibility = "hidden";
 }
 
 function checkAnswer(clicked_id) {
@@ -97,7 +94,7 @@ function checkAnswer(clicked_id) {
     document.getElementById(clicked_id + "_ans_sound").hidden = false;
     document.getElementById(clicked_id + "_img").hidden = false;
     document.getElementById(clicked_id + "_img").innerHTML =
-      "<img src='../public/img/tick.png' style='height: 100px; margin: 15px; position: absolute; right:-16%; top:-30%' id='tick'/>";
+      "<img src='../public/img/tick.png' style='height: 100px; margin: 15px; position: absolute; right:20%; bottom:-70%; z-index:5' id='tick'/>";
     console.log("đáp án đúng");
     clicked_id === "buttonChoose1"
       ? (idButton = clicked_id.replace(/1/g, "2"))
@@ -111,7 +108,7 @@ function checkAnswer(clicked_id) {
     playWord(clicked_id + "_sound");
     document.getElementById(clicked_id + "_img").hidden = false;
     document.getElementById(clicked_id + "_img").innerHTML =
-      "<img src='../public/img/wrong.png' style='height: 50px; margin: 15px; id='wrong''/>";
+      "<img src='../public/img/wrong.png' style='height: 100px; margin: 15px; position: absolute; right:20%; bottom:-70%; z-index:5' id='wrong'/>";
     console.log("dap án sai");
     setTimeout(playWrong, 500);
     clicked_id === "buttonChoose1"
@@ -127,6 +124,7 @@ function checkAnswer(clicked_id) {
 }
 
 function getQuestion() {
+  document.getElementById("thinking").style.visibility = "visible";
   document.getElementById("image").src = questions[iQuestion].picture;
   document.getElementById("markboard").innerHTML =
     questions[iQuestion].question;
@@ -142,6 +140,8 @@ function getQuestion() {
   } else {
     document.getElementById("nextButton").hidden = false;
   }
+  document.getElementById("yeah").remove();
+  document.getElementById("sad").remove();
 }
 
 function nextQuestion() {

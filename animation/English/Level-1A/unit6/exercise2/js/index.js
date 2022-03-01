@@ -210,6 +210,7 @@ function getQuestion() {
         i +
         '" data-text="' +
         questions[iQuestion].answer[i].text +
+        '" data-index="' + i +
         '">' +
         questions[iQuestion].answer[i].id +
         "." +
@@ -225,27 +226,43 @@ function getQuestion() {
       revert: "invalid",
       start: function (event, ui) {},
       stop: function () {
-        playWord(i);
+        
       },
     });
   }
   answerCorrect = 0;
   $(".foods-input").droppable({
     drop: function (event, ui) {
+      var i =  $(ui.draggable).attr("data-index");
+      playWord(i);
       $(this).css("background-color", "#FF99D5");
       var answerDrop = $(ui.draggable).attr("data-text");
       var answer = $(this).attr("data-text");
+      $(this).parent().find('#correct').remove();
+      $(this).parent().find('#wrong').remove();
       if (answerDrop === answer) {
         ++answerCorrect;
+        $(this)
+        .parent()
+        .append(
+          "<img src='../public/img/tick.png' style='height: 50px; margin: 15px;' id='correct'/>"
+        );
+        $(ui.draggable).draggable('disable');
+        if (iQuestion === questions.length - 1 && answerCorrect == questions[iQuestion].question.length) {
+          playCorrect();
+        }
       } else {
         $(this)
           .parent()
           .append(
-            "<img src='../public/img/wrong.png' style='height: 50px; margin: 15px;' id='wrong''/>"
+            "<img src='../public/img/wrong.png' style='height: 50px; margin: 15px;' id='wrong'/>"
           );
         var audioElement = document.createElement("audio");
         audioElement.setAttribute("src", "./sound/wrong.wav");
         audioElement.play();
+
+         $(ui.draggable).css({ top: 0, left: 0 })
+
       }
     },
     out: function (event, ui) {},

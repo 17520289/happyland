@@ -1,9 +1,9 @@
 const questions = [
   {
     question: "1-7 ",
-    picture: "./img/oval.jpg",
-    choose1: "A. oval",
-    choose2: "B. rectangle",
+    picture: "./img/oval.png",
+    choose1: "oval",
+    choose2: "rectangle",
     sound1: "./sound/oval.wav",
     sound2: "./sound/rectangle.wav",
     ans: "1",
@@ -11,26 +11,26 @@ const questions = [
   {
     question: "2-7 ",
     picture: "./img/triangle.png",
-    choose1: "A. square",
-    choose2: "B. triangle",
+    choose1: "square",
+    choose2: "triangle",
     sound1: "./sound/square.wav",
     sound2: "./sound/triangle.wav",
     ans: "2",
   },
   {
     question: "3-7 ",
-    picture: "./img/rectangle.jpg",
-    choose1: "A. round",
-    choose2: "B. rectangle",
+    picture: "./img/rectangle.png",
+    choose1: "round",
+    choose2: "rectangle",
     sound1: "./sound/round.wav",
     sound2: "./sound/rectangle.wav",
     ans: "2",
   },
   {
     question: "4-7",
-    picture: "./img/circle.jpg",
-    choose1: "A. round",
-    choose2: "B. heart",
+    picture: "./img/circle.png",
+    choose1: "round",
+    choose2: "heart",
     sound1: "./sound/round.wav",
     sound2: "./sound/heart.wav",
     ans: "1",
@@ -38,26 +38,26 @@ const questions = [
   {
     question: "5-7  ",
     picture: "./img/star.png",
-    choose1: "A. square",
-    choose2: "B. star",
+    choose1: "square",
+    choose2: "star",
     sound1: "./sound/square.wav",
     sound2: "./sound/star.wav",
     ans: "2",
   },
   {
     question: "6-7 ",
-    picture: "./img/heart.jpg",
-    choose1: "A. round",
-    choose2: "B. heart",
+    picture: "./img/heart.png",
+    choose1: "round",
+    choose2: "heart",
     sound1: "./sound/round.wav",
     sound2: "./sound/heart.wav",
     ans: "2",
   },
   {
     question: "7-7",
-    picture: "./img/square.jpg",
-    choose1: "A. square",
-    choose2: "B. triangle",
+    picture: "./img/square.png",
+    choose1: "square",
+    choose2: "triangle",
     sound1: "./sound/square.wav",
     sound2: "./sound/triangle.wav",
     ans: "1",
@@ -89,11 +89,16 @@ function playCorrect() {
   audioElement.setAttribute("src", "./sound/correct.wav");
   audioElement.play();
   document.getElementById("exercise").innerHTML +=
-    "<div class='container' id='yeah' style='position: absolute; z-index: 4;top: 15px; left: 20px; margin: 0px 50px 0px 50px;'><img src='../public/img/yeah3.gif' style='height: 600px'/></div>";
+    "<div class='container' id='yeah' style='position: absolute; z-index: 4;top: 15px; left: 20px; '><img src='../public/img/yeah3.gif' style='height: 100%; width: 100%;'/></div>";
   setTimeout('document.getElementById("yeah").remove()', 900);
+  document.getElementsByClassName(
+    "exercise3__ans__choose"
+  ).style.animationPlayState = "paused";
 }
 
 function checkAnswer(clicked_id) {
+  document.getElementById("click-gif").hidden = true;
+  document.getElementById("click-gif2").hidden = true;
   var user_ans = document.getElementById(clicked_id).value;
   if (user_ans === questions[iQuestion].ans) {
     playWord(clicked_id + "_sound");
@@ -132,6 +137,8 @@ function checkAnswer(clicked_id) {
 }
 
 function getQuestion() {
+  document.getElementById("exercise").innerHTML += "<div/></div>";
+  setTimeout('document.getElementById("yeah").remove()', 900);
   document.getElementById("image").src = questions[iQuestion].picture;
   document.getElementById("markboard").innerHTML =
     questions[iQuestion].question;

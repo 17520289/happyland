@@ -88,15 +88,13 @@ function playCorrect() {
   var audioElement = document.createElement("audio");
   audioElement.setAttribute("src", "./sound/correct.wav");
   audioElement.play();
-  document.getElementById("exercise").innerHTML +=
-    "<div class='container' id='yeah' style='position: absolute; z-index: 4;top: 15px; left: 20px; margin: 0px 50px 0px 50px;'><img src='../public/img/yeah3.gif' style='height: 600px'/></div>";
-  setTimeout('document.getElementById("yeah").remove()', 900);
-  // $("#exercise").append(
-  //   "<div class='container' id='yeah1' style='position: absolute; top: 230px; left: 20px; margin: 0px 50px 0px 50px; z-index:1;'><img src='./img/blue-ice.png' style='height: 300px'/></div>" +
-  //     "<div class='container' id='yeah2' style='position: absolute; top: 230px; left: 230px; margin: 0px 50px 0px 50px;z-index:1;'><img src='./img/pink-ice.png' style='height: 300px'/></div>"
-  // );
-  // setTimeout('$("#yeah1").remove()', 900);
-  // setTimeout('$("#yeah2").remove()', 900);
+  $("#exercise").append(
+    "<div class='container' id='yeah1' style='position: absolute; bottom: 100px; left: 20px; margin: 0px 50px 0px 50px; z-index:1;'><img src='../public/img/yeah.png' style='height: 300px'/></div>"
+  );
+  setTimeout('$("#yeah1").remove()', 900);
+  document.getElementsByClassName(
+    "exercise3__ans__choose"
+  ).style.animationPlayState = "paused";
 }
 
 function checkAnswer(clicked_id) {
@@ -136,6 +134,9 @@ function checkAnswer(clicked_id) {
 }
 
 function getQuestion() {
+  document.getElementById("exercise").innerHTML +=
+    "<div class='container' id='yeah'</div>";
+  setTimeout('document.getElementById("yeah").remove()', 900);
   document.getElementById("image").src = questions[iQuestion].picture;
   document.getElementById("markboard").innerHTML =
     questions[iQuestion].question;

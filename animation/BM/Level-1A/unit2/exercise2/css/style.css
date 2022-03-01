@@ -1,0 +1,53 @@
+body, html{
+    background-image: url("../img/unit2-2.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 100%;
+    background-position: center;
+}
+
+.top-bar{
+    padding: 10px;
+}
+
+.top-bar__icon{
+	font-size: 30px;
+	color: #f134a6;
+    display: flex;
+}
+
+.top-bar__icon__img{
+    height: 80px;
+    padding-right: 20px;
+
+}
+.top-bar__1a{
+    padding: 10px 20px;
+    border: 4px solid #fff;
+    background-color: blue;
+    color: white;
+	font-size: 30px;
+    text-align: center;
+	border-radius: 100%;
+}
+.top-bar__name{
+    padding-left: 20px;
+}
+
+.exercise{
+    text-align: center;
+
+}
+.lesson__a{
+    text-decoration: none;
+}
+.lesson__unit1__img{
+    height: 400px;
+}
+.lesson__unit1__img:hover{
+    transform: scale(1.1);
+}
+.lesson__unit1__text{
+    color: black;
+    font-size: 30px;
+}

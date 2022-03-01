@@ -80,8 +80,11 @@ function playCorrect() {
   audioElement.setAttribute("src", "./sound/correct.wav");
   audioElement.play();
   document.getElementById("exercise").innerHTML +=
-    "<div class='container' id='yeah' style='position: absolute; top: 15px; left: 20px; margin: 0px 50px 0px 50px;'><img src='../img/yeah3.gif' style='height: 600px'/></div>";
+    "<div class='container' id='yeah' style='position: absolute; top: 15px; left: 20px; margin: 0px 50px 0px 50px;'><img src='../img/yeah3.gif' style='height: 100%; width: 100%;'/></div>";
   setTimeout('document.getElementById("yeah").remove()', 900);
+  document.getElementsByClassName(
+    "exercise3__ans__choose"
+  ).style.animationPlayState = "paused";
 }
 
 function checkAnswer(clicked_id) {
@@ -91,7 +94,7 @@ function checkAnswer(clicked_id) {
     document.getElementById(clicked_id + "_ans_sound").hidden = false;
     document.getElementById(clicked_id + "_img").hidden = false;
     document.getElementById(clicked_id + "_img").innerHTML =
-      "<img src='../img/tick.png' style='height: 100px; margin: 15px; position: absolute; right:-16%; top:-30%' id='tick'/>";
+      "<img src='../img/tick.png' style='height: 100px; margin: 15px; position: absolute; right:6%; top:-30%' id='tick'/>";
     console.log("đáp án đúng");
     clicked_id === "buttonChoose1"
       ? (idButton = clicked_id.replace(/1/g, "2"))
@@ -105,7 +108,7 @@ function checkAnswer(clicked_id) {
     playWord(clicked_id + "_sound");
     document.getElementById(clicked_id + "_img").hidden = false;
     document.getElementById(clicked_id + "_img").innerHTML =
-      "<img src='../img/wrong.png' style='height: 100px; margin: 15px; position: absolute; right:-16%; top:-30%' id='wrong'/>";
+      "<img src='../img/wrong.png' style='height: 100px; margin: 15px; position: absolute; right:6%; top:-30%' id='wrong'/>";
     console.log("dap án sai");
     setTimeout(playWrong, 500);
     clicked_id === "buttonChoose1"
@@ -121,6 +124,9 @@ function checkAnswer(clicked_id) {
 }
 
 function getQuestion() {
+  document.getElementById("exercise").innerHTML +=
+    "<div class='container' id='yeah'</div>";
+  setTimeout('document.getElementById("yeah").remove()', 900);
   document.getElementById("image").src = questions[iQuestion].picture;
   document.getElementById("markboard").innerHTML =
     questions[iQuestion].question;

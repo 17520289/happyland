@@ -199,25 +199,33 @@ function getQuestion() {
     document.getElementById("backButton").hidden = false;
   }
   if (iQuestion === questions.length - 1) {
-    document.getElementById("nextButton").hidden = true;
+    // document.getElementById("nextButton").hidden = true;
   } else {
     document.getElementById("nextButton").hidden = false;
   }
 }
 
 function nextQuestion(e) {
+  
   checkAnswer(e);
   $("#nextButton").prop("disabled", true);
   var timeChangeNextQuestion = questions[iQuestion].answer * 1000 + 1000;
 
-  setTimeout(function () {
-    getQuestion();
-    $("#nextButton").prop("disabled", false);
-  }, timeChangeNextQuestion);
-  ++iQuestion;
+  if (iQuestion === questions.length - 1) {
+    document.getElementById("nextButton").hidden = true;
+  }
+  else{
+    setTimeout(function () {
+      getQuestion();
+      $("#nextButton").prop("disabled", false);
+    }, timeChangeNextQuestion);
+    ++iQuestion;
+  }
+  
 }
 
 function backQuestion() {
   --iQuestion;
   getQuestion();
+  $("#nextButton").prop("disabled", false);
 }

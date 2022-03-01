@@ -34,12 +34,15 @@ class UserUpdateCrudRequest extends FormRequest
             'name'     => 'required',
             'full_name'     => 'required',
             'password' => 'confirmed',
-            'roles_show' => 'required'
+          
             
         ];
         if($this->input('status') == 'on'){
-          $rules['start_time'] = 'required';
+         
            
+        }
+        if(backpack_user()->id != $id ){
+            $rules['roles_show'] = 'required';
         }
          return $rules;
     }

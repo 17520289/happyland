@@ -8,6 +8,12 @@ return [
     |--------------------------------------------------------------------------
     */
 
+    'infomation'        => '信息',
+    'teacherList'        => '教师名单',
+    'studentList'        => '学生名单',
+    'Grades'        => '成绩',
+    'Assessment'        => '评估',
+    'flashCard'        => '闪存卡',
 
     'Courses'                => '培训班',
     'course'                => '课程',

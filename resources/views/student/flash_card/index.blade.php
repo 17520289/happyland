@@ -6,7 +6,21 @@
     }else{
         $urlBack = route('course.show', ['id' => $course->id]);
     }
-    $level = 'Level-'.$course->level->id;
+    
+    switch (session()->get('locale')) {
+        case 'ms':
+           $lang = 'BM';
+            break;
+        case 'zh-cn':
+           $lang = 'CN';
+            break; 
+        default:
+           $lang ='ENG';
+            break;
+    }
+   
+    $level = '/Level-'.$course->level->id.'/Level-'.$course->level->id.'A';
+    
 @endphp
 @section('header')
     <section class="container-fluid d-print-none">
@@ -21,9 +35,7 @@
 
 @section('content')
     <div class="row mt-4">
-        {{-- <iframe src="{{ asset('animation/'.$level.'/English/index.html') }}" width="100%" height="800" frameborder="5"></iframe> --}}
-     
-
+        <iframe src="{{ asset('flashcard/'.$lang.$level.'/lesson/lesson.html') }}" width="100%" height="800" frameborder="5"></iframe>
     </div>
 @endsection
 

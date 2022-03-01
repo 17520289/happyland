@@ -7,6 +7,12 @@ return [
     | Backpack\Base Language Lines
     |--------------------------------------------------------------------------
     */
+    'infomation'        => 'Fampahalalana',
+    'teacherList'        => 'Lisitry ny mpampianatra',
+    'studentList'        => 'Lisitry ny mpianatra',
+    'Grades'        => 'Naoty',
+    'Assessment'        => 'Fanombanana',
+    'flashCard'        => 'Flash Card',
     "Courses" => "Kursus",
     "course" => "Padang",
     "Levels" => "Tahap",

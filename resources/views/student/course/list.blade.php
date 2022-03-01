@@ -27,21 +27,31 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
 @endsection
 
 @section('content')
-    <div class="container" style="">
+    <div  style="padding: 0 10%">
         <div class="row" style="width: 100%">
             @foreach ($courses as $course)
-                <div class="col-md-3">
+                <div class="col-md-3" style="margin: 0 50px">
                     <div class="card-sl">
-                        <div class="card-image">
+                        <div class="" >
+                                @php
+                                if(backpack_user()->hasRole('Parent')){
+                                    $studentId = \Route::current()->parameter('student_id');
+                                $url = route('parent.showCourses.get', ['id'=>backpack_user()->id,'course_id' => $course->id, 'student_id'=> $studentId]);
+                                }else{
+                                $url = route('course.show', ['id' => $course->id]);
+                                }
+                            @endphp
+                        <a href="{{$url}}" >
                             @if ($course->image != null)
-                                <img src="{{ asset($course->image) }} " />
+                                <img width="100%" src="{{ asset($course->image) }} " />
                             @else
-                                <img src="{{ asset('images/education.jpeg') }} " />
+                                <img  width="100%" src="{{ asset('images/education.jpeg') }} " />
                             @endif
+                        </a>
 
                         </div>
 
-                        <div class="card-heading">
+                        {{-- <div class="card-heading">
                             {{ $course->name }}
                         </div>
                         <div class="card-text">
@@ -59,7 +69,7 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
                               @endphp
                                 <a href="{{$url }}" class="card-button"> Show</a>
                             @endif
-                        @endif
+                        @endif --}}
 
 
                     </div>

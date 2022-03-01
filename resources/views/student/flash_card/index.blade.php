@@ -7,21 +7,8 @@
         $urlBack = route('course.show', ['id' => $course->id]);
     }
     
-    switch (session()->get('locale')) {
-        case 'ms':
-           $lang = 'BM';
-            break;
-        case 'zh-cn':
-           $lang = 'CN';
-            break; 
-        default:
-           $lang ='ENG';
-            break;
-    }
-   
-    $level = '/Level-'.$course->level->id.'/Level-'.$course->level->id.'A';
-    
 @endphp
+
 @section('header')
     <section class="container-fluid d-print-none">
         <h2><a href="{{ $urlBack }}"><i
@@ -34,8 +21,9 @@
 @endsection
 
 @section('content')
+
     <div class="row mt-4">
-        <iframe src="{{ asset('flashcard/'.$lang.$level.'/lesson/lesson.html') }}" width="100%" height="800" frameborder="5"></iframe>
+        <iframe src="" id='flashCard' width="100%" height="800" frameborder="5"></iframe>
     </div>
 @endsection
 
@@ -54,6 +42,15 @@
 @endsection
 
 @section('after_scripts')
+<script>
+    const lang = localStorage.getItem('lang');
+    var url = 'flashcard/'+lang+'/Level-'+{!!$course->level->id!!}+'/Level-'+{!!$course->level->id!!}+'A' + '/lesson/lesson.html';
+    var fullUrl = "{{ asset(':url') }}";
+    fullUrl = fullUrl.replace(':url', url);
+     $('#flashCard').prop('src', fullUrl);
+    
+    
+</script>
     <script src="{{ asset('packages/backpack/crud/js/crud.js') . '?v=' . config('backpack.base.cachebusting_string') }}">
     </script>
     <script src="{{ asset('packages/backpack/crud/js/show.js') . '?v=' . config('backpack.base.cachebusting_string') }}">

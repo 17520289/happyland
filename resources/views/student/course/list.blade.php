@@ -13,7 +13,8 @@ if (backpack_user()->hasRole('Parent')) {
         'List' => false,
     ];
 }
-
+$lang = ['ENG', 'BM', 'CN'];
+$flag = 0;
 // if breadcrumbs aren't defined in the CrudController, use the default breadcrumbs
 $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
 @endphp
@@ -28,12 +29,14 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
 
 @section('content')
     <div  style="padding: 0 10%">
+        
         <div class="row" style="width: 100%">
             @foreach ($courses as $course)
-                <div class="col-md-3" style="margin: 0 50px">
+                <div class="col-md-4" style="padding: 20px ">
                     <div class="card-sl">
                         <div class="" >
                                 @php
+                                $flag = ($flag == 3) ? 0 : $flag;
                                 if(backpack_user()->hasRole('Parent')){
                                     $studentId = \Route::current()->parameter('student_id');
                                 $url = route('parent.showCourses.get', ['id'=>backpack_user()->id,'course_id' => $course->id, 'student_id'=> $studentId]);
@@ -41,43 +44,18 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
                                 $url = route('course.show', ['id' => $course->id]);
                                 }
                             @endphp
-                        <a href="{{$url}}" >
-                            @if ($course->image != null)
-                                <img width="100%" src="{{ asset($course->image) }} " />
-                            @else
-                                <img  width="100%" src="{{ asset('images/education.jpeg') }} " />
-                            @endif
-                        </a>
-
+                            <a href="{{$url}}" onclick="putSessionLang('{{$lang[$flag]}}')" >
+                                <img  class="center"  src="{{ asset('images/Level-'.$course->level_id.'/'.$lang[$flag].'.png') }} " />
+                            </a>    
                         </div>
-
-                        {{-- <div class="card-heading">
-                            {{ $course->name }}
-                        </div>
-                        <div class="card-text">
-                            Start date: {{ $course->start_date }}
-                        </div>
-                        @if ($accountTypeDetail != null)
-                            @if ($accountTypeDetail->status == 'active')
-                              @php
-                                  if(backpack_user()->hasRole('Parent')){
-                                      $studentId = \Route::current()->parameter('student_id');
-                                    $url = route('parent.showCourses.get', ['id'=>backpack_user()->id,'course_id' => $course->id, 'student_id'=> $studentId]);
-                                  }else{
-                                    $url = route('course.show', ['id' => $course->id]);
-                                  }
-                              @endphp
-                                <a href="{{$url }}" class="card-button"> Show</a>
-                            @endif
-                        @endif --}}
-
-
                     </div>
                 </div>
+                @php
+                    $flag++;
+                @endphp
             @endforeach
-
         </div>
-
+        
 
     </div>
 
@@ -85,6 +63,20 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
 
 @section('after_styles')
     <style>
+        .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        height: 250px;
+        
+        }
+        @media (max-width: 992px) {
+            .center {
+        height: 120px;
+        
+        }
+        }
         a {
             text-decoration: none;
         }
@@ -203,6 +195,11 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
 @endsection
 
 @section('after_scripts')
+    <script>
+        function putSessionLang(lang){
+            localStorage.setItem('lang', lang);
+        }
+    </script>
     <script>
         $(document).ready(function() {
             document.getElementById("heart").onclick = function() {

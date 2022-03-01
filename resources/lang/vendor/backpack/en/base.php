@@ -7,10 +7,10 @@ return [
     | Backpack\Base Language Lines
     |--------------------------------------------------------------------------
     */
-    'Infomation'        => 'Infomation',
+    'infomation'        => 'Infomation',
     'teacherList'        => 'Teacher List',
     'studentList'        => 'Student List',
-    'Grades'        => 'Infomation',
+    'Grades'        => 'Grades',
     'Assessment'        => 'Assessment',
     'flashCard'        => 'Flash Card',
     'Courses'                => 'Courses',

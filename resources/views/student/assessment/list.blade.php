@@ -6,7 +6,7 @@
 }else{
     $urlBack = route('course.show', ['id' => $course->id]);
 }
-    $level = 'Level-'.$course->level->id;
+    
 @endphp
 @section('header')
     <section class="container-fluid d-print-none">
@@ -21,7 +21,7 @@
 
 @section('content')
     <div class="row mt-4">
-        <iframe src="{{ asset('animation/'.$level.'/English/index.html') }}" width="100%" height="800" frameborder="5"></iframe>
+        <iframe id="assessment" width="100%" height="800" frameborder="5"></iframe>
      
 
     </div>
@@ -42,6 +42,25 @@
 @endsection
 
 @section('after_scripts')
+    <script>
+        const lang = localStorage.getItem('lang');
+        switch(lang) {
+        case 'ENG':
+            var language = 'English';
+            break;
+        case 'BM':
+             var language = 'BM';
+            break;
+        default:
+             var language = 'CN';
+        }
+        var url = 'assessment/'+language+'/Level-'+{!!$course->level->id!!}+'A' + '/lesson/lesson.html';
+        
+        var fullUrl = "{{ asset(':url') }}";
+        fullUrl = fullUrl.replace(':url', url);
+        console.log(fullUrl);
+        $('#assessment').prop('src', fullUrl);
+    </script>
     <script src="{{ asset('packages/backpack/crud/js/crud.js') . '?v=' . config('backpack.base.cachebusting_string') }}">
     </script>
     <script src="{{ asset('packages/backpack/crud/js/show.js') . '?v=' . config('backpack.base.cachebusting_string') }}">

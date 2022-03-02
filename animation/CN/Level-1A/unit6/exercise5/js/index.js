@@ -14,7 +14,7 @@ const questions = [
     choose1: "汤",
     choose2: "盐",
     sound1: "./sound/soup.wav",
-    sound2: "./sound/salt.wav",
+    sound2: "./sound/salts.wav",
     ans: "2",
   },
   {
@@ -54,8 +54,6 @@ const questions = [
     ans: "2",
   },
 ];
-
-
 
 var iQuestion = 0;
 var idButton = "buttonChoose1";

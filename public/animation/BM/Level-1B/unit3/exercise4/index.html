@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <!-- <link href="./css/style.css" rel="stylesheet"> -->
+    <link href="./css/styles.css" rel="stylesheet">
+    <title>Unit 6 </title>
+
+
+    <style>
+
+        .image{
+          height: 100%;
+          width: 100%;
+        }
+
+        .draggable{
+          font-family: sans-serif;
+          color: black;
+          text-shadow: 6px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 6px 1px #fff, 6px -1px 0 #fff, 6px -1px 0 #fff, 6px 1px 0 #fff;
+        }
+        .games{
+          height: 250px;
+          border: solid orange;
+          background-color: white;
+          margin-right: 20px;
+          border-width: 5px;
+          border-radius: 5%;
+          /* width: auto; */
+        }
+
+        .block-games{
+          display: contents;
+        }
+
+        .img-description{
+            position: relative;
+            z-index: 1;
+          /* takes up 100% of page */
+          width: 400px;
+          /* dim the page with 50% black background when visible */
+          /* background-color: rgba(0,0,0,0.5); */
+          /* a nice fade effect, visibility toggles after 175ms, opacity will animate for 175ms. note display:none cannot be animated.  */
+          transition: visibility 175ms, opacity 175ms;
+          height: 400px;
+      }
+
+      .image-kid{
+        width: 50%;
+      }
+
+      .text-block {
+        position: absolute;
+        top: 10px;
+        right: 0px;
+        background-color: white;
+        color: black;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 50%;
+      }
+
+      .answer-text {
+        position: relative;
+        font-family: Arial;
+      }
+
+      #question-text{
+        font-size: 60px;
+      }
+
+      .answer-text {
+        position: relative;
+        top: 0;
+        left: 0;
+      }
+      .image-kid {
+        position: relative;
+        top: 0;
+        left: 0;
+      }
+      .image-playword {
+        position: absolute;
+        top: 260px;
+        left: 202px;
+        width: 15%;
+      }
+
+      .shake {
+        animation: shake 0.5s;
+
+        animation-iteration-count: 1;
+      }
+
+      @keyframes shake {
+      0% { transform: translate(1px, 1px) rotate(0deg); }
+      10% { transform: translate(-1px, -2px) rotate(-1deg); }
+      20% { transform: translate(-3px, 0px) rotate(1deg); }
+      30% { transform: translate(3px, 2px) rotate(0deg); }
+      40% { transform: translate(1px, -1px) rotate(1deg); }
+      50% { transform: translate(-1px, 2px) rotate(-1deg); }
+      60% { transform: translate(-3px, 1px) rotate(0deg); }
+      70% { transform: translate(3px, 1px) rotate(-1deg); }
+      80% { transform: translate(-1px, -1px) rotate(1deg); }
+      90% { transform: translate(1px, 2px) rotate(0deg); }
+      100% { transform: translate(1px, -2px) rotate(-1deg); }
+    }
+
+    .games-input{
+      color:black;
+      font-size: 30px;
+      margin-right: 20px;
+      background-color: white;
+      height: 80px;
+      margin-top: 5px;
+      border: solid orange;
+      border-width: 5px;
+      border-radius: 5%;
+    }
+
+    .games-text{
+      color:black;
+      font-size: 40px;
+      background-color: white;
+      border-style: solid;
+      height: 80px;
+      margin-top: 20px;
+      cursor: pointer;
+      z-index: 1;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .image-item{
+      text-align: center;
+      margin-right: 20px;
+    }
+
+    .block-answer div{
+      margin-top: 10px;
+     
+    }
+    .ans__ab{
+      width: 40px;
+      height: 40px;
+      font-size: 25px;
+      border: 2px solid black;
+      border-radius: 100%;
+      align-content: center;
+      position: relative;
+      margin-top: -40px;
+      margin-bottom: 5px;
+      background-color: white;
+      left: -16%;
+      top: 50%;
+      text-align: center;
+    
+    }
+    .drag-answer{
+      z-index: 1;
+    }
+    </style>
+
+  </head>
+  <body>
+    <header>
+      <section class="top-bar">
+        <div class="container-fluid">
+            <div class="row justify-content-between">
+                <div class="col-6">
+                    <div class="top-bar__icon">
+                        <a href="../index.html">
+                            <img src="../../../public/img/icon/Ui-index.png" alt="" class="top-bar__icon__img">
+                        </a>
+                        <div class="top-bar__1a" id="1a_active">
+                            1b
+                        </div>
+                        <div class="top-bar__name">
+                            Unit 3: Games
+                            <div class="top-bar__name__sub" style="font-size: 20px;">
+                              Drag the correct answer to the blank space
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                  <div class="top-bar__icon">
+                      <div class="top-bar__icon__markboard">
+                          <div class="top-bar__question__sub" id ="markboard">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+                <div class="col-auto">
+                    <div class="top-bar__icon">
+                      <a onclick="playAnswer()">
+                        <img src="../public/img/Ui-xmute.png" alt="" class="top-bar__icon__img">
+                            <sound id ="top-bar__sound">
+                            </sound>
+                        </img>
+                    </a>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  </header>
+  <main>
+    <section class="exercise" id="exercise">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 block-games" id="block-games">
+
+          </div>
+
+          <div class="col-md-6">
+            <div class="row  block-answer" id="block-answer">
+             
+            </div>
+
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-md-3"></div>
+
+          <div class="col-md-6">
+
+          </div>
+
+          <div class="col-md-3"></div>
+        </div>
+
+      </div>
+
+
+    </section>
+
+    <section>
+      <div class="footer">
+          <div class="container">
+          <div class="row justify-content-end">
+              <div class="col-auto" >
+                 <button id ="backButton"onclick ="backQuestion()">
+                  <img src="../public/img/Ui-back.png" alt="" class="footer__img" >
+              </button>
+              </div>
+              <div class="col-auto">
+                  <button id ="nextButton" onclick ="nextQuestion()">
+                      <img src="../public/img/Ui-next.png" alt="" class="footer__img" >
+              </button>
+              </div>
+          </div>
+          </div>
+      </div>
+    </section>
+
+
+
+  </main>
+
+
+    <script>
+
+
+
+    </script>
+
+  <!-- js -->
+  <script type="text/javascript" src="./js/index.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+  </body>
+</html>

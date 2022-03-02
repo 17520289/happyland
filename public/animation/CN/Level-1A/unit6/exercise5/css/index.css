@@ -1,0 +1,246 @@
+body, html{
+    background-image: url("../../public/img/unit6-bg.png");
+    background-color: #8b4513;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 100%;
+    background-position: center;
+}
+
+.top-bar{
+    padding: 10px;
+}
+
+.top-bar__icon{
+	font-size: 30px;
+	color: #f134a6;
+    display: flex;
+    height: 80px;
+}
+
+.top-bar__icon__home{
+    height: 80px;
+    padding-right: 20px;
+}
+.top-bar__icon__sound{
+    height: 80px;
+}
+
+.top-bar__1a{
+    padding: 10px 20px;
+    border: 4px solid #fff;
+    background-color: blue;
+    color: white;
+	font-size: 30px;
+    text-align: center;
+	border-radius: 100%;
+    width: 80px;
+}
+.top-bar__name{
+    padding-left: 20px;
+}
+
+.top-bar__name__sub{
+    font-size: 20px;
+	color: #f134a6;
+}
+.exercise{
+    text-align: center;
+    padding-top: 20px;
+}
+
+.lesson__a{
+    text-decoration: none;
+}
+
+
+/* .lesson__unit1__img:hover{
+    transform: scale(1.1);
+} */
+
+.exercise3__ans__choose{
+    color: black;
+    font-size: 50px;
+
+}
+.top-bar__icon__markboard{
+    background-image: url("../../public/img/markboard-68.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 100%;
+    background-position: center;
+}
+.top-bar__question__sub{
+    padding: 30px 80px;
+    color: white;
+    font-weight: bold;
+}
+
+
+.btn-container {
+    position: relative;
+    z-index: 1;
+}
+.icon-left {
+    position: absolute;
+    left: -5%;
+    top:20%;
+    z-index: 3;
+}
+.text-left {
+    position: absolute;
+    font-size: 26px;
+    padding: 0px 10px;
+    border: 4px solid black;
+    background-color: white;
+    border-radius: 50%;
+    left: -4%;
+    top: 20%;
+    z-index:2;
+}
+.exercise3__img{
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+}
+.lesson__unit1__img{
+    position: absolute;
+    top: 6%;
+    left: 7.5%;
+    height:100%;
+    width:100%;
+    max-height: 400px;
+    max-width: 540px;
+    z-index: 4;
+}
+.img-bg {
+    height:100%;
+    width:100%;
+    z-index: 1;
+}
+.exercise3__ans{
+    display: flex;
+    flex-direction: column;
+    padding-block-start: 20%;
+}
+
+.footer{
+    padding: 10px;
+}
+
+.footer__img{
+    height: 80px;
+}
+
+#nextButton{
+    border: none;
+    background: none;
+}
+#backButton{
+    border: none;
+    background: none;
+}
+
+#buttonChoose1{
+    border: 4px solid black;
+    border-radius: 10px;
+    background-color: white;
+    margin-bottom: 10%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    flex-direction: row;
+    animation-name: roll;
+    animation-duration:3s;
+}
+
+/* #buttonChoose1:disabled{
+    opacity: 0.5;
+}
+
+#buttonChoose2:disabled{
+    opacity: 0.5;
+} */
+
+#buttonChoose2{
+    border: 4px solid black;
+    border-radius: 10px;
+    background-color: white;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    flex-direction: row;
+    animation-name: roll;
+    animation-duration: 2.5s;
+}
+
+@keyframes roll {
+    0%   {top:-300px; }
+    100% { top:0px; }
+  }
+.exercise3__ans__sound >img{
+    height: 50px;
+}
+.hidden {
+    display: none;
+}
+.answer-text {
+    position: relative;
+    font-family: Arial;
+    top: 0;
+    left: 0;
+  }
+  .image-kid {
+    position: relative;
+    top: 0;
+    left: 0;
+    width:150px;
+  }
+
+  .text-block {
+    position: absolute;
+    top: 10px;
+    right: 0px;
+    color: black;
+  }
+  .image-text-block {
+      width: 150px;
+      position: relative;
+  }
+  #question-text {
+      position: absolute;
+      left: 10px;
+      top: 30px;
+      text-align: center;
+      font-size: 20px;
+  }
+  @media (max-width: 1200px) {
+
+    .icon-left {
+        left: -7%;
+    }
+    .text-left {
+        left: -6%;
+    }
+}
+
+@media (max-width: 992px) {
+
+    .icon-left {
+        left: -9%;
+    }
+    .text-left {
+        left: -8%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .icon-left {
+        left: -9%;
+    }
+    .text-left {
+        left: -8%;
+    }
+}

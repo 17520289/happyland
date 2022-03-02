@@ -54,7 +54,7 @@
         default:
              var language = 'CN';
         }
-        var url = 'assessment/'+language+'/Level-'+{!!$course->level->id!!}+'A' + '/lesson/lesson.html';
+        var url = 'animation/'+language+'/Level-'+{!!$course->level->id!!}+'A' + '/lesson/lesson.html';
         
         var fullUrl = "{{ asset(':url') }}";
         fullUrl = fullUrl.replace(':url', url);

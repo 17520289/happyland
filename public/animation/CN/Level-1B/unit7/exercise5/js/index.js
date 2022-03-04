@@ -5,7 +5,7 @@ const questions = [
     choose1: "飞机",
     choose2: "缆车",
     sound1: "./sound/aeroplane.wav",
-    sound2: "./sound/cablecar.wav",
+    sound2: "./sound/cable car.wav",
     ans: "1",
   },
   {
@@ -13,7 +13,7 @@ const questions = [
     picture: "./img/cruise.jpg",
     choose1: "油船",
     choose2: "邮轮",
-    sound1: "./sound/tanker.wav",
+    sound1: "./sound/tanker ship.wav",
     sound2: "./sound/cruise.wav",
     ans: "2",
   },
@@ -63,7 +63,6 @@ const questions = [
     ans: "1",
   },
 ];
-
 
 var iQuestion = 0;
 var idButton = "buttonChoose1";

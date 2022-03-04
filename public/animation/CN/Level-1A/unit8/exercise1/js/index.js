@@ -23,7 +23,7 @@ const questions = [
     choose1: "./img/brinjal.jpg",
     choose2: "./img/mushroom.jpg",
     sound1: "./sound/brinjal.wav",
-    sound2: "./sound/mushroom.wav",
+    sound2: "./sound/mushroon.wav",
     ans: "2",
   },
   {
@@ -63,8 +63,6 @@ const questions = [
     ans: "1",
   },
 ];
-
-
 
 var iQuestion = 0;
 var idButton = "buttonChoose1";
@@ -107,7 +105,9 @@ function checkAnswer(clicked_id) {
     document.getElementById(clicked_id + "_ans_sound").hidden = false;
     document.getElementById(clicked_id + "_img").hidden = false;
     $("#image-thinking").attr("src", "../public/img/yeah.gif");
-    $('#'+clicked_id + "_img").append("<img src='../public/img/tick.png' style='height: 40px; margin-left: -55px;' id='tick'/>");
+    $("#" + clicked_id + "_img").append(
+      "<img src='../public/img/tick.png' style='height: 40px; margin-left: -55px;' id='tick'/>"
+    );
     console.log("đáp án đúng");
     clicked_id === "buttonChoose1"
       ? (idButton = clicked_id.replace(/1/g, "2"))
@@ -121,10 +121,11 @@ function checkAnswer(clicked_id) {
     playWord(clicked_id + "_sound");
     document.getElementById(clicked_id + "_img").hidden = false;
     $("#image-thinking").attr("src", "../public/img/sad.gif");
-    $('#'+clicked_id + "_img").append("<img src='../public/img/wrong.png' style='height: 40px; margin-left: -55px;' id='wrong'/>");
+    $("#" + clicked_id + "_img").append(
+      "<img src='../public/img/wrong.png' style='height: 40px; margin-left: -55px;' id='wrong'/>"
+    );
     console.log("dap án sai");
     setTimeout('$("#wrong").remove()', 500);
-
   }
 }
 

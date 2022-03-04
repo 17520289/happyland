@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Unit 7 - Exercise 1</title>
+
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            background-image: url("../public/img/Assesment.png");
+        }
+        body{
+            background-color: #8b4513;
+        }
+        .container{
+            position: relative;
+        }
+
+        .exercise{
+            width:100%;
+            height: 100%;
+        }
+
+        .bg{
+            position: absolute;
+            width: 100%;
+            height:100%;
+            z-index: 1;
+        }
+        p{
+          color: black;
+        }
+
+        button {
+          border: none;
+          background: none;
+        }
+
+        button {
+            padding: 0;
+            border: none;
+            font: inherit;
+            color: inherit;
+            background-color: transparent;
+            cursor: pointer;
+        }
+        button:focus {
+            outline: 0;
+        }
+        .button-two {
+            background-color: #ebd9b9;
+            border-radius: 10%;
+            width:6vw;
+            height:6vw;
+            margin: 0.2vw;
+            border: 10px solid rgb(112, 61, 2);
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .button-two:focus {
+            background-color: #e6960d;
+        }
+        .button-two:hover {
+            background-color: #e4a12f;
+        }
+
+        #img_content{
+            border: 15px solid;
+            border-style: double;
+            border-top-color: orange;
+            border-right-color: blue;
+            border-bottom-color: orange;
+            border-left-color: green;
+            background-color: white;
+        }
+
+        .footer__img {
+            height: 80px;
+        }
+    </style>
+
+  </head>
+  <body>
+    <section class="exercise" id="exercise">
+        <div class="container" >
+            <div class="row d-flex justify-content-md-center" style="position: relative ; z-index: 10; padding: 2vw; ">
+                <div class="row">
+                    <div class="col-1">
+                      <a href="../index.html">
+                        <img src="../../../public/img/icon/Ui-index.png" style="width: 5vw; margin: 0;">
+                    </img>
+                      </a>
+                    </div>
+                    <div class="col-8">
+                      <p style="font-size: 25px;">Unit 7 : Fruit</p>
+                      <p style="font-size: 20px;">Choose the correct answer</p>
+                    </div>
+                    <div class="col-2">
+                        <h1 id = "number_quest" style="border: #000000;border-style: solid; text-align: center;border-radius: 12px;margin-top: 5px;">1 - 7</h1>
+                    </div>
+                    <div class="col-1">
+                        <a onclick="playWord()">
+                            <img src="../public/img/Ui-xmute.png" style="width: 5vw; margin: 0;"></img>
+                        </a>
+                    </div>
+                </div>
+                <div class="row" style="height: 25vw;">
+                    <div class="col d-flex justify-content-md-center" style="padding:1vw; align-items: center; justify-items: center;">
+                        <div style="width: 20vw;">
+                            <img id="img_content" src="" style="width:100%;"></img>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class = "col d-flex justify-content-md-center" >
+                        <button id="btn0" class="button-two" onclick="ChooseAS(this,0)">p</button>
+                        <button id="btn1" class="button-two" onclick="ChooseAS(this,1)">a</button>
+                        <button id="btn2" class="button-two" onclick="ChooseAS(this,2)">p</button>
+                        <button id="btn3" class="button-two" onclick="ChooseAS(this,3)">p</button>
+                        <button id="btn4" class="button-two" onclick="ChooseAS(this,4)">l</button>
+                        <button id="btn5" class="button-two" onclick="ChooseAS(this,5)">e</button>
+                        <button id="btn6" class="button-two" onclick="ChooseAS(this,6)">e</button>
+                        <button id="btn7" class="button-two" onclick="ChooseAS(this,7)">a</button>
+                    <div>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-end">
+                <div class="col-sm-2 d-flex justify-content-center" style="flex: 0 0 auto;width: auto;">
+                    <button id = "backbutton" onclick="BackQuest()">
+                      <img src="../../../public/img/icon/Ui-back.png" class="footer__img"></img>
+                    </button>
+                    <button id = "nextbutton" onclick="NextQuest()">
+                        <img src="../../../public/img/icon/Ui-next.png" class="footer__img"></img>
+                      </button>
+                  </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+        const question = [
+        {
+            "question": 0,
+            "picture":  "./img/apple.png",
+            "sound": "./sound/fruit/apple.wav",
+            "result": "apple",
+            "content":"papplee"
+        },
+        {
+            "question": 1,
+            "picture":  "./img/orange.png",
+            "sound": "./sound/fruit/orange.wav",
+            "result": "orange",
+            "content":"orangen"
+        },
+        {
+            "question": 2,
+            "picture":  "./img/banana.png",
+            "sound": "./sound/fruit/banana.wav",
+            "result": "banana",
+            "content":"pbanana"
+        },
+        {
+            "question": 3,
+            "picture":  "./img/papaya.png",
+            "sound": "./sound/fruit/papaya.wav",
+            "result": "papaya",
+            "content":"papayau"
+        }
+    ]
+
+        var check_list = [false,false,false,false,false,false,false,false];
+
+        var index = 0;
+
+        var content = "";
+        UpdateQuest();
+
+        function NextQuest(){
+            if(index < question.length - 1)
+                index ++;
+            UpdateQuest();
+            if(index > 0){
+                $("#backbutton").show();
+            }
+        }
+
+        function BackQuest(){
+            if(index > 0)
+                index --;
+            UpdateQuest();
+        }
+
+        function UpdateQuest(){
+            content = question[index].content;
+            $("#img_content").attr("src", question[index].picture);
+            $('#number_quest').text(index+1+"- 6");
+
+            check_list.forEach(function (value, i) {
+                check_list[i] = false;
+
+                var btnId = "#btn"+i;
+                $(btnId).css("display", "block");
+                $(btnId).css("background",'#ebd9b9')
+                $(btnId).css("borderColor",'#703d37')
+
+                $(btnId).html(content[i]);
+
+            });
+
+            if (index === 0) {
+                document.getElementById("backbutton").hidden = true;
+            } else {
+                document.getElementById("backbutton").hidden = false;
+            }
+            if (index === question.length - 1) {
+                document.getElementById("nextbutton").hidden = true;
+            } else {
+                document.getElementById("nextbutton").hidden = false;
+            }
+        }
+
+        async function CheckAS(){
+            var s = "";
+            check_list.forEach(function (value, i) {
+                    if(value){
+                        s+=content[i]
+                    }
+                });
+            if(s == question[index].result){
+
+                check_list.forEach(function (value, i) {
+                    if(!value){
+                        var btnId = "#btn"+i;
+                        $(btnId).css("display", "none");
+                    }
+                });
+                playWord()
+                playCorrect();
+                await sleep(3000);
+                //NextQuest();
+                if(index == 0){
+                    $("#nextbutton").show();
+                    $("#backbutton").show();
+                }
+                if(index == question.length - 1){
+                    $("#nextbutton").hide();
+                }
+            }
+        }
+        async function ChooseAS(btn,id){
+            check_list[id] = !check_list[id];
+
+            if(check_list[id]){
+                btn.style.background='#e6960d';
+                btn.style.borderColor = '#000000';
+
+            }else{
+                btn.style.background = '#ebd9b9';
+                btn.style.borderColor = '#703d37';
+            }
+            await CheckAS();
+        }
+        function playCorrect(){
+          var audioElement = document.createElement('audio');
+          audioElement.setAttribute('src', './sound/correct.wav');
+          audioElement.play()
+          document.getElementById("exercise").innerHTML+="<div class='purple' id='yeah' style='position: absolute; bottom: 100px; left: 407px; margin: 0px 50px 0px 50px; z-index:10;'><img src='../public/img/yeah.png' style='height: 300px'/></div>"
+          setTimeout('document.getElementById("yeah").remove()', 900)
+      }
+      function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+      }
+
+      function playWord(){
+        var audioElement = document.createElement('audio');
+        audioElement.setAttribute('src', question[index].sound)
+        audioElement.play()
+     }
+    </script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+  </body>
+</html>

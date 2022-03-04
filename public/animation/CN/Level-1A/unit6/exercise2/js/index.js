@@ -8,7 +8,7 @@ const questions = [
         questionTitle: "A",
         picture: "./img/dessert.jpg",
         text: "甜品",
-        sound: "sound/foods/dessert.wav",
+        sound: "sound/dessert.wav",
         stt: 2,
         col: 4,
       },
@@ -17,7 +17,7 @@ const questions = [
         questionTitle: "B",
         picture: "./img/cereal.jpg",
         text: "谷物",
-        sound: "sound/foods/cereal.wav",
+        sound: "sound/cereal.wav",
         stt: 3,
         col: 4,
       },
@@ -26,7 +26,7 @@ const questions = [
         questionTitle: "C",
         picture: "./img/bean.jpg",
         text: "豆类",
-        sound: "sound/foods/bean.wav",
+        sound: "sound/bean.wav",
         stt: 1,
         col: 4,
       },
@@ -34,19 +34,19 @@ const questions = [
     answer: [
       {
         id: 1,
-        sound: "sound/foods/bean.wav",
+        sound: "sound/bean.wav",
         text: "豆类",
         col: 4,
       },
       {
         id: 2,
-        sound: "sound/foods/dessert.wav",
+        sound: "sound/dessert.wav",
         text: "甜品",
         col: 4,
       },
       {
         id: 3,
-        sound: "sound/foods/cereal.wav",
+        sound: "sound/cereal.wav",
         text: "谷物",
         col: 4,
       },
@@ -61,7 +61,7 @@ const questions = [
         questionTitle: "A",
         picture: "./img/fruits.jpg",
         text: "水果",
-        sound: "sound/foods/fruits.wav",
+        sound: "sound/fruits.wav",
         stt: 2,
         col: 6,
       },
@@ -70,7 +70,7 @@ const questions = [
         questionTitle: "B",
         picture: "./img/vegetables.jpg",
         text: "蔬菜",
-        sound: "sound/foods/vegetables.wav",
+        sound: "sound/vegetables.wav",
         stt: 1,
         col: 6,
       },
@@ -78,13 +78,13 @@ const questions = [
     answer: [
       {
         id: 1,
-        sound: "sound/foods/vegetables.wav",
+        sound: "sound/vegetables.wav",
         text: "蔬菜",
         col: 6,
       },
       {
         id: 2,
-        sound: "sound/foods/fruits.wav",
+        sound: "sound/fruits.wav",
         text: "水果",
         col: 6,
       },
@@ -99,7 +99,7 @@ const questions = [
         questionTitle: "A",
         picture: "./img/beverage.jpg",
         text: "饮料",
-        sound: "sound/foods/beverage.wav",
+        sound: "sound/beverage.wav",
         stt: 1,
         col: 6,
       },
@@ -108,7 +108,7 @@ const questions = [
         questionTitle: "B",
         picture: "./img/seafood.jpg",
         text: "海鲜",
-        sound: "sound/foods/seafood.wav",
+        sound: "sound/seafood.wav",
         stt: 2,
         col: 6,
       },
@@ -116,20 +116,19 @@ const questions = [
     answer: [
       {
         id: 1,
-        sound: "sound/foods/beverage.wav",
+        sound: "sound/beverage.wav",
         text: "饮料",
         col: 6,
       },
       {
         id: 2,
-        sound: "sound/foods/seafood.wav",
+        sound: "sound/seafood.wav",
         text: "海鲜",
         col: 6,
       },
     ],
   },
 ];
-
 
 var iQuestion = 0;
 var answerCorrect = 0;
@@ -211,7 +210,8 @@ function getQuestion() {
         i +
         '" data-text="' +
         questions[iQuestion].answer[i].text +
-        '" data-index="' + i +
+        '" data-index="' +
+        i +
         '">' +
         questions[iQuestion].answer[i].id +
         "." +
@@ -226,30 +226,31 @@ function getQuestion() {
       cursor: "move",
       revert: "invalid",
       start: function (event, ui) {},
-      stop: function () {
-        
-      },
+      stop: function () {},
     });
   }
   answerCorrect = 0;
   $(".foods-input").droppable({
     drop: function (event, ui) {
-      var i =  $(ui.draggable).attr("data-index");
+      var i = $(ui.draggable).attr("data-index");
       playWord(i);
       $(this).css("background-color", "#FF99D5");
       var answerDrop = $(ui.draggable).attr("data-text");
       var answer = $(this).attr("data-text");
-      $(this).parent().find('#correct').remove();
-      $(this).parent().find('#wrong').remove();
+      $(this).parent().find("#correct").remove();
+      $(this).parent().find("#wrong").remove();
       if (answerDrop === answer) {
         ++answerCorrect;
         $(this)
-        .parent()
-        .append(
-          "<img src='../public/img/tick.png' style='height: 50px; margin: 15px;' id='correct'/>"
-        );
-        $(ui.draggable).draggable('disable');
-        if (iQuestion === questions.length - 1 && answerCorrect == questions[iQuestion].question.length) {
+          .parent()
+          .append(
+            "<img src='../public/img/tick.png' style='height: 50px; margin: 15px;' id='correct'/>"
+          );
+        $(ui.draggable).draggable("disable");
+        if (
+          iQuestion === questions.length - 1 &&
+          answerCorrect == questions[iQuestion].question.length
+        ) {
           playCorrect();
         }
       } else {
@@ -262,8 +263,7 @@ function getQuestion() {
         audioElement.setAttribute("src", "./sound/wrong.wav");
         audioElement.play();
 
-         $(ui.draggable).css({ top: 0, left: 0 })
-
+        $(ui.draggable).css({ top: 0, left: 0 });
       }
     },
     out: function (event, ui) {},

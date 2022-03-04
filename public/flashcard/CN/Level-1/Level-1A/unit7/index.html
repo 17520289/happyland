@@ -2,16 +2,17 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <style>
-.modal{
- bottom: initial!important;
- position: relative;
- z-index: 2000;
-}
+  .modal {
+    bottom: initial !important;
+    position: relative;
+    z-index: 2000;
+  }
 
-/* a {
+  /* a {
   text-decoration: none;
   display: inline-block;
   padding: 8px 16px;
@@ -22,130 +23,142 @@ a:hover {
   color: black;
 } */
 
-.previous {
-  background-color: #0026ff;
-  color: white;
-}
+  .previous {
+    background-color: #0026ff;
+    color: white;
+  }
 
-.next {
-  background-color: #0026ff;
-  color: white;
-}
-.top-bar__1a{
+  .next {
+    background-color: #0026ff;
+    color: white;
+  }
+
+  .top-bar__1a {
     padding: 10px 20px;
     border: 4px solid #fff;
     background-color: #9EDCF8;
     color: white;
-	  font-size: 30px;
+    font-size: 30px;
     text-align: center;
-	  border-radius: 100%;
+    border-radius: 100%;
     width: 80px;
-}
-.top-bar__1b{
+  }
+
+  .top-bar__1b {
     padding: 10px 10px;
     background-color: #9EDCF8;
     color: white;
-	  font-size: 1rem;
+    font-size: 1rem;
     text-align: center;
-	  border-radius: 10%;
+    border-radius: 10%;
     width: 60px;
-}
-.column{
-  display: flex;
-  flex-wrap: wrap;
-  align-content: center;
-}
-.rightbuttons {
+  }
+
+  .column {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+  }
+
+  .rightbuttons {
     display: flex;
     flex-flow: column wrap;
-}
-.rightbutton {
-  margin-top: 10%
-}
-.round {
-  border-radius: 50%;
-}
-.bg{
-  position: absolute;
-  width: 100%;
-  height:100%;
-  z-index: -1;
-}
-button {
-  border: none;
-  background: none;
-}
-        
-button {
+  }
+
+  .rightbutton {
+    margin-top: 10%
+  }
+
+  .round {
+    border-radius: 50%;
+  }
+
+  .bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  button {
+    border: none;
+    background: none;
+  }
+
+  button {
     padding: 0;
     border: none;
     font: inherit;
     color: inherit;
     background-color: transparent;
     cursor: pointer;
-}
-button:focus {
-    outline: 0;
-}
+  }
 
+  button:focus {
+    outline: 0;
+  }
 </style>
+
 <body>
-<div>
-  <img class="bg" src="./icon/backgroundmauxanh.png"> </img>
-  <div class="row">
-    <div class="col-1">
-        <img src="./icon/button1.png" style="width: 5vw; margin: 0;">
-        </img>
-    </div>
-    <div class="col-1">
-      <a href="../../Level-1A/lesson/lesson.html" style=" text-decoration: none;">
-        <div class="top-bar__1a" >
-          1a
+  <div>
+    <img class="bg" src="./icon/backgroundmauxanh.png"> </img>
+    <div class="row" style="padding-top: 10px">
+      <div class="col-2" style=" display: flex;flex-wrap: wrap;justify-content: flex-end">
+        <a href="../../Level-1A/lesson/lesson.html" style=" text-decoration: none;">
+          <img src="./icon/button1.png" style="width: 4vw; margin: 0;">
+          </img>
         </a>
+      </div>
+      <div class="col-1">
+        <a href="../../Level-1A/lesson/lesson.html" style=" text-decoration: none;">
+          <div class="top-bar__1a">
+            1a
+        </a>
+      </div>
     </div>
-    </div>
-    <div class="col-4 column" id="">
+    <div class="col-3 column" id="">
       <p style="font-size: 2rem; font-weight: bold">Unit 7 : 水果</p>
     </div>
     <div class="col-1 column">
       <div class="top-bar__1b" id="questnumber">
         1/28
+      </div>
     </div>
-    </div>
-    <div class="col-4" style="width: 5vw;">
+    <div class="col-3" style="width: 5vw;">
 
     </div>
 
-    <div class="col-1">
-        <img src="./icon/logo.png" style="width: 5vw; margin: 0;"></img>
+    <div class="col-2" style=" display: flex;flex-wrap: wrap;justify-content: center;">
+      <img src="./icon/logo.png" style="width: 5vw; margin: 0;"></img>
     </div>
   </div>
-</div>
-<div class="container d-flex justify-content-between" style="height: 40vw;">
+  </div>
+  <div class="container d-flex justify-content-between" style="height: 40vw;">
     <div style="width: 100%;">
-        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" data-backdrop="false">
-            <div class="modal-dialog modal-lg" style="max-width: 900px;">
-              <div class="modal-content d-flex flex-row justify-content-around">
-                <div style="height: 30vw; width: 30vw;"  class="d-flex align-self-center ">
-                    <img id="img" src="img/001 body.jpg" style="width: 100%;height: 100%;object-fit: contain"></img>
-                </div>
-                <div class="d-flex align-self-center">
-                    <b id="text" style = " font-size: 6rem; color: red; " >BODY</b>
-                </div>              
-              </div>
+      <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true" data-backdrop="false">
+        <div class="modal-dialog modal-lg" style="max-width: 900px;">
+          <div class="modal-content d-flex flex-row justify-content-around">
+            <div style="height: 30vw; width: 30vw;" class="d-flex align-self-center ">
+              <img id="img" src="img/001 body.jpg" style="width: 100%;height: 100%;object-fit: contain"></img>
             </div>
+            <div class="d-flex align-self-center">
+              <b id="text" style=" font-size: 6rem; color: red; ">BODY</b>
+            </div>
+          </div>
         </div>
+      </div>
 
     </div>
-    <div class="rightbuttons" style="position:absolute; right:4%;top:15%">
+    <div class="rightbuttons" style="position:absolute; right:5%;top:15%">
       <button class="rightbutton" onclick="muteSound()">
         <img src="./icon/mute.png" style="width: 70%;"></img>
-      </button >
+      </button>
       <button class="rightbutton" onclick="playfunction()">
         <img src="./icon/play.png" style="width: 70%;"></img>
-      </button >
+      </button>
       <button class="rightbutton">
-        <img src="./icon/x25.png"onclick="changespeed(1)"  style="width: 70%;"></img>
+        <img src="./icon/x25.png" onclick="changespeed(1)" style="width: 70%;"></img>
       </button>
       <button class="rightbutton">
         <img src="./icon/x2.png" onclick="playfunction(1.5)" style="width: 70%;"></img>
@@ -157,165 +170,171 @@ button:focus {
         <img src="./icon/x1.png" onclick="playfunction(2.5)" style="width: 70%;"></img>
       </button>
     </div>
-</div>
-<div>
-  <div style="position: absolute; left: 10%;bottom: 0%;">
-    <button onclick="backButton(true);">
-      <img src="./icon/button4.png" style="width: 70%;"></img>
-    </button>
-</div>
-  <div style="position: absolute; right: 10%;bottom: 0%;">
-    <button onclick="nextButton(true);">
-      <img src="./icon/button5.png" style="width: 70%;"> </img>
-    </button>
-</div>
-</div>
+  </div>
+  <div>
+    <div style="position: absolute; left: 10%;bottom: 0%;">
+      <button onclick="backButton(true);">
+        <img src="./icon/button4.png" style="width: 70%;"></img>
+      </button>
+    </div>
+    <div style="position: absolute; right: 10%;bottom: 0%;">
+      <button onclick="nextButton(true);">
+        <img src="./icon/button5.png" style="width: 70%;"> </img>
+      </button>
+    </div>
+  </div>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
 
-<script>
+  <script>
     const data = [
-    {
-      "id": 114,
-      "picture": "./img/114 apple.jpg",
-      "vocabulary": "苹果",
-      "sound": "./sound/apple.wav"
-    },
-    {
-      "id": 115,
-      "picture": "./img/115 bananas.jpeg",
-      "vocabulary": "香蕉",
-      "sound": "./sound/bananas.wav"
-    },
-    {
-      "id": 116,
-      "picture": "./img/116 durian.jpg",
-      "vocabulary": "榴莲",
-      "sound": "./sound/durian.wav"
-    },
-    {
-      "id": 117,
-      "picture": "./img/117 grapes.jpg",
-      "vocabulary": "葡萄",
-      "sound": "./sound/grapes.wav"
-    },
-    {
-      "id": 118,
-      "picture": "./img/118 guava.jpg",
-      "vocabulary": "番石榴",
-      "sound": "./sound/guava.wav"
-    },
-    {
-      "id": 119,
-      "picture": "./img/119 honeydew.jpg",
-      "vocabulary": "蜜瓜",
-      "sound": "./sound/honeydew.wav"
-    },
-    {
-      "id": 120,
-      "picture": "./img/120 jackfruit.png",
-      "vocabulary": "菠萝蜜",
-      "sound": "./sound/jackfruit.wav"
-    },
-    {
-      "id": 121,
-      "picture": "./img/121 lychee.jpg",
-      "vocabulary": "荔枝",
-      "sound": "./sound/lychee.wav"
-    },
-    {
-      "id": 122,
-      "picture": "./img/122 mango.jpg",
-      "vocabulary": "芒果",
-      "sound": "./sound/mango.wav"
-    },
-    {
-      "id": 123,
-      "picture": "./img/123 mangosteen.jpg",
-      "vocabulary": "山竹",
-      "sound": "./sound/mangosteen.wav"
-    },
-    {
-      "id": 124,
-      "picture": "./img/124 orange.jpg",
-      "vocabulary": "橙",
-      "sound": "./sound/orange.wav"
-    },
-    {
-      "id": 125,
-      "picture": "./img/125 papaya.jpeg",
-      "vocabulary": "木瓜",
-      "sound": "./sound/papaya.wav"
-    },
-    {
-      "id": 126,
-      "picture": "./img/126 pineapple.jpg",
-      "vocabulary": "凤梨",
-      "sound": "./sound/pineapple.wav"
-    },
-    {
-      "id": 127,
-      "picture": "./img/127 pomelo.jpg",
-      "vocabulary": "柚子",
-      "sound": "./sound/pomelo.wav"
-    },
-    {
-      "id": 128,
-      "picture": "./img/128 rambutan.jpg",
-      "vocabulary": "红毛丹",
-      "sound": "./sound/rambutan.wav"
-    },
-    {
-      "id": 129,
-      "picture": "./img/129 starfruit.jpg",
-      "vocabulary": "杨桃",
-      "sound": "./sound/starfruit.wav"
-    },
-    {
-      "id": 130,
-      "picture": "./img/130 watermelon.jpg",
-      "vocabulary": "西瓜",
-      "sound": "./sound/watermelon.wav"
-    },
-    {
-      "id": 131,
-      "picture": "./img/131 strawberry.jpg",
-      "vocabulary": "草莓",
-      "sound": "./sound/strawberry.wav"
-    },
-    {
-      "id": 132,
-      "picture": "./img/132 lemon.jpg",
-      "vocabulary": "柠檬",
-      "sound": "./sound/lemon.wav"
-    },
-    {
-      "id": 133,
-      "picture": "./img/133 cherry.jpg",
-      "vocabulary": "樱桃",
-      "sound": "./sound/cherry.wav"
-    },
-    {
-      "id": 134,
-      "picture": "./img/134 kiwi.jpg",
-      "vocabulary": "奇异果",
-      "sound": "./sound/kiwi.wav"
-    },
-    {
-      "id": 135,
-      "picture": "./img/135 cocconut.png",
-      "vocabulary": "椰子",
-      "sound": "./sound/cocconut.wav"
-    },
+      {
+        "id": 114,
+        "picture": "./img/114 apple.jpg",
+        "vocabulary": "苹果",
+        "sound": "./sound/apple.wav"
+      },
+      {
+        "id": 115,
+        "picture": "./img/115 banana.jpg",
+        "vocabulary": "香蕉",
+        "sound": "./sound/banana.wav"
+      },
+      {
+        "id": 116,
+        "picture": "./img/116 durian.jpg",
+        "vocabulary": "榴莲",
+        "sound": "./sound/durian.wav"
+      },
+      {
+        "id": 117,
+        "picture": "./img/117 grapes.jpg",
+        "vocabulary": "葡萄",
+        "sound": "./sound/grapes.wav"
+      },
+      {
+        "id": 118,
+        "picture": "./img/118 guava.jpg",
+        "vocabulary": "番石榴",
+        "sound": "./sound/guava.wav"
+      },
+      {
+        "id": 119,
+        "picture": "./img/119 honeydew.png",
+        "vocabulary": "蜜瓜",
+        "sound": "./sound/honeydew.wav"
+      },
+      {
+        "id": 120,
+        "picture": "./img/120 jackfruit.png",
+        "vocabulary": "菠萝蜜",
+        "sound": "./sound/jackfruit.wav"
+      },
+      {
+        "id": 121,
+        "picture": "./img/121 lychee.jpg",
+        "vocabulary": "荔枝",
+        "sound": "./sound/lychee.wav"
+      },
+      {
+        "id": 122,
+        "picture": "./img/122 mango.jpg",
+        "vocabulary": "芒果",
+        "sound": "./sound/mango.wav"
+      },
+      {
+        "id": 123,
+        "picture": "./img/123 mangosteen.jpg",
+        "vocabulary": "山竹",
+        "sound": "./sound/mangosteen.wav"
+      },
+      {
+        "id": 124,
+        "picture": "./img/124 orange.jpg",
+        "vocabulary": "橙",
+        "sound": "./sound/orange.wav"
+      },
+      {
+        "id": 125,
+        "picture": "./img/125 papaya.jpg",
+        "vocabulary": "木瓜",
+        "sound": "./sound/papaya.wav"
+      },
+      {
+        "id": 126,
+        "picture": "./img/126 pineapple.jpg",
+        "vocabulary": "凤梨",
+        "sound": "./sound/pineapple.wav"
+      },
+      {
+        "id": 127,
+        "picture": "./img/127 pomelo.jpg",
+        "vocabulary": "柚子",
+        "sound": "./sound/pomelo.wav"
+      },
+      {
+        "id": 128,
+        "picture": "./img/128 rambutan.jpg",
+        "vocabulary": "红毛丹",
+        "sound": "./sound/rambutan.wav"
+      },
+      {
+        "id": 129,
+        "picture": "./img/129 starfruit.jpg",
+        "vocabulary": "杨桃",
+        "sound": "./sound/starfruit.wav"
+      },
+      {
+        "id": 130,
+        "picture": "./img/130 watermelon.jpg",
+        "vocabulary": "西瓜",
+        "sound": "./sound/watermelon.wav"
+      },
+      {
+        "id": 131,
+        "picture": "./img/131 strawberry.jpg",
+        "vocabulary": "草莓",
+        "sound": "./sound/strawberry.wav"
+      },
+      {
+        "id": 132,
+        "picture": "./img/132 lemon.jpg",
+        "vocabulary": "柠檬",
+        "sound": "./sound/lemon.wav"
+      },
+      {
+        "id": 133,
+        "picture": "./img/133 cherry.jpg",
+        "vocabulary": "樱桃",
+        "sound": "./sound/cherry.wav"
+      },
+      {
+        "id": 134,
+        "picture": "./img/134 kiwi.jpg",
+        "vocabulary": "奇异果",
+        "sound": "./sound/kiwi.wav"
+      },
+      {
+        "id": 135,
+        "picture": "./img/135 coconut (new).png",
+        "vocabulary": "椰子",
+        "sound": "./sound/coconut.wav"
+      },
     ]
-    
+
     $('.modal').modal('show');
 
-</script>
-<script>
+  </script>
+  <script>
 
     var speed = 2.5;
     var index = 0;
@@ -324,84 +343,84 @@ button:focus {
     var clickchange = false;
 
     async function animation(id) {
-        $('.modal').modal('hide');
-        await sleep(300);
-        $('.modal').modal('show');
+      $('.modal').modal('hide');
+      await sleep(300);
+      $('.modal').modal('show');
 
-        $("#img").attr("src", data[id].picture);
-        $('#text').text(data[id].vocabulary)
+      $("#img").attr("src", data[id].picture);
+      $('#text').text(data[id].vocabulary)
 
-        if(!mute){
-          var audio = new Audio(data[id].sound);
+      if (!mute) {
+        var audio = new Audio(data[id].sound);
         audio.play();
-        }
+      }
     }
     function sleep(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
+      return new Promise(resolve => setTimeout(resolve, ms));
     }
-    function init(){
-        $("#img").attr("src", data[0].picture);
-        $('#text').text(data[0].vocabulary)
-        var audio = new Audio(data[0].sound);
-        audio.play();
-        $("div#questnumber").text(1 + "/" + (data.length) );
+    function init() {
+      $("#img").attr("src", data[0].picture);
+      $('#text').text(data[0].vocabulary)
+      var audio = new Audio(data[0].sound);
+      audio.play();
+      $("div#questnumber").text(1 + "/" + (data.length));
     }
     init();
 
-    function changespeed(_speed){
+    function changespeed(_speed) {
       speed = _speed;
     }
 
-    function muteSound () {
-        mute  = !mute;
+    function muteSound() {
+      mute = !mute;
     }
 
-    function nextButton(id){
-        if(id)
-          clickchange = true;
+    function nextButton(id) {
+      if (id)
+        clickchange = true;
 
-        index ++;
-        if(index > data.length - 1){
-            index = data.length - 1;
-        }
-        animation(index);
-        $("div#questnumber").text((index + 1) + "/" + (data.length) );
-        
-        //clickchange = false;
+      index++;
+      if (index > data.length - 1) {
+        index = data.length - 1;
+      }
+      animation(index);
+      $("div#questnumber").text((index + 1) + "/" + (data.length));
+
+      //clickchange = false;
 
     }
-    function backButton(id){
-      if(id)
-          clickchange = true;
+    function backButton(id) {
+      if (id)
+        clickchange = true;
 
-        index--;
-        if(index < 0){
-            index = 0;
-        }
-        animation(index);
-        $("div#questnumber").text((index + 1) + "/" + (data.length) );
+      index--;
+      if (index < 0) {
+        index = 0;
+      }
+      animation(index);
+      $("div#questnumber").text((index + 1) + "/" + (data.length));
 
-        //clickchange = false;
+      //clickchange = false;
     }
-   async function playfunction(){
-      if(!play){
-        
+    async function playfunction() {
+      if (!play) {
+
         play = true;
         clickchange = false;
 
-        for(var i = index;i < data.length - 1; i++){
-          if(clickchange)
+        for (var i = index; i < data.length - 1; i++) {
+          if (clickchange)
             break;
           nextButton();
-          await sleep(speed*1000);
-      }
-      }else{
-          return;  
+          await sleep(speed * 1000);
+        }
+      } else {
+        return;
       }
 
     }
-</script>
+  </script>
 
 </body>
-</html>
 
+</html>

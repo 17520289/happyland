@@ -1,283 +1,306 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>Unit4!</title>
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-        }
-        body{
-          width:100%;
-          height: 100%;
-          background-image: url("../img/bg.jpg");
-          background-position: center;
-          background-size: 100% 100%;
-          background-repeat: no-repeat;
-        }
-        .bg{
-            position: absolute;
-            width: 100%;
-            z-index: 1;
-        }
-        .container{
-            position: relative;
-        }
-        p{
-          color: white;
-        }
-        img{
-          width: 8%;
-          margin: 10px;
-        }
-        #quest{
-          width: 45%;
-        }
-        #title_quest{
-          color: black;
-          font-size: 40px;
-        }
-        .sw{
-          width: 30%;
-        }
-        #grow {
-        -moz-transition: height 1s;
-        -ms-transition: height 1s;
-        -o-transition: height 1s;
-        -webkit-transition: height 1s;
-        transition: height 1s;
-        height: 0;
-        overflow: hidden;
-        }
-        button {
-          border: none;
-          background: none;
-        }
-        .pen{
-          object-fit: cover;
-          overflow:none;
-        }
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <title>Unit4!</title>
 
-    </style>
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+    }
 
-  </head>
-  <body>
-    <section class="exercise" id="exercise">
-      <div class="container" >
-        <div class="row justify-content-md-center" style="position: relative ; z-index: 10; padding: 2vw; ">
-          <div class="row">
-            <div class="col-1">
-              <a href="../index.html">
-            <img src="../../../public/img/icon/Ui-index.png" style="width: 5vw; margin: 0;">
-            </img></a>
-            </div>
-            <div class="col-10">
-              <p style="font-size: 25px;">Unit 4 : Colours</p>
-              <p style="font-size: 20px;">Fill in the correct colours</p>
-            </div>
-            <div class="col-1">
-              <a onclick="playWord()">
-                <img src="../../../public/img/icon/Ui-xmute.png" style="width: 5vw; margin: 0;">
+    body {
+      width: 100%;
+      height: 100%;
+      background-image: url("../img/bg.jpg");
+      background-position: center;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+    }
+
+    .bg {
+      position: absolute;
+      width: 100%;
+      z-index: 1;
+    }
+
+    .container {
+      position: relative;
+    }
+
+    p {
+      color: white;
+    }
+
+    img {
+      width: 8%;
+      margin: 10px;
+    }
+
+    #quest {
+      width: 45%;
+    }
+
+    #title_quest {
+      color: black;
+      font-size: 40px;
+    }
+
+    .sw {
+      width: 30%;
+    }
+
+    #grow {
+      -moz-transition: height 1s;
+      -ms-transition: height 1s;
+      -o-transition: height 1s;
+      -webkit-transition: height 1s;
+      transition: height 1s;
+      height: 0;
+      overflow: hidden;
+    }
+
+    button {
+      border: none;
+      background: none;
+    }
+
+    .pen {
+      object-fit: cover;
+      overflow: none;
+    }
+  </style>
+
+</head>
+
+<body>
+  <section class="exercise" id="exercise">
+    <div class="container">
+      <div class="row justify-content-md-center" style="position: relative ; z-index: 10; padding: 2vw; ">
+        <div class="row">
+          <div class="col-1">
+            <a href="../index.html">
+              <img src="../../../public/img/icon/Ui-index.png" style="width: 5vw; margin: 0;">
+              </img></a>
+          </div>
+          <div class="col-10">
+            <p style="font-size: 25px;">单元四：颜色
+            </p>
+            <p style="font-size: 20px;">Fill in the correct colours</p>
+          </div>
+          <div class="col-1">
+            <a onclick="playWord()">
+              <img src="../../../public/img/icon/Ui-xmute.png" style="width: 5vw; margin: 0;">
               </img>
-              </a>
-             
+            </a>
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <div id='grow' class="d-flex flex-column justify-content-center"
+              style="background-color: white; width: 20vw; height: 25vw;">
+              <div class="measuringWrapper">
+                <div class="d-flex justify-content-center">
+                  <img id="quest" src="./colours/star_1.png"></img>
+                </div>
+                <div class="d-flex justify-content-center">
+                  <p id="title_quest">yellow</p>
+                </div>
+                <div class="d-flex justify-content-center">
+                  <a onclick="playWord()">
+                    <img src="../../../public/img/icon/Ui-xmute.png" style="width: 4vw;margin:0;"></img>
+                  </a>
+
+                </div>
+              </div>
             </div>
           </div>
+          <div class="col-8">
             <div class="row">
-                <div class="col-4">
-                  <div id='grow' class="d-flex flex-column justify-content-center" style="background-color: white; width: 20vw; height: 25vw;">
-                    <div class="measuringWrapper">
-                      <div class="d-flex justify-content-center">
-                        <img id="quest" src="./colours/star_1.png"></img>
-                      </div>
-                      <div class="d-flex justify-content-center">
-                        <p id="title_quest">yellow</p>
-                      </div>
-                      <div class="d-flex justify-content-center">
-                        <a onclick="playWord()">
-                          <img src="../../../public/img/icon/Ui-xmute.png" style="width: 4vw;margin:0;"></img>
-                        </a>
-                        
-                      </div>
+              <div class="col-sm-3">
+                <img class="sw" src="./colours/star_1.png" onclick="changeColor(this,2)"></img>
+                <img class="sw" src="./colours/star_1.png" style="margin-top: 6vw" onclick="changeColor(this,2)"></img>
+                <img class="sw" src="./colours/star_1.png" onclick="changeColor(this,2)"></img>
+              </div>
+              <div class="col-sm-7">
+                <div class="d-flex justify-content-center flex-column text-center">
+                  <div class="d-flex justify-content-center">
+                    <img src="./colours/triangle_1.png" style="width: 24vw; margin: 0;"
+                      onclick="changeColor(this,5)"></img>
+                  </div>
+                  <div class="d-flex justify-content-center" style="position: relative;">
+                    <img src="./colours/square_1.png" style="width: 18vw; margin: 0;pointer-events: auto;"
+                      onclick="changeColor(this,4)"></img>
+                    <div style="position: absolute; pointer-events: none;">
+                      <img src="./colours/circle_1.png" style="width: 15%; pointer-events: auto;"
+                        onclick="changeColor(this,6)"></img>
+                      <img src="./colours/love_1.png" style="width: 15%; pointer-events: auto;"
+                        onclick="changeColor(this,3)"></img>
+                    </div>
+                    <div style="position: absolute; bottom: 5%;pointer-events: none;">
+                      <img src="./colours/rectangle_1.png" style="width: 15%; pointer-events: auto;"
+                        onclick="changeColor(this,1)"></img>
+                      <img src="./colours/circle_1.png"
+                        style="position: absolute; pointer-events:auto; ; width: 4%;right: 42%;top: 35%;"
+                        onclick="changeColor(this,6)"></img>
                     </div>
                   </div>
                 </div>
-                <div class="col-8">
-                    <div class="row">
-                      <div class="col-sm-3">
-                          <img class="sw" src="./colours/star_1.png"  onclick="changeColor(this,2)"></img>
-                          <img class="sw" src="./colours/star_1.png"  style="margin-top: 6vw"  onclick="changeColor(this,2)"></img>
-                          <img class="sw" src="./colours/star_1.png"  onclick="changeColor(this,2)"></img>
-                      </div>
-                      <div class="col-sm-7" >
-                        <div class="d-flex justify-content-center flex-column text-center">
-                          <div class="d-flex justify-content-center">
-                            <img src="./colours/triangle_1.png" style="width: 24vw; margin: 0;" onclick="changeColor(this,5)"></img>
-                          </div>
-                          <div class="d-flex justify-content-center" style="position: relative;">
-                            <img src="./colours/square_1.png"  style="width: 18vw; margin: 0;pointer-events: auto;" onclick="changeColor(this,4)"></img>
-                            <div style="position: absolute; pointer-events: none;">
-                              <img src="./colours/circle_1.png" style="width: 15%; pointer-events: auto;" onclick="changeColor(this,6)"></img>
-                              <img src="./colours/love_1.png"  style="width: 15%; pointer-events: auto;" onclick="changeColor(this,3)"></img>
-                            </div>
-                            <div style="position: absolute; bottom: 5%;pointer-events: none;">
-                              <img src="./colours/rectangle_1.png" style="width: 15%; pointer-events: auto;" onclick="changeColor(this,1)"></img>
-                              <img src="./colours/circle_1.png" style="position: absolute; pointer-events:auto; ; width: 4%;right: 42%;top: 35%;" onclick="changeColor(this,6)"></img>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-2">
-                        <img class="sw" src="./colours/star_1.png"  style="width: 4vw;" onclick="changeColor(this,2)"></img>
-                      </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row d-flex justify-content-center">
-              <div class="col-sm-2" style="width: 5vw;">
               </div>
-                <div class="col-sm-6" style="width: 50%;margin-left: 10%;">
-                  <img class="pen" id="pen1" src="./colours/blue_1.png" onclick="choosePen(this,1)"></img>
-                  <img class="pen" id="pen2" src="./colours/yellow_1.png" onclick="choosePen(this,2)"></img>
-                  <img class="pen" id="pen3" src="./colours/red_1.png" onclick="choosePen(this,3)"></img>
-                  <img class="pen" id="pen4" src="./colours/green_1.png" onclick="choosePen(this,4)"></img>
-                  <img class="pen" id="pen5" src="./colours/purple_1.png" onclick="choosePen(this,5)"></img>
-                  <img class="pen" id="pen6" src="./colours/orange_1.png" onclick="choosePen(this,6)"></img>
-                </div>
-                <div class="col-sm-2 d-flex justify-content-center">
-                  <button id = "backbutton" onclick="BackQuest()">
-                    <img src="./colours/Ui-back.png" style="width: 60%;"></img>
-                  </button>
-                </div>
-                <div class="col-sm-2 d-flex justify-content-center">
-                  <button id = "nextbutton" onclick="NextQuest()">
-                    <img src="./colours/Ui-next.png" style="width: 60%;"></img>
-                  </button>
-                </div>
+              <div class="col-2">
+                <img class="sw" src="./colours/star_1.png" style="width: 4vw;" onclick="changeColor(this,2)"></img>
+              </div>
             </div>
+          </div>
         </div>
+        <div class="row d-flex justify-content-center">
+          <div class="col-sm-2" style="width: 5vw;">
+          </div>
+          <div class="col-sm-6" style="width: 50%;margin-left: 10%;">
+            <img class="pen" id="pen1" src="./colours/blue_1.png" onclick="choosePen(this,1)"></img>
+            <img class="pen" id="pen2" src="./colours/yellow_1.png" onclick="choosePen(this,2)"></img>
+            <img class="pen" id="pen3" src="./colours/red_1.png" onclick="choosePen(this,3)"></img>
+            <img class="pen" id="pen4" src="./colours/green_1.png" onclick="choosePen(this,4)"></img>
+            <img class="pen" id="pen5" src="./colours/purple_1.png" onclick="choosePen(this,5)"></img>
+            <img class="pen" id="pen6" src="./colours/orange_1.png" onclick="choosePen(this,6)"></img>
+          </div>
+          <div class="col-sm-2 d-flex justify-content-center">
+            <button id="backbutton" onclick="BackQuest()">
+              <img src="./colours/Ui-back.png" style="width: 60%;"></img>
+            </button>
+          </div>
+          <div class="col-sm-2 d-flex justify-content-center">
+            <button id="nextbutton" onclick="NextQuest()">
+              <img src="./colours/Ui-next.png" style="width: 60%;"></img>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-    </section>
+  </section>
 
 
-    <script>
-      var idPen = 0;
-      var image = "";
+  <script>
+    var idPen = 0;
+    var image = "";
 
-      function resetPen(){
-        $("#pen1").attr("src","./colours/blue_1.png");
-        $("#pen2").attr("src","./colours/yellow_1.png");
-        $("#pen3").attr("src","./colours/red_1.png");
-        $("#pen4").attr("src","./colours/green_1.png");
-        $("#pen5").attr("src","./colours/purple_1.png");
-        $("#pen6").attr("src","./colours/orange_1.png");
+    function resetPen() {
+      $("#pen1").attr("src", "./colours/blue_1.png");
+      $("#pen2").attr("src", "./colours/yellow_1.png");
+      $("#pen3").attr("src", "./colours/red_1.png");
+      $("#pen4").attr("src", "./colours/green_1.png");
+      $("#pen5").attr("src", "./colours/purple_1.png");
+      $("#pen6").attr("src", "./colours/orange_1.png");
+    }
+    function choosePen(img, id) {
+      idPen = id;
+
+      resetPen();
+
+      if (image != "") {
+        image.src.replace(/_2/, "_1");
       }
-      function choosePen(img,id){
-        idPen = id;
+      image = img
 
-        resetPen();
-
-        if(image != ""){
-          image.src.replace(/_2/, "_1");
-        }
-        image = img
-
-        img.src = img.src.match(/_1/) ?
+      img.src = img.src.match(/_1/) ?
         img.src.replace(/_1/, "_2") :
         img.src.replace(/_2/, "_1");
 
-      }
+    }
 
-      function sleep(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-      }
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
 
-      var index  = -1;
-      var choose = 0;
-      var currentQuestion = 0;
-      const question = [
+    var index = -1;
+    var choose = 0;
+    var currentQuestion = 0;
+    const question = [
       {
-          "question": 0,
-          "picture":  "./colours/star_1.png",
-          "sound": "./sound/colours/yellow.wav",
-          "number": 4,
-          "color":"yellow",
-          "pen" : 2
-        },
-        {
-          "question": 1,
-          "picture":  "./colours/square_1.png",
-          "sound": "./sound/colours/green.wav",
-          "number": 1,
-          "color":"green",
-          "pen" : 4
-        },
-        {
-          "question": 2,
-          "picture":  "./colours/rectangle_1.png",
-          "sound": "./sound/colours/blue.wav",
-          "number": 1,
-          "color":"blue",
-          "pen" : 1
-        },
-        {
-          "question": 3,
-          "picture":  "./colours/circle_1.png",
-          "sound": "./sound/colours/orange.wav",
-          "number": 2,
-          "color":"orange",
-          "pen" : 6
-        },
-        {
-          "question": 4,
-          "picture":  "./colours/triangle_1.png",
-          "sound": "./sound/colours/purple.wav",
-          "number": 1,
-          "color":"purple",
-          "pen" : 5
-        },
-        {
-          "question": 5,
-          "picture":  "./colours/love_1.png",
-          "sound": "./sound/colours/red.wav",
-          "number": 1,
-          "color":"red",
-          "pen" : 3
-        }
-      ]
-
-      function init(){
-        console.log(question[0].pen)
-        currentQuestion = 0;
-        choose = 0;
-        $("#backbutton").hide();
-
+        "question": 0,
+        "picture": "./colours/star_1.png",
+        "sound": "./sound/colours/yellow.wav",
+        "number": 4,
+        "color": "yellow",
+        "pen": 2
+      },
+      {
+        "question": 1,
+        "picture": "./colours/square_1.png",
+        "sound": "./sound/colours/green.wav",
+        "number": 1,
+        "color": "green",
+        "pen": 4
+      },
+      {
+        "question": 2,
+        "picture": "./colours/rectangle_1.png",
+        "sound": "./sound/colours/blue.wav",
+        "number": 1,
+        "color": "blue",
+        "pen": 1
+      },
+      {
+        "question": 3,
+        "picture": "./colours/circle_1.png",
+        "sound": "./sound/colours/orange.wav",
+        "number": 2,
+        "color": "orange",
+        "pen": 6
+      },
+      {
+        "question": 4,
+        "picture": "./colours/triangle_1.png",
+        "sound": "./sound/colours/purple.wav",
+        "number": 1,
+        "color": "purple",
+        "pen": 5
+      },
+      {
+        "question": 5,
+        "picture": "./colours/love_1.png",
+        "sound": "./sound/colours/red.wav",
+        "number": 1,
+        "color": "red",
+        "pen": 3
       }
-      async function changeQuestion(){
-        //currentQuestion++;
-        choose = 0;
-        await NextQuest();
-      }
+    ]
 
-      init()
+    function init() {
+      console.log(question[0].pen)
+      currentQuestion = 0;
+      choose = 0;
+      $("#backbutton").hide();
 
-      async function changeColor(img,pen){
+    }
+    async function changeQuestion() {
+      //currentQuestion++;
+      choose = 0;
+      await NextQuest();
+    }
 
-      if(idPen != question[currentQuestion].pen || idPen != pen)
+    init()
+
+    async function changeColor(img, pen) {
+
+      if (idPen != question[currentQuestion].pen || idPen != pen)
         return;
 
       choose++;
       img.src = img.src.replace(/_1/, "_2")
 
-      if(choose >= question[currentQuestion].number){
+      if (choose >= question[currentQuestion].number) {
 
         playWord();
         playCorrect();
@@ -293,93 +316,96 @@
         changeQuestion();
       }
 
-      }
-      function HideShowButton(){
-        if(currentQuestion >= 1){
-          $("#backbutton").show();
-        }else{
-          $("#backbutton").hide();
-        }
-
-        if(currentQuestion >= 5){
-          $("#nextbutton").hide();
-        }else{
-          $("#nextbutton").show();
-        }
-
-      }
-      async function NextQuest() {
-        currentQuestion++;
-
-        if(currentQuestion > 5)
-          return;
-        HideShowButton()
-
-        var growDiv = document.getElementById('grow');
-
-        growDiv.style.height = 0;
-
-        await sleep(1500);
-
-        growDiv.style.height =  "25vw";
-
-        index++;
-        var image = document.getElementById("quest");
-        image.src = question[currentQuestion].picture; //list_img[index];
-        $("#title_quest").text(question[currentQuestion].color)
-
-        await sleep(1500);
-
-        console.log(question[currentQuestion].color)
-
-        //playCorrect()
-      }
-
-      async function BackQuest() {
-        console.log(currentQuestion);
-        if(currentQuestion <= 0)
-          return;
-
-        currentQuestion--;
-
-        HideShowButton()
-
-        var growDiv = document.getElementById('grow');
-
-        growDiv.style.height = 0;
-
-        await sleep(1500);
-
-        growDiv.style.height =  "25vw";
-
-        index--;
-        var image = document.getElementById("quest");
-        image.src = question[currentQuestion].picture;//list_img[index];
-
-        var title = document.getElementById("title_quest");
-
-        $("#title_quest").text(question[currentQuestion].color)
-        await sleep(1500);
-
-      }
-      function playCorrect(){
-          var audioElement = document.createElement('audio');
-          audioElement.setAttribute('src', './sound/correct.wav');
-          audioElement.play()
-          document.getElementById("exercise").innerHTML+="<div class='purple' id='yeah' style='position: absolute;z-index: 999;top: -50%;'><img src='./img/yeah3.gif' style='height: 100%; width : 100%; z-index:999'/></div>"
-          setTimeout('document.getElementById("yeah").remove()', 900)
-      }
-
-      function playWord(){
-        var audioElement = document.createElement('audio');
-        audioElement.setAttribute('src', question[currentQuestion].sound)
-        audioElement.play()
     }
-    </script>
+    function HideShowButton() {
+      if (currentQuestion >= 1) {
+        $("#backbutton").show();
+      } else {
+        $("#backbutton").hide();
+      }
+
+      if (currentQuestion >= 5) {
+        $("#nextbutton").hide();
+      } else {
+        $("#nextbutton").show();
+      }
+
+    }
+    async function NextQuest() {
+      currentQuestion++;
+
+      if (currentQuestion > 5)
+        return;
+      HideShowButton()
+
+      var growDiv = document.getElementById('grow');
+
+      growDiv.style.height = 0;
+
+      await sleep(1500);
+
+      growDiv.style.height = "25vw";
+
+      index++;
+      var image = document.getElementById("quest");
+      image.src = question[currentQuestion].picture; //list_img[index];
+      $("#title_quest").text(question[currentQuestion].color)
+
+      await sleep(1500);
+
+      console.log(question[currentQuestion].color)
+
+      //playCorrect()
+    }
+
+    async function BackQuest() {
+      console.log(currentQuestion);
+      if (currentQuestion <= 0)
+        return;
+
+      currentQuestion--;
+
+      HideShowButton()
+
+      var growDiv = document.getElementById('grow');
+
+      growDiv.style.height = 0;
+
+      await sleep(1500);
+
+      growDiv.style.height = "25vw";
+
+      index--;
+      var image = document.getElementById("quest");
+      image.src = question[currentQuestion].picture;//list_img[index];
+
+      var title = document.getElementById("title_quest");
+
+      $("#title_quest").text(question[currentQuestion].color)
+      await sleep(1500);
+
+    }
+    function playCorrect() {
+      var audioElement = document.createElement('audio');
+      audioElement.setAttribute('src', './sound/correct.wav');
+      audioElement.play()
+      document.getElementById("exercise").innerHTML += "<div class='purple' id='yeah' style='position: absolute;z-index: 999;top: -50%;'><img src='./img/yeah3.gif' style='height: 100%; width : 100%; z-index:999'/></div>"
+      setTimeout('document.getElementById("yeah").remove()', 900)
+    }
+
+    function playWord() {
+      var audioElement = document.createElement('audio');
+      audioElement.setAttribute('src', question[currentQuestion].sound)
+      audioElement.play()
+    }
+  </script>
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
 
-  </body>
+</body>
+
 </html>

@@ -69,17 +69,12 @@ body, html{
 }
 .btn-letStart-text{
     color: white;
-    font-size: 50px;
     padding: 1rem;
-    background-image: url("./exercise/img/rectangleB.png");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    height: 100%;
-    background-position: center;
+    width: 100%;
 }
 .btn-SayCheese-text{
     position: absolute;
-    top: 8%;
+    top: 12%;
     left:15%;
     z-index: 3;
     color: black;

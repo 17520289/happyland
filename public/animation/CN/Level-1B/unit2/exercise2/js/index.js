@@ -28,11 +28,11 @@ const questions = [
   },
   {
     question: "4-7",
-    picture: "./img/colorpencil.png",
+    picture: "./img/color pencil.png",
     choose1: "剪刀",
     choose2: "彩色笔",
     sound1: "./sound/scissors.wav",
-    sound2: "./sound/colour pencil.wav",
+    sound2: "./sound/colourpencil.wav",
     ans: "2",
   },
   {
@@ -46,11 +46,11 @@ const questions = [
   },
   {
     question: "6-7",
-    picture: "./img/pencilsharpener.png",
+    picture: "./img/pencil sharpener.png",
     choose1: "文具盒",
     choose2: "铅笔刀",
-    sound1: "./sound/pencilcase.wav",
-    sound2: "./sound/pencilsharpener.wav",
+    sound1: "./sound/pencil case.wav",
+    sound2: "./sound/pencil sharpener.wav",
     ans: "2",
   },
   {
@@ -63,8 +63,6 @@ const questions = [
     ans: "1",
   },
 ];
-
-
 
 var iQuestion = 0;
 var idButton = "buttonChoose1";

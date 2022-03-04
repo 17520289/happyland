@@ -4,7 +4,7 @@ const questions = [
     picture: "./img/pajamas.jpg",
     choose1: "背心",
     choose2: "睡衣",
-    sound1: "./sound/singlets.wav",
+    sound1: "./sound/singlet.wav",
     sound2: "./sound/pajamas.wav",
     ans: "2",
   },
@@ -22,7 +22,7 @@ const questions = [
     picture: "./img/schooluniform.jpg",
     choose1: "校服",
     choose2: "制服",
-    sound1: "./sound/schooluniform.wav",
+    sound1: "./sound/school uniform.wav",
     sound2: "./sound/uniform.wav",
     ans: "1",
   },
@@ -45,8 +45,6 @@ const questions = [
     ans: "1",
   },
 ];
-
-
 
 var iQuestion = 0;
 var idButton = "buttonChoose1";

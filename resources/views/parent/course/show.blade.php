@@ -14,7 +14,6 @@ $url_img = $course->image != null ? $course->image : 'images/intro.png';
 
 @section('header')
     <section class="container-fluid ">
-        <a href="javascript: window.print();" class="btn float-right"><i class="la la-print"></i></a>
         <h2>
             <span class="text-capitalize">{{$course->name}}</span>
             <small>{!! mb_ucfirst(trans('backpack::crud.preview')) . ' ' .'course' !!}.</small>
@@ -22,15 +21,15 @@ $url_img = $course->image != null ? $course->image : 'images/intro.png';
         </h2>
 
     </section>
-    <hr style="width:100%;">
+    <hr style="width:100%;" class="mt-1 mb-1">
 @endsection
 
 @section('content')
+    <div class="row menu-top" >
+        @include('layouts.sidebar')
+    </div>
     <div class="row">
-        <div class="col-md-2">
-            @include('layouts.sidebar')
-        </div>
-        <div class="col-md-10 infomations">
+        <div class="col-md-12 infomations">
             <div class="hero-image"
                 style="background-image:linear-gradient(rgba(131, 131, 131, 0.5), rgba(138, 138, 138, 0.5)), url({{ asset($url_img) }})">
 

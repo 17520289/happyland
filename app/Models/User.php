@@ -42,6 +42,7 @@ class User extends Authenticatable
         'level_id',
         'gender', 
         'full_name',
+        'lang',
     ];
 
     /**

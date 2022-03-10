@@ -640,6 +640,21 @@ class UserController extends UserCrudController
                 'inline'      => true,
                 'tab'             => 'Active / Inactive',
             ],
+            [   // radio
+                'name'        => 'lang', // the name of the db column
+                'label'       => 'Language', // the input label
+                'type'        => 'radio',
+                'options'     => [
+                    // the key will be stored in the db, the value will be shown as label; 
+                    'ENG' => "English",
+                    'BM' => "Bahasa Malaysia",
+                    'CN' => 'Bahasa Cina'
+                ],
+                'default' => 'ENG',
+                // optional
+               'inline'      => true, // show the radios all on the same line?
+               'tab'             => 'Login Infomation',
+            ],
             
         ];
         }else{

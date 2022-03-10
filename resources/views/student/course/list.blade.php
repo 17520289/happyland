@@ -2,26 +2,25 @@
 @php
 if (backpack_user()->hasRole('Parent')) {
     $defaultBreadcrumbs = [
-        'Parent' => url(config('backpack.base.route_prefix'), 'dashboard'),
-        'Children' => route('parent.list-children.get',['id'=> \Route::current()->parameter('id')]),
-        'List Course' => false,
+        trans('backpack::base.parent') => url(config('backpack.base.route_prefix'), 'dashboard'),
+        trans('backpack::base.children') => route('parent.list-children.get',['id'=> \Route::current()->parameter('id')]),
+        trans('backpack::base.listCourse') => false,
     ];
 } else {
     $defaultBreadcrumbs = [
-        'Student' => url(config('backpack.base.route_prefix'), 'dashboard'),
-        'Course' => backpack_url('course') ,
-        'List' => false,
+        trans('backpack::base.student') => url(config('backpack.base.route_prefix'), 'dashboard'),
+        trans('backpack::base.course') => backpack_url('course') ,
+        trans('backpack::crud.list') => false,
     ];
 }
-$lang = ['ENG', 'BM', 'CN'];
-$flag = 0;
+
 // if breadcrumbs aren't defined in the CrudController, use the default breadcrumbs
 $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
 @endphp
 @section('header')
     <div class="container-fluid">
         <h2><a href=""></a>
-            <span class="text-capitalize">All Course</span>
+            <span class="text-capitalize">{{trans('backpack::base.allCourse')}}</span>
         </h2>
     </div>
     <hr style="width:100%;">
@@ -32,11 +31,12 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
         
         <div class="row" style="width: 100%">
             @foreach ($courses as $course)
-                <div class="col-md-4" style="padding: 20px ">
+                <div class="col-md-4" style="padding: 20px; display: block ">
                     <div class="card-sl">
                         <div class="" >
                                 @php
-                                $flag = ($flag == 3) ? 0 : $flag;
+                                $url_image = $course->image ?? 'images/intro.png' ;
+
                                 if(backpack_user()->hasRole('Parent')){
                                     $studentId = \Route::current()->parameter('student_id');
                                 $url = route('parent.showCourses.get', ['id'=>backpack_user()->id,'course_id' => $course->id, 'student_id'=> $studentId]);
@@ -44,15 +44,13 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
                                 $url = route('course.show', ['id' => $course->id]);
                                 }
                             @endphp
-                            <a href="{{$url}}" onclick="putSessionLang('{{$lang[$flag]}}')" >
-                                <img  class="center"  src="{{ asset('images/Level-'.$course->level_id.'/'.$lang[$flag].'.png') }} " />
+                            <a href="{{$url}}" >
+                                <img  class="center"  src="{{asset($url_image)}}" />
                             </a>    
                         </div>
                     </div>
                 </div>
-                @php
-                    $flag++;
-                @endphp
+              <br>
             @endforeach
         </div>
         
@@ -195,11 +193,6 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
 @endsection
 
 @section('after_scripts')
-    <script>
-        function putSessionLang(lang){
-            localStorage.setItem('lang', lang);
-        }
-    </script>
     <script>
         $(document).ready(function() {
             document.getElementById("heart").onclick = function() {

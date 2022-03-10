@@ -8,7 +8,11 @@ const questions = [
         questionTitle: "A",
         picture: "./img/dessert.jpg",
         text: "甜品",
+<<<<<<< HEAD
+        sound: "sound/foods/dessert.wav",
+=======
         sound: "sound/dessert.wav",
+>>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
         stt: 2,
         col: 4,
       },
@@ -17,7 +21,11 @@ const questions = [
         questionTitle: "B",
         picture: "./img/cereal.jpg",
         text: "谷物",
+<<<<<<< HEAD
+        sound: "sound/foods/cereal.wav",
+=======
         sound: "sound/cereal.wav",
+>>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
         stt: 3,
         col: 4,
       },
@@ -26,7 +34,11 @@ const questions = [
         questionTitle: "C",
         picture: "./img/bean.jpg",
         text: "豆类",
+<<<<<<< HEAD
+        sound: "sound/foods/bean.wav",
+=======
         sound: "sound/bean.wav",
+>>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
         stt: 1,
         col: 4,
       },
@@ -34,19 +46,31 @@ const questions = [
     answer: [
       {
         id: 1,
+<<<<<<< HEAD
+        sound: "sound/foods/bean.wav",
+=======
         sound: "sound/bean.wav",
+>>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
         text: "豆类",
         col: 4,
       },
       {
         id: 2,
+<<<<<<< HEAD
+        sound: "sound/foods/dessert.wav",
+=======
         sound: "sound/dessert.wav",
+>>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
         text: "甜品",
         col: 4,
       },
       {
         id: 3,
+<<<<<<< HEAD
+        sound: "sound/foods/cereal.wav",
+=======
         sound: "sound/cereal.wav",
+>>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
         text: "谷物",
         col: 4,
       },
@@ -61,7 +85,11 @@ const questions = [
         questionTitle: "A",
         picture: "./img/fruits.jpg",
         text: "水果",
+<<<<<<< HEAD
+        sound: "sound/foods/fruits.wav",
+=======
         sound: "sound/fruits.wav",
+>>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
         stt: 2,
         col: 6,
       },
@@ -70,7 +98,11 @@ const questions = [
         questionTitle: "B",
         picture: "./img/vegetables.jpg",
         text: "蔬菜",
+<<<<<<< HEAD
+        sound: "sound/foods/vegetables.wav",
+=======
         sound: "sound/vegetables.wav",
+>>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
         stt: 1,
         col: 6,
       },
@@ -78,13 +110,21 @@ const questions = [
     answer: [
       {
         id: 1,
+<<<<<<< HEAD
+        sound: "sound/foods/vegetables.wav",
+=======
         sound: "sound/vegetables.wav",
+>>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
         text: "蔬菜",
         col: 6,
       },
       {
         id: 2,
+<<<<<<< HEAD
+        sound: "sound/foods/fruits.wav",
+=======
         sound: "sound/fruits.wav",
+>>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
         text: "水果",
         col: 6,
       },
@@ -99,7 +139,11 @@ const questions = [
         questionTitle: "A",
         picture: "./img/beverage.jpg",
         text: "饮料",
+<<<<<<< HEAD
+        sound: "sound/foods/beverage.wav",
+=======
         sound: "sound/beverage.wav",
+>>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
         stt: 1,
         col: 6,
       },
@@ -108,7 +152,11 @@ const questions = [
         questionTitle: "B",
         picture: "./img/seafood.jpg",
         text: "海鲜",
+<<<<<<< HEAD
+        sound: "sound/foods/seafood.wav",
+=======
         sound: "sound/seafood.wav",
+>>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
         stt: 2,
         col: 6,
       },
@@ -116,13 +164,21 @@ const questions = [
     answer: [
       {
         id: 1,
+<<<<<<< HEAD
+        sound: "sound/foods/beverage.wav",
+=======
         sound: "sound/beverage.wav",
+>>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
         text: "饮料",
         col: 6,
       },
       {
         id: 2,
+<<<<<<< HEAD
+        sound: "sound/foods/seafood.wav",
+=======
         sound: "sound/seafood.wav",
+>>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
         text: "海鲜",
         col: 6,
       },
@@ -130,6 +186,10 @@ const questions = [
   },
 ];
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
 var iQuestion = 0;
 var answerCorrect = 0;
 
@@ -210,8 +270,12 @@ function getQuestion() {
         i +
         '" data-text="' +
         questions[iQuestion].answer[i].text +
+<<<<<<< HEAD
+        '" data-index="' + i +
+=======
         '" data-index="' +
         i +
+>>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
         '">' +
         questions[iQuestion].answer[i].id +
         "." +
@@ -226,17 +290,40 @@ function getQuestion() {
       cursor: "move",
       revert: "invalid",
       start: function (event, ui) {},
+<<<<<<< HEAD
+      stop: function () {
+        
+      },
+=======
       stop: function () {},
+>>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
     });
   }
   answerCorrect = 0;
   $(".foods-input").droppable({
     drop: function (event, ui) {
+<<<<<<< HEAD
+      var i =  $(ui.draggable).attr("data-index");
+=======
       var i = $(ui.draggable).attr("data-index");
+>>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
       playWord(i);
       $(this).css("background-color", "#FF99D5");
       var answerDrop = $(ui.draggable).attr("data-text");
       var answer = $(this).attr("data-text");
+<<<<<<< HEAD
+      $(this).parent().find('#correct').remove();
+      $(this).parent().find('#wrong').remove();
+      if (answerDrop === answer) {
+        ++answerCorrect;
+        $(this)
+        .parent()
+        .append(
+          "<img src='../public/img/tick.png' style='height: 50px; margin: 15px;' id='correct'/>"
+        );
+        $(ui.draggable).draggable('disable');
+        if (iQuestion === questions.length - 1 && answerCorrect == questions[iQuestion].question.length) {
+=======
       $(this).parent().find("#correct").remove();
       $(this).parent().find("#wrong").remove();
       if (answerDrop === answer) {
@@ -251,6 +338,7 @@ function getQuestion() {
           iQuestion === questions.length - 1 &&
           answerCorrect == questions[iQuestion].question.length
         ) {
+>>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
           playCorrect();
         }
       } else {
@@ -263,7 +351,12 @@ function getQuestion() {
         audioElement.setAttribute("src", "./sound/wrong.wav");
         audioElement.play();
 
+<<<<<<< HEAD
+         $(ui.draggable).css({ top: 0, left: 0 })
+
+=======
         $(ui.draggable).css({ top: 0, left: 0 });
+>>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
       }
     },
     out: function (event, ui) {},

@@ -14,10 +14,9 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
 
 @section('header')
     <section class="container-fluid ">
-        <a href="javascript: window.print();" class="btn float-right"><i class="la la-print"></i></a>
+        {{-- <a href="javascript: window.print();" class="btn float-right"><i class="la la-print"></i></a> --}}
         <h2>
             <span class="text-capitalize">{!! $crud->getHeading() ?? $crud->getCurrentEntry()->name !!}</span>
-            <small>{!! $crud->getSubheading() ?? mb_ucfirst(trans('backpack::crud.preview')) . ' ' . $crud->entity_name !!}.</small>
             @if ($crud->hasAccess('list'))
                 <small class=""><a href="{{ url($crud->route) }}" class="font-sm"><i
                             class="la la-angle-double-left"></i> {{ trans('backpack::crud.back_to_all') }}
@@ -26,15 +25,15 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
         </h2>
 
     </section>
-    <hr style="width:100%;">
+    <hr style="width:100%;" class="mt-1 mb-1">
 @endsection
 
 @section('content')
-    <div class="row">
-        <div class="col-md-2">
-            @include('layouts.sidebar')
-        </div>
-        <div class="col-md-10 infomations">
+    <div class="row menu-top">
+        @include('layouts.sidebar')
+    </div>
+    <div class="row ">
+        <div class="col-md-12 infomations">
             <div class="hero-image"
                 style="background-image:linear-gradient(rgba(131, 131, 131, 0.5), rgba(138, 138, 138, 0.5)), url({{ asset($url_img) }})">
 

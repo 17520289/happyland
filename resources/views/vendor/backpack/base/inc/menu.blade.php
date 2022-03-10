@@ -20,20 +20,20 @@
 <ul class="nav navbar-nav ml-auto @if(config('backpack.base.html_direction') == 'rtl') mr-0 @endif">
    
     <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-        @if(session()->get('locale') === 'zh-cn')
+        @if(session()->get('locale') === 'CN')
         <i class="flag-icon flag-icon-cn h5 mb-0"   title="Chinese" width="35"></i>
        
             {{-- <img src="{{asset('images/en.png')}}" width="35"> --}}
-        @elseif(session()->get('locale') === 'ms')
+        @elseif(session()->get('locale') === 'BM')
         <i class="flag-icon flag-icon-my h5 mb-0"  title="Malay" width="35"></i>
         @else
         <i class="flag-icon  flag-icon-us h5 mb-0"  title="English" width="35"></i>
         @endif
     </a>
     <div class="dropdown-menu dropdown-menu-right mr-4 pb-1 pt-1">
-        <a class="dropdown-item" href="{{ route('LangChange') }}?lang=en">@if(session()->get('locale') === 'en') <i class="la la-check-circle" style="color: #0ace00;"></i>  @endif  <i class="flag-icon flag-icon-us h3"  title="English" ></i>&ensp; English</a>
-        <a class="dropdown-item" href="{{ route('LangChange') }}?lang=ms">@if(session()->get('locale') === 'ms') <i class="la la-check-circle" style="color: #0ace00;"></i>  @endif  <i class="flag-icon flag-icon-my h3"  title="Malay" width="35"></i>&ensp;Malay</a>
-        <a class="dropdown-item" href="{{ route('LangChange') }}?lang=zh-cn">@if(session()->get('locale') === 'zh-cn') <i class="la la-check-circle" style="color: #0ace00;"></i>  @endif <i class="flag-icon flag-icon-cn h3"  title="Chinese" width="35"></i>&ensp;Chinese</a>
+        <a class="dropdown-item" href="{{ route('LangChange') }}?lang=ENG">@if(session()->get('locale') === 'ENG') <i class="la la-check-circle" style="color: #0ace00;"></i>  @endif  <i class="flag-icon flag-icon-us h3"  title="English" ></i>&ensp; English</a>
+        <a class="dropdown-item" href="{{ route('LangChange') }}?lang=BM">@if(session()->get('locale') === 'BM') <i class="la la-check-circle" style="color: #0ace00;"></i>  @endif  <i class="flag-icon flag-icon-my h3"  title="Malay" width="35"></i>&ensp;Malay</a>
+        <a class="dropdown-item" href="{{ route('LangChange') }}?lang=CN">@if(session()->get('locale') === 'CN') <i class="la la-check-circle" style="color: #0ace00;"></i>  @endif <i class="flag-icon flag-icon-cn h3"  title="Chinese" width="35"></i>&ensp;Chinese</a>
     </div>
     
     @if (backpack_auth()->guest())

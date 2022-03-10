@@ -26,6 +26,7 @@ class Course extends Model
         'status',
         'image',
         'description',
+        'lang'
     ];
     public function grades()
     {

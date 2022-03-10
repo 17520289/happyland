@@ -30,6 +30,7 @@ class CourseRequest extends FormRequest
             'start_date' => 'required',
             'end_date' => 'required|after_or_equal:start_date',
             'level_id' => 'required',
+            'lang' => 'required',
             'image' => 'nullable:image'
         ];
     }

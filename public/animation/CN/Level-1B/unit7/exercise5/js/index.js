@@ -5,7 +5,11 @@ const questions = [
     choose1: "飞机",
     choose2: "缆车",
     sound1: "./sound/aeroplane.wav",
+<<<<<<< HEAD
+    sound2: "./sound/cablecar.wav",
+=======
     sound2: "./sound/cable car.wav",
+>>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
     ans: "1",
   },
   {
@@ -13,7 +17,11 @@ const questions = [
     picture: "./img/cruise.jpg",
     choose1: "油船",
     choose2: "邮轮",
+<<<<<<< HEAD
+    sound1: "./sound/tanker.wav",
+=======
     sound1: "./sound/tanker ship.wav",
+>>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
     sound2: "./sound/cruise.wav",
     ans: "2",
   },
@@ -64,6 +72,10 @@ const questions = [
   },
 ];
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
 var iQuestion = 0;
 var idButton = "buttonChoose1";
 

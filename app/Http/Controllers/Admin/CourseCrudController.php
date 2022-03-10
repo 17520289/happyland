@@ -108,8 +108,9 @@ class CourseCrudController extends CrudController
 
         if(backpack_user()->hasRole(['Student'])){
             $enrollments = Enrollment::where('user_id', backpack_user()->id)->pluck('course_id')->toArray();
-            $courses = Course::whereIn('id', $enrollments)->where('status', 'published')->get();
-
+            $lang = \Session::get('locale', backpack_user()->lang);
+            $courses = Course::whereIn('id', $enrollments)->where('status', 'published')->orderBy('level_id')->where('lang', $lang)->get();
+           
             
             $this->data['courses'] = $courses;
             $this->crud->setListView('student.course.list', $this->data);
@@ -146,6 +147,20 @@ class CourseCrudController extends CrudController
 
         // CRUD::field('id');
         CRUD::field('name')->label(trans('backpack::crud.name'));
+        $this->crud->addField([   
+            'name'        => 'lang', // the name of the db column
+            'label'       => 'Lang', // the input label
+            'type'        => 'radio',
+            'options'     => [
+                // the key will be stored in the db, the value will be shown as label; 
+                'ENG' => "English",
+                'BM' => "Bahasa Malaysia",
+                'CN' => 'Bahasa Cina'
+            ],
+            'default' => 'ENG',
+             // optional
+            'inline'      => true, // show the radios all on the same line?
+        ]);
         $this->crud->addField(
             [  // Select
                 'label'     => trans('backpack::base.level'),
@@ -167,6 +182,7 @@ class CourseCrudController extends CrudController
                  }), //  you can use this to filter the results show in the select
              ],
         );
+        
         CRUD::field('start_date')->label(trans('backpack::crud.startDate'));
         CRUD::field('end_date')->label(trans('backpack::crud.endDate'));
         CRUD::field('user_id')->type('hidden')->value(backpack_user()->id); // notice the name is the foreign key attribute

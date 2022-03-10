@@ -8,17 +8,20 @@ $breadcrumbs = [
 @endphp
 @section('header')
     <div class="container-fluid">
-        <h2><a href="{{ route('course.show', ['id' => $course->id]) }}"><i class="la la-backward nav-icon"></i></a>
+        <h2>
             <span class="text-capitalize">{{ $course->name }}</span>
             <small> >> Grades</small>
         </h2>
     </div>
-    <hr style="width:100%;">
+    <hr style="width:100%;" class="mt-1 mb-1">
 @endsection
 
 @section('content')
     <!-- Default box -->
-    <div class="row mt-4 pl-5 pr-5">
+    <div class="row menu-top ">
+        @include('layouts.sidebar')
+    </div>
+    <div class="row ">
         {{-- <div class="col-md-2">
             @include('layouts.sidebar')
         </div> --}}

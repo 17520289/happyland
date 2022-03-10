@@ -1,0 +1,102 @@
+[33mcommit 27c7117678a8e162fec87d5589f1b1af41d62ed1[m[33m ([m[1;36mHEAD -> [m[1;32mfix-flashcard[m[33m, [m[1;31morigin/fix-flashcard[m[33m)[m
+Author: chautv <chautv@hlsolutions.jp>
+Date:   Wed Mar 2 09:50:44 2022 +0700
+
+    [Edric][][FIX][fix flashcard]
+
+[33mcommit d06e13ecab9b7149c30a752265bbc525fecfd29a[m
+Merge: 1785db3 9daab2e
+Author: chautv <chautv@hlsolutions.jp>
+Date:   Wed Mar 2 09:21:28 2022 +0700
+
+    4/Merge branch 'develop' of http://git.hls-dev.asia/hl-solutions/happyland into fix-flashcard
+
+[33mcommit 9daab2e572907f8b186e6ac0626e97cd11d094c4[m
+Author: chautv <chautv@hlsolutions.jp>
+Date:   Tue Mar 1 18:47:59 2022 +0700
+
+    [Edric][][FIX flashCard, assessment]
+
+[33mcommit ad62ed7db111fb56caad077bafcb44dd7b6cb37b[m
+Author: Trúc <nttrucitus@gmail.com>
+Date:   Tue Mar 1 13:11:44 2022 +0000
+
+    [Update] Animation CN and BM
+
+[33mcommit 1785db3b93f559df25d513b07c2e7dc1940e55c3[m
+Author: chautv <chautv@hlsolutions.jp>
+Date:   Tue Mar 1 18:47:59 2022 +0700
+
+    [Edric][][FIX flashCard, assessment]
+
+[33mcommit 8bab17b6b5bd042e063c2ef78c1753c7fbe6daa3[m
+Author: chautv <chautv@hlsolutions.jp>
+Date:   Tue Mar 1 14:17:27 2022 +0700
+
+    [Edric][][FIX][fix link flash card by level of course]
+
+[33mcommit 0877fc80f387c28d89945bd6799dcf0b238f9c2b[m[33m ([m[1;32mdevelop[m[33m)[m
+Author: nttruc <nttrucitus@gmail.com>
+Date:   Tue Mar 1 13:27:03 2022 +0700
+
+    [UPDATE] Flash card EN-BM-CN
+
+[33mcommit a131d4c0256bc18c0d63393ee958c852fba0fd79[m[33m ([m[1;32mfix-course-flashcard[m[33m)[m
+Author: nttruc <nttrucitus@gmail.com>
+Date:   Fri Feb 25 17:09:56 2022 +0700
+
+    [ADD] Flashcard EN
+
+[33mcommit 7af67098f28dab8b376e8bd223b4dc096770419e[m
+Author: chautv <chautv@hlsolutions.jp>
+Date:   Tue Feb 15 10:59:31 2022 +0000
+
+    Add new screen flash card
+
+[33mcommit 9705409f754950fb76443c4dd867a24d6c1146d0[m
+Author: chautv <chautv@hlsolutions.jp>
+Date:   Tue Feb 15 10:25:17 2022 +0000
+
+    [Edric][][FIX][Fix table update column of grades]
+
+[33mcommit 9a928f2187d813ae303dcb198bd871b1f4bf3f94[m
+Author: chautv <chautv@hlsolutions.jp>
+Date:   Mon Feb 14 02:23:05 2022 +0000
+
+    fix bug settings, format date, first name
+
+[33mcommit 0376a355482fcbee89b9ac148c54fdbf716b30e8[m
+Author: chautv <chautv@hlsolutions.jp>
+Date:   Mon Feb 7 11:13:21 2022 +0000
+
+    Add multiple language, Edit button delete user
+
+[33mcommit 48caa88fe0321d42424f4b51494ca1ee2c30bee7[m
+Author: chautv <chautv@hlsolutions.jp>
+Date:   Tue Jan 25 04:48:48 2022 +0000
+
+    Add super admin role
+
+[33mcommit 90d05639b19e3977069c8d719433a57591401b78[m
+Author: chautv <chautv@hlsolutions.jp>
+Date:   Mon Jan 24 01:35:14 2022 +0000
+
+    FiX permision and view student for teacher
+
+[33mcommit d8165f5444b9aaa8e03e8f3e6bf76fe8760f46d9[m
+Author: chautv <chautv@hlsolutions.jp>
+Date:   Thu Jan 20 02:00:33 2022 +0000
+
+    FIX view courses of children
+
+[33mcommit 71ae7736c2ffd52b41963d2913beaa2aef31a813[m
+Author: chautv <chautv@hlsolutions.jp>
+Date:   Wed Jan 19 06:38:50 2022 +0000
+
+    add assessment
+
+[33mcommit 7532842eebb2d6a99218995db4e99fb2df33af94[m
+Author: NTTruc <nttrucitus@gmail.com>
+Date:   Wed Jan 19 12:55:54 2022 +0700
+
+    [ADD] Animation type 1 level 1A

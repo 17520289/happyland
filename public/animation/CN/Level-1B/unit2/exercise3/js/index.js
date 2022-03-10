@@ -4,7 +4,11 @@ const questions = [
     picture: "./img/noticeboard.png",
     choose1: "字纸篓",
     choose2: "布告栏",
+<<<<<<< HEAD
+    sound1: "./sound/wastepaperbasket.wav",
+=======
     sound1: "./sound/wastebasket.wav",
+>>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
     sound2: "./sound/noticeboard.wav",
     ans: "2",
   },
@@ -64,6 +68,11 @@ const questions = [
   },
 ];
 
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
 var iQuestion = 0;
 var idButton = "buttonChoose1";
 

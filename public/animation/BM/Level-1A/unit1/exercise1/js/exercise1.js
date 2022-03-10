@@ -1,86 +1,140 @@
 const questions = [
   {
+<<<<<<< HEAD
+    question: "1-7  ",
+=======
     question: "./img/2.png",
+>>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
     picture: "./img/head.png",
     choose1: "kepala",
     choose2: "ketiak",
     sound1: "./sound/kepala.wav",
     sound2: "./sound/ketiak.wav",
     ans: "1",
+<<<<<<< HEAD
+  },
+  {
+    question: "2-7  ",
+=======
     ansText: "kepala",
   },
   {
     question: "./img/3.png",
+>>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
     picture: "./img/neck.png",
     choose1: "lutut",
     choose2: "leher",
     sound1: "./sound/lutut.wav",
     sound2: "./sound/leher.wav",
     ans: "2",
+<<<<<<< HEAD
+  },
+  {
+    question: "3-7 ",
+=======
     ansText: "leher",
   },
   {
     question: "./img/4.png",
+>>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
     picture: "./img/shoulder.png",
     choose1: "siku",
     choose2: "bahu",
     sound1: "./sound/siku.wav",
     sound2: "./sound/bahu.wav",
     ans: "2",
+<<<<<<< HEAD
+  },
+  {
+    question: "4-7 ",
+=======
     ansText: "bahu",
   },
   {
     question: "./img/5.png",
+>>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
     picture: "./img/chest.png",
     choose1: "dada",
     choose2: "paha",
     sound1: "./sound/dada.wav",
     sound2: "./sound/paha.wav",
     ans: "1",
+<<<<<<< HEAD
+  },
+  {
+    question: "5-7 ",
+=======
     ansText: "dada",
   },
   {
     question: "./img/6.png",
+>>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
     picture: "./img/arm.png",
     choose1: "pinggang",
     choose2: "lengan",
     sound1: "./sound/pinggang.wav",
     sound2: "./sound/lengan.wav",
     ans: "2",
+<<<<<<< HEAD
+  },
+  {
+    question: "6-7 ",
+=======
     ansText: "lengan",
   },
   {
     question: "./img/7.png",
+>>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
     picture: "./img/stomach.png",
     choose1: "perut",
     choose2: "dada",
     sound1: "./sound/perut.wav",
     sound2: "./sound/dada.wav",
     ans: "1",
+<<<<<<< HEAD
+  },
+  {
+    question: "7-7 ",
+=======
     ansText: "perut",
   },
   {
     question: "./img/8.png",
+>>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
     picture: "./img/hand.png",
     choose1: "tangan",
     choose2: "belakang",
     sound1: "./sound/tangan.wav",
     sound2: "./sound/belakang.wav",
     ans: "1",
+<<<<<<< HEAD
+  },
+  {
+    question: "7-7 ",
+=======
     ansText: "tangan",
   },
   {
     question: "./img/9.png",
+>>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
     picture: "./img/leg.png",
     choose1: "kaki",
     choose2: "kuku",
     sound1: "./sound/kaki.wav",
     sound2: "./sound/kuku.wav",
     ans: "1",
+<<<<<<< HEAD
+  }
+];
+
+
+
+=======
     ansText: "kaki",
   },
 ];
 
+>>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
 var iQuestion = 0;
 var idButton = "buttonChoose1";
 
@@ -194,4 +248,8 @@ function backQuestion() {
   document.getElementById("buttonChoose1").style.opacity = "";
   document.getElementById("buttonChoose2").style.opacity = "";
   getQuestion();
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1

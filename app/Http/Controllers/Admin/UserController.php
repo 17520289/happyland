@@ -423,6 +423,8 @@ class UserController extends UserCrudController
                 }
         
             }
+            if(\Session::get('locale') !== $request->lang) \Session::put('locale', $request->lang);
+
             DB::commit();
         } catch (Exception $e) {
             DB::rollBack();
@@ -440,20 +442,20 @@ class UserController extends UserCrudController
                
                 [
                     'name'  => 'old_password',
-                    'label' => 'Old password',
+                    'label' => trans('backpack::crud.oldPassword'),
                     'type'  => 'password',
                     'tab'             => 'Login Infomation',
 
                 ],
                 [
                     'name'  => 'password',
-                    'label' => 'New password',
+                    'label' => trans('backpack::crud.newPassword'),
                     'type'  => 'password',
                     'tab'             => 'Login Infomation',
                 ],
                 [
                     'name'  => 'password_confirmation',
-                    'label' => 'Confirm password',
+                    'label' => trans('backpack::crud.confirmPassword'),
                     'type'  => 'password',
                     'tab'             => 'Login Infomation',
                 ],
@@ -462,13 +464,13 @@ class UserController extends UserCrudController
             return $updatePwd = [
                 [
                     'name'  => 'password',
-                    'label' => trans('backpack::permissionmanager.password'),
+                    'label' => trans('backpack::crud.password'),
                     'type'  => 'password',
                     'tab'             => 'Login Infomation',
                 ],
                 [
                     'name'  => 'password_confirmation',
-                    'label' => trans('backpack::permissionmanager.password_confirmation'),
+                    'label' => trans('backpack::crud.confirmPassword'),
                     'type'  => 'password',
                     'tab'             => 'Login Infomation',
                 ],
@@ -493,9 +495,24 @@ class UserController extends UserCrudController
             ],
             [
                 'name'  => 'email',
-                'label' => trans('backpack::permissionmanager.email'),
+                'label' => trans('backpack::crud.email'),
                 'type'  => 'email',
                 'tab'             => 'Login Infomation',
+            ],
+            [   // radio
+                'name'        => 'lang', // the name of the db column
+                'label'       => trans('backpack::crud.language'), // the input label
+                'type'        => 'radio',
+                'options'     => [
+                    // the key will be stored in the db, the value will be shown as label; 
+                    'ENG' => "English",
+                    'BM' => "Bahasa Malaysia",
+                    'CN' => 'Bahasa Cina'
+                ],
+                'default' => 'ENG',
+                // optional
+               'inline'      => true, // show the radios all on the same line?
+               'tab'             => 'Login Infomation',
             ],
         ];
         $fieldsPwd = $this->addFieldUpdatePwd();
@@ -503,7 +520,7 @@ class UserController extends UserCrudController
         $image =  [ 
            
             [
-                'label' => "Profile Image",
+                'label' => trans('backpack::crud.profileImage'),
                 'name' => "image",
                 'type' => 'image',
                 'crop' => true, // set to true to allow cropping, false to disable
@@ -514,7 +531,7 @@ class UserController extends UserCrudController
             ],
             [
                 'name'  => 'phone',
-                'label' => 'Phone',
+                'label' => trans('backpack::crud.phone'),
                 'type'  => 'text',
                 'tab'             => 'Details',
             ]
@@ -535,35 +552,35 @@ class UserController extends UserCrudController
             ],
             [
                 'name'  => 'street',
-                'label' => 'Street',
+                'label' => trans('backpack::crud.street'),
                 'type'  => 'text',
                 'tab'             => 'Details',
                 'default' => isset($addressOld) ? $addressOld->street : '',
             ],
             [
                 'name'  => 'city',
-                'label' => 'City',
+                'label' => trans('backpack::crud.city'),
                 'type'  => 'text',
                 'tab'             => 'Details',
                 'default' => isset($addressOld) ? $addressOld->city : '',
             ],
             [
                 'name'  => 'state',
-                'label' => 'State',
+                'label' => trans('backpack::crud.state'),
                 'type'  => 'text',
                 'tab'             => 'Details',
                 'default' => isset($addressOld) ? $addressOld->state : '',
             ],
             [
                 'name'  => 'postal_code',
-                'label' => 'Postal Code',
+                'label' => trans('backpack::crud.postalCode'),
                 'type'  => 'number',
                 'tab'             => 'Details',
                 'default' => isset($addressOld) ? $addressOld->postal_code : 0,
             ],
             [
                 'name'  => 'country',
-                'label' => 'country',
+                'label' => trans('backpack::crud.country'),
                 'type'  => 'text',
                 'tab'             => 'Details',
                 'default' => isset($addressOld) ? $addressOld->country : '',
@@ -640,21 +657,7 @@ class UserController extends UserCrudController
                 'inline'      => true,
                 'tab'             => 'Active / Inactive',
             ],
-            [   // radio
-                'name'        => 'lang', // the name of the db column
-                'label'       => 'Language', // the input label
-                'type'        => 'radio',
-                'options'     => [
-                    // the key will be stored in the db, the value will be shown as label; 
-                    'ENG' => "English",
-                    'BM' => "Bahasa Malaysia",
-                    'CN' => 'Bahasa Cina'
-                ],
-                'default' => 'ENG',
-                // optional
-               'inline'      => true, // show the radios all on the same line?
-               'tab'             => 'Login Infomation',
-            ],
+          
             
         ];
         }else{

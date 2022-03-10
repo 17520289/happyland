@@ -14,6 +14,7 @@ return [
     */
 
     'id'                 => 'ID',
+    "language" => "语言",
     'name'         => '名称',
     'startDate'              => '开始日期',
     'endDate'           => '结束日期',
@@ -28,7 +29,23 @@ return [
     'fullName'         => '全名',
     'firstName'         => '名',
     'lastName'         => '姓',
-
+    'email'             =>'邮箱',
+    'oldPassword'       => '旧密码',
+    'newPassword'       =>'新密码',
+    'confirmPassword'       =>'确认密码',
+    'password'       =>'密码',
+    'profileImage'       =>'个人资料图片',
+    'loginInfo'       =>'登录信息',
+    'details'       =>'细节',
+    'role&Permission'       =>'角色 & 权限',
+    'active/Inactive'       =>'积极的 / 不活跃',
+    'phone'         => '电话',
+    'street'         => '街道',
+    'city'         => '城市',
+    'state'         => '状态',
+    'postalCode'         => '邮政编码',
+    'country'         => '国家',
+    'enable/Disable'         => '启用/禁用',
 
 
     // Forms

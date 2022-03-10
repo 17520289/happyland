@@ -13,6 +13,7 @@ return [
     |
     */
     'id'                 => 'Id',
+    "language" => "Language",
     'name'         => 'Name',
     'startDate'              => 'Start Date',
     'endDate'           => 'End Date',
@@ -27,6 +28,26 @@ return [
     'fullName'         => 'Full Name',
     'firstName'         => 'First Name',
     'lastName'         => 'Last Name',
+    'email'             =>'Email',
+    'oldPassword'       => 'Old Password',
+    'newPassword'       =>'New password',
+    'confirmPassword'       =>'Confirm password',
+    'password'       =>'Password',
+    'profileImage'       =>'Profile Image',
+    'loginInfo'       =>'Login Infomation',
+    'details'       =>'Details',
+    'role&Permission'       =>'Role & Permissions',
+    'active/Inactive'       =>'Active / Inactive',
+    'phone'         => 'Phone',
+    'street'         => 'Street',
+    'city'         => 'City',
+    'state'         => 'State',
+    'postalCode'         => 'Postal Code',
+    'country'         => 'Country',
+    'enable/Disable'         => 'Enable / Disable',
+    
+
+
 
     // Forms
     'save_action_save_and_new'         => 'Save and new item',

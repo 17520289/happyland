@@ -19,7 +19,7 @@
 @endphp
 
     <div class="form-group col-sm-12" style="padding-left: 30px" element="div" >
-        <label >Enable / Disable</label>
+        <label >{{trans('backpack::crud.active/Inactive')}}</label>
         <br>
         <label class="switch switch-3d switch-primary">
             <input type="checkbox" class="switch-input" name="status"
@@ -32,7 +32,7 @@
     <hr  style="width:95%; text-align:center;">
     <div class="input-detail col-md-12" style="display: {{ $inputDisplay}}">
         <div class="form-group col-sm-12 required" element="div">
-            <label >Account Type</label>
+            <label >{{trans('backpack::base.Accounttype')}}</label>
             <select name="account_type_id" onchange="setEndTime()" id="account_type_id"  @include('crud::fields.inc.attributes')>
                 @php
                     $accountTypes = \App\Models\AccountType::all();
@@ -53,7 +53,7 @@
             
         </div>
         <div class="form-group col-sm-12 required" element="div">
-            <label >Start Time</label>
+            <label >{{trans('backpack::crud.startTime')}}</label>
             <input 
             onchange="setEndTime()"
             type="date"
@@ -64,21 +64,21 @@
             />
         </div>
         <div class="form-group col-sm-12 required"  element="div">
-            <label >End Time</label>
+            <label >{{trans('backpack::crud.endTime')}}</label>
             <p id="text" readonly @include('crud::fields.inc.attributes')>{{$end_time ?? ''}}</p>
         </div>
     </div>
     <div class="view-detail col-md-12" id="view-detail" style="display: {{$viewDisplay}} ">
         <div class="form-group col-md-12" element="div">
-            <label >Account Type</label>
+            <label >{{trans('backpack::base.Accounttype')}}</label>
             <p id="text" readonly @include('crud::fields.inc.attributes')>{{$value ?? ''}}</p>
         </div>
         <div class="form-group col-md-12" element="div">
-            <label >Start Time</label>
+            <label >{{trans('backpack::crud.startTime')}}</label>
             <p id="text" readonly @include('crud::fields.inc.attributes')>{{$value ?? ''}}</p>
         </div>
         <div class="form-group col-md-12" element="div">
-            <label >End Time</label>
+            <label >{{trans('backpack::crud.endTime')}}</label>
             <p id="text" readonly @include('crud::fields.inc.attributes')>{{$value ?? ''}}</p>
         </div>
     </div>

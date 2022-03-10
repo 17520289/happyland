@@ -1,0 +1,65 @@
+const questions = [
+    {
+        "question": "1-7",
+        "picture":  "./img/ex2/garbage collector.jpg",
+        "choose1":"A. garbage collector",
+        "choose2":"B. fireman",
+        "sound1": "./sound/ex2/garbage collector.wav",
+        "sound2": "./sound/ex2/fireman.wav",
+        "ans": "1"
+    },
+    {
+        "question": "2-7",
+        "picture":  "./img/ex2/postman.jpg",
+        "choose1":"A. astronaut",
+        "choose2":"B. postman",
+        "sound1": "./sound/ex2/astronaut.wav",
+        "sound2": "./sound/ex2/postman.wav",
+        "ans": "2"
+    },
+    {
+        "question": "3-7",
+        "picture":  "./img/ex2/photographer.jpg",
+        "choose1":"A. taxi driver",
+        "choose2":"B. photographer",
+        "sound1": "./sound/ex2/taxi driver.wav",
+        "sound2": "./sound/ex2/photographer.wav",
+        "ans": "2"
+    },
+    {
+        "question": "4-7",
+        "picture":  "./img/ex2/fireman.jpg",
+        "choose1":"A. fireman",
+        "choose2":"B. postman",
+        "sound1": "./sound/ex2/fireman.wav",
+        "sound2": "./sound/ex2/postman.wav",
+        "ans": "1"
+    },
+    {
+        "question": "5-7",
+        "picture":  "./img/ex2/policeman.jpg",
+        "choose1":"A. policeman",
+        "choose2":"B. taxi driver",
+        "sound1": "./sound/ex2/policeman.wav",
+        "sound2": "./sound/ex2/taxi driver.wav",
+        "ans": "1"
+    },
+    {
+        "question": "6-7",
+        "picture":  "./img/ex2/astronaut.jpg",
+        "choose1":"A. garbage collector",
+        "choose2":"B. astronaut",
+        "sound1": "./sound/ex2/garbage collector.wav",
+        "sound2": "./sound/ex2/astronaut.wav",
+        "ans": "2"
+    },
+    {
+        "question": "7-7",
+        "picture":  "./img/ex2/taxi driver.jpg",
+        "choose1":"A. fireman",
+        "choose2":"B. taxi driver",
+        "sound1": "./sound/ex2/fireman.wav",
+        "sound2": "./sound/ex2/taxi driver.wav",
+        "ans": "2"
+    }
+]

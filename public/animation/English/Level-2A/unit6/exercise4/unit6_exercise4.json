@@ -1,0 +1,65 @@
+const questions = [
+    {
+        "question": "1-7",
+        "picture":  "./img/ex4/reporter.jpg",
+        "choose1":"A. reporter",
+        "choose2":"B. gardener",
+        "sound1": "./sound/ex4/reporter.wav",
+        "sound2": "./sound/ex4/gardener.wav",
+        "ans": "1"
+    },
+    {
+        "question": "2-7",
+        "picture":  "./img/ex4/singer.jpg",
+        "choose1":"A. actor",
+        "choose2":"B. singer",
+        "sound1": "./sound/ex4/actor.wav",
+        "sound2": "./sound/ex4/singer.wav",
+        "ans": "2"
+    },
+    {
+        "question": "3-7",
+        "picture":  "./img/ex4/gardener.jpg",
+        "choose1":"A. gardener",
+        "choose2":"B. porter",
+        "sound1": "./sound/ex4/gardener.wav",
+        "sound2": "./sound/ex4/porter.wav",
+        "ans": "1"
+    },
+    {
+        "question": "4-7",
+        "picture":  "./img/ex4/dancer.jpg",
+        "choose1":"A. dancer",
+        "choose2":"B. scientist",
+        "sound1": "./sound/ex4/dancer.wav",
+        "sound2": "./sound/ex4/scientist.wav",
+        "ans": "1"
+    },
+    {
+        "question": "5-7",
+        "picture":  "./img/ex4/scientist.jpg",
+        "choose1":"A. actor",
+        "choose2":"B. scientist",
+        "sound1": "./sound/ex4/actor.wav",
+        "sound2": "./sound/ex4/scientist.wav",
+        "ans": "2"
+    },
+    {
+        "question": "6-7",
+        "picture":  "./img/ex4/actor.jpg",
+        "choose1":"A. dancer",
+        "choose2":"B. actor",
+        "sound1": "./sound/ex4/dancer.wav",
+        "sound2": "./sound/ex4/actor.wav",
+        "ans": "2"
+    },
+    {
+        "question": "7-7",
+        "picture":  "./img/ex4/porter.jpg",
+        "choose1":"A. reporter",
+        "choose2":"B. porter",
+        "sound1": "./sound/ex4/reporter.wav",
+        "sound2": "./sound/ex4/porter.wav",
+        "ans": "2"
+    }
+]

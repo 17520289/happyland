@@ -1,0 +1,56 @@
+const questions = [
+    {
+        "question": "1-6",
+        "picture":  "./img/jewellery shop.jpg",
+        "choose1":"A. jewellery shop",
+        "choose2":"B. hardware shop",
+        "sound1": "./sound/jewellery shop.wav",
+        "sound2": "./sound/hardware shop.wav",
+        "ans": "1"
+    },
+    {
+        "question": "2-6",
+        "picture":  "./img/furniture shop.jpg",
+        "choose1":"A. sundry shop",
+        "choose2":"B. furniture shop",
+        "sound1": "./sound/sundry shop.wav",
+        "sound2": "./sound/furniture shop.wav",
+        "ans": "2"
+    },
+    {
+        "question": "3-6",
+        "picture":  "./img/hardware shop.jpg",
+        "choose1":"A. hardware shop",
+        "choose2":"B. fruit stall",
+        "sound1": "./sound/hardware shop.wav",
+        "sound2": "./sound/fruit stall.wav",
+        "ans": "1"
+    },
+    {
+        "question": "4-6",
+        "picture":  "./img/electrical shop.jpg",
+        "choose1":"A. sundry shop",
+        "choose2":"B. electrical shop",
+        "sound1": "./sound/sundry shop.wav",
+        "sound2": "./sound/electrical shop.wav",
+        "ans": "2"
+    },
+    {
+        "question": "5-6",
+        "picture":"./img/fruit stall.jpg",
+        "choose1":"A. fruit stall",
+        "choose2":"B. furniture shop",
+        "sound1": "./sound/fruit stall.wav",
+        "sound2": "./sound/furniture shop.wav",
+        "ans": "1"
+    },
+    {
+        "question": "6-6",
+        "picture":  "./img/sundry shop.jpg",
+        "choose1":"A. electrical shop",
+        "choose2":"B. sundry shop",
+        "sound1": "./sound/electrical shop.wav",
+        "sound2": "./sound/sundry shop.wav",
+        "ans": "2"
+    }
+]

@@ -1,0 +1,92 @@
+const questions = [
+    {
+        "question": "1-10",
+        "picture":  "./img/ex3/cobbler.jpg",
+        "choose1":"A. butcher",
+        "choose2":"B. cobbler",
+        "sound1": "./sound/ex3/butcher.wav",
+        "sound2": "./sound/ex3/cobbler.wav",
+        "ans": "2"
+    },
+    {
+        "question": "2-10",
+        "picture":  "./img/ex3/tailor.jpg",
+        "choose1":"A. sailor",
+        "choose2":"B. tailor",
+        "sound1": "./sound/ex3/sailor.wav",
+        "sound2": "./sound/ex3/tailor.wav",
+        "ans": "2"
+    },
+    {
+        "question": "3-10",
+        "picture":  "./img/ex3/plumber.jpg",
+        "choose1":"A. porter",
+        "choose2":"B. plumber",
+        "sound1": "./sound/ex3/porter.wav",
+        "sound2": "./sound/ex3/plumber.wav",
+        "ans": "2"
+    },
+    {
+        "question": "4-10",
+        "picture":  "./img/ex3/electrician.jpg",
+        "choose1":"A. electrician",
+        "choose2":"B. engineer",
+        "sound1": "./sound/ex3/electrician.wav",
+        "sound2": "./sound/ex3/engineer.wav",
+        "ans": "1"
+    },
+    {
+        "question": "5-10",
+        "picture":  "./img/ex3/blacksmith.jpg",
+        "choose1":"A. blacksmith",
+        "choose2":"B. stewardess",
+        "sound1": "./sound/ex3/blacksmith.wav",
+        "sound2": "./sound/ex3/stewardess.wav",
+        "ans": "1"
+    },
+    {
+        "question": "6-10",
+        "picture":  "./img/ex3/barber.jpg",
+        "choose1":"A. dancer",
+        "choose2":"B. barber",
+        "sound1": "./sound/ex3/dancer.wav",
+        "sound2": "./sound/ex3/barber.wav",
+        "ans": "2"
+    },
+    {
+        "question": "7-10",
+        "picture":  "./img/ex3/carpenter.jpg",
+        "choose1":"A. blacksmith",
+        "choose2":"B. carpenter",
+        "sound1": "./sound/ex3/blacksmith.wav",
+        "sound2": "./sound/ex3/carpenter.wav",
+        "ans": "2"
+    },
+    {
+        "question": "8-10",
+        "picture":  "./img/ex3/mechanic.jpg",
+        "choose1":"A. mechanic",
+        "choose2":"B. plumber",
+        "sound1": "./sound/ex3/mechanic.wav",
+        "sound2": "./sound/ex3/plumber.wav",
+        "ans": "1"
+    },
+    {
+        "question": "9-10",
+        "picture":  "./img/ex3/architect.jpg",
+        "choose1":"A. architect",
+        "choose2":"B. reporter",
+        "sound1": "./sound/ex3/architect.wav",
+        "sound2": "./sound/ex3/reporter.wav",
+        "ans": "1"
+    },
+    {
+        "question": "10-10",
+        "picture":  "./img/ex3/engineer.jpg",
+        "choose1":"A. actress",
+        "choose2":"B. engineer",
+        "sound1": "./sound/ex3/actress.wav",
+        "sound2": "./sound/ex3/engineer.wav",
+        "ans": "2"
+    }
+]

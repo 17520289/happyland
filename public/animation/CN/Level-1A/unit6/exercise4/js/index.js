@@ -80,12 +80,6 @@ function playCorrect() {
 }
 
 function checkAnswer(clicked_id) {
-<<<<<<< HEAD
-  document.getElementById("exercise").innerHTML +=
-    "<div class='container' id='yeah'</div>";
-  setTimeout('document.getElementById("yeah").remove()', 900);
-=======
->>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
   var user_ans = document.getElementById(clicked_id).value;
   if (user_ans === questions[iQuestion].ans) {
     playWord(clicked_id + "_sound");
@@ -122,12 +116,9 @@ function checkAnswer(clicked_id) {
 }
 
 function getQuestion() {
-<<<<<<< HEAD
-=======
   document.getElementById("exercise").innerHTML +=
     "<div class='container' id='yeah'</div>";
   setTimeout('document.getElementById("yeah").remove()', 900);
->>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
   document.getElementById("image").src = questions[iQuestion].picture;
   document.getElementById("markboard").innerHTML =
     questions[iQuestion].question;

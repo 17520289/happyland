@@ -2,16 +2,17 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <style>
-.modal{
- bottom: initial!important;
- position: relative;
- z-index: 2000;
-}
+  .modal {
+    bottom: initial !important;
+    position: relative;
+    z-index: 2000;
+  }
 
-/* a {
+  /* a {
   text-decoration: none;
   display: inline-block;
   padding: 8px 16px;
@@ -22,130 +23,142 @@ a:hover {
   color: black;
 } */
 
-.previous {
-  background-color: #0026ff;
-  color: white;
-}
+  .previous {
+    background-color: #0026ff;
+    color: white;
+  }
 
-.next {
-  background-color: #0026ff;
-  color: white;
-}
-.top-bar__1a{
+  .next {
+    background-color: #0026ff;
+    color: white;
+  }
+
+  .top-bar__1a {
     padding: 10px 20px;
     border: 4px solid #fff;
     background-color: #9EDCF8;
     color: white;
-	  font-size: 30px;
+    font-size: 30px;
     text-align: center;
-	  border-radius: 100%;
+    border-radius: 100%;
     width: 80px;
-}
-.top-bar__1b{
+  }
+
+  .top-bar__1b {
     padding: 10px 10px;
     background-color: #9EDCF8;
     color: white;
-	  font-size: 1rem;
+    font-size: 1rem;
     text-align: center;
-	  border-radius: 10%;
+    border-radius: 10%;
     width: 60px;
-}
-.column{
-  display: flex;
-  flex-wrap: wrap;
-  align-content: center;
-}
-.rightbuttons {
+  }
+
+  .column {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+  }
+
+  .rightbuttons {
     display: flex;
     flex-flow: column wrap;
-}
-.rightbutton {
-  margin-top: 10%
-}
-.round {
-  border-radius: 50%;
-}
-.bg{
-  position: absolute;
-  width: 100%;
-  height:100%;
-  z-index: -1;
-}
-button {
-  border: none;
-  background: none;
-}
-        
-button {
+  }
+
+  .rightbutton {
+    margin-top: 10%
+  }
+
+  .round {
+    border-radius: 50%;
+  }
+
+  .bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  button {
+    border: none;
+    background: none;
+  }
+
+  button {
     padding: 0;
     border: none;
     font: inherit;
     color: inherit;
     background-color: transparent;
     cursor: pointer;
-}
-button:focus {
-    outline: 0;
-}
+  }
 
+  button:focus {
+    outline: 0;
+  }
 </style>
+
 <body>
-<div>
-  <img class="bg" src="./icon/backgroundmauxanh.png"> </img>
-  <div class="row">
-    <div class="col-1">
-        <img src="./icon/button1.png" style="width: 5vw; margin: 0;">
-        </img>
-    </div>
-    <div class="col-1">
-      <a href="../../Level-1B/lesson/lesson.html" style=" text-decoration: none;">
-        <div class="top-bar__1a" >
-          1b
+  <div>
+    <img class="bg" src="./icon/backgroundmauxanh.png"> </img>
+    <div class="row" style="padding-top: 10px">
+      <div class="col-2" style=" display: flex;flex-wrap: wrap;justify-content: flex-end">
+        <a href="../../Level-1B/lesson/lesson.html" style=" text-decoration: none;">
+          <img src="./icon/button1.png" style="width: 4vw; margin: 0;">
+          </img>
         </a>
+      </div>
+      <div class="col-1">
+        <a href="../../Level-1B/lesson/lesson.html" style=" text-decoration: none;">
+          <div class="top-bar__1a">
+            1b
+        </a>
+      </div>
     </div>
-    </div>
-    <div class="col-4 column" id="">
+    <div class="col-3 column" id="">
       <p style="font-size: 2rem; font-weight: bold">Unit 3 : Permainan</p>
     </div>
     <div class="col-1 column">
       <div class="top-bar__1b" id="questnumber">
         1/28
+      </div>
     </div>
-    </div>
-    <div class="col-4" style="width: 5vw;">
+    <div class="col-3" style="width: 5vw;">
 
     </div>
 
-    <div class="col-1">
-        <img src="./icon/logo.png" style="width: 5vw; margin: 0;"></img>
+    <div class="col-2" style=" display: flex;flex-wrap: wrap;justify-content: center;">
+      <img src="./icon/logo.png" style="width: 5vw; margin: 0;"></img>
     </div>
   </div>
-</div>
-<div class="container d-flex justify-content-between" style="height: 40vw;">
+  </div>
+  <div class="container d-flex justify-content-between" style="height: 40vw;">
     <div style="width: 100%;">
-        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" data-backdrop="false">
-            <div class="modal-dialog modal-lg" style="max-width: 900px;">
-              <div class="modal-content d-flex flex-row justify-content-around">
-                <div style="height: 30vw; width: 30vw;"  class="d-flex align-self-center ">
-                    <img id="img" src="img/001 body.jpg" style="width: 100%;height: 100%;object-fit: contain"></img>
-                </div>
-                <div class="d-flex align-self-center">
-                    <b id="text" style = " font-size: 6rem; color: red; " >BODY</b>
-                </div>              
-              </div>
+      <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true" data-backdrop="false">
+        <div class="modal-dialog modal-lg" style="max-width: 900px;">
+          <div class="modal-content d-flex flex-row justify-content-around">
+            <div style="height: 30vw; width: 30vw;" class="d-flex align-self-center ">
+              <img id="img" src="img/001 body.jpg" style="width: 100%;height: 100%;object-fit: contain"></img>
             </div>
+            <div class="d-flex align-self-center">
+              <b id="text" style=" font-size: 6rem; color: red; ">BODY</b>
+            </div>
+          </div>
         </div>
+      </div>
 
     </div>
-    <div class="rightbuttons" style="position:absolute; right:4%;top:15%">
+    <div class="rightbuttons" style="position:absolute; right:5%;top:15%">
       <button class="rightbutton" onclick="muteSound()">
         <img src="./icon/mute.png" style="width: 70%;"></img>
-      </button >
+      </button>
       <button class="rightbutton" onclick="playfunction()">
         <img src="./icon/play.png" style="width: 70%;"></img>
-      </button >
+      </button>
       <button class="rightbutton">
-        <img src="./icon/x25.png"onclick="changespeed(1)"  style="width: 70%;"></img>
+        <img src="./icon/x25.png" onclick="changespeed(1)" style="width: 70%;"></img>
       </button>
       <button class="rightbutton">
         <img src="./icon/x2.png" onclick="playfunction(1.5)" style="width: 70%;"></img>
@@ -157,201 +170,207 @@ button:focus {
         <img src="./icon/x1.png" onclick="playfunction(2.5)" style="width: 70%;"></img>
       </button>
     </div>
-</div>
-<div>
-  <div style="position: absolute; left: 10%;bottom: 0%;">
-    <button onclick="backButton(true);">
-      <img src="./icon/button4.png" style="width: 70%;"></img>
-    </button>
-</div>
-  <div style="position: absolute; right: 10%;bottom: 0%;">
-    <button onclick="nextButton(true);">
-      <img src="./icon/button5.png" style="width: 70%;"> </img>
-    </button>
-</div>
-</div>
+  </div>
+  <div>
+    <div style="position: absolute; left: 10%;bottom: 0%;">
+      <button onclick="backButton(true);">
+        <img src="./icon/button4.png" style="width: 70%;"></img>
+      </button>
+    </div>
+    <div style="position: absolute; right: 10%;bottom: 0%;">
+      <button onclick="nextButton(true);">
+        <img src="./icon/button5.png" style="width: 70%;"> </img>
+      </button>
+    </div>
+  </div>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
 
-<script>
-        const data = [
-        {
-      "id": 61,
-      "picture": "./img/061 toys.jpg",
-      "vocabulary": "alat mainan",
-      "sound": "./sound/alat mainan.wav"
-    },
-    {
-      "id": 62,
-      "picture": "./img/062 ball.jpg",
-      "vocabulary": "bola",
-      "sound": "./sound/bola.wav"
-    },
-    {
-      "id": 63,
-      "picture": "./img/063 doll.jpg",
-      "vocabulary": "patung",
-      "sound": "./sound/patung.wav"
-    },
-    {
-      "id": 64,
-      "picture": "./img/064 marble.jpg",
-      "vocabulary": "guli",
-      "sound": "./sound/guli.wav"
-    },
-    {
-      "id": 65,
-      "picture": "./img/065 yoyo.jpg",
-      "vocabulary": "yoyo",
-      "sound": "./sound/yoyo.wav"
-    },
-    {
-      "id": 66,
-      "picture": "./img/066 balloon.jpg",
-      "vocabulary": "belon",
-      "sound": "./sound/belon.wav"
-    },
-    {
-      "id": 67,
-      "picture": "./img/067 chess.jpg",
-      "vocabulary": "cartur",
-      "sound": "./sound/cartur.wav"
-    },
-    {
-      "id": 68,
-      "picture": "./img/068 dice.jpg",
-      "vocabulary": "dadu",
-      "sound": "./sound/dadu.wav"
-    },
-    {
-      "id": 69,
-      "picture": "./img/069 puppet.png",
-      "vocabulary": "boneka",
-      "sound": "./sound/boneka.wav"
-    },
-    {
-      "id": 70,
-      "picture": "./img/070 robot.png",
-      "vocabulary": "robot",
-      "sound": "./sound/robot.wav"
-    },
-    {
-      "id": 71,
-      "picture": "./img/071 teddy bear.jpg",
-      "vocabulary": "patung beruang",
-      "sound": "./sound/patung beruang.wav"
-    },
-    {
-      "id": 72,
-      "picture": "./img/072 toy car.jpg",
-      "vocabulary": "kereta mainan",
-      "sound": "./sound/kereta mainan.wav"
-    },
-    {
-      "id": 73,
-      "picture": "./img/073 doll house.jpg",
-      "vocabulary": "rumah patung",
-      "sound": "./sound/rumah patung.wav"
-    },
-    {
-      "id": 74,
-      "picture": "./img/074 Rubik_s cube.jpg",
-      "vocabulary": "kiub Rubik",
-      "sound": "./sound/kiub Rubik.wav"
-    },
-    {
-      "id": 75,
-      "picture": "./img/075 top.jpg",
-      "vocabulary": "gasing",
-      "sound": "./sound/gasing.wav"
-    },
-    {
-      "id": 76,
-      "picture": "./img/076 kite.jpg",
-      "vocabulary": "layang-layang",
-      "sound": "./sound/layang-layang.wav"
-    },
-    {
-      "id": 77,
-      "picture": "./img/077 congkak.jpg",
-      "vocabulary": "congkak",
-      "sound": "./sound/congkak.wav"
-    },
-    {
-      "id": 78,
-      "picture": "./img/078 music box.jpg",
-      "vocabulary": "kotak muzik",
-      "sound": "./sound/kotak muzik.wav"
-    },
-    {
-      "id": 79,
-      "picture": "./img/079 skateboard.jpg",
-      "vocabulary": "papan selaju",
-      "sound": "./sound/papan selaju.wav"
-    },
-    {
-      "id": 80,
-      "picture": "./img/080 seven stones.jpg",
-      "vocabulary": "batu Seramban",
-      "sound": "./sound/batu Seramban.wav"
-    },
-    {
-      "id": 81,
-      "picture": "./img/081 hide-and-seek.jpg",
-      "vocabulary": "sorok-sorok",
-      "sound": "./sound/sorok-sorok.wav"
-    },
-    {
-      "id": 82,
-      "picture": "./img/082 skipping rope.jpg",
-      "vocabulary": "lompat tali",
-      "sound": "./sound/lompat tali.wav"
-    },
-    {
-      "id": 83,
-      "picture": "./img/083 three-legged race.jpg",
-      "vocabulary": "lari ikat kaki",
-      "sound": "./sound/lari ikat kaki.wav"
-    },
-    {
-      "id": 84,
-      "picture": "./img/084 sack race.jpg",
-      "vocabulary": "lari dalam guni",
-      "sound": "./sound/lari dalam guni.wav"
-    },
-    {
-      "id": 85,
-      "picture": "./img/085 roller skates.jpg",
-      "vocabulary": "kasut roda",
-      "sound": "./sound/kasut roda.wav"
-    },
-    {
-      "id": 86,
-      "picture": "./img/086 tug-of-war.jpg",
-      "vocabulary": "tarik tali",
-      "sound": "./sound/tarik tali.wav"
-    },
-    {
-      "id": 87,
-      "picture": "./img/087 hopscotch.jpg",
-      "vocabulary": "tingting",
-      "sound": "./sound/tingting.wav"
-    },
-    {
-      "id": 88,
-      "picture": "./img/088 stilt-walking.jpg",
-      "vocabulary": "lumba kaki kayu",
-      "sound": "./sound/lumba kaki kayu.wav"
-    },
+  <script>
+    const data = [
+      {
+        "id": 61,
+        "picture": "./img/061 toys.jpg",
+        "vocabulary": "alat mainan",
+        "sound": "./sound/alat mainan.wav"
+      },
+      {
+        "id": 62,
+        "picture": "./img/062 ball.jpg",
+        "vocabulary": "bola",
+        "sound": "./sound/bola.wav"
+      },
+      {
+        "id": 63,
+        "picture": "./img/063 doll.jpg",
+        "vocabulary": "patung",
+        "sound": "./sound/patung.wav"
+      },
+      {
+        "id": 64,
+        "picture": "./img/064 marble.jpg",
+        "vocabulary": "guli",
+        "sound": "./sound/guli.wav"
+      },
+      {
+        "id": 65,
+        "picture": "./img/065 yoyo.jpg",
+        "vocabulary": "yoyo",
+        "sound": "./sound/yoyo.wav"
+      },
+      {
+        "id": 66,
+        "picture": "./img/066 balloon.jpg",
+        "vocabulary": "belon",
+        "sound": "./sound/belon.wav"
+      },
+      {
+        "id": 67,
+        "picture": "./img/067 chess.jpg",
+        "vocabulary": "cartur",
+        "sound": "./sound/cartur.wav"
+      },
+      {
+        "id": 68,
+        "picture": "./img/068 dice.jpg",
+        "vocabulary": "dadu",
+        "sound": "./sound/dadu.wav"
+      },
+      {
+        "id": 69,
+        "picture": "./img/069 puppet.png",
+        "vocabulary": "boneka",
+        "sound": "./sound/boneka.wav"
+      },
+      {
+        "id": 70,
+        "picture": "./img/070 robot.png",
+        "vocabulary": "robot",
+        "sound": "./sound/robot.wav"
+      },
+      {
+        "id": 71,
+        "picture": "./img/071 teddy bear.jpg",
+        "vocabulary": "patung beruang",
+        "sound": "./sound/patung beruang.wav"
+      },
+      {
+        "id": 72,
+        "picture": "./img/072 toy car.jpg",
+        "vocabulary": "kereta mainan",
+        "sound": "./sound/kereta mainan.wav"
+      },
+      {
+        "id": 73,
+        "picture": "./img/073 doll house.jpg",
+        "vocabulary": "rumah patung",
+        "sound": "./sound/rumah patung.wav"
+      },
+      {
+        "id": 74,
+        "picture": "./img/074 Rubik_s cube.jpg",
+        "vocabulary": "kiub Rubik",
+        "sound": "./sound/kiub Rubik.wav"
+      },
+      {
+        "id": 75,
+        "picture": "./img/075 top.jpg",
+        "vocabulary": "gasing",
+        "sound": "./sound/gasing.wav"
+      },
+      {
+        "id": 76,
+        "picture": "./img/076 kite.jpg",
+        "vocabulary": "layang-layang",
+        "sound": "./sound/layang-layang.wav"
+      },
+      {
+        "id": 77,
+        "picture": "./img/077 congkak.jpg",
+        "vocabulary": "congkak",
+        "sound": "./sound/congkak.wav"
+      },
+      {
+        "id": 78,
+        "picture": "./img/078 music box.jpg",
+        "vocabulary": "kotak muzik",
+        "sound": "./sound/kotak muzik.wav"
+      },
+      {
+        "id": 79,
+        "picture": "./img/079 skateboard.jpg",
+        "vocabulary": "papan selaju",
+        "sound": "./sound/papan selaju.wav"
+      },
+      {
+        "id": 80,
+        "picture": "./img/080 seven stones.jpg",
+        "vocabulary": "batu Seramban",
+        "sound": "./sound/batu Seramban.wav"
+      },
+      {
+        "id": 81,
+        "picture": "./img/081 hide-and-seek.jpg",
+        "vocabulary": "sorok-sorok",
+        "sound": "./sound/sorok-sorok.wav"
+      },
+      {
+        "id": 82,
+        "picture": "./img/082 skipping rope.jpg",
+        "vocabulary": "lompat tali",
+        "sound": "./sound/lompat tali.wav"
+      },
+      {
+        "id": 83,
+        "picture": "./img/083 three-legged race.jpg",
+        "vocabulary": "lari ikat kaki",
+        "sound": "./sound/lari ikat kaki.wav"
+      },
+      {
+        "id": 84,
+        "picture": "./img/084 sack race.jpg",
+        "vocabulary": "lari dalam guni",
+        "sound": "./sound/lari dalam guni.wav"
+      },
+      {
+        "id": 85,
+        "picture": "./img/085 roller skates.jpg",
+        "vocabulary": "kasut roda",
+        "sound": "./sound/kasut roda.wav"
+      },
+      {
+        "id": 86,
+        "picture": "./img/086 tug-of-war.jpg",
+        "vocabulary": "tarik tali",
+        "sound": "./sound/tarik tali.wav"
+      },
+      {
+        "id": 87,
+        "picture": "./img/087 hopscotch.jpg",
+        "vocabulary": "tingting",
+        "sound": "./sound/tingting.wav"
+      },
+      {
+        "id": 88,
+        "picture": "./img/088 stilt-walking.jpg",
+        "vocabulary": "lumba kaki kayu",
+        "sound": "./sound/lumba kaki kayu.wav"
+      },
     ]
-    
+
     $('.modal').modal('show');
 
-</script>
-<script>
+  </script>
+  <script>
 
     var speed = 2.5;
     var index = 0;
@@ -360,84 +379,84 @@ button:focus {
     var clickchange = false;
 
     async function animation(id) {
-        $('.modal').modal('hide');
-        await sleep(300);
-        $('.modal').modal('show');
+      $('.modal').modal('hide');
+      await sleep(300);
+      $('.modal').modal('show');
 
-        $("#img").attr("src", data[id].picture);
-        $('#text').text(data[id].vocabulary)
+      $("#img").attr("src", data[id].picture);
+      $('#text').text(data[id].vocabulary)
 
-        if(!mute){
-          var audio = new Audio(data[id].sound);
+      if (!mute) {
+        var audio = new Audio(data[id].sound);
         audio.play();
-        }
+      }
     }
     function sleep(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
+      return new Promise(resolve => setTimeout(resolve, ms));
     }
-    function init(){
-        $("#img").attr("src", data[0].picture);
-        $('#text').text(data[0].vocabulary)
-        var audio = new Audio(data[0].sound);
-        audio.play();
-        $("div#questnumber").text(1 + "/" + (data.length) );
+    function init() {
+      $("#img").attr("src", data[0].picture);
+      $('#text').text(data[0].vocabulary)
+      var audio = new Audio(data[0].sound);
+      audio.play();
+      $("div#questnumber").text(1 + "/" + (data.length));
     }
     init();
 
-    function changespeed(_speed){
+    function changespeed(_speed) {
       speed = _speed;
     }
 
-    function muteSound () {
-        mute  = !mute;
+    function muteSound() {
+      mute = !mute;
     }
 
-    function nextButton(id){
-        if(id)
-          clickchange = true;
+    function nextButton(id) {
+      if (id)
+        clickchange = true;
 
-        index ++;
-        if(index > data.length - 1){
-            index = data.length - 1;
-        }
-        animation(index);
-        $("div#questnumber").text((index + 1) + "/" + (data.length) );
-        
-        //clickchange = false;
+      index++;
+      if (index > data.length - 1) {
+        index = data.length - 1;
+      }
+      animation(index);
+      $("div#questnumber").text((index + 1) + "/" + (data.length));
+
+      //clickchange = false;
 
     }
-    function backButton(id){
-      if(id)
-          clickchange = true;
+    function backButton(id) {
+      if (id)
+        clickchange = true;
 
-        index--;
-        if(index < 0){
-            index = 0;
-        }
-        animation(index);
-        $("div#questnumber").text((index + 1) + "/" + (data.length) );
+      index--;
+      if (index < 0) {
+        index = 0;
+      }
+      animation(index);
+      $("div#questnumber").text((index + 1) + "/" + (data.length));
 
-        //clickchange = false;
+      //clickchange = false;
     }
-   async function playfunction(){
-      if(!play){
-        
+    async function playfunction() {
+      if (!play) {
+
         play = true;
         clickchange = false;
 
-        for(var i = index;i < data.length - 1; i++){
-          if(clickchange)
+        for (var i = index; i < data.length - 1; i++) {
+          if (clickchange)
             break;
           nextButton();
-          await sleep(speed*1000);
-      }
-      }else{
-          return;  
+          await sleep(speed * 1000);
+        }
+      } else {
+        return;
       }
 
     }
-</script>
+  </script>
 
 </body>
-</html>
 
+</html>

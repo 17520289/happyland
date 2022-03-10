@@ -23,11 +23,7 @@ const questions = [
     choose1: "./img/brinjal.jpg",
     choose2: "./img/mushroom.jpg",
     sound1: "./sound/brinjal.wav",
-<<<<<<< HEAD
-    sound2: "./sound/mushroom.wav",
-=======
     sound2: "./sound/mushroon.wav",
->>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
     ans: "2",
   },
   {
@@ -68,11 +64,6 @@ const questions = [
   },
 ];
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
 var iQuestion = 0;
 var idButton = "buttonChoose1";
 
@@ -114,13 +105,9 @@ function checkAnswer(clicked_id) {
     document.getElementById(clicked_id + "_ans_sound").hidden = false;
     document.getElementById(clicked_id + "_img").hidden = false;
     $("#image-thinking").attr("src", "../public/img/yeah.gif");
-<<<<<<< HEAD
-    $('#'+clicked_id + "_img").append("<img src='../public/img/tick.png' style='height: 40px; margin-left: -55px;' id='tick'/>");
-=======
     $("#" + clicked_id + "_img").append(
       "<img src='../public/img/tick.png' style='height: 40px; margin-left: -55px;' id='tick'/>"
     );
->>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
     console.log("đáp án đúng");
     clicked_id === "buttonChoose1"
       ? (idButton = clicked_id.replace(/1/g, "2"))
@@ -134,18 +121,11 @@ function checkAnswer(clicked_id) {
     playWord(clicked_id + "_sound");
     document.getElementById(clicked_id + "_img").hidden = false;
     $("#image-thinking").attr("src", "../public/img/sad.gif");
-<<<<<<< HEAD
-    $('#'+clicked_id + "_img").append("<img src='../public/img/wrong.png' style='height: 40px; margin-left: -55px;' id='wrong'/>");
-    console.log("dap án sai");
-    setTimeout('$("#wrong").remove()', 500);
-
-=======
     $("#" + clicked_id + "_img").append(
       "<img src='../public/img/wrong.png' style='height: 40px; margin-left: -55px;' id='wrong'/>"
     );
     console.log("dap án sai");
     setTimeout('$("#wrong").remove()', 500);
->>>>>>> 57c03bfa5fb90d91997017bf9894290f4b9d12b1
   }
 }
 

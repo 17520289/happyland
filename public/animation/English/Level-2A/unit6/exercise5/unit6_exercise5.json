@@ -1,0 +1,47 @@
+const questions = [
+    {
+        "question": "1-5",
+        "picture":  "./img/ex5/judge.jpg",
+        "choose1":"A. judge",
+        "choose2":"B. actress",
+        "sound1": "./sound/ex5/judge.wav",
+        "sound2": "./sound/ex5/actress.wav",
+        "ans": "1"
+    },
+    {
+        "question": "2-5",
+        "picture":  "./img/ex5/lawyer.jpg",
+        "choose1":"A. lawyer",
+        "choose2":"B. reporter",
+        "sound1": "./sound/ex5/lawyer.wav",
+        "sound2": "./sound/ex5/reporter.wav",
+        "ans": "1"
+    },
+    {
+        "question": "3-5",
+        "picture":  "./img/ex5/artist.jpg",
+        "choose1":"A. actor",
+        "choose2":"B. artist",
+        "sound1": "./sound/ex5/actor.wav",
+        "sound2": "./sound/ex5/artist.wav",
+        "ans": "2"
+    },
+    {
+        "question": "4-5",
+        "picture":  "./img/ex5/waitress.jpg",
+        "choose1":"A. waitress",
+        "choose2":"B. waiter",
+        "sound1": "./sound/ex5/waitress.wav",
+        "sound2": "./sound/ex5/waiter.wav",
+        "ans": "1"
+    },
+    {
+        "question": "5-5",
+        "picture":  "./img/ex5/steward.jpg",
+        "choose1":"A. steward",
+        "choose2":"B. stewardess",
+        "sound1": "./sound/ex5/steward.wav",
+        "sound2": "./sound/ex5/stewardess.wav",
+        "ans": "1"
+    }
+]

@@ -1,0 +1,47 @@
+const questions = [
+    {
+        "question": "1-5",
+        "picture":  "./img/ex6/vegetable seller.jpg",
+        "choose1":"A. butcher",
+        "choose2":"B. vegetable seller",
+        "sound1": "./sound/ex6/butcher.wav",
+        "sound2": "./sound/ex6/vegetable seller.wav",
+        "ans": "2"
+    },
+    {
+        "question": "2-5",
+        "picture":  "./img/ex6/fishmonger.jpg",
+        "choose1":"A. fisherman",
+        "choose2":"B. fishmonger",
+        "sound1": "./sound/ex6/fisherman.wav",
+        "sound2": "./sound/ex6/fishmonger.wav",
+        "ans": "2"
+    },
+    {
+        "question": "3-5",
+        "picture":  "./img/ex6/fisherman.jpg",
+        "choose1":"A. farmer",
+        "choose2":"B. fisherman",
+        "sound1": "./sound/ex6/farmer.wav",
+        "sound2": "./sound/ex6/fisherman.wav",
+        "ans": "2"
+    },
+    {
+        "question": "4-5",
+        "picture":  "./img/ex6/butcher.jpg",
+        "choose1":"A. butcher",
+        "choose2":"B. vegetable seller",
+        "sound1": "./sound/ex6/butcher.wav",
+        "sound2": "./sound/ex6/vegetable seller.wav",
+        "ans": "1"
+    },
+    {
+        "question": "5-5",
+        "picture":  "./img/ex6/farmer.jpg",
+        "choose1":"A. farmer",
+        "choose2":"B. fishmonger",
+        "sound1": "./sound/ex6/farmer.wav",
+        "sound2": "./sound/ex6/fishmonger.wav",
+        "ans": "1"
+    }
+]

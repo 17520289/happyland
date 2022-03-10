@@ -1,0 +1,56 @@
+const questions = [
+    {
+        "question": "1-6",
+        "word":  "ten",
+        "choose1":"./img/ten.png",
+        "choose2":"./img/thirty.png",
+        "sound1": "./sound/ten.wav",
+        "sound2": "./sound/thirty.wav",
+        "ans": "1"
+    },
+    {
+        "question": "2-6",
+        "word":  "one thousand",
+        "choose1":"./img/ten thousand.png",
+        "choose2":"./img/one thousand.png",
+        "sound1": "./sound/ten thousand.wav",
+        "sound2": "./sound/one thousand.wav",
+        "ans": "2"
+    },
+    {
+        "question": "3-6",
+        "word":  "one million",
+        "choose1":"./img/ten.png",
+        "choose2":"./img/one million.png",
+        "sound1": "./sound/ten.wav",
+        "sound2": "./sound/one million.wav",
+        "ans": "2"
+    },
+    {
+        "question": "4-6",
+        "word":  "one hunderd",
+        "choose1":"./img/thirty.png",
+        "choose2":"./img/one hunderd.png",
+        "sound1": "./sound/thirty.wav",
+        "sound2": "./sound/one hunderd.wav",
+        "ans": "2"
+    },
+    {
+        "question": "5-6",
+        "word":  "ten thousand",
+        "choose1":"./img/ten thousand.png",
+        "choose2":"./img/ten.png",
+        "sound1": "./sound/ten thousand.wav",
+        "sound2": "./sound/ten.wav",
+        "ans": "1"
+    },
+    {
+        "question": "6-6",
+        "word":  "third",
+        "choose1":"./img/second.png",
+        "choose2":"./img/third.png",
+        "sound1": "./sound/second.wav",
+        "sound2": "./sound/third.wav",
+        "ans": "2"
+    }
+]

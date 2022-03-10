@@ -1,0 +1,83 @@
+const questions = [
+    {
+        "question": "1-9",
+        "picture":  "./img/tailor shop.jpg",
+        "choose1":"A. tailor shop",
+        "choose2":"B. bakery",
+        "sound1": "./sound/tailor shop.wav",
+        "sound2": "./sound/bakery.wav",
+        "ans": "1"
+    },
+    {
+        "question": "2-9",
+        "picture":  "./img/laundry shop.jpg",
+        "choose1":"A. book store",
+        "choose2":"B. laundry shop",
+        "sound1": "./sound/book store.wav",
+        "sound2": "./sound/laundry shop.wav",
+        "ans": "2"
+    },
+    {
+        "question": "3-9",
+        "picture":  "./img/bakery.jpg",
+        "choose1":"A. bakery",
+        "choose2":"B. supermarket",
+        "sound1": "./sound/bakery.wav",
+        "sound2": "./sound/supermarket.wav",
+        "ans": "1"
+    },
+    {
+        "question": "4-9",
+        "picture":  "./img/market.jpg",
+        "choose1":"A. supermarket",
+        "choose2":"B. market",
+        "sound1": "./sound/supermarket.wav",
+        "sound2": "./sound/market.wav",
+        "ans": "2"
+    },
+    {
+        "question": "5-9",
+        "picture":  "./img/boutique.jpg",
+        "choose1":"A. toy shop",
+        "choose2":"B. boutique",
+        "sound1": "./sound/toy shop.wav",
+        "sound2": "./sound/boutique.wav",
+        "ans": "2"
+    },
+    {
+        "question": "6-9",
+        "picture":  "./img/book store.jpg",
+        "choose1":"A. book store",
+        "choose2":"B. supermarket",
+        "sound1": "./sound/book store.wav",
+        "sound2": "./sound/supermarket.wav",
+        "ans": "1"
+    },
+    {
+        "question": "7-9",
+        "picture":  "./img/barber shop.jpg",
+        "choose1":"A. toy shop",
+        "choose2":"B. barber shop",
+        "sound1": "./sound/toy shop.wav",
+        "sound2": "./sound/barber shop.wav",
+        "ans": "2"
+    },
+    {
+        "question": "8-9",
+        "picture":  "./img/supermarket.jpg",
+        "choose1":"A. market",
+        "choose2":"B. supermarket",
+        "sound1": "./sound/market.wav",
+        "sound2": "./sound/supermarket.wav",
+        "ans": "2"
+    },
+    {
+        "question": "9-9",
+        "picture":  "./img/toy shop.jpg",
+        "choose1":"A. toy shop",
+        "choose2":"B. supermarket",
+        "sound1": "./sound/toy shop.wav",
+        "sound2": "./sound/supermarket.wav",
+        "ans": "1"
+    }
+]

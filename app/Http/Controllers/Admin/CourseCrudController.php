@@ -108,9 +108,9 @@ class CourseCrudController extends CrudController
 
         if(backpack_user()->hasRole(['Student'])){
             $enrollments = Enrollment::where('user_id', backpack_user()->id)->pluck('course_id')->toArray();
-            $lang = \Session::get('locale', backpack_user()->lang);
-            $courses = Course::whereIn('id', $enrollments)->where('status', 'published')->orderBy('level_id')->where('lang', $lang)->get();
-           
+            // $lang = \Session::get('locale', backpack_user()->lang);
+            // $courses = Course::whereIn('id', $enrollments)->where('status', 'published')->orderBy('level_id')->where('lang', $lang)->get();
+            $courses = Course::whereIn('id', $enrollments)->where('status', 'published')->orderBy('level_id')->get();
             
             $this->data['courses'] = $courses;
             $this->crud->setListView('student.course.list', $this->data);

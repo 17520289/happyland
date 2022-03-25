@@ -90,7 +90,7 @@ function playCorrect() {
   audioElement.setAttribute("src", "./sound/correct.wav");
   audioElement.play();
   $("#exercise").append(
-    "<div class='container' id='yeah' style='position: absolute; z-index: 4;bottom:0; left: 0;'><img src='../public/img/yeah3.gif' style='height: 300px'/></div>"
+    "<div class='container' id='yeah' style='position: absolute; z-index: 4;bottom:0; left: 0;'><img src='../public/img/yeah3.gif' style='width: 100%'/></div>"
   );
   setTimeout('document.getElementById("yeah").remove()', 900);
   document.getElementById("dog").src = "./img/u8-yeah.gif";
@@ -103,7 +103,7 @@ function checkAnswer(clicked_id) {
     document.getElementById(clicked_id + "_ans_sound").hidden = false;
     document.getElementById(clicked_id + "_img").hidden = false;
     document.getElementById(clicked_id + "_img").innerHTML =
-      "<img src='../public/img/tick.png' style='height: 100px;margin: 15px;position: absolute;right: 0%;top: 25%;z-index: 4;' id='tick'/>";
+      "<img src='../public/img/tick.png' id='tick'/>";
     console.log("đáp án đúng");
     clicked_id === "buttonChoose1"
       ? (idButton = clicked_id.replace(/1/g, "2"))
@@ -117,7 +117,7 @@ function checkAnswer(clicked_id) {
     playWord(clicked_id + "_sound");
     document.getElementById(clicked_id + "_img").hidden = false;
     document.getElementById(clicked_id + "_img").innerHTML =
-      "<img src='../public/img/wrong.png' style='height: 100px;margin: 15px;position: absolute;right: 0%;top: 25%;z-index: 4;' id='wrong'/>";
+      "<img src='../public/img/wrong.png'id='wrong'/>";
     console.log("dap án sai");
     setTimeout(playWrong, 500);
     clicked_id === "buttonChoose1"

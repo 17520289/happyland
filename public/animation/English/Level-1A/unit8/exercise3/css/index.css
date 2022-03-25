@@ -62,7 +62,6 @@ body, html{
     font-size: 50px;
     z-index: 3;
     margin-top: 25%;
-    margin-left: 20px;
 }
 .top-bar__icon__markboard{
     background-image: url("../../public/img/markboard-68.png");
@@ -102,13 +101,13 @@ body, html{
 
 .bg-choose1 {
     position: absolute;
-    left: 12%;
+    width: 100%;
     z-index:2;
 
 }
 .bg-choose2 {
     position: absolute;
-    left: 12%;
+    width: 100%;
     z-index:2;
 
 }
@@ -228,24 +227,32 @@ body, html{
     0%   {top:-300px;}
     100% { top: 0}
   }
-  @media (max-width: 1200px) {
-
-    .icon-left {
-        left: -7%;
+  @media (max-width: 1400px) {
+    .lesson__unit1__img {
+        max-width:425px;
+        max-height:320px;
     }
-    .text-left {
-        left: -6%;
+
+}
+  @media (max-width: 1200px) {
+    .lesson__unit1__img {
+        max-width: 365px;
+        max-height: 260px;
+    }
+    .exercise3__ans__choose{
+        font-size: 36px;
     }
 }
 
 @media (max-width: 992px) {
+    .lesson__unit1__img {
+        max-width: 265px;
+        max-height: 180px;
+    }
+    .exercise3__ans__choose{
+        font-size: 26px;
+    }
 
-    .icon-left {
-        left: -9%;
-    }
-    .text-left {
-        left: -8%;
-    }
 }
 
 @media (max-width: 768px) {

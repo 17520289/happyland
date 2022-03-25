@@ -2,6 +2,7 @@ const questions = [
   {
     question: "1-6",
     picture: "./img/hair.png",
+    pictureSuccess: "./img/hairCorrect.png",
     choose1: "hair",
     choose2: "nose",
     sound1: "./sound/hair.wav",
@@ -11,6 +12,7 @@ const questions = [
   {
     question: "2-6",
     picture: "./img/eyebrow.png",
+    pictureSuccess: "./img/eyebrowCorrect.png",
     choose1: "lip",
     choose2: "eyebrow",
     sound1: "./sound/lip.wav",
@@ -20,6 +22,7 @@ const questions = [
   {
     question: "3-6",
     picture: "./img/eye.png",
+    pictureSuccess: "./img/eyeCorrect.png",
     choose1: "forehead",
     choose2: "eye",
     sound1: "./sound/forehead.wav",
@@ -29,6 +32,7 @@ const questions = [
   {
     question: "4-6",
     picture: "./img/mouth.png",
+    pictureSuccess: "./img/mouthCorrect.png",
     choose1: "mouth",
     choose2: "ear",
     sound1: "./sound/mouth.wav",
@@ -38,6 +42,7 @@ const questions = [
   {
     question: "5-6",
     picture: "./img/nose.png",
+    pictureSuccess: "./img/noseCorrect.png",
     choose1: "chin",
     choose2: "nose",
     sound1: "./sound/chin.wav",
@@ -47,6 +52,7 @@ const questions = [
   {
     question: "6-6",
     picture: "./img/ear.png",
+    pictureSuccess: "./img/earCorrect.png",
     choose1: "ear",
     choose2: "eye",
     sound1: "./sound/ear.wav",
@@ -82,18 +88,13 @@ function playCorrect() {
   document.getElementById("exercise").innerHTML +=
     "<div class='container' id='yeah' style='position: absolute; z-index: 4;top: 15px; left: 20px; margin: 0px 50px 0px 50px;'><img src='./img/yeah3.gif' style='height: 600px'/></div>";
   setTimeout('document.getElementById("yeah").remove()', 900);
-  // $("#exercise").append(
-  //   "<div class='container' id='yeah1' style='position: absolute; top: 230px; left: 20px; margin: 0px 50px 0px 50px; z-index:1;'><img src='./img/blue-ice.png' style='height: 300px'/></div>" +
-  //     "<div class='container' id='yeah2' style='position: absolute; top: 230px; left: 230px; margin: 0px 50px 0px 50px;z-index:1;'><img src='./img/pink-ice.png' style='height: 300px'/></div>"
-  // );
-  // setTimeout('$("#yeah1").remove()', 900);
-  // setTimeout('$("#yeah2").remove()', 900);
 }
 
 function checkAnswer(clicked_id) {
   var user_ans = document.getElementById(clicked_id).value;
   if (user_ans === questions[iQuestion].ans) {
     playWord(clicked_id + "_sound");
+    document.getElementById("image").src = questions[iQuestion].pictureSuccess;
     document.getElementById(clicked_id + "_ans_sound").hidden = false;
     document.getElementById(clicked_id + "_img").hidden = false;
     document.getElementById(clicked_id + "_img").innerHTML =

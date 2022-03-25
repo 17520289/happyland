@@ -101,12 +101,10 @@ body, html{
 
 .bg-choose1 {
     position: absolute;
-    left: 12%;
     z-index:2;
 }
 .bg-choose2 {
     position: absolute;
-    left: 12%;
     z-index:2;
 }
 .exercise3__img{
@@ -211,24 +209,38 @@ body, html{
       text-align: center;
       font-size: 20px;
   }
+  .thinking {
+    height: 450px; margin-top:-25%; z-index: 5; position: absolute; bottom: 0;
+  }
+  @media (max-width: 1400px) {
+    .lesson__unit1__img {
+        max-height: 215px;
+        max-width: 350px;
+    }
+    .thinking {
+        height: 370px;
+      }
+}
   @media (max-width: 1200px) {
 
-    .icon-left {
-        left: -7%;
+    .lesson__unit1__img {
+        max-height: 180px; max-width: 300px;
     }
-    .text-left {
-        left: -6%;
-    }
+    .thinking {
+        height: 340px;
+      }
 }
 
 @media (max-width: 992px) {
 
-    .icon-left {
-        left: -9%;
+    .lesson__unit1__img {
+        max-height: 120px;
+        max-width: 200px;
+        top: 6%;
     }
-    .text-left {
-        left: -8%;
-    }
+    .thinking {
+        height: 300px;
+      }
 }
 
 @media (max-width: 768px) {

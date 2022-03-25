@@ -34,6 +34,7 @@
 
         .block-fruits{
           margin-bottom: 40px;
+         
         }
 
         .img-description{
@@ -121,6 +122,18 @@
     .image-item{
       position: relative;
       text-align: center;
+      cursor: pointer;
+    }
+
+    #hand{
+      animation-name: roll;
+      animation-duration: 2s;
+      animation-iteration-count: 2;
+    }
+
+    @keyframes roll {
+      0%   {top:250px; left: 0; z-index: 2;}
+      100% { top:500px; left: 200px; z-index: 2;}
     }
     </style>
 
@@ -249,6 +262,15 @@
       out:function(event, ui){
       count = count-1;
        $("#count").text(count);
+      }
+    });
+
+    $(".block-fruits").droppable({
+        drop: function( event, ui ) {
+
+      },
+      out:function(event, ui){
+      
       }
     });
 

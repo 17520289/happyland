@@ -20,6 +20,50 @@
             background-color: #08a8e7;
         }
 
+        .top-bar{
+            padding: 10px;
+        }
+
+        .top-bar__icon{
+            font-size: 30px;
+            color: black;
+            display: flex;
+            height: 80px;
+        }
+
+        .top-bar__icon__home{
+            height: 80px;
+            padding-right: 20px;
+        }
+        .top-bar__icon__sound{
+            height: 80px;
+        }
+
+        .top-bar__1a{
+            padding: 10px 20px;
+            border: 4px solid #fff;
+            background-color: blue;
+            color: white;
+            font-size: 30px;
+            text-align: center;
+            border-radius: 100%;
+            width: 80px;
+        }
+        .top-bar__name{
+            padding-left: 20px;
+        }
+
+        .top-bar__name__sub{
+            font-size: 20px;
+            color: black;
+        }
+
+        .top-bar__icon__img{
+            height: 80px;
+            padding-right: 20px;
+
+        }
+
         .container {
             position: relative;
         }
@@ -101,41 +145,58 @@
 </head>
 
 <body>
+    <header>
+        <section class="top-bar">
+          <div class="container-fluid">
+              <div class="row justify-content-between">
+                  <div class="col-6">
+                      <div class="top-bar__icon">
+                          <a href="../index.html">
+                              <img src="../../../public/img/icon/Ui-index.png" alt="" class="top-bar__icon__img">
+                          </a>
+                          <div class="top-bar__1a" id="1a_active">
+                              1b
+                          </div>
+                          <div class="top-bar__name">
+                              Unit 7: Transportation
+                              <div class="top-bar__name__sub" style="font-size: 20px;">
+                                Spell the transportation below
+                            </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-2">
+                    <h1 id="number_quest"
+                            style="border: #000000;border-style: solid; text-align: center;border-radius: 12px;margin-top: 5px;">
+                            1 - 6
+                    </h1>
+                </div>
+                  <div class="col-3">
+                      <div class="top-bar__icon">
+                        <a onclick="playWord()">
+                          <img src="../public/img/Ui-xmute.png" alt="" class="top-bar__icon__img">
+                          <sound id ="top-bar__sound">
+                          </sound>
+                      </img>
+                      </a>
+                          
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+  
+    </header>
     <section class="exercise" id="exercise">
         <img class="bg" src="../public/img/unit7-bg.png"> </img>
         <div class="container">
             <div class="row d-flex justify-content-md-center" style="position: relative ; z-index: 10; padding: 2vw; ">
-                <div class="row">
-                    <div class="col-1">
-                        <a href="../index.html">
-                            <img src="../public/img/Ui-index.png" style="width: 5vw; margin: 0;">
-                            </img>
-                        </a>
-                    </div>
-                    <div class="col-8">
-                        <p style="font-size: 25px;"> Unit 7: Transportation</p>
-                        <p style="font-size: 20px;">Choose the correct answer</p>
-                    </div>
-                    <div class="col-2">
-                        <h1 id="number_quest"
-                            style="border: #000000;border-style: solid; text-align: center;border-radius: 12px;margin-top: 5px;">
-                            1 - 6</h1>
-                    </div>
-                    <div class="col-1">
-                        <a onclick="playWord()">
-                            <img src="../public/img/Ui-xmute.png" style="width: 5vw; margin: 0;"></img>
-                        </a>
-                    </div>
-                </div>
                 <div class="row" style="height: 27vw;">
                     <div class="col d-flex justify-content-md-center"
                         style="padding:1vw; align-items: center; justify-items: center;">
-                        <div style="width: 27vw;">
+                        <div style="width: 27vw;" id="content">
                             <img id="img_content" class="imgContent" src="./img/bus.png"
                                 style="width:100%; max-height: 430px;"></img>
-                            <img src='../public/img/tick.png'
-                                style="height: 100px;margin: 15px;position: absolute;right: 0%;top: 55%;z-index: 4;"
-                                id='tick' />
                         </div>
                     </div>
                 </div>
@@ -218,31 +279,51 @@
 
         var content = "";
 
-        function init() {
-            content = question[index].content;
-            $("#img_content").attr("src", question[index].picture);
-            $("#backbutton").hide();
-            $("#nextbutton").hide(); document.getElementById('tick').hidden = true;
-        }
+        // function init() {
+        //     content = question[index].content;
+        //     $("#img_content").attr("src", question[index].picture);
+        //     $("#backbutton").hide();
+        //     $("#nextbutton").hide(); document.getElementById('tick').hidden = true;
+        // }
 
-        init();
-
+        // init();
+        UpdateQuest();
+        // function getQuestion() {
+        //     if (index === 0) {
+        //         document.getElementById("backbutton").hidden = true;
+        //     } else {
+        //         document.getElementById("backbutton").hidden = false;
+        //     }
+        //     if (index === question.length - 1) {
+        //         document.getElementById("nextbutton").hidden = true;
+        //     } else {
+        //         document.getElementById("nextbutton").hidden = false;
+        //     }
+        // }
         function NextQuest() {
-            if (index < question.length - 1)
-                index++;
+            // if (index < question.length - 1)
+            //     index++;
+            // UpdateQuest();
+            // if (index > 0) {
+            //     $("#backbutton").show();
+            // }
+            checkWrong();
+            ++index;
             UpdateQuest();
-            if (index > 0) {
-                $("#backbutton").show();
-            }
         }
 
         function BackQuest() {
-            if (index > 0)
-                index--;
+            // if (index > 0)
+            //     index--;
+            // UpdateQuest();
+            checkWrong();
+            --index;
             UpdateQuest();
+            
         }
 
         function UpdateQuest() {
+            $('#tick').remove();
             content = question[index].content;
             $("#img_content").attr("src", question[index].picture);
             $('#number_quest').text(index + 1 + "- 6");
@@ -262,8 +343,19 @@
                 $(btnId).css("backgroundPosition", 'center')
                 $(btnId).html(content[i]);
 
-            }); document.getElementById('tick').hidden = true;
+            }); 
             document.getElementById("exercise").innerHTML += "<div class='purple' id='yeah' style='position: absolute;z-index: 999;top: -50%;'></div>"
+
+            if (index === 0) {
+                document.getElementById("backbutton").hidden = true;
+            } else {
+                document.getElementById("backbutton").hidden = false;
+            }
+            if (index === question.length - 1) {
+                document.getElementById("nextbutton").hidden = true;
+            } else {
+                document.getElementById("nextbutton").hidden = false;
+            }
         }
 
         async function CheckAS() {
@@ -319,7 +411,10 @@
             var audioElement = document.createElement('audio');
             audioElement.setAttribute('src', './sound/correct.wav');
             audioElement.play()
-            document.getElementById('tick').hidden = false;
+            // document.getElementById('tick').hidden = false;
+            $('#content').append(
+          "<img src='../public/img/tick.png' style='height: 100px;margin: 15px;position: absolute;right: 0%;top: 55%;z-index: 4;' id='tick'/>"
+        );
             $("#exercise").append(
                 "<div class='purple' id='yeah' style='position: absolute;z-index: 999;top: -50%;'><img src='../public/img/yeah3.gif' style='height: 100%; width : 100%; z-index:999'/></div>"
             );
@@ -333,6 +428,36 @@
             var audioElement = document.createElement('audio');
             audioElement.setAttribute('src', question[index].sound)
             audioElement.play()
+        }
+
+        function checkWrong() {
+            var s = "";
+            check_list.forEach(function (value, i) {
+                if (value) {
+                    s += content[i]
+                }
+            });
+            if (s != question[index].result) {
+
+                check_list.forEach(function (value, i) {
+                    if (!value) {
+                        var btnId = "#btn" + i;
+                        $(btnId).css("display", "none");
+                    }
+                });
+                playWord()
+                playWrong();
+            }
+        }
+
+        function playWrong() {
+            var audioElement = document.createElement('audio');
+            audioElement.setAttribute('src', './sound/wrong.wav');
+            audioElement.play()
+            $('#content').append(
+          "<img src='../public/img/wrong.png' style='height: 100px;margin: 15px;position: absolute;right: 0%;top: 55%;z-index: 4;' id='tick'/>"
+        );
+        
         }
     </script>
 

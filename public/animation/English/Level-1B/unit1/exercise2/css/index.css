@@ -180,7 +180,7 @@ body, html{
     animation-duration: 3s;
 }
 .exercise3__ans__sound >img{
-    height: 55px;
+    height: 60px;
 }
 .hidden {
     display: none;
@@ -215,10 +215,28 @@ body, html{
       text-align: center;
       font-size: 20px;
   }
+  .footer {
+    position: absolute;
+    bottom: 0%;
+    right: 10%;
+}
+  @media (max-width: 1400px) {
+
+   .img-bg {
+       max-width: 390px;
+   }
+   .lesson__unit1__img {
+       max-height: 350px;
+   }
+   .icon-left {
+    left: 13%;
+    top: 53%;
+}
+}
   @media (max-width: 1200px) {
 
     .icon-left {
-        left: -7%;
+        left: 5%;
     }
     .text-left {
         left: -6%;
@@ -226,12 +244,21 @@ body, html{
 }
 
 @media (max-width: 992px) {
-
     .icon-left {
-        left: -9%;
+        left: -10%;
     }
-    .text-left {
-        left: -8%;
+    .img-bg {
+        max-width: 390px;
+    }
+    .lesson__unit1__img {
+        left: 15%;
+        max-height: 300px;
+    }
+    #buttonChoose1 {
+        margin-bottom: 30%;
+    }
+    .exercise3__ans__choose {
+        margin-top: 10%;
     }
 }
 

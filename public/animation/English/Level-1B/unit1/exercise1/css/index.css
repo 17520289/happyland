@@ -83,14 +83,14 @@ body, html{
 }
 .icon-left {
     position: absolute;
-    left: -42%;
-    top: 52%;
+    left: 0%;
+    top: 50%;
     z-index: 3;
 }
 .icon-right {
     position: absolute;
-    right: -39%;
-    top: 52%;
+    right: 0%;
+    top: 50%;
     z-index: 3;
 }
 .text-left {
@@ -107,10 +107,14 @@ body, html{
 
 .bg-choose1 {
     position: absolute;
+    width: 100%;
+    max-height: 120px;
     z-index:2;
 }
 .bg-choose2 {
     position: absolute;
+    max-height: 120px;
+    width: 100%;
     z-index:2;
 }
 .exercise3__img{
@@ -134,7 +138,7 @@ body, html{
 .exercise3__ans{
     display: flex;
     flex-direction: column;
-    padding-block-start: 50%;
+    padding-block-start: 10%;
 }
 
 .footer{
@@ -230,4 +234,101 @@ body, html{
 @keyframes roll-right {
     0% { right: 17% }
     100% { right: 37%}
+}
+
+@media screen and (max-width: 1400px) {
+    .footer {
+        position: absolute;
+        bottom: 0%;
+        right: 10%;
+    }
+    .icon-left {
+        top: 40%;
+    }
+    .img-bg {
+        margin-top: 0px;
+        max-width: 600px;
+        z-index: 2;
+    }
+    .lesson__unit1__img{
+        top: 31%;
+        left: 33%;
+        max-width: 400px;
+        max-height: 330px;
+    }
+    .bg-choose1 {
+        max-height: 105px;
+    }
+    .bg-choose2 {
+        max-height: 105px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .img-bg {
+        margin-top: 30px;
+        max-width: 550px;
+        z-index: 2;
+    }
+    .exercise3__ans__sound >img {
+        height: 45px;
+    }
+    .icon-left {
+        top: 45%;
+    }
+    .lesson__unit1__img{
+        top: 31%;
+        left: 31%;
+        max-width: 370px;
+        max-height: 300px;
+    }
+    .exercise3__ans{
+        padding-block-start: 5%;
+    }
+    .exercise3__ans__choose{
+        font-size: 40px;
+        margin-top:20px;
+    }
+    .bg-choose1 {
+        max-height: 90px;
+    }
+    .bg-choose2 {
+        max-height: 90px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .exercise3__ans__sound >img {
+        height: 45px;
+    }
+    .icon-left {
+        top: 40%;
+    }
+    .img-bg {
+        margin-top: 30px;
+        max-width: 500px;
+        z-index: 2;
+    }
+    .lesson__unit1__img{
+        top: 31%;
+        left: 28%;
+        max-width: 330px;
+        max-height: 270px;
+    }
+    .exercise3__ans{
+        padding-block-start: 5%;
+    }
+    .exercise3__ans__choose{
+        font-size: 40px;
+        margin-top:20px;
+    }
+    .bg-choose1 {
+        height: 80px;
+    }
+    .bg-choose2 {
+        height: 80px;
+    }
+    .footer__img {
+        height: 60px;
+    }
 }

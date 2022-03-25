@@ -83,6 +83,22 @@ var iQuestion = 0;
 var kidClap = null;
 
 getQuestion();
+init();
+function init() {
+  $("#exercise").append(
+    "<div class='container' id='hand' style='position: absolute; top: 500px; left: 0px;'><img id='handImg' src='../public/img/hand-97.png' style='height: 80px'/></div>"
+  );
+  
+   setTimeout(animationInit, 1000);
+}
+
+function animationInit() {
+  setTimeout('$("#handImg").attr("src", "../public/img/hand-98.png")', 500);
+  setTimeout('$("#handImg").attr("src", "../public/img/hand-97.png")', 1000);
+  setTimeout('$("#handImg").attr("src", "../public/img/hand-98.png")', 1500);
+  setTimeout('$("#hand").remove()', 2500);
+}
+
 function playWord() {
   var audioElement = document.createElement("audio");
   audioElement.setAttribute("src", $("#sound").val());
@@ -111,7 +127,7 @@ function playCorrect() {
   audioElement.setAttribute("src", "./audio/correct.wav");
   audioElement.play();
   $("#exercise").append(
-    "<div class='container' id='yeah' style='position: absolute; top: 15px; left: 20px; margin: 0px 50px 0px 50px;'><img src='../public/img/yeah3.gif' style='height: 600px'/></div>"
+    "<div class='container' id='yeah' style='position: absolute; top: 15px; left: 20px; margin: 0px 50px 0px 50px; z-index: 2'><img src='../public/img/yeah3.gif' style='height: 1000px;'/></div>"
   );
   setTimeout('$("#yeah").remove()', 900);
 }

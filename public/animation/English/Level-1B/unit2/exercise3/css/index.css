@@ -113,6 +113,7 @@ body, html{
     display: flex;
     flex-direction: column;
     padding-block-start: 10%;
+    padding-left: 20px;
 }
 
 .footer{
@@ -194,23 +195,39 @@ body, html{
       text-align: center;
       font-size: 20px;
   }
-  @media (max-width: 1200px) {
+  #wrong,#tick {
+    height: 100px; margin: 15px; position: absolute; right:-5%; top:10%
+  }
+  @media (max-width: 1400px) {
 
-    .icon-left {
-        left: -7%;
+    .exercise3__ans__choose{
+        font-size: 48px;
     }
-    .text-left {
-        left: -6%;
+    #wrong,#tick {
+        height: 80px; right:-10%;
+      }
+}
+  @media (max-width: 1200px) {
+    .exercise3__ans__choose{
+        font-size: 44px;
     }
+    #wrong,#tick {
+        height: 70px;
+      }
 }
 
 @media (max-width: 992px) {
-
-    .icon-left {
-        left: -9%;
+    #wrong,#tick {
+        height: 50px; right:-5%;
+      }
+    .top-bar__question__sub {
+        padding: 30px 60px;
     }
-    .text-left {
-        left: -8%;
+    .icon-left {
+        left: -5%;
+    }
+    .exercise3__ans__choose{
+        font-size: 40px;
     }
 }
 

@@ -134,14 +134,14 @@ function checkAnswer(clicked_id) {
     document.getElementById(clicked_id).disabled = "disabled";
     document.getElementById(idButton).disabled = "disabled";
     document.getElementById(idButton).style.opacity = "0.5";
-    setTimeout(playCorrect, 700);
+    setTimeout(playCorrect, 1000);
   } else {
     playWord(clicked_id + "_sound");
     document.getElementById(clicked_id + "_img").hidden = false;
     document.getElementById(clicked_id + "_img").innerHTML =
       "<img src='./img/wrong.png' style='height: 50px; margin: 15px; id='wrong''/>";
     console.log("dap án sai");
-    setTimeout(playWrong, 500);
+    setTimeout(playWrong, 700);
     clicked_id === "buttonChoose1"
       ? setTimeout(
           'document.getElementById("buttonChoose1_img").hidden = true;',

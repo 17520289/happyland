@@ -140,6 +140,12 @@ function playWord(i) {
   audioElement.play();
 }
 
+function playWordCurrent() {
+  var audioElement = document.createElement("audio");
+  audioElement.setAttribute("src", questions[iQuestion].question[answerCorrect].sound);
+  audioElement.play();
+}
+
 function playDrop() {
   var audioElement = document.createElement("audio");
   var audioElement1 = document.createElement("audio");

@@ -208,3 +208,23 @@ body, html{
       text-align: center;
       font-size: 20px;
   }
+  .choose1 {
+    position: absolute;
+    bottom: 30%;
+    left: 40%;
+}
+.choose2 {
+    position: absolute;
+    bottom: 30%;
+    right: 40%;
+}
+  @media screen and (max-width: 1470px) {
+    .choose1 {
+        bottom: 30%;
+        left: 30%;
+    }
+    .choose2 {
+        bottom: 30%;
+        right: 30%;
+    }
+  }

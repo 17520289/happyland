@@ -1,7 +1,7 @@
 const questions = [
   {
     id: 1,
-    questionTitle: "1-5",
+    questionTitle: "1-3",
     question: [
       {
         id: 1,
@@ -30,7 +30,7 @@ const questions = [
   },
   {
     id: 2,
-    questionTitle: "2-5",
+    questionTitle: "2-3",
     question: [
       {
         id: 1,
@@ -59,7 +59,7 @@ const questions = [
   },
   {
     id: 3,
-    questionTitle: "3-5",
+    questionTitle: "3-3",
     question: [
       {
         id: 1,

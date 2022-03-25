@@ -31,7 +31,7 @@ const questions = [
     word: "gloves",
     choose1: "./img/glove.jpg",
     choose2: "./img/boots.jpg",
-    sound1: "./sound/glove.wav",
+    sound1: "./sound/gloves.wav",
     sound2: "./sound/boots.wav",
     ans: "1",
   },
@@ -120,8 +120,10 @@ function checkAnswer(clicked_id) {
     document.getElementById(clicked_id + "_img").hidden = false;
     document.getElementById(clicked_id + "_img").innerHTML =
       "<img src='../public/img/wrong.png' style='height: 80px; margin-left: -50px; id='wrong''/>";
-      $('#exercise').append("<div class='container' id='wrong-animation' style='position: absolute; top: 15px; left: 10%; margin: 0px 50px 0px 50px;'><img src='../public/img/boom.png' style='height: 600px'/></div>");
-      setTimeout('$("#wrong-animation").remove()', 900);
+    $("#exercise").append(
+      "<div class='container' id='wrong-animation' style='position: absolute; top: 15px; left: 10%; margin: 0px 50px 0px 50px;'><img src='../public/img/boom.png' style='height: 600px'/></div>"
+    );
+    setTimeout('$("#wrong-animation").remove()', 900);
     console.log("dap án sai");
     setTimeout(playWrong, 500);
     clicked_id === "buttonChoose1"

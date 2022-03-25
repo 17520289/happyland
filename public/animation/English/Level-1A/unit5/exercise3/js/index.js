@@ -88,9 +88,6 @@ function playCorrect() {
   var audioElement = document.createElement("audio");
   audioElement.setAttribute("src", "./sound/correct.wav");
   audioElement.play();
-  document.getElementById("exercise").innerHTML +=
-    "<div class='container' id='yeah' style='position: absolute; z-index: 4;top: 15px; left: 20px; '><img src='../public/img/yeah3.gif' style='height: 100%; width: 100%;'/></div>";
-  setTimeout('document.getElementById("yeah").remove()', 900);
   document.getElementsByClassName(
     "exercise3__ans__choose"
   ).style.animationPlayState = "paused";

@@ -1,7 +1,7 @@
 const questions = [
   {
     id: 1,
-    questionTitle: "1-7",
+    questionTitle: "1-3",
     question: [
       {
         id: 1,
@@ -30,7 +30,7 @@ const questions = [
   },
   {
     id: 2,
-    questionTitle: "2-7",
+    questionTitle: "2-3",
     question: [
       {
         id: 1,
@@ -59,7 +59,7 @@ const questions = [
   },
   {
     id: 3,
-    questionTitle: "3-7",
+    questionTitle: "3-3",
     question: [
       {
         id: 1,
@@ -126,7 +126,7 @@ function playCorrect() {
   audioElement.setAttribute("src", "./sound/correct.wav");
   audioElement.play();
   $("#exercise").append(
-    "<div class='container' id='yeah1' style='position: absolute; top: 230px; right: 20px; margin: 0px 50px 0px 50px; z-index:1;'><img src='./img/win-star.png' style='height: 300px'/></div>"
+    "<div class='container' id='yeah1' style='position: absolute; top: 230px; right: -100px; margin: 0px 50px 0px 50px; z-index:1;'><img src='./img/win-star.png' style='height: 200px'/></div>"
   );
   setTimeout('$("#yeah1").remove()', 900);
 }
@@ -210,7 +210,7 @@ function getQuestion() {
         $(this)
         .parent()
         .append(
-          "<img src='../public/img/tick.png' style='height: 50px; margin: 15px;' id='correct'/>"
+          "<img src='../public/img/tick.png' style='height: 50px; margin-left: 20rem; margin-top: 15px;' id='correct'/>"
         );
         $(ui.draggable).draggable('disable');
         playCorrect();
@@ -218,7 +218,7 @@ function getQuestion() {
         $(this)
           .parent()
           .append(
-            "<img src='../public/img/wrong.png' style='height: 50px; margin: 15px;' id='wrong'/>"
+            "<img src='../public/img/wrong.png' style='height: 50px; margin-left :20rem; margin-top: 15px;' id='wrong'/>"
           );
         var audioElement = document.createElement("audio");
         audioElement.setAttribute("src", "./sound/wrong.wav");

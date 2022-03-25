@@ -65,7 +65,23 @@
           object-fit: cover;
           overflow:none;
         }
-
+        .tick{
+          position: absolute;
+          height: 10vw;
+          width: 15vw;
+          top: 23vw;
+          left: 15vw;
+          display: none;
+        }
+        .top-bar__1a{
+        padding: 10px 20px;
+        border: 4px solid #fff;
+        background-color: blue;
+        color: white;
+        font-size: 2rem;
+        text-align: center;
+        border-radius: 100%;
+      }
     </style>
 
   </head>
@@ -79,7 +95,15 @@
             <img src="../../../public/img/icon/Ui-index.png" style="width: 5vw; margin: 0;">
             </img></a>
             </div>
-            <div class="col-10">
+
+            <div class="col-auto">
+              <div class="top-bar__1a" id="1a_active">
+                1a
+              </div>
+            </div>
+            
+            <div class="col-7">
+
               <p style="font-size: 25px;">Unit 4 : Colours</p>
               <p style="font-size: 20px;">Fill in the correct colours</p>
             </div>
@@ -92,6 +116,9 @@
             </div>
           </div>
             <div class="row">
+                <div class="tick">
+                  <img id="img_tick" src="../img/tick.png" style="height:100%; width:100%"></img>
+                </div>
                 <div class="col-4">
                   <div id='grow' class="d-flex flex-column justify-content-center" style="background-color: white; width: 20vw; height: 25vw;">
                     <div class="measuringWrapper">
@@ -105,7 +132,6 @@
                         <a onclick="playWord()">
                           <img src="../../../public/img/icon/Ui-xmute.png" style="width: 4vw;margin:0;"></img>
                         </a>
-                        
                       </div>
                     </div>
                   </div>
@@ -255,24 +281,37 @@
       ]
 
       function init(){
-        console.log(question[0].pen)
+  
         currentQuestion = 0;
         choose = 0;
         $("#backbutton").hide();
 
       }
       async function changeQuestion(){
-        //currentQuestion++;
         choose = 0;
         await NextQuest();
       }
 
       init()
-
+      async function showWrong(){
+        $("#img_tick").attr("src","../img/wrong.png");
+        $('.tick').show();
+        await sleep(2000);
+        $('.tick').hide();
+      }
+      async function showCorrect(){
+        $("#img_tick").attr("src","../img/tick.png");
+        $('.tick').show();
+        await sleep(2000);
+        $('.tick').hide();
+      }
       async function changeColor(img,pen){
 
-      if(idPen != question[currentQuestion].pen || idPen != pen)
+      if(idPen != question[currentQuestion].pen || idPen != pen){
+        showWrong();
         return;
+      }
+
 
       choose++;
       img.src = img.src.replace(/_1/, "_2")
@@ -283,12 +322,9 @@
         playCorrect();
 
         var image = document.getElementById("quest");
-        image.src = image.src.replace(/_1/, "_2")
-
-        console.log(image.src)
+        image.src = image.src.replace(/_1/, "_2");
 
         await sleep(3000);
-
 
         changeQuestion();
       }
@@ -330,13 +366,10 @@
 
         await sleep(1500);
 
-        console.log(question[currentQuestion].color)
-
-        //playCorrect()
       }
 
       async function BackQuest() {
-        console.log(currentQuestion);
+        //console.log(currentQuestion);
         if(currentQuestion <= 0)
           return;
 
@@ -354,7 +387,7 @@
 
         index--;
         var image = document.getElementById("quest");
-        image.src = question[currentQuestion].picture;//list_img[index];
+        image.src = question[currentQuestion].picture;
 
         var title = document.getElementById("title_quest");
 
@@ -363,10 +396,13 @@
 
       }
       function playCorrect(){
+          
+          showCorrect();
+
           var audioElement = document.createElement('audio');
           audioElement.setAttribute('src', './sound/correct.wav');
           audioElement.play()
-          document.getElementById("exercise").innerHTML+="<div class='purple' id='yeah' style='position: absolute;z-index: 999;top: -50%;'><img src='./img/yeah3.gif' style='height: 100%; width : 100%; z-index:999'/></div>"
+          document.getElementById("exercise").innerHTML+="<div class='purple' id='yeah' style='position: absolute;z-index: 999;top: -20%;left:15%;height:50vw;'><img src='../img/yeah3.gif' style='height: 100%; width : 100%; z-index:999;'/></div>"
           setTimeout('document.getElementById("yeah").remove()', 900)
       }
 
@@ -376,8 +412,6 @@
         audioElement.play()
     }
     </script>
-
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 

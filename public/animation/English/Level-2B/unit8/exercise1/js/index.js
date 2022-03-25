@@ -1,56 +1,55 @@
 const questions = [
     {
         "question": "1-6",
-        "picture":  "./img/wings.jpg",
-        "choose1":"wings",
-        "choose2":"claws",
-        "sound1": "./sound/wings.wav",
-        "sound2": "./sound/claws.wav",
+        "word":  "The sun shines during the day",
+        "choose1":"./img/sun.jpg",
+        "choose2":"./img/wind.jpg",
+        "sound1": "./sound/sun.wav",
+        "sound2": "./sound/wind.wav",
         "ans": "1"
     },
     {
         "question": "2-6",
-        "picture":  "./img/beak.jpg",
-        "choose1":"beak",
-        "choose2":"cockscomb",
-        "sound1": "./sound/beak.wav",
-        "sound2": "./sound/cockscomb.wav",
-        "ans": "1"
+        "word":  "The moon is shining bright tonight.",
+        "choose1":"./img/starts.jpg",
+        "choose2":"./img/moon.jpg",
+        "sound1": "./sound/starts.wav",
+        "sound2": "./sound/moon.wav",
+        "ans": "2"
     },
     {
         "question": "3-6",
-        "picture":  "./img/feather.jpg",
-        "choose1": "claws",
-        "choose2": "feather",
-        "sound1": "./sound/claws.wav",
-        "sound2": "./sound/feather.wav",
+        "word":  "Stars are twinkling in the sky. ",
+        "choose1":"./img/snow.jpg",
+        "choose2":"./img/stars.jpg",
+        "sound1": "./sound/snow.wav",
+        "sound2": "./sound/stars.wav",
         "ans": "2"
     },
     {
         "question": "4-6",
-        "picture":  "./img/cockscomb.jpg",
-        "choose1":"cockscomb",
-        "choose2":"claws",
-        "sound1": "./sound/cockscomb.wav",
-        "sound2": "./sound/claws.wav",
+        "word":  "Wind is air in motion",
+        "choose1":"./img/wind.jpg",
+        "choose2":"./img/sun.jpg",
+        "sound1": "./sound/wind.wav",
+        "sound2": "./sound/sun.wav",
         "ans": "1"
     },
     {
         "question": "5-6",
-        "picture":  "./img/gills.jpg",
-        "choose1": "tentacle",
-        "choose2": "gills",
-        "sound1": "./sound/tentacle.wav",
-        "sound2": "./sound/gills.wav",
+        "word":  "Snow forms when water vapour freezes into ice crystals.",
+        "choose1":"./img/rain.jpg",
+        "choose2":"./img/Snow.jpg",
+        "sound1": "./sound/rain.wav",
+        "sound2": "./sound/Snow.wav",
         "ans": "2"
-    },
-    {
+    },{
         "question": "6-6",
-        "picture":  "./img/claws.jpg",
-        "choose1": "beak",
-        "choose2": "claws",
-        "sound1": "./sound/beak.wav",
-        "sound2": "./sound/claws.wav",
-        "ans": "2"
+        "word":  "Rain is droplets of water that fall from clouds.",
+        "choose1":"./img/rain.jpg",
+        "choose2":"./img/moon.jpg",
+        "sound1": "./sound/rain.wav",
+        "sound2": "./sound/moon.wav",
+        "ans": "1"
     }
 ]

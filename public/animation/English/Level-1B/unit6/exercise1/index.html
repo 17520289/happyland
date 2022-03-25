@@ -93,24 +93,32 @@
 
         .lesson__unit1__img {
             position: absolute;
-            top: 35%;
+            top: 10%;
             left: 20%;
             max-height: 300px;
             max-width: 300px;
             z-index: 4;
 
         }
-
+        .top-bar__1a{
+            padding: 10px 20px;
+            border: 4px solid #fff;
+            background-color: blue;
+            color: white;
+            font-size: 2rem;
+            text-align: center;
+            border-radius: 100%;
+      }
         .img-bg {
             height: 100%;
             width: 100%;
-            margin-top: 25%;
+            margin-top: 10%;
             z-index: 1;
         }
 
         @keyframes roll {
             0% {
-                top: -300px;
+                top: -250px;
             }
 
             100% {
@@ -133,9 +141,14 @@
                             </img>
                         </a>
                     </div>
-                    <div class="col-8">
+                    <div class="col-auto">
+                        <div class="top-bar__1a" id="1a_active">
+                          1b
+                        </div>
+                    </div>
+                    <div class="col-6">
                         <p style="font-size: 25px;"> Unit 6: Domesticated Animals</p>
-                        <p style="font-size: 20px;">Choose the correct answer</p>
+                        <p style="font-size: 20px;">Spell the transportation below</p>
                     </div>
                     <div class="col-2">
                         <h1 id="number_quest"
@@ -154,7 +167,7 @@
                         <div style="width: 27vw;" class="exercise3__img">
                             <img src="./img/u6-ex3-frame.png" class="img-bg">
                             <img id="img_content" class="lesson__unit1__img" src="./img/bird.png"
-                                style="width:100%; padding:20px; max-height: 430px;"></img>
+                                style="width:100%; padding:20px; max-height: 430px; object-fit: contain; height: 100%;"></img>
                             <img src='../public/img/tick.png'
                                 style="height: 100px;margin: 15px;position: absolute;right: -15%;top: 70%;z-index: 4;"
                                 id='tick' />
@@ -314,11 +327,15 @@
                 if (index == question.length - 1) {
                     $("#nextbutton").hide();
                 }
+            }else{
+                if(s.length >= question[index].result.length){
+                    playWrongAudio();
+                }
             }
         }
         async function ChooseAS(btn, id) {
             check_list[id] = !check_list[id];
-
+            playChooseAudio();
             if (check_list[id]) {
                 btn.style.background = '#e708a4';
                 btn.style.color = '#ffffff'
@@ -348,6 +365,16 @@
         function playWord() {
             var audioElement = document.createElement('audio');
             audioElement.setAttribute('src', question[index].sound)
+            audioElement.play()
+        }
+        function playWrongAudio(){
+            var audioElement = document.createElement('audio');
+            audioElement.setAttribute('src',"./sound/wrong.wav")
+            audioElement.play()
+        }
+        function playChooseAudio(){
+            var audioElement = document.createElement('audio');
+            audioElement.setAttribute('src',"./sound/choose.wav")
             audioElement.play()
         }
     </script>

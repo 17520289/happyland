@@ -92,8 +92,11 @@ function checkAnswer(clicked_id) {
     playWord(clicked_id + "_sound");
     document.getElementById(clicked_id + "_ans_sound").hidden = false;
     document.getElementById(clicked_id + "_img").hidden = false;
-    document.getElementById(clicked_id + "_img").innerHTML =
-      "<img src='../public/img/tick.png' style='height: 80px;margin: 15px;position: absolute;right: -20%;z-index: 4;top: 50%;' id='tick'/>";
+    clicked_id === "buttonChoose1"
+      ? (document.getElementById(clicked_id + "_img").innerHTML =
+          "<img src='../public/img/tick.png' style='height: 80px;margin: 15px;position: absolute;right: -5%;z-index: 3;top: 50%;' id='tick'/>")
+      : (document.getElementById(clicked_id + "_img").innerHTML =
+          "<img src='../public/img/tick.png' style='height: 80px;margin: 15px;position: absolute;left: -5%;z-index: 3;top: 50%;transform: rotateY(180deg);' id='tick'/>");
     console.log("đáp án đúng");
     clicked_id === "buttonChoose1"
       ? (idButton = clicked_id.replace(/1/g, "2"))
@@ -106,8 +109,12 @@ function checkAnswer(clicked_id) {
   } else {
     playWord(clicked_id + "_sound");
     document.getElementById(clicked_id + "_img").hidden = false;
-    document.getElementById(clicked_id + "_img").innerHTML =
-      "<img src='../public/img/wrong.png' style='height: 80px;margin: 15px;position: absolute;right: -20%;z-index: 4;top: 50%;' id='wrong'/>";
+    clicked_id === "buttonChoose1"
+      ? (document.getElementById(clicked_id + "_img").innerHTML =
+          "<img src='../public/img/wrong.png' style='height: 80px;margin: 15px;position: absolute;right: -5%;z-index: 3;top: 50%;' id='wrong'/>")
+      : (document.getElementById(clicked_id + "_img").innerHTML =
+          "<img src='../public/img/wrong.png' style='height: 80px;margin: 15px;position: absolute;left: -5%;z-index: 3;top: 50%;' id='wrong'/>");
+
     console.log("dap án sai");
     setTimeout(playWrong, 500);
     clicked_id === "buttonChoose1"

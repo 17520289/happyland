@@ -83,13 +83,13 @@ function playWrong() {
   var audioElement = document.createElement("audio");
   audioElement.setAttribute("src", "./sound/wrong.wav");
   audioElement.play();
-  document.getElementById("teacher").src = "../public/img/teacher_no.gif";
+  document.getElementById("teacher").src = "../public/img/teacher_no.png";
 }
 function playCorrect() {
   var audioElement = document.createElement("audio");
   audioElement.setAttribute("src", "./sound/correct.wav");
   audioElement.play();
-  document.getElementById("teacher").src = "../public/img/teacher_yeah.gif";
+  document.getElementById("teacher").src = "../public/img/teacher_yeah.png";
 }
 
 function checkAnswer(clicked_id) {
@@ -99,7 +99,7 @@ function checkAnswer(clicked_id) {
     document.getElementById(clicked_id + "_ans_sound").hidden = false;
     document.getElementById(clicked_id + "_img").hidden = false;
     document.getElementById(clicked_id + "_img").innerHTML =
-      "<img src='../public/img/tick.png' style='height: 100px; margin: 15px; position: absolute; right:-5%; top:10%' id='tick'/>";
+      "<img src='../public/img/tick.png' id='tick'/>";
     console.log("đáp án đúng");
     clicked_id === "buttonChoose1"
       ? (idButton = clicked_id.replace(/1/g, "2"))
@@ -113,7 +113,7 @@ function checkAnswer(clicked_id) {
     playWord(clicked_id + "_sound");
     document.getElementById(clicked_id + "_img").hidden = false;
     document.getElementById(clicked_id + "_img").innerHTML =
-      "<img src='../public/img/wrong.png' style='height: 100px; margin: 15px;position: absolute; right:-5%; top:10%' id='wrong'/>";
+      "<img src='../public/img/wrong.png' id='wrong'/>";
     console.log("dap án sai");
     setTimeout(playWrong, 500);
     clicked_id === "buttonChoose1"

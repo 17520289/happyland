@@ -3,42 +3,49 @@ const questions = [
         "id": 1,
         "question": "1-7",
         "picture":  "./img/theface/sideburns.jpg",
+        "sound": "audio/theface/sideburns.wav",
         "ans": "5"
     },
     {
         "id": 2,
         "question": "2-7",
         "picture":  "./img/theface/teeth.jpg",
+        "sound": "audio/theface/teeth.wav",
         "ans": "1"
     },
     {
         "id": 3,
         "question": "3-7",
         "picture":  "./img/theface/cheek.jpg",
+        "sound": "audio/theface/cheek.wav",
         "ans": "4"
     },
     {
         "id": 4,
         "question": "4-7",
         "picture":  "./img/theface/lips.jpg",
+        "sound": "audio/theface/lips.wav",
         "ans": "2"
     },
     {
         "id": 5,
         "question": "5-7",
         "picture":  "./img/theface/forehead.jpg",
+        "sound": "audio/theface/forehead.wav",
         "ans": "7"
     },
     {
         "id": 6,
         "question": "6-7",
         "picture":  "./img/theface/chin.jpg",
+        "sound": "audio/theface/chin.wav",
         "ans": "3"
     },
     {
         "id": 7,
         "question": "7-7",
         "picture":  "./img/theface/tongue.jpg",
+        "sound": "audio/theface/tongue.wav",
         "ans": "6"
     }
 ]
@@ -86,6 +93,12 @@ getQuestion();
 function playWord(audio_id){
     var audioElement = document.createElement('audio');
     audioElement.setAttribute('src', answers[--audio_id].sound)
+    audioElement.play()
+}
+
+function playWordCurrent(){
+    var audioElement = document.createElement('audio');
+    audioElement.setAttribute('src', questions[iQuestion].sound)
     audioElement.play()
 }
 

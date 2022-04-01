@@ -82,8 +82,15 @@
           </div>
           <div class="col-auto">
             <div class="top-bar__icon">
-              <img src="../../../public/img/icon/Ui-xmute.png" alt="" class="top-bar__icon__sound" onclick="playWordCurrent()">
+              <!-- function onSound -->
+              <img src="../../../public/img/icon/Ui-xmute.png" alt="" class="top-bar__icon__sound" id="imgSoundTrack"
+                onclick="onSound('../../../public/img/icon/Ui-xmute.png','../../../public/img/icon/Ui-mute.png')">
+              <audio id="audioSoundTrack" preload="auto" loop>
+                <source src="../../../public/sound/soundtrack.wav" type="audio/wav">
+              </audio>
+
               </img>
+              <!-- end of line 54 -->
             </div>
           </div>
         </div>
@@ -106,7 +113,9 @@
               <div class="img-description">
                 <img src="img/theface/sideburns.jpg" id="image" data-id="1" alt="">
               </div>
-
+              <img src="../../../public/img/icon/Ui-xmute.png" alt="" class="top-bar__icon__sound"
+                onclick="playWordCurrent()">
+              </img>
               <div class="answer">
                 <input type="text" class="answer-text" id="answer" name="answer" readonly>
                 <div class="exercise2__ans__img" id="exercise2__ans__img"></div>
@@ -159,7 +168,9 @@
       });
     });
   </script>
-
+  <!-- audio -->
+  <audio id='soundPopOut' src='../../../public/sound/popout.wav'></audio>
+  <audio id="soundMagic" src='../../../public/sound/magic.wav'></audio>
   <!-- js -->
   <script type="text/javascript" src="./js/exercise2.js"></script>
   <script type="text/javascript" src="../../../public/js/index.js"></script>

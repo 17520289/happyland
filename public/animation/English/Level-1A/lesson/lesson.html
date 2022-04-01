@@ -35,15 +35,20 @@
                         <div class="top-bar__icon">
                             <a href="../../index.html">
                                 <img src="../../public/img/icon/Ui-home.png" alt="" class="top-bar__icon__img"></a>
-                            English Speed Reading Assesment
+                            English Speed Reading Assessment
                         </div>
                     </div>
                     <div class="col-auto">
                         <div class="top-bar__icon">
-                            <img src="../../../public/img/icon/Ui-xmute.png" alt="" class="top-bar__icon__img">
-                            <sound id="top-bar__sound">
-                            </sound>
+                            <!-- function onSound -->
+                            <img src="../../public/img/icon/Ui-xmute.png" alt="" class="top-bar__icon__img"
+                                id="imgSoundTrack"
+                                onclick="onSound('../../public/img/icon/Ui-xmute.png','../../public/img/icon/Ui-mute.png')">
+                            <audio id="audioSoundTrack" preload="auto" loop>
+                                <source src="../../public/sound/soundtrack.wav" type="audio/wav">
+                            </audio>
                             </img>
+                            <!-- end of line 54 -->
                         </div>
                     </div>
                 </div>
@@ -80,32 +85,32 @@
             <div class="container">
                 <div class="row justify-content-between" style="padding-bottom: 20px">
                     <div class="col-3">
-                        <a href="../unit1/index.html" class="lesson__a" onmouseover="PlaySound('mySound')"
-                            onmouseout="StopSound('mySound')">
+                        <a href="../unit1/index.html" class="lesson__a" onmouseover="PlaySound('soundPopOut')"
+                            onmouseout="StopSound('soundPopOut')" onclick="PlaySound('soundMagic')">
                             <div class="lesson__unit1">
                                 <img src="./img/unit1.png" alt="" class="lesson__unit1__img">
                             </div>
                         </a>
                     </div>
                     <div class="col-3">
-                        <a href="../unit2/index.html" class="lesson__a" onmouseover="PlaySound('mySound')"
-                            onmouseout="StopSound('mySound')">
+                        <a href="../unit2/index.html" class="lesson__a" onmouseover="PlaySound('soundPopOut')"
+                            onmouseout="StopSound('soundPopOut')">
                             <div class="lesson__unit2">
                                 <img src="./img/unit2.png" alt="" class="lesson__unit1__img">
                             </div>
                         </a>
                     </div>
                     <div class="col-3">
-                        <a href="../unit3/index.html" class="lesson__a" onmouseover="PlaySound('mySound')"
-                            onmouseout="StopSound('mySound')">
+                        <a href="../unit3/index.html" class="lesson__a" onmouseover="PlaySound('soundPopOut')"
+                            onmouseout="StopSound('soundPopOut')">
                             <div class="lesson__unit3">
                                 <img src="./img/unit3.png" alt="" class="lesson__unit1__img">
                             </div>
                         </a>
                     </div>
                     <div class="col-3">
-                        <a href="../unit4/index.html" class="lesson__a" onmouseover="PlaySound('mySound')"
-                            onmouseout="StopSound('mySound')">
+                        <a href="../unit4/index.html" class="lesson__a" onmouseover="PlaySound('soundPopOut')"
+                            onmouseout="StopSound('soundPopOut')">
                             <div class="lesson__unit4">
                                 <img src="./img/unit4.png" alt="" class="lesson__unit1__img">
                             </div>
@@ -114,16 +119,16 @@
                 </div>
                 <div class="row justify-content-between">
                     <div class="col-3">
-                        <a href="../unit5/index.html" class="lesson__a" onmouseover="PlaySound('mySound')"
-                            onmouseout="StopSound('mySound')">
+                        <a href="../unit5/index.html" class="lesson__a" onmouseover="PlaySound('soundPopOut')"
+                            onmouseout="StopSound('soundPopOut')">
                             <div class="lesson__unit5">
                                 <img src="./img/unit5.png" alt="" class="lesson__unit1__img">
                             </div>
                         </a>
                     </div>
                     <div class="col-3">
-                        <a href="../unit6/index.html" class="lesson__a" onmouseover="PlaySound('mySound')"
-                            onmouseout="StopSound('mySound')">
+                        <a href="../unit6/index.html" class="lesson__a" onmouseover="PlaySound('soundPopOut')"
+                            onmouseout="StopSound('soundPopOut')">
                             <div class="lesson__unit6">
                                 <img src="./img/unit6.png" alt="" class="lesson__unit1__img">
 
@@ -131,8 +136,8 @@
                         </a>
                     </div>
                     <div class="col-3">
-                        <a href="../unit7/index.html" class="lesson__a" onmouseover="PlaySound('mySound')"
-                            onmouseout="StopSound('mySound')">
+                        <a href="../unit7/index.html" class="lesson__a" onmouseover="PlaySound('soundPopOut')"
+                            onmouseout="StopSound('soundPopOut')">
                             <div class="lesson__unit7">
                                 <img src="./img/unit7.png" alt="" class="lesson__unit1__img">
 
@@ -140,8 +145,8 @@
                         </a>
                     </div>
                     <div class="col-3">
-                        <a href="../unit8/index.html" class="lesson__a" onmouseover="PlaySound('mySound')"
-                            onmouseout="StopSound('mySound')">
+                        <a href="../unit8/index.html" class="lesson__a" onmouseover="PlaySound('soundPopOut')"
+                            onmouseout="StopSound('soundPopOut')">
                             <div class="lesson__unit8">
                                 <img src="./img/unit8.png" alt="" class="lesson__unit1__img">
                             </div>
@@ -152,7 +157,7 @@
         </section>
     </main>
     <!-- audio -->
-    <audio id='mySound' src='../../public/sound/sheep.wav'></audio>
+    <audio id='soundPopOut' src='../../public/sound/popout.wav'></audio>
     <!-- JavaScript -->
     <script type="text/javascript" src="../../public/js/index.js"></script>
     <!-- jQuery -->

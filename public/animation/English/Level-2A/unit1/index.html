@@ -40,10 +40,15 @@
                     </div>
                     <div class="col-auto">
                         <div class="top-bar__icon">
-                            <img src="../../public/img/icon/Ui-xmute.png" alt="" class="top-bar__icon__img">
-                            <sound id="top-bar__sound">
-                            </sound>
+                            <!-- function onSound -->
+                            <img src="../../../public/img/icon/Ui-xmute.png" alt="" class="top-bar__icon__sound"
+                                id="imgSoundTrack"
+                                onclick="onSound('../../../public/img/icon/Ui-xmute.png','../../../public/img/icon/Ui-mute.png')">
+                            <audio id="audioSoundTrack" preload="auto" loop>
+                                <source src="../../../public/sound/soundtrack.wav" type="audio/wav">
+                            </audio>
                             </img>
+                            <!-- end of line 54 -->
                         </div>
                     </div>
                 </div>

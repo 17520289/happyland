@@ -40,8 +40,15 @@
                     </div>
                     <div class="col-auto">
                         <div class="top-bar__icon">
-                            <img src="./public/img/Ui-xmute.png" alt="" class="top-bar__icon__img" onclick="onSound()">
+                            <!-- function onSound -->
+                            <img src="../../public/img/icon/Ui-xmute.png" alt="" class="top-bar__icon__img"
+                                id="imgSoundTrack"
+                                onclick="onSound('../../public/img/icon/Ui-xmute.png','../../public/img/icon/Ui-mute.png')">
+                            <audio id="audioSoundTrack" preload="auto" loop>
+                                <source src="../../public/sound/soundtrack.wav" type="audio/wav">
+                            </audio>
                             </img>
+                            <!-- end of line 54 -->
                         </div>
                     </div>
                 </div>
@@ -52,7 +59,8 @@
         <section class="exercise">
             <div class="row justify-content-around" style="margin-right: 0 !important">
                 <div class="col-2">
-                    <a href="./exercise1/index.html" class="lesson__a">
+                    <a href="./exercise1/index.html" class="lesson__a" onmouseover="PlaySound('soundPopOut')"
+                        onmouseout="StopSound('soundPopOut')">
                         <div class="lesson__unit1">
                             <img src="./public/img/ex1.png" alt="" class="lesson__unit1__img">
                             <!-- <div class="lesson__unit1__text">
@@ -62,28 +70,32 @@
                     </a>
                 </div>
                 <div class="col-2">
-                    <a href="./exercise2/index.html" class="lesson__a">
+                    <a href="./exercise2/index.html" class="lesson__a" onmouseover="PlaySound('soundPopOut')"
+                        onmouseout="StopSound('soundPopOut')">
                         <div class="lesson__unit2">
                             <img src="./public/img/ex2.png" alt="" class="lesson__unit1__img">
                         </div>
                     </a>
                 </div>
                 <div class="col-2">
-                    <a href="./exercise3/index.html" class="lesson__a">
+                    <a href="./exercise3/index.html" class="lesson__a" onmouseover="PlaySound('soundPopOut')"
+                        onmouseout="StopSound('soundPopOut')">
                         <div class="lesson__unit3">
                             <img src="./public/img/ex3.png" alt="" class="lesson__unit1__img">
                         </div>
                     </a>
                 </div>
                 <div class="col-2">
-                    <a href="./exercise4/index.html" class="lesson__a">
+                    <a href="./exercise4/index.html" class="lesson__a" onmouseover="PlaySound('soundPopOut')"
+                        onmouseout="StopSound('soundPopOut')">
                         <div class="lesson__unit3">
                             <img src="./public/img/ex4.png" alt="" class="lesson__unit1__img">
                         </div>
                     </a>
                 </div>
                 <div class="col-2">
-                    <a href="./exercise5/index.html" class="lesson__a">
+                    <a href="./exercise5/index.html" class="lesson__a" onmouseover="PlaySound('soundPopOut')"
+                        onmouseout="StopSound('soundPopOut')">
                         <div class="lesson__unit3">
                             <img src="./public/img/ex5.png" alt="" class="lesson__unit1__img">
                         </div>
@@ -92,8 +104,11 @@
             </div>
         </section>
     </main>
+    <!-- audio -->
+    <audio id='soundPopOut' src='../../public/sound/popout.wav'></audio>
+    <audio autoplay src='../../public/sound/magic.wav'></audio>
     <!-- JavaScript -->
-    <script type="text/javascript" src="../../../public/js/index.js"></script>
+    <script type="text/javascript" src="../../public/js/index.js"></script>
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Bootstrap JavaScript -->

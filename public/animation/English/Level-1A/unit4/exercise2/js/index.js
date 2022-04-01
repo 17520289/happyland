@@ -79,9 +79,10 @@ function playCorrect() {
   var audioElement = document.createElement("audio");
   audioElement.setAttribute("src", "./sound/correct.wav");
   audioElement.play();
-  document.getElementById("exercise").innerHTML +=
-    "<div class='container' id='yeah' style='position: absolute; top: 15px; left: 20px; margin: 0px 50px 0px 50px;'><img src='../img/yeah3.gif' style='height: 100%; width: 100%;'/></div>";
-  setTimeout('document.getElementById("yeah").remove()', 900);
+  $("#exercise").append(
+    "<div class='container' id='yeah1' style='position: absolute; bottom: 100px; left: 20px; margin: 0px 50px 0px 50px; z-index:1;'><img src='../img/yeah3.gif' style='width:100%'/></div>"
+  );
+  setTimeout('$("#yeah1").remove()', 900);
   document.getElementsByClassName(
     "exercise3__ans__choose"
   ).style.animationPlayState = "paused";
@@ -124,9 +125,6 @@ function checkAnswer(clicked_id) {
 }
 
 function getQuestion() {
-  document.getElementById("exercise").innerHTML +=
-    "<div class='container' id='yeah'</div>";
-  setTimeout('document.getElementById("yeah").remove()', 900);
   document.getElementById("image").src = questions[iQuestion].picture;
   document.getElementById("markboard").innerHTML =
     questions[iQuestion].question;

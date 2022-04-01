@@ -94,9 +94,9 @@ function checkAnswer(clicked_id) {
     document.getElementById(clicked_id + "_img").hidden = false;
     clicked_id === "buttonChoose1"
       ? (document.getElementById(clicked_id + "_img").innerHTML =
-          "<img src='../public/img/tick.png' style='height: 80px;margin: 15px;position: absolute;right: -5%;z-index: 3;top: 50%;' id='tick'/>")
+          "<img src='../public/img/tick.png' style='height: 80px;margin: 15px;position: absolute;right: -5%;z-index: 3;top: 70%;' id='tick'/>")
       : (document.getElementById(clicked_id + "_img").innerHTML =
-          "<img src='../public/img/tick.png' style='height: 80px;margin: 15px;position: absolute;left: -5%;z-index: 3;top: 50%;transform: rotateY(180deg);' id='tick'/>");
+          "<img src='../public/img/tick.png' style='height: 80px;margin: 15px;position: absolute;left: -5%;z-index: 3;top: 70%;' id='tick'/>");
     console.log("đáp án đúng");
     clicked_id === "buttonChoose1"
       ? (idButton = clicked_id.replace(/1/g, "2"))

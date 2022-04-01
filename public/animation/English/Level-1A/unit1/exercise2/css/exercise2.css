@@ -19,7 +19,7 @@ body, html{
 
 .top-bar__icon__home{
     height: 80px;
-    padding-right: 20px;	
+    padding-right: 20px;
 }
 .top-bar__icon__sound{
     height: 80px;
@@ -83,7 +83,7 @@ body, html{
 .exercise3__img{
     background-color: white;
     text-align: center;
-    height: 270px; 
+    height: 270px;
 }
 
 
@@ -92,7 +92,7 @@ body, html{
 }
 
 .footer{
-    padding: 10px;
+    padding: 10px;position: absolute; bottom: 10%; right: 10%;
 }
 
 .footer__img{
@@ -155,7 +155,7 @@ body, html{
     flex-wrap: nowrap;
     justify-content: center;
     flex-direction: row;
-  
+
 }
 
 .exercise3__question {

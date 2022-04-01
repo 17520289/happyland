@@ -51,9 +51,15 @@
                     </div>
                     <div class="col-auto">
                         <div class="top-bar__icon">
+                            <!-- function onSound -->
                             <img src="../../../public/img/icon/Ui-xmute.png" alt="" class="top-bar__icon__sound"
-                                onclick="onSound()">
+                                id="imgSoundTrack"
+                                onclick="onSound('../../../public/img/icon/Ui-xmute.png','../../../public/img/icon/Ui-mute.png')">
+                            <audio id="audioSoundTrack" preload="auto" loop>
+                                <source src="../../../public/sound/soundtrack.wav" type="audio/wav">
+                            </audio>
                             </img>
+                            <!-- end of line 54 -->
                         </div>
                     </div>
                 </div>
@@ -72,7 +78,8 @@
                     <div class="col-1"></div>
                     <div class="col-5">
                         <div class="exercise3__ans">
-                            <button class="btn-container" id="buttonChoose1" value="1" onclick="checkAnswer(this.id)">
+                            <button class="btn-container" id="buttonChoose1" value="1" onclick="checkAnswer(this.id)"
+                                onmouseover="PlaySound('soundPopOut')" onmouseout="StopSound('soundPopOut')">
                                 <div class="text-left">
                                     A
                                 </div>
@@ -89,7 +96,8 @@
 
                                 </div>
                             </button>
-                            <button class="btn-container" id="buttonChoose2" value="2" onclick="checkAnswer(this.id)">
+                            <button class="btn-container" id="buttonChoose2" value="2" onclick="checkAnswer(this.id)"
+                                onmouseover="PlaySound('soundPopOut')" onmouseout="StopSound('soundPopOut')">
                                 <div class="text-left-bottom">
                                     B
                                 </div>
@@ -130,6 +138,9 @@
             </div>
         </section>
     </main>
+    <!-- audio -->
+    <audio id='soundPopOut' src='../../../public/sound/popout.wav'></audio>
+    <audio autoplay src='../../../public/sound/magic.wav'></audio>
     <!-- js -->
     <script type="text/javascript" src="./js/index.js"></script>
     <script type="text/javascript" src="../../../public/js/index.js"></script>

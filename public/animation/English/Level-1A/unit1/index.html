@@ -40,9 +40,15 @@
                     </div>
                     <div class="col-auto">
                         <div class="top-bar__icon">
-                            <img src="../../../public/img/icon/Ui-xmute.png" alt="" class="top-bar__icon__sound"
-                                onclick="onSound()">
+                            <!-- function onSound -->
+                            <img src="../../public/img/icon/Ui-xmute.png" alt="" class="top-bar__icon__sound"
+                                id="imgSoundTrack"
+                                onclick="onSound('../../public/img/icon/Ui-xmute.png','../../public/img/icon/Ui-mute.png')">
+                            <audio id="audioSoundTrack" preload="auto" loop>
+                                <source src="../../public/sound/soundtrack.wav" type="audio/wav">
+                            </audio>
                             </img>
+                            <!-- end of line 54 -->
                         </div>
                     </div>
                 </div>
@@ -54,7 +60,8 @@
             <div class="container">
                 <div class="row justify-content-between">
                     <div class="col-4">
-                        <a href="./exercise1/exercise1.html" class="lesson__a">
+                        <a href="./exercise1/exercise1.html" class="lesson__a" onmouseover="PlaySound('soundPopOut')"
+                            onmouseout="StopSound('soundPopOut')">
                             <div class="lesson__unit1">
                                 <img src="./public/img/exercise1.png" alt="" class="lesson__unit1__img">
                                 <div class="lesson__unit1__text">
@@ -64,7 +71,8 @@
                         </a>
                     </div>
                     <div class="col-4">
-                        <a href="./exercise2/exercise2.html" class="lesson__a">
+                        <a href="./exercise2/exercise2.html" class="lesson__a" onmouseover="PlaySound('soundPopOut')"
+                            onmouseout="StopSound('soundPopOut')">
                             <div class="lesson__unit2">
                                 <img src="./public/img/exercise2.png" alt="" class="lesson__unit1__img">
                                 <div class="lesson__unit1__text">
@@ -75,7 +83,8 @@
                         </a>
                     </div>
                     <div class="col-4">
-                        <a href="./exercise3/exercise3.html" class="lesson__a">
+                        <a href="./exercise3/exercise3.html" class="lesson__a" onmouseover="PlaySound('soundPopOut')"
+                            onmouseout="StopSound('soundPopOut')">
                             <div class="lesson__unit3">
                                 <img src="./public/img/exercise3.png" alt="" class="lesson__unit1__img">
                                 <div class="lesson__unit1__text">
@@ -88,8 +97,11 @@
             </div>
         </section>
     </main>
+    <!-- audio -->
+    <audio id='soundPopOut' src='../../public/sound/popout.wav'></audio>
+    <audio autoplay src='../../public/sound/magic.wav'></audio>
     <!-- javaScript -->
-    <script type="text/javascript" src="../../../public/js/index.js"></script>
+    <script type="text/javascript" src="../../public/js/index.js"></script>
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Bootstrap JavaScript -->

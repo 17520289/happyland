@@ -18,28 +18,33 @@
             height: 100%;
             margin: 0;
             background-color: #08a8e7;
+            background-image: url("../public/img/unit7-bg.png");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-position: center;
         }
 
-        .top-bar{
+        .top-bar {
             padding: 10px;
         }
 
-        .top-bar__icon{
+        .top-bar__icon {
             font-size: 30px;
             color: black;
             display: flex;
             height: 80px;
         }
 
-        .top-bar__icon__home{
+        .top-bar__icon__home {
             height: 80px;
             padding-right: 20px;
         }
-        .top-bar__icon__sound{
+
+        .top-bar__icon__sound {
             height: 80px;
         }
 
-        .top-bar__1a{
+        .top-bar__1a {
             padding: 10px 20px;
             border: 4px solid #fff;
             background-color: blue;
@@ -49,16 +54,17 @@
             border-radius: 100%;
             width: 80px;
         }
-        .top-bar__name{
+
+        .top-bar__name {
             padding-left: 20px;
         }
 
-        .top-bar__name__sub{
+        .top-bar__name__sub {
             font-size: 20px;
             color: black;
         }
 
-        .top-bar__icon__img{
+        .top-bar__icon__img {
             height: 80px;
             padding-right: 20px;
 
@@ -71,13 +77,6 @@
         .exercise {
             width: 100%;
             height: 100%;
-        }
-
-        .bg {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
         }
 
         p {
@@ -147,51 +146,52 @@
 <body>
     <header>
         <section class="top-bar">
-          <div class="container-fluid">
-              <div class="row justify-content-between">
-                  <div class="col-6">
-                      <div class="top-bar__icon">
-                          <a href="../index.html">
-                              <img src="../../../public/img/icon/Ui-index.png" alt="" class="top-bar__icon__img">
-                          </a>
-                          <div class="top-bar__1a" id="1a_active">
-                              1b
-                          </div>
-                          <div class="top-bar__name">
-                              Unit 7: Transportation
-                              <div class="top-bar__name__sub" style="font-size: 20px;">
-                                Spell the transportation below
+            <div class="container-fluid">
+                <div class="row justify-content-between">
+                    <div class="col-6">
+                        <div class="top-bar__icon">
+                            <a href="../index.html">
+                                <img src="../../../public/img/icon/Ui-index.png" alt="" class="top-bar__icon__img">
+                            </a>
+                            <div class="top-bar__1a" id="1a_active">
+                                1b
                             </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-2">
-                    <h1 id="number_quest"
+                            <div class="top-bar__name">
+                                Unit 7: Transportation
+                                <div class="top-bar__name__sub" style="font-size: 20px;">
+                                    Spell the transportation below
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <h1 id="number_quest"
                             style="border: #000000;border-style: solid; text-align: center;border-radius: 12px;margin-top: 5px;">
                             1 - 6
-                    </h1>
+                        </h1>
+                    </div>
+                    <div class="col-3">
+                        <div class="top-bar__icon">
+                            <!-- function onSound -->
+                            <img src="../../../public/img/icon/Ui-xmute.png" alt="" style="width: 80px; margin: 0;"
+                                id="imgSoundTrack"
+                                onclick="onSound('../../../public/img/icon/Ui-xmute.png','../../../public/img/icon/Ui-mute.png')">
+                            <audio id="audioSoundTrack" preload="auto" loop>
+                                <source src="../../../public/sound/soundtrack.wav" type="audio/wav">
+                            </audio>
+                            </img>
+                            <!-- end of line 54 -->
+                        </div>
+                    </div>
                 </div>
-                  <div class="col-3">
-                      <div class="top-bar__icon">
-                        <a onclick="playWord()">
-                          <img src="../public/img/Ui-xmute.png" alt="" class="top-bar__icon__img">
-                          <sound id ="top-bar__sound">
-                          </sound>
-                      </img>
-                      </a>
-                          
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </section>
-  
+            </div>
+        </section>
+
     </header>
     <section class="exercise" id="exercise">
-        <img class="bg" src="../public/img/unit7-bg.png"> </img>
         <div class="container">
-            <div class="row d-flex justify-content-md-center" style="position: relative ; z-index: 10; padding: 2vw; ">
-                <div class="row" style="height: 27vw;">
+            <div class="row d-flex justify-content-md-center" style="position: relative ; z-index: 10; ">
+                <div class="row">
                     <div class="col d-flex justify-content-md-center"
                         style="padding:1vw; align-items: center; justify-items: center;">
                         <div style="width: 27vw;" id="content">
@@ -201,15 +201,30 @@
                     </div>
                 </div>
                 <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <a onclick="playWord()">
+                            <img src="../public/img/Ui-xmute.png" style="width: 80px; margin: 0;"></img>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col d-flex justify-content-md-center">
-                        <button id="btn0" class="button-two" onclick="ChooseAS(this,0)">f</button>
-                        <button id="btn1" class="button-two" onclick="ChooseAS(this,1)">y</button>
-                        <button id="btn2" class="button-two" onclick="ChooseAS(this,2)">b</button>
-                        <button id="btn3" class="button-two" onclick="ChooseAS(this,3)">u</button>
-                        <button id="btn4" class="button-two" onclick="ChooseAS(this,4)">s</button>
-                        <button id="btn5" class="button-two" onclick="ChooseAS(this,5)">a</button>
-                        <button id="btn6" class="button-two" onclick="ChooseAS(this,6)">s</button>
-                        <button id="btn7" class="button-two" onclick="ChooseAS(this,7)">m</button>
+                        <button id="btn0" class="button-two" onclick="ChooseAS(this,0)"
+                            onmouseover="PlaySound('soundPopOut')" onmouseout="StopSound('soundPopOut')">f</button>
+                        <button id="btn1" class="button-two" onclick="ChooseAS(this,1)"
+                            onmouseover="PlaySound('soundPopOut')" onmouseout="StopSound('soundPopOut')">y</button>
+                        <button id="btn2" class="button-two" onclick="ChooseAS(this,2)"
+                            onmouseover="PlaySound('soundPopOut')" onmouseout="StopSound('soundPopOut')">b</button>
+                        <button id="btn3" class="button-two" onclick="ChooseAS(this,3)"
+                            onmouseover="PlaySound('soundPopOut')" onmouseout="StopSound('soundPopOut')">u</button>
+                        <button id="btn4" class="button-two" onclick="ChooseAS(this,4)"
+                            onmouseover="PlaySound('soundPopOut')" onmouseout="StopSound('soundPopOut')">s</button>
+                        <button id="btn5" class="button-two" onclick="ChooseAS(this,5)"
+                            onmouseover="PlaySound('soundPopOut')" onmouseout="StopSound('soundPopOut')">a</button>
+                        <button id="btn6" class="button-two" onclick="ChooseAS(this,6)"
+                            onmouseover="PlaySound('soundPopOut')" onmouseout="StopSound('soundPopOut')">s</button>
+                        <button id="btn7" class="button-two" onclick="ChooseAS(this,7)"
+                            onmouseover="PlaySound('soundPopOut')" onmouseout="StopSound('soundPopOut')">m</button>
                         <div>
                         </div>
                     </div>
@@ -279,47 +294,17 @@
 
         var content = "";
 
-        // function init() {
-        //     content = question[index].content;
-        //     $("#img_content").attr("src", question[index].picture);
-        //     $("#backbutton").hide();
-        //     $("#nextbutton").hide(); document.getElementById('tick').hidden = true;
-        // }
-
-        // init();
         UpdateQuest();
-        // function getQuestion() {
-        //     if (index === 0) {
-        //         document.getElementById("backbutton").hidden = true;
-        //     } else {
-        //         document.getElementById("backbutton").hidden = false;
-        //     }
-        //     if (index === question.length - 1) {
-        //         document.getElementById("nextbutton").hidden = true;
-        //     } else {
-        //         document.getElementById("nextbutton").hidden = false;
-        //     }
-        // }
         function NextQuest() {
-            // if (index < question.length - 1)
-            //     index++;
-            // UpdateQuest();
-            // if (index > 0) {
-            //     $("#backbutton").show();
-            // }
-            checkWrong();
+
             ++index;
             UpdateQuest();
         }
 
         function BackQuest() {
-            // if (index > 0)
-            //     index--;
-            // UpdateQuest();
-            checkWrong();
             --index;
             UpdateQuest();
-            
+
         }
 
         function UpdateQuest() {
@@ -343,7 +328,7 @@
                 $(btnId).css("backgroundPosition", 'center')
                 $(btnId).html(content[i]);
 
-            }); 
+            });
             document.getElementById("exercise").innerHTML += "<div class='purple' id='yeah' style='position: absolute;z-index: 999;top: -50%;'></div>"
 
             if (index === 0) {
@@ -376,7 +361,6 @@
                 playWord()
                 playCorrect();
                 await sleep(3000);
-                //NextQuest();
                 if (index == 0) {
                     $("#nextbutton").show();
                     $("#backbutton").show();
@@ -385,6 +369,12 @@
                     $("#nextbutton").hide();
                 }
             }
+            else {
+                if (s.length >= question[index].result.length) {
+                    playWrong();
+                }
+            }
+
         }
         async function ChooseAS(btn, id) {
             check_list[id] = !check_list[id];
@@ -413,8 +403,8 @@
             audioElement.play()
             // document.getElementById('tick').hidden = false;
             $('#content').append(
-          "<img src='../public/img/tick.png' style='height: 100px;margin: 15px;position: absolute;right: 0%;top: 55%;z-index: 4;' id='tick'/>"
-        );
+                "<img src='../public/img/tick.png' style='height: 100px;margin: 15px;position: absolute;right: 0%;top: 55%;z-index: 4;' id='tick'/>"
+            );
             $("#exercise").append(
                 "<div class='purple' id='yeah' style='position: absolute;z-index: 999;top: -50%;'><img src='../public/img/yeah3.gif' style='height: 100%; width : 100%; z-index:999'/></div>"
             );
@@ -455,14 +445,17 @@
             audioElement.setAttribute('src', './sound/wrong.wav');
             audioElement.play()
             $('#content').append(
-          "<img src='../public/img/wrong.png' style='height: 100px;margin: 15px;position: absolute;right: 0%;top: 55%;z-index: 4;' id='tick'/>"
-        );
-        
+                "<img src='../public/img/wrong.png' style='height: 100px;margin: 15px;position: absolute;right: 0%;top: 55%;z-index: 4;' id='tick'/>"
+            );
+            setTimeout('document.getElementById("tick").remove()', 500)
+
         }
     </script>
 
-
-
+    <!-- audio -->
+    <audio id='soundPopOut' src='../../../public/sound/popout.wav'></audio>
+    <audio autoplay src='../../../public/sound/magic.wav'></audio>
+    <script type="text/javascript" src="../../../public/js/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>

@@ -11,21 +11,21 @@ const questions = [
         sound: "sound/games/seven stones.wav",
         stt: 2,
         col: 6,
-      }
+      },
     ],
     answer: [
       {
         id: 1,
         sound: "sound/games/tug of war.wav",
         text: "tug-of-war",
-        col: 8,
+        col: 6,
       },
       {
         id: 2,
         sound: "sound/games/seven stones.wav",
         text: "seven stones",
         col: 8,
-      }
+      },
     ],
   },
   {
@@ -40,14 +40,14 @@ const questions = [
         sound: "sound/games/tug of war.wav",
         stt: 2,
         col: 6,
-      }
+      },
     ],
     answer: [
       {
         id: 1,
         sound: "sound/games/tug of war.wav",
         text: "tug-of-war",
-        col: 8,
+        col: 6,
       },
       {
         id: 2,
@@ -69,20 +69,20 @@ const questions = [
         sound: "sound/games/rope skipping.wav",
         stt: 1,
         col: 6,
-      }
+      },
     ],
     answer: [
       {
         id: 1,
         sound: "sound/games/sack race.wav",
         text: "sack race",
-        col: 8,
+        col: 6,
       },
       {
         id: 2,
         sound: "sound/games/rope skipping.wav",
         text: "rope skipping",
-        col: 8,
+        col: 6,
       },
     ],
   },
@@ -90,7 +90,7 @@ const questions = [
 
 var iQuestion = 0;
 var answerCorrect = 0;
-var ansAB =['A','B']
+var ansAB = ["A", "B"];
 
 getQuestion();
 function playAnswer() {
@@ -126,7 +126,7 @@ function playCorrect() {
   audioElement.setAttribute("src", "./sound/correct.wav");
   audioElement.play();
   $("#exercise").append(
-    "<div class='container' id='yeah1' style='position: absolute; top: 230px; right: -100px; margin: 0px 50px 0px 50px; z-index:1;'><img src='./img/win-star.png' style='height: 200px'/></div>"
+    "<div class='container' id='yeah1' style='position: absolute; top: 230px; right: -100px; margin: 0px 50px 0px 50px; z-index:1;'><img src='./img/win-star.png' style='height: 200px; margin-left: 200px;'/></div>"
   );
   setTimeout('$("#yeah1").remove()', 900);
 }
@@ -166,23 +166,28 @@ function getQuestion() {
 
   for (let i = 0; i < questions[iQuestion].answer.length; i++) {
     $("#block-answer").append(
-      '<div class="drag-answer col-md-' +
+      '<div class="drag-answer col-xl-8 col-lg-7 col-md-' +
         questions[iQuestion].answer[i].col +
-        '"'+
-        'id="draggable' +i + '"' +
-        '>' +
-        '<div class="ans__ab">'+ansAB[i] +'</div>' +
-        '<span alt="" class="games-text" id="draggable' +
+        '"' +
+        'id="draggable' +
+        i +
+        '"' +
+        ">" +
+        '<div class="ans__ab">' +
+        ansAB[i] +
+        "</div>" +
+        '<span   onmouseover="PlaySound(`soundPopOut`)" onmouseout="StopSound(`soundPopOut`)" alt="" class="games-text" id="draggable' +
         i +
         '" data-text="' +
         questions[iQuestion].answer[i].text +
-        '" data-index="' + i +
+        '" data-index="' +
+        i +
         '">' +
         questions[iQuestion].answer[i].text +
         "</span>" +
         "</div>"
     );
-    $("#block-answer").append('<div class="clearfix"></div>')
+    $("#block-answer").append('<div class="clearfix"></div>');
   }
 
   for (let i = 0; i < questions[iQuestion].answer.length; i++) {
@@ -190,29 +195,28 @@ function getQuestion() {
       cursor: "move",
       revert: "invalid",
       start: function (event, ui) {},
-      stop: function () {
-        
-      },
+      stop: function () {},
     });
   }
   answerCorrect = 0;
   $(".games-input").droppable({
     drop: function (event, ui) {
-      var i =  $(ui.draggable).children().next().attr("data-index");
+      var i = $(ui.draggable).children().next().attr("data-index");
       playWord(i);
       $(this).css("background-color", "#FF99D5");
       var answerDrop = $(ui.draggable).children().next().attr("data-text");
       var answer = $(this).attr("data-text");
-      $(this).parent().find('#correct').remove();
-      $(this).parent().find('#wrong').remove();
+      $(this).parent().find("#correct").remove();
+      $(this).parent().find("#wrong").remove();
       if (answerDrop === answer) {
         ++answerCorrect;
         $(this)
-        .parent()
-        .append(
-          "<img src='../public/img/tick.png' style='height: 50px; margin-left: 20rem; margin-top: 15px;' id='correct'/>"
-        );
-        $(ui.draggable).draggable('disable');
+          .parent()
+          .append(
+            "<img src='../public/img/tick.png' style='height: 50px; margin-left: 20rem; margin-top: 15px;' id='correct'/>" +
+              ' <img src="../public/img/Ui-xmute.png" alt="" class="top-bar__icon__img" onclick="playAnswer()" style=" position: absolute; bottom: 15%;"> <sound id="top-bar__sound" > </sound> </img>'
+          );
+        $(ui.draggable).draggable("disable");
         playCorrect();
       } else {
         $(this)
@@ -224,8 +228,7 @@ function getQuestion() {
         audioElement.setAttribute("src", "./sound/wrong.wav");
         audioElement.play();
 
-         $(ui.draggable).css({ top: 0, left: 0 })
-
+        $(ui.draggable).css({ top: 0, left: 0 });
       }
     },
     out: function (event, ui) {},

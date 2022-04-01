@@ -59,7 +59,7 @@ body, html{
 
 .exercise3__ans__choose{
     color: white;
-    font-size: 62px;
+    font-size: 52px;
     font-weight: 600;
 }
 .top-bar__icon__markboard{
@@ -93,7 +93,7 @@ body, html{
     border: 2px solid black;
     background-color: white;
     border-radius: 50%;
-    left: -4%;
+    left: -5%;
     top: 20%;
     z-index:2;
 }
@@ -105,7 +105,7 @@ body, html{
     text-align: center;
 }
 .lesson__unit1__img{
-    max-height: 400px;
+    max-height: 350px;
 	height: 100%;
     width: 100%;
 }
@@ -196,7 +196,7 @@ body, html{
       font-size: 20px;
   }
   #wrong,#tick {
-    height: 100px; margin: 15px; position: absolute; right:-5%; top:10%
+    height: 100px; margin: 15px; position: absolute; right:-15%; top:10%
   }
   @media (max-width: 1400px) {
 
@@ -204,15 +204,21 @@ body, html{
         font-size: 48px;
     }
     #wrong,#tick {
-        height: 80px; right:10%;
+        height: 80px; right:-20%;
       }
 }
   @media (max-width: 1200px) {
     .exercise3__ans__choose{
-        font-size: 44px;
+        font-size: 40px;
     }
     #wrong,#tick {
         height: 70px; right:5%;
+      }
+      .icon-left {
+          left: -6%;
+      }
+      #wrong,#tick {
+        height: 70px; right:-15%;
       }
 }
 

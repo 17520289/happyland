@@ -72,6 +72,7 @@ function playCorrect() {
   audioElement.play();
   document.getElementById("exercise").innerHTML +=
     "<img src='./img/u5-yeah.png' id='yeah' style='height: 500px; z-index: 5; position: absolute; bottom: 25%; left: 5%;'/>";
+  setTimeout('$("#yeah").remove()', 900);
 }
 
 function checkAnswer(clicked_id) {

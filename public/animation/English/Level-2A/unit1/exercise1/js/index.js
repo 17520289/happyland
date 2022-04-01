@@ -28,10 +28,10 @@ const questions = [
   },
   {
     question: "4-6",
-    picture: "./img/eight.png",
+    picture: "./img/eighty.png",
     choose1: "eighty",
     choose2: "seventy",
-    sound1: "./sound/eight.wav",
+    sound1: "./sound/eighty.wav",
     sound2: "./sound/seventy.wav",
     ans: "1",
   },
@@ -59,8 +59,9 @@ var iQuestion = 0;
 var idButton = "buttonChoose1";
 // variable
 let amountCorrectAnswer = 0;
-let amountWrongAnswer = 0;
-let stopCounting = false;
+let stopNext = true;
+let arrAnswer = [];
+// end of line 60
 getQuestion();
 function playWord(audio_id) {
   var audioElement = document.getElementById(audio_id);
@@ -94,7 +95,16 @@ function playCorrect() {
 
 function checkAnswer(clicked_id) {
   var user_ans = document.getElementById(clicked_id).value;
+  // next
+  if (clicked_id) {
+    stopNext = false;
+  }
+  // end of line 98
   if (user_ans === questions[iQuestion].ans) {
+    // variable currentAnswer
+    let currentAnswer =
+      questions[iQuestion][`choose${questions[iQuestion].ans}`];
+    // end of line 103
     playWord(clicked_id + "_sound");
     document.getElementById(clicked_id + "_ans_sound").hidden = false;
     document.getElementById(clicked_id + "_img").hidden = false;
@@ -110,16 +120,14 @@ function checkAnswer(clicked_id) {
     document.getElementById(idButton).style.opacity = "0.5";
     setTimeout(playCorrect, 700);
     // amount correct answers
-    if (stopCounting) {
-      return amountCorrectAnswer;
-    } else {
+    if (!arrAnswer.includes(currentAnswer)) {
+      arrAnswer.push(currentAnswer);
       amountCorrectAnswer++;
+    } else {
+      return amountCorrectAnswer;
     }
+    // end of line 122
   } else {
-    // amount wrong answers
-    stopCounting = true;
-    amountWrongAnswer++;
-
     playWord(clicked_id + "_sound");
     document.getElementById(clicked_id + "_img").hidden = false;
     document.getElementById(clicked_id + "_img").innerHTML =
@@ -136,11 +144,12 @@ function checkAnswer(clicked_id) {
           500
         );
   }
-  console.log(objectAnswers(amountCorrectAnswer, amountWrongAnswer));
 }
 
 function getQuestion() {
-  stopCounting = false;
+  // stop next
+  stopNext = true;
+  // end of line 152
   document.getElementById("thinking").style.visibility = "visible";
   document.getElementById("image").src = questions[iQuestion].picture;
   document.getElementById("markboard").innerHTML =
@@ -153,16 +162,26 @@ function getQuestion() {
     document.getElementById("backButton").hidden = false;
   }
   if (iQuestion === questions.length - 1) {
-    document.getElementById("nextButton").hidden = true;
+    document.getElementById("nextButton").innerHTML =
+      '<button id="nextButton" onclick="finish()"><img src="../../../public/img/icon/finish-btn.png"alt="" class="footer__img"></button>';
   } else {
-    document.getElementById("nextButton").hidden = false;
+    document.getElementById("nextButton").innerHTML =
+      '<button id="nextButton" onclick="nextQuestion()"><img src="../../../public/img/icon/Ui-next.png"alt="" class="footer__img"></button>';
   }
+
   document.getElementById("yeah").remove();
   document.getElementById("sad").remove();
 }
 
 function nextQuestion() {
-  iQuestion = iQuestion + 1;
+  // check if user clicked
+  if (stopNext) {
+    alert(" Choose the correct answers !!!");
+    return iQuestion;
+  } else {
+    iQuestion = iQuestion + 1;
+  }
+  // end of line 177
   document.getElementById("buttonChoose1_img").hidden = true;
   document.getElementById("buttonChoose2_img").hidden = true;
   document.getElementById("buttonChoose1").disabled = "";
@@ -175,7 +194,13 @@ function nextQuestion() {
 }
 
 function backQuestion() {
-  iQuestion = iQuestion - 1;
+  // check if user clicked
+  if (stopNext) {
+    alert(" Choose the correct answers !!!");
+    return iQuestion;
+  } else {
+    iQuestion = iQuestion - 1;
+  } // end of line 177
   document.getElementById("buttonChoose1_img").hidden = true;
   document.getElementById("buttonChoose2_img").hidden = true;
   document.getElementById("buttonChoose1").disabled = "";
@@ -185,4 +210,12 @@ function backQuestion() {
   document.getElementById("buttonChoose1").style.opacity = "";
   document.getElementById("buttonChoose2").style.opacity = "";
   getQuestion();
+}
+// finish exercise
+function finish() {
+  if (stopNext) {
+    alert(" Choose the correct answers !!!");
+  } else {
+    console.log(objectAnswers(amountCorrectAnswer, questions.length));
+  }
 }

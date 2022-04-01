@@ -51,9 +51,15 @@
                     </div>
                     <div class="col-auto">
                         <div class="top-bar__icon">
+                            <!-- function onSound -->
                             <img src="../../../public/img/icon/Ui-xmute.png" alt="" class="top-bar__icon__sound"
-                                onclick="onSound()">
+                                id="imgSoundTrack"
+                                onclick="onSound('../../../public/img/icon/Ui-xmute.png','../../../public/img/icon/Ui-mute.png')">
+                            <audio id="audioSoundTrack" preload="auto" loop>
+                                <source src="../../../public/sound/soundtrack.wav" type="audio/wav">
+                            </audio>
                             </img>
+                            <!-- end of line 54 -->
                         </div>
                     </div>
                 </div>
@@ -72,7 +78,8 @@
                     </div>
                     <div class="col-3">
                         <div class="exercise3__ans">
-                            <button class="btn-container" id="buttonChoose1" value="1" onclick="checkAnswer(this.id)">
+                            <button class="btn-container" id="buttonChoose1" value="1" onclick="checkAnswer(this.id)"
+                                onmouseover="PlaySound('soundPopOut')" onmouseout="StopSound('soundPopOut')">
                                 <img class="bg-choose1" src="../exercise2/img/u8-a0001.png">
                                 <div class="exercise3__ans__sound" id="buttonChoose1_ans_sound" hidden>
                                     <img class="icon-left" src="../../../public/img/icon/Ui-xmute.png" alt=""
@@ -90,7 +97,8 @@
                     </div>
                     <div class="col-3">
                         <div class="exercise3__ans">
-                            <button class="btn-container" id="buttonChoose2" value="2" onclick="checkAnswer(this.id)">
+                            <button class="btn-container" id="buttonChoose2" value="2" onclick="checkAnswer(this.id)"
+                                onmouseover="PlaySound('soundPopOut')" onmouseout="StopSound('soundPopOut')">
                                 <img class="bg-choose2" src="../exercise2/img/u8-bng0001.png">
                                 <div class="exercise3__ans__sound" id="buttonChoose2_ans_sound" hidden>
                                     <img class="icon-left" src="../../../public/img/icon/Ui-xmute.png" alt=""
@@ -110,8 +118,7 @@
                 <div class="row">
                     <div class="col-4"></div>
                     <div class="col-4"> <img src="../public/img/thinking.gif" id="thinking"
-                            class="d-flex justify-content-start"
-                            style="height: 450px; margin-top:-25%; z-index: 5; position: absolute; bottom: 0;"> </div>
+                            class="d-flex justify-content-start icon-thinking"> </div>
                     <div class="col-4"></div>
                 </div>
             </div>
@@ -135,6 +142,9 @@
             </div>
         </section>
     </main>
+    <!-- audio -->
+    <audio id='soundPopOut' src='../../../public/sound/popout.wav'></audio>
+    <audio autoplay src='../../../public/sound/magic.wav'></audio>
     <!-- js -->
     <script type="text/javascript" src="./js/index.js"></script>
     <script type="text/javascript" src="../../../public/js/index.js"></script>

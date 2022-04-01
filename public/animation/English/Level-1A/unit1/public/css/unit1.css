@@ -16,10 +16,10 @@ body, html{
     display: flex;
 }
 
-.top-bar__icon__img{
+.top-bar__icon__img,.top-bar__icon__sound{
     height: 80px;
     padding-right: 20px;
-	
+
 }
 .top-bar__1a{
     padding: 10px 20px;
@@ -36,7 +36,7 @@ body, html{
 
 .exercise{
     text-align: center;
-    
+
 }
 
 .lesson__a{

@@ -94,7 +94,7 @@ function playCorrect() {
   audioElement.setAttribute("src", "./sound/correct.wav");
   audioElement.play();
   document.getElementById("exercise").innerHTML +=
-    "<div class='container' id='yeah' style='position: absolute; top: 15px; left: 20px; margin: 0px 50px 0px 50px;'><img src='../public/img/yeah3.gif' style='height: 600px'/></div>";
+    "<div class='container' id='yeah' style='position: absolute; top: 15px; left: 20px; margin: 0px 50px 0px 50px;'><img src='../public/img/yeah3.gif' style='width:100%'/></div>";
   setTimeout('document.getElementById("yeah").remove()', 900);
 }
 
@@ -105,7 +105,9 @@ function checkAnswer(clicked_id) {
     document.getElementById(clicked_id + "_ans_sound").hidden = false;
     document.getElementById(clicked_id + "_img").hidden = false;
     $("#image-thinking").attr("src", "../public/img/yeah.gif");
-    $('#'+clicked_id + "_img").append("<img src='../public/img/tick.png' style='height: 40px; margin-left: -55px;' id='tick'/>");
+    $("#" + clicked_id + "_img").append(
+      "<img src='../public/img/tick.png' style='height: 40px; margin-left: -55px;' id='tick'/>"
+    );
     console.log("đáp án đúng");
     clicked_id === "buttonChoose1"
       ? (idButton = clicked_id.replace(/1/g, "2"))
@@ -114,15 +116,17 @@ function checkAnswer(clicked_id) {
     document.getElementById(clicked_id).disabled = "disabled";
     document.getElementById(idButton).disabled = "disabled";
     document.getElementById(idButton).style.opacity = "0.5";
-    setTimeout(playCorrect, 700);
+    setTimeout(playCorrect, 1300);
   } else {
     playWord(clicked_id + "_sound");
     document.getElementById(clicked_id + "_img").hidden = false;
     $("#image-thinking").attr("src", "../public/img/sad.gif");
-    $('#'+clicked_id + "_img").append("<img src='../public/img/wrong.png' style='height: 40px; margin-left: -55px;' id='wrong'/>");
-    console.log("dap án sai");
+    $("#" + clicked_id + "_img").append(
+      "<img src='../public/img/wrong.png' style='height: 40px; margin-left: -55px;' id='wrong'/>"
+    );
     setTimeout('$("#wrong").remove()', 500);
-
+    console.log("dap án sai");
+    setTimeout(playWrong, 1000);
   }
 }
 

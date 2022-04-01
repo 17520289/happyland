@@ -88,8 +88,8 @@ function init() {
   $("#exercise").append(
     "<div class='container' id='hand' style='position: absolute; top: 500px; left: 0px;'><img id='handImg' src='../public/img/hand-97.png' style='height: 80px'/></div>"
   );
-  
-   setTimeout(animationInit, 1000);
+
+  setTimeout(animationInit, 1000);
 }
 
 function animationInit() {
@@ -135,7 +135,7 @@ function playCorrect() {
 function checkAnswer(e) {
   var timeReturn = 0;
   for (let i = 1; i <= questions[iQuestion].answer; i++) {
-    setTimeout(function () {
+    setTimeout(async function () {
       var width = $(document).width() - $("#draggable" + i).width();
       $("#draggable" + i).animate(
         {
@@ -144,7 +144,7 @@ function checkAnswer(e) {
         },
         1000
       );
-
+      await sleep(1000);
       var audioElement = document.createElement("audio");
       audioElement.setAttribute("src", number[i - 1].sound);
       audioElement.play();
@@ -171,7 +171,7 @@ function checkAnswer(e) {
   }
 }
 
-function getQuestion() {
+async function getQuestion() {
   count = 0;
   clearInterval(kidClap);
   $("#image-kid").attr("src", "../public/img/kids.png");
@@ -179,7 +179,7 @@ function getQuestion() {
   for (let i = questions[iQuestion].question; i > 0; i--) {
     // $('#block-fruits').prepend('<div class="row" style ="display: inline-block; padding: 10px;">')
     $("#block-fruits").prepend(
-      '<div class="row image-item" style ="display: inline-block; padding: 10px;">' +
+      '<div class="row image-item" style ="display: inline-block; padding: 10px;" onmouseover="PlaySound(`soundPopOut`)"onmouseout="StopSound(`soundPopOut`)">' +
         '<img src="' +
         questions[iQuestion].picture +
         '" alt="" class="fruits" id="draggable' +
@@ -207,6 +207,7 @@ function getQuestion() {
   $("#question-text").text(questions[iQuestion].questionText);
   $("#markboard").text(questions[iQuestion].questionTitle);
   $("#sound").val(questions[iQuestion].sound);
+  await sleep(1000);
   playWord();
 
   if (iQuestion === 0) {
@@ -222,22 +223,19 @@ function getQuestion() {
 }
 
 function nextQuestion(e) {
-  
   checkAnswer(e);
   $("#nextButton").prop("disabled", true);
   var timeChangeNextQuestion = questions[iQuestion].answer * 1000 + 1000;
 
   if (iQuestion === questions.length - 1) {
     document.getElementById("nextButton").hidden = true;
-  }
-  else{
+  } else {
     setTimeout(function () {
       getQuestion();
       $("#nextButton").prop("disabled", false);
     }, timeChangeNextQuestion);
     ++iQuestion;
   }
-  
 }
 
 function backQuestion() {

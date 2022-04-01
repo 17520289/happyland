@@ -99,15 +99,17 @@ function playWord(audio_id) {
 function playWrong() {
   var audioElement = document.createElement("audio");
   audioElement.setAttribute("src", "./sound/wrong.wav");
+  audioElement.volume = 0.5;
   audioElement.play();
 }
 function playCorrect() {
   var audioElement = document.createElement("audio");
   audioElement.setAttribute("src", "./sound/correct.wav");
+  audioElement.volume = 0.5;
   audioElement.play();
   document.getElementById("exercise").innerHTML +=
-    "<div class='container' id='yeah' style='position: absolute; top: 15px; left: 20px; margin: 0px 50px 0px 50px;'><img src='../public/img/yeah3.gif' style='height: 600px'/></div>";
-  setTimeout('document.getElementById("yeah").remove()', 900);
+    "<div class='container' id='yeah' style='position: absolute; top: 0; left: 5%; margin: 0px 50px 0px 50px;'><img src='../public/img/yeah3.gif' style='width:100%'/></div>";
+  setTimeout('document.getElementById("yeah").remove()', 1000);
 }
 
 function checkAnswer(clicked_id) {
@@ -152,7 +154,6 @@ function checkAnswer(clicked_id) {
 
 function getQuestion() {
   document.getElementById("image").src = questions[iQuestion].picture;
-
   document.getElementById("choose1").innerHTML = questions[iQuestion].choose1;
   document.getElementById("choose2").innerHTML = questions[iQuestion].choose2;
   document.getElementById("buttonChoose1").hidden = false;

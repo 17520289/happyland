@@ -117,13 +117,13 @@ body, html{
     position: relative;
     max-height: 250px;
     z-index: 5;
-    margin-top: 30px;
+    margin-top: 10%;
 }
 .img-bg {
     width: 100%;
     z-index: 0;
     position: absolute;
-    top:0;
+    top:15%;
     left: 0;
 }
 
@@ -229,20 +229,33 @@ body, html{
     .choose2 {
         right: 30%;
     }
-  }
-
-  @media screen and (max-width: 1200px) {
     .lesson__unit1__img{
         position: relative;
         max-height: 250px;
         z-index: 5;
-        margin-top: 10%;
+        margin-top: 20%;
     }
     .img-bg {
         width: 100%;
         z-index: 0;
         position: absolute;
-        top:20%;
+        top:25%;
+        left: 0;
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    .lesson__unit1__img{
+        position: relative;
+        max-height: 200px;
+        z-index: 5;
+        margin-top: 30%;
+    }
+    .img-bg {
+        width: 100%;
+        z-index: 0;
+        position: absolute;
+        top:40%;
         left: 0;
     }
   }
@@ -251,14 +264,14 @@ body, html{
         position: relative;
         max-height: 150px;
         z-index: 5;
-        margin-top: 35%;
+        margin-top: 60%;
 
     }
     .img-bg {
         width: 100%;
         z-index: 0;
         position: absolute;
-        top: 40%;
+        top: 60%;
         left: 0;
     }
     .bg-choose1 {

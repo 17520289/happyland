@@ -87,7 +87,8 @@
             animation-duration: 2.5s;
             animation-iteration-count: 1;
         }
-        .top-bar__1a{
+
+        .top-bar__1a {
             padding: 10px 20px;
             border: 4px solid #fff;
             background-color: blue;
@@ -95,7 +96,8 @@
             font-size: 2rem;
             text-align: center;
             border-radius: 100%;
-      }
+        }
+
         @keyframes roll {
             0% {
                 top: -300px;
@@ -117,18 +119,18 @@
                 <div class="row">
                     <div class="col-1">
                         <a href="../index.html">
-                            <img src="../public/img/Ui-index.png" style="width: 5vw; margin: 0;">
+                            <img src="../public/img/Ui-index.png" style="width: 80px; margin: 0;">
                             </img>
                         </a>
                     </div>
                     <div class="col-auto">
                         <div class="top-bar__1a" id="1a_active">
-                          1b
+                            1b
                         </div>
                     </div>
                     <div class="col-6">
                         <p style="font-size: 25px;"> Unit 4: Birthday Party</p>
-                        <p style="font-size: 20px;">Spell the food below</p>
+                        <p style="font-size: 20px;">Spell the item below</p>
                     </div>
                     <div class="col-2">
                         <h1 id="number_quest"
@@ -136,12 +138,18 @@
                             1 - 6</h1>
                     </div>
                     <div class="col-1">
-                        <a onclick="playWord()">
-                            <img src="../public/img/Ui-xmute.png" style="width: 5vw; margin: 0;"></img>
-                        </a>
+                        <!-- function onSound -->
+                        <img src="../../../public/img/icon/Ui-xmute.png" alt="" style="width: 80px; margin: 0;"
+                            id="imgSoundTrack"
+                            onclick="onSound('../../../public/img/icon/Ui-xmute.png','../../../public/img/icon/Ui-mute.png')">
+                        <audio id="audioSoundTrack" preload="auto" loop>
+                            <source src="../../../public/sound/soundtrack.wav" type="audio/wav">
+                        </audio>
+                        </img>
+                        <!-- end of line 54 -->
                     </div>
                 </div>
-                <div class="row" style="height: 27vw;">
+                <div class="row">
                     <div class="col d-flex justify-content-md-center"
                         style="padding:1vw; align-items: center; justify-items: center;">
                         <div style="width: 27vw;">
@@ -154,15 +162,30 @@
                     </div>
                 </div>
                 <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <a onclick="playWord()">
+                            <img src="../public/img/Ui-xmute.png" style="width: 80px; margin: 0;"></img>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col d-flex justify-content-md-center">
-                        <button id="btn0" class="button-two" onclick="ChooseAS(this,0)">b</button>
-                        <button id="btn1" class="button-two" onclick="ChooseAS(this,1)">h</button>
-                        <button id="btn2" class="button-two" onclick="ChooseAS(this,2)">y</button>
-                        <button id="btn3" class="button-two" onclick="ChooseAS(this,3)">c</button>
-                        <button id="btn4" class="button-two" onclick="ChooseAS(this,4)">a</button>
-                        <button id="btn5" class="button-two" onclick="ChooseAS(this,5)">r</button>
-                        <button id="btn6" class="button-two" onclick="ChooseAS(this,6)">d</button>
-                        <button id="btn7" class="button-two" onclick="ChooseAS(this,7)">e</button>
+                        <button id="btn0" class="button-two" onclick="ChooseAS(this,0)"
+                            onmouseover="PlaySound('soundPopOut')" onmouseout="StopSound('soundPopOut')">b</button>
+                        <button id="btn1" class="button-two" onclick="ChooseAS(this,1)"
+                            onmouseover="PlaySound('soundPopOut')" onmouseout="StopSound('soundPopOut')">h</button>
+                        <button id="btn2" class="button-two" onclick="ChooseAS(this,2)"
+                            onmouseover="PlaySound('soundPopOut')" onmouseout="StopSound('soundPopOut')">y</button>
+                        <button id="btn3" class="button-two" onclick="ChooseAS(this,3)"
+                            onmouseover="PlaySound('soundPopOut')" onmouseout="StopSound('soundPopOut')">c</button>
+                        <button id="btn4" class="button-two" onclick="ChooseAS(this,4)"
+                            onmouseover="PlaySound('soundPopOut')" onmouseout="StopSound('soundPopOut')">a</button>
+                        <button id="btn5" class="button-two" onclick="ChooseAS(this,5)"
+                            onmouseover="PlaySound('soundPopOut')" onmouseout="StopSound('soundPopOut')">r</button>
+                        <button id="btn6" class="button-two" onclick="ChooseAS(this,6)"
+                            onmouseover="PlaySound('soundPopOut')" onmouseout="StopSound('soundPopOut')">d</button>
+                        <button id="btn7" class="button-two" onclick="ChooseAS(this,7)"
+                            onmouseover="PlaySound('soundPopOut')" onmouseout="StopSound('soundPopOut')">e</button>
                         <div>
                         </div>
                     </div>
@@ -185,46 +208,47 @@
             {
                 "question": 0,
                 "picture": "./img/card.jpg",
-                "sound": "./sound/kad.wav",
+                "sound": "./sound/card.wav",
                 "result": "card",
                 "content": "bhycarde"
             },
             {
                 "question": 1,
                 "picture": "./img/cake.jpg",
-                "sound": "./sound/kek.wav",
+                "sound": "./sound/cake.wav",
                 "result": "cake",
-                "content": "rcakecer"
+                "content": "cakewtbi"
             },
             {
                 "question": 2,
                 "picture": "./img/candles.jpg",
-                "sound": "./sound/lilin.wav",
-                "result": "lilin",
-                "content": "qflilinh"
+                "sound": "./sound/candles.wav",
+                "result": "candles",
+                "content": "tcandles"
             },
             {
                 "question": 3,
                 "picture": "./img/clown.jpg",
-                "sound": "./sound/badut.wav",
-                "result": "badut",
-                "content": "xcbadutr"
+                "sound": "./sound/clown.wav",
+                "result": "clown",
+                "content": "clownuts"
             },
             {
                 "question": 4,
                 "picture": "./img/pudding.jpg",
-                "sound": "./sound/puding.wav",
-                "result": "puding",
-                "content": "dpudingn"
+                "sound": "./sound/pudding.wav",
+                "result": "pudding",
+                "content": "puddinge"
             },
             {
                 "question": 5,
                 "picture": "./img/jelly.jpg",
-                "sound": "./sound/sandwic.wav",
-                "result": "sandwic",
-                "content": "sandwics"
+                "sound": "./sound/jelly.wav",
+                "result": "jelly",
+                "content": "pajellys"
             },
         ]
+
 
         var check_list = [false, false, false, false, false, false, false, false];
 
@@ -237,7 +261,7 @@
             $("#img_content").attr("src", question[index].picture);
             $("#backbutton").hide();
             $("#nextbutton").hide(); document.getElementById('tick').hidden = true;
-            
+
         }
 
         init();
@@ -303,8 +327,8 @@
                 if (index == question.length - 1) {
                     $("#nextbutton").hide();
                 }
-            }else{
-                if(s.length >= question[index].result.length){
+            } else {
+                if (s.length >= question[index].result.length) {
                     playWrongAudio();
                 }
             }
@@ -343,20 +367,22 @@
             audioElement.setAttribute('src', question[index].sound)
             audioElement.play()
         }
-        function playWrongAudio(){
+        function playWrongAudio() {
             var audioElement = document.createElement('audio');
-            audioElement.setAttribute('src',"./sound/wrong.wav")
+            audioElement.setAttribute('src', "./sound/wrong.wav")
             audioElement.play()
         }
-        function playChooseAudio(){
+        function playChooseAudio() {
             var audioElement = document.createElement('audio');
-            audioElement.setAttribute('src',"./sound/choose.wav")
+            audioElement.setAttribute('src', "./sound/choose.wav")
             audioElement.play()
         }
     </script>
 
-
-
+    <!-- audio -->
+    <audio id='soundPopOut' src='../../../public/sound/popout.wav'></audio>
+    <audio autoplay src='../../../public/sound/magic.wav'></audio>
+    <script type="text/javascript" src="../../../public/js/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>

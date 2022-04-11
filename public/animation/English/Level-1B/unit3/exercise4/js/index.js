@@ -125,10 +125,18 @@ function playCorrect() {
   var audioElement = document.createElement("audio");
   audioElement.setAttribute("src", "./sound/correct.wav");
   audioElement.play();
-  $("#exercise").append(
-    "<div class='container' id='yeah1' style='position: absolute; top: 230px; right: -100px; margin: 0px 50px 0px 50px; z-index:1;'><img src='./img/win-star.png' style='height: 200px; margin-left: 200px;'/></div>"
+  $("#yeah-correct").append(
+    "<div class='container' id='yeah1' style='z-index:1;'><img src='./img/win-star.png' style='height: 200px;'/></div>"
   );
-  setTimeout('$("#yeah1").remove()', 900);
+  var answer = $("#InputAnswer0").attr("data-text");
+  $(".ui-draggable-handle").each(function (i, obj) {
+    var question = $(obj).children().next().attr("data-text");
+    if (question !== answer) {
+      $(obj).html("");
+    } else {
+      $(obj).css("top", "0px");
+    }
+  });
 }
 
 function checkAnswer(e) {
@@ -140,6 +148,7 @@ function checkAnswer(e) {
 }
 
 function getQuestion() {
+  $("#yeah1").remove();
   $("#image-kid").attr("src", "img/kids.png");
   $("#block-games").empty();
 
@@ -163,10 +172,9 @@ function getQuestion() {
   }
 
   $("#block-answer").empty();
-
   for (let i = 0; i < questions[iQuestion].answer.length; i++) {
     $("#block-answer").append(
-      '<div class="drag-answer col-xl-8 col-lg-7 col-md-' +
+      '<div class="drag-answer  col-lg-7 col-md-' +
         questions[iQuestion].answer[i].col +
         '"' +
         'id="draggable' +
@@ -214,7 +222,7 @@ function getQuestion() {
           .parent()
           .append(
             "<img src='../public/img/tick.png' style='height: 50px; margin-left: 20rem; margin-top: 15px;' id='correct'/>" +
-              ' <img src="../public/img/Ui-xmute.png" alt="" class="top-bar__icon__img" onclick="playAnswer()" style=" position: absolute; bottom: 15%;"> <sound id="top-bar__sound" > </sound> </img>'
+              ' <img src="../public/img/Ui-xmute.png" alt="" class="top-bar__icon__img" onclick="playAnswer()" style=" position: absolute; bottom: 15%; right:-45%"> <sound id="top-bar__sound" > </sound> </img>'
           );
         $(ui.draggable).draggable("disable");
         playCorrect();

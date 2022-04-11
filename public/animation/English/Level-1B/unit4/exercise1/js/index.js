@@ -32,7 +32,7 @@ const questions = [
     choose1: "./img/candle.jpg",
     choose2: "./img/party hat.jpg",
     sound1: "./sound/candle.wav",
-    sound2: "./sound/party hat.wav",
+    sound2: "./sound/party hats.wav",
     ans: "2",
   },
   {
@@ -71,6 +71,7 @@ function playWord(audio_id) {
   if (audio_id === "question_sound") {
     var word_sound = "./sound/" + questions[iQuestion].word + ".wav";
     audioElement.setAttribute("src", word_sound);
+    console.log(word_sound);
     audioElement.play();
   }
 }
@@ -84,10 +85,9 @@ function playCorrect() {
   var audioElement = document.createElement("audio");
   audioElement.setAttribute("src", "./sound/correct.wav");
   audioElement.play();
-  $("#exercise").append(
-    "<div class='container' id='yeah1' style='position: absolute; bottom: 100px; left: 20px; margin: 0px 50px 0px 50px; z-index:1;'><img src='../public/img/yeah.png' style='height: 300px'/></div>"
+  $(".answer-text").append(
+    "<div class='container' id='correct-animation'><img src='../public/img/BP-yeah.png' style='height: 300px'/></div>"
   );
-  setTimeout('$("#yeah1").remove()', 900);
 }
 
 function checkAnswer(clicked_id) {
@@ -98,9 +98,7 @@ function checkAnswer(clicked_id) {
     document.getElementById(clicked_id + "_img").hidden = false;
     document.getElementById(clicked_id + "_img").innerHTML =
       "<img src='../public/img/tick.png' style='height: 80px; margin-left: -50px;' id='tick'/>";
-    $(".answer-text").append(
-      "<div class='container' id='correct-animation'><img src='../public/img/BP-yeah.png' style='height: 300px'/></div>"
-    );
+
     console.log("đáp án đúng");
     clicked_id === "buttonChoose1"
       ? (idButton = clicked_id.replace(/1/g, "2"))

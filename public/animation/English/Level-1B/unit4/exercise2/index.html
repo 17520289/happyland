@@ -365,6 +365,7 @@
         function playWord() {
             var audioElement = document.createElement('audio');
             audioElement.setAttribute('src', question[index].sound)
+            console.log(audioElement)
             audioElement.play()
         }
         function playWrongAudio() {

@@ -66,16 +66,16 @@ const questions = [
 
 var iQuestion = 0;
 var idButton = "buttonChoose1";
-
+var audioWordElement;
 getQuestion();
 function playWord(audio_id) {
-  var audioElement = document.getElementById(audio_id);
+  audioWordElement = document.getElementById(audio_id);
   if (audio_id === "buttonChoose1_sound") {
-    audioElement.setAttribute("src", questions[iQuestion].sound1);
-    audioElement.play();
+    audioWordElement.setAttribute("src", questions[iQuestion].sound1);
+    audioWordElement.play();
   } else {
-    audioElement.setAttribute("src", questions[iQuestion].sound2);
-    audioElement.play();
+    audioWordElement.setAttribute("src", questions[iQuestion].sound2);
+    audioWordElement.play();
   }
 }
 
@@ -108,14 +108,23 @@ function checkAnswer(clicked_id) {
     document.getElementById(clicked_id).disabled = "disabled";
     document.getElementById(idButton).disabled = "disabled";
     document.getElementById(idButton).style.opacity = "0.5";
-    setTimeout(playCorrect, 700);
+
+    audioWordElement.addEventListener("ended", function () {
+      audioWordElement.currentTime = 0;
+      setTimeout(playCorrect, 700);
+      console.log("ended");
+    });
   } else {
     playWord(clicked_id + "_sound");
     document.getElementById(clicked_id + "_img").hidden = false;
     document.getElementById(clicked_id + "_img").innerHTML =
       "<img src='../public/img/wrong.png' id='wrong''/>";
     console.log("dap án sai");
-    setTimeout(playWrong, 500);
+    audioWordElement.addEventListener("ended", function () {
+      audioWordElement.currentTime = 0;
+      setTimeout(playWrong, 500);
+      console.log("ended");
+    });
     clicked_id === "buttonChoose1"
       ? setTimeout(
           'document.getElementById("buttonChoose1_img").hidden = true;',

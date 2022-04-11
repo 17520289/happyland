@@ -1,179 +1,194 @@
-body, html{
-    background-image: url("../../public/img/bg.png");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    height: 100%;
-    background-position: center;
+body,
+html {
+  background-image: url("../../public/img/bg.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 100%;
+  background-position: center;
 }
 
-.top-bar{
-    padding: 10px;
+.top-bar {
+  padding: 10px;
 }
 
-.top-bar__icon{
-	font-size: 30px;
-	color: #f134a6;
-    display: flex;
-    height: 80px;
+.top-bar__icon {
+  font-size: 30px;
+  color: #f134a6;
+  display: flex;
+  height: 80px;
 }
 
-.top-bar__icon__home{
-    height: 80px;
-    padding-right: 20px;
+.top-bar__icon__home {
+  height: 80px;
+  padding-right: 20px;
 }
-.top-bar__icon__sound{
-    height: 80px;
-}
-
-.top-bar__1a{
-    padding: 10px 20px;
-    border: 4px solid #fff;
-    background-color: blue;
-    color: white;
-	font-size: 30px;
-    text-align: center;
-	border-radius: 100%;
-    width: 80px;
-}
-.top-bar__name{
-    padding-left: 20px;
+.top-bar__icon__sound {
+  height: 80px;
 }
 
-.top-bar__name__sub{
-    font-size: 20px;
-	color: #f134a6;
+.top-bar__1a {
+  padding: 10px 20px;
+  border: 4px solid #fff;
+  background-color: blue;
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  border-radius: 100%;
+  width: 80px;
 }
-.exercise{
-    text-align: center;
-    padding-top: 20px;
+.top-bar__name {
+  padding-left: 20px;
 }
 
-.lesson__a{
-    text-decoration: none;
+.top-bar__name__sub {
+  font-size: 20px;
+  color: #f134a6;
+}
+.exercise {
+  text-align: center;
+  padding-top: 20px;
 }
 
+.lesson__a {
+  text-decoration: none;
+}
 
 /* .lesson__unit1__img:hover{
     transform: scale(1.1);
 } */
 
-.exercise3__ans__choose{
-    color: rgb(235, 80, 8);
-    font-size: 36px;
-    z-index: 3;
-    margin-top: 15%;
+.exercise3__ans__choose {
+  color: rgb(235, 80, 8);
+  font-size: 36px;
+  z-index: 3;
+  margin-top: 15%;
 }
-.top-bar__icon__markboard{
-    background-image: url("../../public/img/markboard-68.png");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    height: 100%;
-    background-position: center;
+.top-bar__icon__markboard {
+  background-image: url("../../public/img/markboard-68.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 100%;
+  background-position: center;
 }
-.top-bar__question__sub{
-    padding: 30px 80px;
-    color: white;
-    font-weight: bold;
+.top-bar__question__sub {
+  padding: 30px 80px;
+  color: white;
+  font-weight: bold;
 }
-
 
 .btn-container {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
 }
 .icon-left {
-    position: absolute;
-    left: -1%;
-    top: 50%;
-    z-index: 3;
+  position: absolute;
+  left: -1%;
+  top: 50%;
+  z-index: 3;
 }
 .icon-right {
-    position: absolute;
-    right: 0%;
-    top: 53%;
-    z-index: 3;
+  position: absolute;
+  right: 0%;
+  top: 53%;
+  z-index: 3;
 }
-#wrong,#tick {
-    height: 100px;margin: 15px;position: absolute;right: -10%;bottom: -75%;z-index: 4;
+#wrong,
+#tick {
+  height: 100px;
+  margin: 15px;
+  position: absolute;
+  right: -10%;
+  bottom: -75%;
+  z-index: 4;
 }
-#wrong2,#tick2 {
-    height: 100px;margin: 15px;position: absolute;left: -10%;bottom: -75%;z-index: 4;
-}
+#wrong2,
 #tick2 {
-    transform: rotateY(180deg);
+  height: 100px;
+  margin: 15px;
+  position: absolute;
+  left: -10%;
+  bottom: -75%;
+  z-index: 4;
 }
+/* #tick2 {
+    transform: rotateY(180deg);
+} */
 .text-left {
-    position: absolute;
-    font-size: 26px;
-    padding: 0px 10px;
-    border: 4px solid black;
-    background-color: white;
-    border-radius: 50%;
-    left: -4%;
-    top: 20%;
-    z-index:2;
+  position: absolute;
+  font-size: 26px;
+  padding: 0px 10px;
+  border: 4px solid black;
+  background-color: white;
+  border-radius: 50%;
+  left: -4%;
+  top: 20%;
+  z-index: 2;
 }
 
 .bg-choose1 {
-    position: absolute; width: 100%; height: 130px;
+  position: absolute;
+  width: 100%;
+  height: 130px;
 }
 .bg-choose2 {
-    position: absolute; width: 100%; height: 130px;
+  position: absolute;
+  width: 100%;
+  height: 130px;
 }
-.exercise3__img{
-    padding: 10px 20px;
-    position: relative;
+.exercise3__img {
+  padding: 10px 20px;
+  position: relative;
 }
-.lesson__unit1__img{
-    position: absolute;
-    top: 30%;
-    left: 15%;
-    max-height: 350px;
-    max-width: 430px;
-    width: 100%;
+.lesson__unit1__img {
+  position: absolute;
+  top: 30%;
+  left: 15%;
+  max-height: 350px;
+  max-width: 430px;
+  width: 100%;
 }
 .img-bg {
-    width: 100%;
-    max-width: 520px;
-    max-height: 650px;
-    margin-top:-20px;
-    z-index: 2;
+  width: 100%;
+  max-width: 520px;
+  max-height: 650px;
+  margin-top: -20px;
+  z-index: 2;
 }
 
-.exercise3__ans{
-    display: flex;
+.exercise3__ans {
+  display: flex;
 }
 
-.footer{
-    padding: 10px;
-    position: absolute;
-    bottom: 5%;
-    right: 5%;
+.footer {
+  padding: 10px;
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
 }
 
-.footer__img{
-    height: 80px;
+.footer__img {
+  height: 80px;
 }
 
-#nextButton{
-    border: none;
-    background: none;
+#nextButton {
+  border: none;
+  background: none;
 }
-#backButton{
-    border: none;
-    background: none;
+#backButton {
+  border: none;
+  background: none;
 }
 
-    #buttonChoose1{
-    width: 100%;
-    border: none;
-    background: none;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    flex-direction: row;
-    animation-name: roll-left;
-    animation-duration: 3s;
+#buttonChoose1 {
+  width: 100%;
+  border: none;
+  background: none;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  flex-direction: row;
+  animation-name: roll-left;
+  animation-duration: 3s;
 }
 
 /* #buttonChoose1:disabled{
@@ -184,173 +199,184 @@ body, html{
     opacity: 0.5;
 } */
 
-#buttonChoose2{
-    width: 100%;
-    border: none;
-    background: none;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    flex-direction: row;
-    animation-name: roll-right;
-    animation-duration: 3s;
+#buttonChoose2 {
+  width: 100%;
+  border: none;
+  background: none;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  flex-direction: row;
+  animation-name: roll-right;
+  animation-duration: 3s;
 }
 @keyframes roll-left {
-    0% { left: -300px; }
-    100% { left: 0px;}
+  0% {
+    left: -300px;
+  }
+  100% {
+    left: 0px;
+  }
 }
 
 @keyframes roll-right {
-    0% { right: -300px; }
-    100% { right: 0px;}
+  0% {
+    right: -300px;
+  }
+  100% {
+    right: 0px;
+  }
 }
-.exercise3__ans__sound >img{
-    height: 65px;
+.exercise3__ans__sound > img {
+  height: 65px;
 }
 .hidden {
-    display: none;
+  display: none;
 }
 .answer-text {
-    position: relative;
-    font-family: Arial;
-    top: 0;
-    left: 0;
-  }
-  .image-kid {
-    position: relative;
-    top: 0;
-    left: 0;
-    width:150px;
-  }
+  position: relative;
+  font-family: Arial;
+  top: 0;
+  left: 0;
+}
+.image-kid {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 150px;
+}
 
-  .text-block {
-    position: absolute;
-    top: 10px;
-    right: 0px;
-    color: black;
+.text-block {
+  position: absolute;
+  top: 10px;
+  right: 0px;
+  color: black;
+}
+.image-text-block {
+  width: 150px;
+  position: relative;
+}
+#question-text {
+  position: absolute;
+  left: 10px;
+  top: 30px;
+  text-align: center;
+  font-size: 20px;
+}
+.chooseA {
+  position: absolute;
+  left: 30%;
+  bottom: 40%;
+  width: 100%;
+}
+.chooseB {
+  position: absolute;
+  right: 30%;
+  bottom: 40%;
+  width: 100%;
+}
+@media (max-width: 1400px) {
+  .icon-left {
+    top: 52%;
   }
-  .image-text-block {
-      width: 150px;
-      position: relative;
+  .icon-right {
+    right: -1%;
   }
-  #question-text {
-      position: absolute;
-      left: 10px;
-      top: 30px;
-      text-align: center;
-      font-size: 20px;
+  .exercise3__ans__choose {
+    font-size: 32px;
   }
   .chooseA {
-    position: absolute;
-    left: 30%;
-    bottom: 40%;
-    width: 100%;
-}
-  .chooseB {
-      position: absolute;
-      right: 30%;
-      bottom: 40%;
-      width: 100%;
+    left: 20%;
   }
-  @media (max-width: 1400px) {
-
-    .icon-left {
-     top: 52%;
-    }
-    .icon-right {
-        right: -1%;
-       }
-    .exercise3__ans__choose {
-        font-size: 32px;
-    }
-    .chooseA {
-        left: 20%;
-    }
-      .chooseB {
-          right: 20%;
-      }
-    .lesson__unit1__img {
-        max-width: 400px;
-    }
+  .chooseB {
+    right: 20%;
+  }
+  .lesson__unit1__img {
+    max-width: 400px;
+  }
 }
-  @media (max-width: 1200px) {
-    #wrong,#tick {
-        height: 80px;
-    }
-    #wrong2,#tick2 {
-        height: 80px;
-    }
-    .icon-right {
-        right: -1%;
-        top: 49%;
-       }
-    .exercise3__ans__choose {
-        font-size: 30px;
-        margin-top: 20%
-    }
-    .bg-choose1 {
-      height: 110px;
-    }
-    .bg-choose2 {
-      height: 110px;
-    }
+@media (max-width: 1200px) {
+  #wrong,
+  #tick {
+    height: 80px;
+  }
+  #wrong2,
+  #tick2 {
+    height: 80px;
+  }
+  .icon-right {
+    right: -1%;
+    top: 49%;
+  }
+  .exercise3__ans__choose {
+    font-size: 30px;
+    margin-top: 20%;
+  }
+  .bg-choose1 {
+    height: 110px;
+  }
+  .bg-choose2 {
+    height: 110px;
+  }
 
-    .lesson__unit1__img {
-        left: 10%;
-        max-height: 350px;
-        max-width: 370px;
-        width: 100%;
-    }
-    .icon-left {
-        left: -7%;
-    }
-    .text-left {
-        left: -6%;
-    }
+  .lesson__unit1__img {
+    left: 10%;
+    max-height: 350px;
+    max-width: 370px;
+    width: 100%;
+  }
+  .icon-left {
+    left: -7%;
+  }
+  .text-left {
+    left: -6%;
+  }
 }
 
 @media (max-width: 992px) {
-    .chooseA {
-        left: 25%;
-    }
-      .chooseB {
-          right: 25%;
-      }
-    .exercise3__ans__choose {
-        font-size: 20px;
-        margin-top: 20%;
-    }
-    .bg-choose1 {
-      height: 90px;
-    }
-    .bg-choose2 {
-      height: 90px;
-    }
-    .img-bg {
-        max-height: 550px;
-        z-index: 2;
-    }
-    .lesson__unit1__img {
-        top: 20%;
-        left: 10%;
-        max-height: 300px;
-        max-width: 260px;
-        width: 100%;
-    }
+  .chooseA {
+    left: 25%;
+  }
+  .chooseB {
+    right: 25%;
+  }
+  .exercise3__ans__choose {
+    font-size: 20px;
+    margin-top: 20%;
+  }
+  .bg-choose1 {
+    height: 90px;
+  }
+  .bg-choose2 {
+    height: 90px;
+  }
+  .img-bg {
+    max-height: 550px;
+    z-index: 2;
+  }
+  .lesson__unit1__img {
+    top: 20%;
+    left: 10%;
+    max-height: 300px;
+    max-width: 260px;
+    width: 100%;
+  }
 
-    .top-bar__question__sub{
-        padding: 30px 60px;
-    }
-    .exercise3__ans__sound >img{
-        height: 50px;
-    }
-    .icon-right {
-        top: 54%;
-    }
-    #wrong,#tick {
-        height: 60px;
-    }
-    #wrong2,#tick2 {
-        height: 60px;
-    }
+  .top-bar__question__sub {
+    padding: 30px 60px;
+  }
+  .exercise3__ans__sound > img {
+    height: 50px;
+  }
+  .icon-right {
+    top: 54%;
+  }
+  #wrong,
+  #tick {
+    height: 60px;
+  }
+  #wrong2,
+  #tick2 {
+    height: 60px;
+  }
 }

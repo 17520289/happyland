@@ -11,8 +11,8 @@ const questions = [
   {
     question: "2-6",
     picture: "./img/tshirt.jpg",
-    choose1: "singlets",
-    choose2: "tshirt",
+    choose1: "singlet",
+    choose2: "t-shirt",
     sound1: "./sound/singlets.wav",
     sound2: "./sound/T-shirt.wav",
     ans: "2",
@@ -80,7 +80,7 @@ function playCorrect() {
   audioElement.setAttribute("src", "./sound/correct.wav");
   audioElement.play();
   $("#exercise").append(
-    "<div class='container' id='yeah' style='position: absolute; z-index: 4;top: 15px; left: 20px; margin: 0px 50px 0px 50px;'><img src='../public/img/yeah3.gif' style='height: 600px'/></div>"
+    "<div class='container' id='yeah' style='position: absolute; z-index: 4;top: 15px; left: 20px; margin: 0px 50px 0px 50px;'><img src='../public/img/yeah3.gif' style='width:100%'/></div>"
   );
   setTimeout('document.getElementById("yeah").remove()', 900);
 }

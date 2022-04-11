@@ -66,21 +66,21 @@ const questions = [
 
 var iQuestion = 0;
 var idButton = "buttonChoose1";
-
+var audioWordElement;
 getQuestion();
 function playWord(audio_id) {
-  var audioElement = document.getElementById(audio_id);
+  audioWordElement = document.getElementById(audio_id);
   if (audio_id === "buttonChoose1_sound") {
-    audioElement.setAttribute("src", questions[iQuestion].sound1);
-    audioElement.play();
+    audioWordElement.setAttribute("src", questions[iQuestion].sound1);
+    audioWordElement.play();
   } else {
-    audioElement.setAttribute("src", questions[iQuestion].sound2);
-    audioElement.play();
+    audioWordElement.setAttribute("src", questions[iQuestion].sound2);
+    audioWordElement.play();
   }
   if (audio_id === "question_sound") {
     var word_sound = "./sound/" + questions[iQuestion].word + ".wav";
-    audioElement.setAttribute("src", word_sound);
-    audioElement.play();
+    audioWordElement.setAttribute("src", word_sound);
+    audioWordElement.play();
   }
 }
 
@@ -94,7 +94,7 @@ function playCorrect() {
   audioElement.setAttribute("src", "./sound/correct.wav");
   audioElement.play();
   document.getElementById("exercise").innerHTML +=
-    "<div class='container' id='yeah' style='position: absolute; top: 15px; left: 20px; margin: 0px 50px 0px 50px;'><img src='../public/img/yeah3.gif' style='height: 600px'/></div>";
+    "<div class='container' id='yeah' style='position: absolute; top: 15px; left: 20px; margin: 0px 50px 0px 50px;'><img src='../public/img/yeah3.gif' style='width:100%'/></div>";
   setTimeout('document.getElementById("yeah").remove()', 900);
 }
 
@@ -115,17 +115,26 @@ function checkAnswer(clicked_id) {
     document.getElementById(idButton).disabled = "disabled";
     document.getElementById(idButton).style.opacity = "0.5";
     setTimeout(playCorrect, 700);
+    audioWordElement.addEventListener("ended", function () {
+      audioWordElement.currentTime = 0;
+      setTimeout(playCorrect, 700);
+    });
   } else {
     playWord(clicked_id + "_sound");
     document.getElementById(clicked_id + "_img").hidden = false;
     document.getElementById(clicked_id + "_img").innerHTML =
       "<img src='../public/img/wrong.png' style='height: 80px; margin-left: -50px; id='wrong''/>";
     $("#exercise").append(
-      "<div class='container' id='wrong-animation' style='position: absolute; top: 15px; left: 10%; margin: 0px 50px 0px 50px;'><img src='../public/img/boom.png' style='height: 600px'/></div>"
+      "<div class='container' id='wrong-animation' style='position: absolute; top: 15px; left: 10%; margin: 0px 50px 0px 50px;'><img src='../public/img/boom.png' style='width:100%'/></div>"
     );
     setTimeout('$("#wrong-animation").remove()', 900);
     console.log("dap án sai");
-    setTimeout(playWrong, 500);
+    audioWordElement.addEventListener("ended", function () {
+      audioWordElement.currentTime = 0;
+      setTimeout(playWrong, 500);
+      console.log("ended");
+    });
+
     clicked_id === "buttonChoose1"
       ? setTimeout(
           'document.getElementById("buttonChoose1_img").hidden = true;',

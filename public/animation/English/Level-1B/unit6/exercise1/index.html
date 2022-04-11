@@ -82,9 +82,7 @@
         }
 
         .exercise3__img {
-            padding: 10px 20px;
-            border-radius: 10px;
-            text-align: center;
+            height: 300px;
             position: relative;
             animation-name: roll;
             animation-duration: 2.5s;
@@ -92,13 +90,11 @@
         }
 
         .lesson__unit1__img {
-            position: absolute;
-            top: 10%;
-            left: 20%;
-            max-height: 300px;
+            padding: 20px;
+            max-height: 240px;
             max-width: 300px;
+            position: relative;
             z-index: 4;
-
         }
 
         .top-bar__1a {
@@ -112,8 +108,11 @@
         }
 
         .img-bg {
-            height: 100%;
-            width: 100%;
+            position: absolute;
+            top: -25%;
+            left: -25%;
+            height: 320px;
+            width: 450px;
             margin-top: 10%;
             z-index: 1;
         }
@@ -169,13 +168,12 @@
                         <!-- end of line 54 -->
                     </div>
                 </div>
-                <div class="row" style="height: 27vw;">
+                <div class="row">
                     <div class="col d-flex justify-content-md-center"
                         style="padding:1vw; align-items: center; justify-items: center;">
-                        <div style="width: 27vw;" class="exercise3__img">
+                        <div class="exercise3__img">
                             <img src="./img/u6-ex3-frame.png" class="img-bg">
-                            <img id="img_content" class="lesson__unit1__img" src="./img/bird.png"
-                                style="width:100%; padding:20px; max-height: 430px; object-fit: contain; height: 100%;"></img>
+                            <img id="img_content" class="lesson__unit1__img" src="./img/bird.png"></img>
                             <img src='../public/img/tick.png'
                                 style="height: 100px;margin: 15px;position: absolute;right: -15%;top: 70%;z-index: 4;"
                                 id='tick' />

@@ -85,7 +85,7 @@ function playCorrect() {
   audioElement.setAttribute("src", "./sound/correct.wav");
   audioElement.play();
   document.getElementById("exercise").innerHTML +=
-    "<div class='container' id='yeah' style='position: absolute; top: 15px; left: 20px; margin: 0px 50px 0px 50px;'><img src='../public/img/yeah3.gif' style='height: 600px'/></div>";
+    "<div class='container' id='yeah' style='position: absolute; top: 15px; left: 20px; margin: 0px 50px 0px 50px;'><img src='../public/img/yeah3.gif' style='width:100%'/></div>";
   setTimeout('document.getElementById("yeah").remove()', 900);
 }
 
@@ -96,8 +96,10 @@ function checkAnswer(clicked_id) {
     document.getElementById(clicked_id + "_ans_sound").hidden = false;
     document.getElementById(clicked_id + "_img").hidden = false;
     document.getElementById(clicked_id + "_img").innerHTML =
-      "<img src='../public/img/tick.png' style='height: 80px; margin-left: -50px;' id='tick'/>";
-      $('.answer-text').append("<div class='container correct-animation'><img src='../public/img/DOG (3).png' style='height: 200px'/></div>");
+      "<img src='../public/img/tick.png' style='height: 80px; position: absolute;bottom: 0;right: 0;' id='tick'/>";
+    $(".answer-text").append(
+      "<div class='container correct-animation'><img src='../public/img/DOG (3).png' style='height: 200px'/></div>"
+    );
     console.log("đáp án đúng");
     clicked_id === "buttonChoose1"
       ? (idButton = clicked_id.replace(/1/g, "2"))
@@ -111,9 +113,11 @@ function checkAnswer(clicked_id) {
     playWord(clicked_id + "_sound");
     document.getElementById(clicked_id + "_img").hidden = false;
     document.getElementById(clicked_id + "_img").innerHTML =
-      "<img src='../public/img/wrong.png' style='height: 80px; margin-left: -50px; id='wrong''/>";
-      setTimeout(playWrong, 500);
-    $('.answer-text').append("<div class='container correct-animation'><img src='../public/img/DOG (2).png' style='height: 200px'/></div>");
+      "<img src='../public/img/wrong.png' style='height: 80px; position: absolute;bottom: 0;right: 0;' id='wrong'/>";
+    setTimeout(playWrong, 500);
+    $(".answer-text").append(
+      "<div class='container correct-animation'><img src='../public/img/DOG (2).png' style='height: 200px'/></div>"
+    );
     setTimeout('$(".correct-animation").remove()', 500);
     console.log("dap án sai");
     setTimeout(playWrong, 500);
@@ -130,7 +134,7 @@ function checkAnswer(clicked_id) {
 }
 
 function getQuestion() {
-  $(".correct-animation").remove()
+  $(".correct-animation").remove();
   document.getElementById("image").innerHTML = questions[iQuestion].word;
   document.getElementById("markboard").innerHTML =
     questions[iQuestion].question;

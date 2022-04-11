@@ -444,9 +444,6 @@
             var audioElement = document.createElement('audio');
             audioElement.setAttribute('src', './sound/wrong.wav');
             audioElement.play()
-            $('#content').append(
-                "<img src='../public/img/wrong.png' style='height: 100px;margin: 15px;position: absolute;right: 0%;top: 55%;z-index: 4;' id='tick'/>"
-            );
             setTimeout('document.getElementById("tick").remove()', 500)
 
         }

@@ -20,7 +20,7 @@ const questions = [
   {
     question: "3-5",
     picture: "./img/schooluniform.jpg",
-    choose1: "shool uniform",
+    choose1: "school uniform",
     choose2: "uniform",
     sound1: "./sound/schooluniform.wav",
     sound2: "./sound/uniform.wav",
@@ -39,7 +39,7 @@ const questions = [
     question: "5-5",
     picture: "./img/cardigan.jpg",
     choose1: "cardigan",
-    choose2: "tshirt",
+    choose2: "t-shirt",
     sound1: "./sound/cardigan.wav",
     sound2: "./sound/T-shirt.wav",
     ans: "1",
@@ -71,7 +71,7 @@ function playCorrect() {
   audioElement.setAttribute("src", "./sound/correct.wav");
   audioElement.play();
   $("#exercise").append(
-    "<div class='container' id='yeah' style='position: absolute; z-index: 4;top: 15px; left: 20px; margin: 0px 50px 0px 50px;'><img src='../public/img/yeah3.gif' style='height: 600px'/></div>"
+    "<div class='container' id='yeah' style='position: absolute; z-index: 4;top: 15px; left: 20px; margin: 0px 50px 0px 50px;'><img src='../public/img/yeah3.gif' style='width:100%'/></div>"
   );
   setTimeout('document.getElementById("yeah").remove()', 900);
 }
@@ -127,6 +127,9 @@ function getQuestion() {
     questions[iQuestion].question;
   document.getElementById("choose1").innerHTML = questions[iQuestion].choose1;
   document.getElementById("choose2").innerHTML = questions[iQuestion].choose2;
+  if (questions[iQuestion].choose1 === "school uniform") {
+    document.getElementById("choose1").style.marginLeft = "25px";
+  }
   if (iQuestion === 0) {
     document.getElementById("backButton").hidden = true;
   } else {

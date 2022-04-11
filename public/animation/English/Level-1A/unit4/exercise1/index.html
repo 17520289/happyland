@@ -136,7 +136,7 @@
         </div>
         <div class="row">
           <div class="tick">
-            <img id="img_tick" src="../img/tick.png" style="height:100%; width:100%"></img>
+            <img id="img_tick" src="../img/tick.png" style="height:80%; width:80%"></img>
           </div>
           <div class="col-4">
             <div id='grow' class="d-flex flex-column justify-content-center"
@@ -197,7 +197,7 @@
         <div class="row d-flex justify-content-center">
           <div class="col-sm-2" style="width: 5vw;">
           </div>
-          <div class="col-sm-6" style="width: 50%;margin-left: 10%;">
+          <div class="col-sm-6" style="width: 50%;">
             <img class="pen" id="pen1" src="./colours/blue_1.png" onclick="choosePen(this,1)"></img>
             <img class="pen" id="pen2" src="./colours/yellow_1.png" onclick="choosePen(this,2)"></img>
             <img class="pen" id="pen3" src="./colours/red_1.png" onclick="choosePen(this,3)"></img>
@@ -205,14 +205,14 @@
             <img class="pen" id="pen5" src="./colours/purple_1.png" onclick="choosePen(this,5)"></img>
             <img class="pen" id="pen6" src="./colours/orange_1.png" onclick="choosePen(this,6)"></img>
           </div>
-          <div class="col-sm-2 d-flex justify-content-center">
-            <button id="backbutton" onclick="BackQuest()">
-              <img src="./colours/Ui-back.png" style="width: 60%;"></img>
+          <div class="col-sm-2 d-flex justify-content-end">
+            <button id="backbutton" onclick="BackQuest()" style="width: 6vw;">
+              <img src="./colours/Ui-back.png" style="width: 100%;"></img>
             </button>
           </div>
-          <div class="col-sm-2 d-flex justify-content-center">
-            <button id="nextbutton" onclick="NextQuest()">
-              <img src="./colours/Ui-next.png" style="width: 60%;"></img>
+          <div class="col-sm-2 d-flex justify-content-start">
+            <button id="nextbutton" onclick="NextQuest()" style="width: 6vw;">
+              <img src="./colours/Ui-next.png" style="width: 100%;"></img>
             </button>
           </div>
         </div>
@@ -320,10 +320,12 @@
     init()
 
     async function showWrong() {
+
       $("#img_tick").attr("src", "../img/wrong.png");
       $('.tick').show();
       await sleep(2000);
       $('.tick').hide();
+
     }
     async function showCorrect() {
       $("#img_tick").attr("src", "../img/tick.png");
@@ -335,6 +337,7 @@
 
       if (idPen != question[currentQuestion].pen || idPen != pen) {
         showWrong();
+        playWrong();
         return;
       }
 
@@ -355,7 +358,7 @@
 
         await sleep(3000);
 
-        changeQuestion();
+        //changeQuestion();
       }
 
     }
@@ -378,8 +381,8 @@
 
       if (currentQuestion > 5)
         return;
-      HideShowButton()
-
+      HideShowButton();
+      resetPen();
       var growDiv = document.getElementById('grow');
 
       growDiv.style.height = 0;
@@ -404,7 +407,8 @@
 
       currentQuestion--;
 
-      HideShowButton()
+      HideShowButton();
+      resetPen();
 
       var growDiv = document.getElementById('grow');
 
@@ -423,6 +427,11 @@
       $("#title_quest").text(question[currentQuestion].color)
       await sleep(1500);
 
+    }
+    function playWrong() {
+      var audioElement = document.createElement('audio');
+      audioElement.setAttribute('src', './sound/wrong.wav');
+      audioElement.play()
     }
     function playCorrect() {
 

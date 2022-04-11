@@ -82,7 +82,7 @@ html {
 }
 .icon-left {
   position: absolute;
-  left: 46%;
+  left: 39%;
   top: 0%;
   z-index: 3;
 }
@@ -183,7 +183,7 @@ html {
   animation-duration: 2.5s;
 }
 .exercise3__ans__sound > img {
-  height: 55px;
+  height: 65px;
 }
 .hidden {
   display: none;
@@ -233,6 +233,22 @@ html {
   position: absolute;
   bottom: 0;
 }
+#sad {
+  height: 350px;
+  margin-top: -10%;
+  z-index: 5;
+  position: absolute;
+  bottom: 0%;
+  left: 38%;
+}
+#yeah {
+  height: 350px;
+  margin-top: -10%;
+  z-index: 5;
+  position: absolute;
+  bottom: 0%;
+  left: 36%;
+}
 @media (max-height: 720px) {
   .icon-thinking {
     height: 300px;
@@ -248,6 +264,9 @@ html {
     max-width: 425px;
     max-height: 320px;
   }
+  .exercise3__ans__sound > img {
+    height: 55px;
+  }
 }
 @media (max-width: 1200px) {
   .lesson__unit1__img {
@@ -256,6 +275,9 @@ html {
   }
   .exercise3__ans__choose {
     font-size: 36px;
+  }
+  .exercise3__ans__sound > img {
+    height: 50px;
   }
 }
 
@@ -266,6 +288,14 @@ html {
   }
   .exercise3__ans__choose {
     font-size: 26px;
+  }
+  .exercise3__ans__sound > img {
+    height: 40px;
+  }
+  .icon-thinking,
+  #sad,
+  #yeah {
+    left: 25%;
   }
 }
 

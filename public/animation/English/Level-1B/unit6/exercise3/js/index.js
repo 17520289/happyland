@@ -80,7 +80,7 @@ function playCorrect() {
   audioElement.setAttribute("src", "./sound/correct.wav");
   audioElement.play();
   $("#exercise").append(
-    "<div class='container' id='yeah' style='position: absolute; z-index: 4;bottom:0; left: 0;'><img src='../public/img/yeah3.gif' style='height: 600px'/></div>"
+    "<div class='container' id='yeah' style='position: absolute; z-index: 4;bottom:0; left: 0;'><img src='../public/img/yeah3.gif' style='width:100%'/></div>"
   );
   setTimeout('document.getElementById("yeah").remove()', 900);
 }

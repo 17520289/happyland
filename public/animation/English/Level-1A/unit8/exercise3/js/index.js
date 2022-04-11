@@ -83,11 +83,11 @@ function playWrong() {
   var audioElement = document.createElement("audio");
   audioElement.setAttribute("src", "./sound/wrong.wav");
   audioElement.play();
-  $("#exercise").append(
-    "<img src='../public/img/sad.gif' id='sad' style='height: 450px; margin-top:-10%; z-index: 5; position: absolute; bottom: 0%; left: 40%;'/>"
-  );
+  $("#exercise").append("<img src='../public/img/sad.gif' id='sad'/>");
   document.getElementById("thinking").style.visibility = "hidden";
-  document.getElementById("yeah").remove();
+  if (document.body.contains(document.getElementById("yeah"))) {
+    document.getElementById("yeah").remove();
+  }
   document.getElementsByClassName(
     "exercise3__ans__choose"
   ).style.animationPlayState = "paused";
@@ -98,11 +98,12 @@ function playCorrect() {
   var audioElement = document.createElement("audio");
   audioElement.setAttribute("src", "./sound/correct.wav");
   audioElement.play();
-  $("#exercise").append(
-    "<img src='../public/img/yeah.gif' id='yeah' style='height: 500px; margin-top:-10%; z-index: 5; position: absolute; bottom: 0%; left: 36%;'/>"
-  );
+  $("#exercise").append("<img src='../public/img/yeah.gif' id='yeah'/>");
   document.getElementById("thinking").style.visibility = "hidden";
-  document.getElementById("sad").remove();
+  if (document.body.contains(document.getElementById("sad"))) {
+    document.getElementById("sad").remove();
+  }
+
   document.getElementsByClassName(
     "exercise3__ans__choose"
   ).style.animationPlayState = "paused";
@@ -166,8 +167,12 @@ function getQuestion() {
   } else {
     document.getElementById("nextButton").hidden = false;
   }
-  document.getElementById("yeah").remove();
-  document.getElementById("sad").remove();
+  if (document.body.contains(document.getElementById("sad"))) {
+    document.getElementById("sad").remove();
+  }
+  if (document.body.contains(document.getElementById("yeah"))) {
+    document.getElementById("yeah").remove();
+  }
 }
 
 function nextQuestion() {

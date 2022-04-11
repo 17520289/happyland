@@ -1,6 +1,7 @@
 const questions = [
   {
     question: "1-6",
+    questionText: "Tom is taking shower in the",
     picture: "./img/bathroom.jpg",
     choose1: "bathroom",
     choose2: "bedroom",
@@ -10,6 +11,7 @@ const questions = [
   },
   {
     question: "2-6",
+    questionText: "Dad is watching television in the",
     picture: "./img/living room.jpg",
     choose1: "kitchen",
     choose2: "living room",
@@ -19,6 +21,7 @@ const questions = [
   },
   {
     question: "3-6",
+    questionText: "Jane is sleeping in the",
     picture: "./img/bedroom.jpg",
     choose1: "toilet",
     choose2: "bedroom",
@@ -28,6 +31,7 @@ const questions = [
   },
   {
     question: "4-6",
+    questionText: "Mom is cooking in the",
     picture: "./img/kitchen.jpg",
     choose1: "kitchen",
     choose2: "living room",
@@ -37,6 +41,7 @@ const questions = [
   },
   {
     question: "5-6",
+    questionText: "We are having breakfast in the",
     picture: "./img/dining room.jpg",
     choose1: "dining room",
     choose2: "bedroom",
@@ -46,6 +51,7 @@ const questions = [
   },
   {
     question: "6-6",
+    questionText: "Who is in the",
     picture: "./img/toilet.jpg",
     choose1: "kitchen",
     choose2: "toilet",
@@ -80,7 +86,7 @@ function playCorrect() {
   audioElement.setAttribute("src", "./sound/correct.wav");
   audioElement.play();
   document.getElementById("exercise").innerHTML +=
-    "<div class='container' id='yeah' style='position: absolute; z-index: 4;top: 15px; left: 20px; margin: 0px 50px 0px 50px;'><img src='../public/img/yeah3.gif' style='height: 600px'/></div>";
+    "<div class='container' id='yeah' style='position: absolute; z-index: 4;top: 15px; left: 20px; margin: 0px 50px 0px 50px;'><img src='../public/img/yeah3.gif' style='width:100%'/></div>";
   setTimeout('document.getElementById("yeah").remove()', 900);
 }
 
@@ -91,7 +97,7 @@ function checkAnswer(clicked_id) {
     document.getElementById(clicked_id + "_ans_sound").hidden = false;
     document.getElementById(clicked_id + "_img").hidden = false;
     document.getElementById(clicked_id + "_img").innerHTML =
-      "<img src='../public/img/tick.png' style='height: 100px;margin: 15px;position: absolute;right: -15%;top: -15%;z-index:5' id='tick'/>";
+      "<img src='../public/img/tick.png' id='tick'/>";
     console.log("đáp án đúng");
     clicked_id === "buttonChoose1"
       ? (idButton = clicked_id.replace(/1/g, "2"))
@@ -105,7 +111,7 @@ function checkAnswer(clicked_id) {
     playWord(clicked_id + "_sound");
     document.getElementById(clicked_id + "_img").hidden = false;
     document.getElementById(clicked_id + "_img").innerHTML =
-      "<img src='../public/img/wrong.png' style='height: 100px;margin: 15px;position: absolute;right: -15%;top: -15%;z-index:5' id='wrong'/>";
+      "<img src='../public/img/wrong.png' id='wrong'/>";
     console.log("dap án sai");
     setTimeout(playWrong, 500);
     clicked_id === "buttonChoose1"
@@ -121,6 +127,8 @@ function checkAnswer(clicked_id) {
 }
 
 function getQuestion() {
+  document.getElementById("questionText").innerHTML =
+    questions[iQuestion].questionText;
   document.getElementById("image").src = questions[iQuestion].picture;
   document.getElementById("markboard").innerHTML =
     questions[iQuestion].question;

@@ -110,9 +110,9 @@ html {
   bottom: -75%;
   z-index: 4;
 }
-#tick2 {
+/* #tick2 {
   transform: rotateY(180deg);
-}
+} */
 .text-left {
   position: absolute;
   font-size: 26px;
@@ -276,9 +276,6 @@ html {
   width: 100%;
 }
 @media (max-width: 1400px) {
-  #choose1 {
-    margin-left: 35px;
-  }
   .icon-left {
     top: 52%;
   }
@@ -286,7 +283,7 @@ html {
     right: -1%;
   }
   .exercise3__ans__choose {
-    font-size: 36px;
+    font-size: 32px;
   }
   .chooseA {
     left: 20%;
@@ -318,7 +315,7 @@ html {
     top: 49%;
   }
   .exercise3__ans__choose {
-    font-size: 30px;
+    font-size: 26px;
     margin-top: 20%;
   }
   .bg-choose1 {

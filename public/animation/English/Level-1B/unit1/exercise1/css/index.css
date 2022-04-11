@@ -119,11 +119,12 @@ html {
 .exercise3__img {
   padding: 10px 20px;
   position: relative;
+  height: 550px;
 }
 .lesson__unit1__img {
-  position: absolute;
-  top: 31%;
-  left: 30%;
+  position: relative;
+  z-index: 2;
+  margin-top: 10%;
   max-width: 450px;
   max-height: 370px;
 }
@@ -131,7 +132,10 @@ html {
   width: 100%;
   margin-top: 30px;
   max-width: 700px;
-  z-index: 2;
+  position: absolute;
+  z-index: 1;
+  left: 25%;
+  top: 0%;
 }
 
 .exercise3__ans {
@@ -242,7 +246,24 @@ html {
     right: 37%;
   }
 }
-
+@media screen and (max-height: 768px) {
+  .exercise3__img {
+    height: 380px;
+  }
+  .img-bg {
+    height: 350px;
+    width: 500px;
+    left: 30%;
+  }
+  .lesson__unit1__img {
+    height: 250px;
+    margin-top: 7%;
+  }
+  .bg-choose1,
+  .bg-choose2 {
+    max-height: 100px;
+  }
+}
 @media screen and (max-width: 1400px) {
   .footer {
     position: absolute;
@@ -256,10 +277,11 @@ html {
     margin-top: 0px;
     max-width: 600px;
     z-index: 2;
+    top: 5%;
+    left: 25%;
   }
   .lesson__unit1__img {
-    top: 31%;
-    left: 33%;
+    margin-top: 12%;
     max-width: 400px;
     max-height: 300px;
   }
@@ -276,6 +298,7 @@ html {
     margin-top: 30px;
     max-width: 550px;
     z-index: 2;
+    left: 22%;
   }
   .exercise3__ans__sound > img {
     height: 45px;
@@ -284,10 +307,9 @@ html {
     top: 45%;
   }
   .lesson__unit1__img {
-    top: 31%;
-    left: 31%;
     max-width: 370px;
-    max-height: 300px;
+    max-height: 230px;
+    margin-top: 17%;
   }
   .exercise3__ans {
     padding-block-start: 5%;
@@ -312,15 +334,14 @@ html {
     top: 40%;
   }
   .img-bg {
-    margin-top: 30px;
     max-width: 500px;
     z-index: 2;
+    left: 15%;
   }
   .lesson__unit1__img {
-    top: 31%;
-    left: 28%;
+    margin-top: 17%;
     max-width: 330px;
-    max-height: 270px;
+    max-height: 250px;
   }
   .exercise3__ans {
     padding-block-start: 5%;

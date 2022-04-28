@@ -161,13 +161,13 @@
         <img src="./icon/x25.png" onclick="changespeed(1)" style="width: 70%;"></img>
       </button>
       <button class="rightbutton">
-        <img src="./icon/x2.png" onclick="playfunction(1.5)" style="width: 70%;"></img>
+        <img src="./icon/x2.png" onclick="changespeed(1.5)" style="width: 70%;"></img>
       </button>
       <button class="rightbutton">
-        <img src="./icon/x15.png" onclick="playfunction(2)" style="width: 70%;"></img>
+        <img src="./icon/x15.png" onclick="changespeed(2)" style="width: 70%;"></img>
       </button>
       <button class="rightbutton">
-        <img src="./icon/x1.png" onclick="playfunction(2.5)" style="width: 70%;"></img>
+        <img src="./icon/x1.png" onclick="changespeed(2.5)" style="width: 70%;"></img>
       </button>
     </div>
   </div>
@@ -190,6 +190,11 @@
 
   <script>
     const data = [
+      {
+        "id": 0,
+        "picture": "./icon/logo.png",
+        "vocabulary": "Clothes"
+      },
       {
         "id": 1,
         "picture": "./img/001 clothes.jpg",

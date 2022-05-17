@@ -381,6 +381,19 @@
 
     }
     function backButton(id) {
+      if (id)
+        clickchange = true;
+
+      index--;
+      if (index < 0) {
+        index = 0;
+      }
+      animation(index);
+      $("div#questnumber").text((index + 1) + "/" + (data.length));
+
+      //clickchange = false;
+    }
+    async function playfunction() {
       if (!play) {
 
       play = true;

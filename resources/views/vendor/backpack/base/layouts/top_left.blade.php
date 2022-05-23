@@ -4,6 +4,11 @@
 
 <head>
   @include(backpack_view('inc.head'))
+  <style>
+    body {
+      font-family: LoveAndJoy3;
+    }
+  </style>
 </head>
 
 <body class="{{ config('backpack.base.body_class') }}">

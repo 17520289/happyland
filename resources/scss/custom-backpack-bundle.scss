@@ -31,6 +31,16 @@ $theme-colors: map-merge(
   $theme-colors
 );
 
+@font-face {
+  font-family: LoveAndJoy3;
+  src: url('../font/LoveAndJoy3.ttf');
+}
+
+@font-face {
+  font-family: simkai;
+  src: url('../font/simkai.ttf');
+}
+
 @import "../../node_modules/@digitallyhappy/backstrap/src/scss/_backstrap_miscellaneous";
 
 @import "../../node_modules/@coreui/coreui/scss/coreui";

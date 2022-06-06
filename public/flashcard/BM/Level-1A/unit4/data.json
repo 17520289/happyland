@@ -1,0 +1,80 @@
+const data = [
+    {
+      "id": 0,
+      "picture": "./icon/logo.png",
+      "vocabulary": "Warna",
+      "sound": "./sound/unit 1 parts of body.mp3"
+    },
+    {
+    "id": 50,
+    "picture": "./img/050 red.jpg",
+    "vocabulary": "merah",
+    "sound": "./sound/merah.wav"
+    },
+    {
+      "id": 51,
+      "picture": "./img/051 orange.jpg",
+      "vocabulary": "jingga",
+      "sound": "./sound/jingga.wav"
+    },
+    {
+      "id": 52,
+      "picture": "./img/052 yellow.jpg",
+      "vocabulary": "kuning",
+      "sound": "./sound/kuning.wav"
+    },
+    {
+      "id": 53,
+      "picture": "./img/053 green.jpg",
+      "vocabulary": "hijau",
+      "sound": "./sound/hijau.wav"
+    },
+    {
+      "id": 54,
+      "picture": "./img/054 blue.jpg",
+      "vocabulary": "biru",
+      "sound": "./sound/biru.wav"
+    },
+    {
+      "id": 55,
+      "picture": "./img/055 indigo.jpg",
+      "vocabulary": "biru nila",
+      "sound": "./sound/biru nila.wav"
+    },
+    {
+      "id": 56,
+      "picture": "./img/056 purple.jpg",
+      "vocabulary": "ungu",
+      "sound": "./sound/ungu.wav"
+    },
+    {
+      "id": 57,
+      "picture": "./img/057 pink.jpg",
+      "vocabulary": "merah jambu",
+      "sound": "./sound/merah jambu.wav"
+    },
+    {
+      "id": 58,
+      "picture": "./img/058 black.jpg",
+      "vocabulary": "hitam",
+      "sound": "./sound/hitam.wav"
+    },
+    {
+      "id": 59,
+      "picture": "./img/059 white.jpg",
+      "vocabulary": "putih",
+      "sound": "./sound/putih.wav"
+    },
+    {
+      "id": 60,
+      "picture": "./img/060 gray.jpg",
+      "vocabulary": "kelabu",
+      "sound": "./sound/kelabu.wav"
+    },
+    {
+      "id": 61,
+      "picture": "./img/061 brown.jpg",
+      "vocabulary": "perang",
+      "sound": "./sound/perang.wav"
+    },
+  ]

@@ -161,6 +161,7 @@ function getQuestion() {
   } else {
     document.getElementById("backButton").hidden = false;
   }
+  // next button and finish button
   if (iQuestion === questions.length - 1) {
     document.getElementById("nextButton").innerHTML =
       '<button id="nextButton" onclick="finish()"><img src="../../../public/img/icon/finish-btn.png"alt="" class="footer__img"></button>';
@@ -168,7 +169,7 @@ function getQuestion() {
     document.getElementById("nextButton").innerHTML =
       '<button id="nextButton" onclick="nextQuestion()"><img src="../../../public/img/icon/Ui-next.png"alt="" class="footer__img"></button>';
   }
-
+  // end of line 164
   document.getElementById("yeah").remove();
   document.getElementById("sad").remove();
 }

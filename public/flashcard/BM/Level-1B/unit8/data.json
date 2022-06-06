@@ -1,0 +1,170 @@
+const data = [
+    {
+      "id": 0,
+      "picture": "./icon/logo.png",
+      "vocabulary": "Pergerakan",
+      "sound": "./sound/unit 1 parts of body.mp3"
+    },
+      {
+        "id": 174,
+        "picture": "./img/174 eat.jpg",
+        "vocabulary": "makan",
+        "sound": "./sound/makan.wav"
+      },
+      {
+        "id": 175,
+        "picture": "./img/175 drink.jpeg",
+        "vocabulary": "minum",
+        "sound": "./sound/minum.wav"
+      },
+      {
+        "id": 176,
+        "picture": "./img/176 play.jpg",
+        "vocabulary": "main",
+        "sound": "./sound/main.wav"
+      },
+      {
+        "id": 177,
+        "picture": "./img/177 sleep.jpg",
+        "vocabulary": "tidur",
+        "sound": "./sound/tidur.wav"
+      },
+      {
+        "id": 178,
+        "picture": "./img/178 read.jpg",
+        "vocabulary": "baca",
+        "sound": "./sound/baca.wav"
+      },
+      {
+        "id": 179,
+        "picture": "./img/179 write.jpg",
+        "vocabulary": "tulis",
+        "sound": "./sound/tulis.wav"
+      },
+      {
+        "id": 180,
+        "picture": "./img/180 draw.jpg",
+        "vocabulary": "lukis",
+        "sound": "./sound/lukis.wav"
+      },
+      {
+        "id": 181,
+        "picture": "./img/181 sit.jpg",
+        "vocabulary": "duduk",
+        "sound": "./sound/duduk.wav"
+      },
+      {
+        "id": 182,
+        "picture": "./img/182 walk.jpg",
+        "vocabulary": "jalan",
+        "sound": "./sound/jalan.wav"
+      },
+      {
+        "id": 183,
+        "picture": "./img/183 run.jpg",
+        "vocabulary": "lari",
+        "sound": "./sound/lari.wav"
+      },
+      {
+        "id": 184,
+        "picture": "./img/184 stand.jpg",
+        "vocabulary": "berdiri",
+        "sound": "./sound/berdiri.wav"
+      },
+      {
+        "id": 185,
+        "picture": "./img/185 jump.jpeg",
+        "vocabulary": "lompat",
+        "sound": "./sound/lompat.wav"
+      },
+      {
+        "id": 186,
+        "picture": "./img/186 open.jpg",
+        "vocabulary": "buka",
+        "sound": "./sound/buka.wav"
+      },
+      {
+        "id": 187,
+        "picture": "./img/187 close.jpg",
+        "vocabulary": "tutup",
+        "sound": "./sound/tutup.wav"
+      },
+      {
+        "id": 188,
+        "picture": "./img/188 say.jpg",
+        "vocabulary": "cakap",
+        "sound": "./sound/cakap.wav"
+      },
+      {
+        "id": 189,
+        "picture": "./img/189 listen.jpg",
+        "vocabulary": "dengar",
+        "sound": "./sound/dengar.wav"
+      },
+      {
+        "id": 190,
+        "picture": "./img/190 ask.jpg",
+        "vocabulary": "tanya",
+        "sound": "./sound/tanya.wav"
+      },
+      {
+        "id": 191,
+        "picture": "./img/191 wash.jpeg",
+        "vocabulary": "cuci",
+        "sound": "./sound/cuci.wav"
+      },
+      {
+        "id": 192,
+        "picture": "./img/192 shout.jpg",
+        "vocabulary": "jerit",
+        "sound": "./sound/jerit.wav"
+      },
+      {
+        "id": 193,
+        "picture": "./img/193 buy.jpeg",
+        "vocabulary": "beli",
+        "sound": "./sound/beli.wav"
+      },
+      {
+        "id": 194,
+        "picture": "./img/194 sell.jpg",
+        "vocabulary": "jual",
+        "sound": "./sound/jual.wav"
+      },
+      {
+        "id": 195,
+        "picture": "./img/195 cook.jpeg",
+        "vocabulary": "masak",
+        "sound": "./sound/masak.wav"
+      },
+      {
+        "id": 196,
+        "picture": "./img/196 wear.jpg",
+        "vocabulary": "pakai",
+        "sound": "./sound/pakai.wav"
+      },
+      {
+        "id": 197,
+        "picture": "./img/197 fly.jpeg",
+        "vocabulary": "terbang",
+        "sound": "./sound/terbang.wav"
+      },
+      {
+        "id": 198,
+        "picture": "./img/198 laugh.jpg",
+        "vocabulary": "ketawa",
+        "sound": "./sound/ketawa.wav"
+      },
+      {
+        "id": 199,
+        "picture": "./img/199 cry.jpg",
+        "vocabulary": "menangis",
+        "sound": "./sound/menangis.wav"
+      },
+      {
+        "id": 200,
+        "picture": "./img/200 smile.jpg",
+        "vocabulary": "senyum",
+        "sound": "./sound/senyum.wav"
+      }
+    ]

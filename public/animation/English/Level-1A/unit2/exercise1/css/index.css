@@ -1,5 +1,5 @@
 body, html{
-    background-image: url("../img/unit2-2.jpg");
+    background-image: url("../../public/img/unit2-22.jpg");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     height: 100%;
@@ -42,6 +42,7 @@ body, html{
 .top-bar__name__sub{
     font-size: 20px;
 	color: #f134a6;
+    margin-left: 20px;
 }
 .exercise{
     text-align: center;
@@ -63,7 +64,7 @@ body, html{
 
 }
 .top-bar__icon__markboard{
-    background-image: url("../img/markboard-68.png");
+    background-image: url("../../public/img/markboard-68.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     height: 100%;

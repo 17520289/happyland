@@ -46,6 +46,7 @@ html {
 .top-bar__name__sub {
   font-size: 20px;
   color: black;
+  margin-left: 20px;
 }
 .exercise {
   text-align: center;

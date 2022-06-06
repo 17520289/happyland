@@ -1,141 +1,188 @@
-[
+const data = [
     {
-        "id": 0,
-        "picture":  "./img/body/001 body.jpg",
-        "vocabulary": "body",
-        "sound":"./sound/body/body.wav"
+      "id": 0,
+      "picture": "./icon/logo.png",
+      "vocabulary": "服装",
+      "sound": "./sound/unit 1 parts of body.mp3"
     },
-    {
+      {
         "id": 1,
-        "picture":  "./img/body/002 head.jpg",
-        "vocabulary": "head",
-        "sound":"./sound/body/head.wav"
-    },
-    {
+        "picture": "./img/001 clothes.jpg",
+        "vocabulary": "衣服",
+        "sound": "./sound/clothes.wav"
+      },
+      {
         "id": 2,
-        "picture":  "./img/body/003 neck.jpg",
-        "vocabulary": "neck",
-        "sound":"./sound/body/neck.wav"
-    },
-    {
+        "picture": "./img/002 T-shirt.jpg",
+        "vocabulary": "T 恤",
+        "sound": "./sound/t-shirt.wav"
+      },
+      {
         "id": 3,
-        "picture":  "./img/body/004 shoulder.jpg",
-        "vocabulary": "shoulder",
-        "sound":"./sound/body/shoulder.wav"
-    },
-    {
+        "picture": "./img/003 shirt.jpg",
+        "vocabulary": "衬衫",
+        "sound": "./sound/shirt.wav"
+      },
+      {
         "id": 4,
-        "picture":  "./img/body/005 hand.jpg",
-        "vocabulary": "hand",
-        "sound":"./sound/body/hand.wav"
-    },
-    {
+        "picture": "./img/004 blouse.jpg",
+        "vocabulary": "女衬衫",
+        "sound": "./sound/blouse.wav"
+      },
+      {
         "id": 5,
-        "picture":  "./img/body/006 arm.jpg",
-        "vocabulary": "arm",
-        "sound":"./sound/body/arm.wav"
-    },
-    {
+        "picture": "./img/005 singlet.jpg",
+        "vocabulary": "背心",
+        "sound": "./sound/singlet.wav"
+      },
+      {
         "id": 6,
-        "picture":  "./img/body/007 elbow.jpg",
-        "vocabulary": "elbow",
-        "sound":"./sound/body/elbow.wav"
-    },
-    {
+        "picture": "./img/006 coat.jpg",
+        "vocabulary": "外套",
+        "sound": "./sound/coat.wav"
+      },
+      {
         "id": 7,
-        "picture":  "./img/body/008 wrist.jpg",
-        "vocabulary": "wrist",
-        "sound":"./sound/body/wrist.wav"
-    },
-    {
+        "picture": "./img/007 cardigan.jpg",
+        "vocabulary": "毛衣",
+        "sound": "./sound/cardigan.wav"
+      },
+      {
         "id": 8,
-        "picture":  "./img/body/009 fingers.jpg",
-        "vocabulary": "fingers",
-        "sound":"./sound/body/fingers.wav"
-    },
-    {
+        "picture": "./img/008 pants.jpg",
+        "vocabulary": "裤子",
+        "sound": "./sound/pants.wav"
+      },
+      {
         "id": 9,
-        "picture":  "./img/body/010 nails.jpg",
-        "vocabulary": "nails",
-        "sound":"./sound/body/nails.wav"
-    },
-    {
+        "picture": "./img/009 shorts.jpg",
+        "vocabulary": "短裤",
+        "sound": "./sound/shorts.wav"
+      },
+      {
         "id": 10,
-        "picture":  "./img/body/011 armpit.jpg",
-        "vocabulary": "armpit",
-        "sound":"./sound/body/armpit.wav"
-    },
-    {
+        "picture": "./img/010 trousers.jpg",
+        "vocabulary": "长裤",
+        "sound": "./sound/trousers.wav"
+      },
+      {
         "id": 11,
-        "picture":  "./img/body/012 back.jpg",
-        "vocabulary": "back",
-        "sound":"./sound/body/back.wav"
-    },
-    {
+        "picture": "./img/011 skirt.jpg",
+        "vocabulary": "裙子",
+        "sound": "./sound/skirt.wav"
+      },
+      {
         "id": 12,
-        "picture":  "./img/body/013 chest.jpg",
-        "vocabulary": "chest",
-        "sound":"./sound/body/chest.wav"
-    },
-    {
+        "picture": "./img/012 dress.jpg",
+        "vocabulary": "连衣裙",
+        "sound": "./sound/dress.wav"
+      },
+      {
         "id": 13,
-        "picture":  "./img/body/014 waist.jpg",
-        "vocabulary": "waist",
-        "sound":"./sound/body/waist.wav"
-    },
-    {
+        "picture": "./img/013 pyjamas.jpg",
+        "vocabulary": "睡衣",
+        "sound": "./sound/pajamas.wav"
+      },
+      {
         "id": 14,
-        "picture":  "./img/body/015 stomach.png",
-        "vocabulary": "stomach",
-        "sound":"./sound/body/stomach.wav"
-    },
-    {
+        "picture": "./img/014 raincoat.png",
+        "vocabulary": "雨衣",
+        "sound": "./sound/raincoat.wav"
+      },
+      {
         "id": 15,
-        "picture":  "./img/body/016 legs.jpg",
-        "vocabulary": "legs",
-        "sound":"./sound/body/legs.wav"
-    },
-    {
+        "picture": "./img/015 uniform.jpg",
+        "vocabulary": "制服",
+        "sound": "./sound/uniform.wav"
+      },
+      {
         "id": 16,
-        "picture":  "./img/body/017 knees.jpg",
-        "vocabulary": "knees",
-        "sound":"./sound/body/knees.wav"
-    },
-    {
+        "picture": "./img/016 school uniform.jpg",
+        "vocabulary": "校服",
+        "sound": "./sound/school uniform.wav"
+      },
+      {
         "id": 17,
-        "picture":  "./img/body/018 thigh.png",
-        "vocabulary": "thigh",
-        "sound":"./sound/body/thigh.wav"
-    },
-    {
+        "picture": "./img/017 hat.jpg",
+        "vocabulary": "帽子",
+        "sound": "./sound/hat.wav"
+      },
+      {
         "id": 18,
-        "picture":  "./img/body/019 calf.jpg",
-        "vocabulary": "calf",
-        "sound":"./sound/body/calf.wav"
-    },
-    {
+        "picture": "./img/018 scarf.jpg",
+        "vocabulary": "围巾",
+        "sound": "./sound/scarf.wav"
+      },
+      {
         "id": 19,
-        "picture":  "./img/body/020 feet.jpg",
-        "vocabulary": "feet",
-        "sound":"./sound/body/feet.wav"
-    },
-    {
+        "picture": "./img/019 necktie.jpg",
+        "vocabulary": "领带",
+        "sound": "./sound/necktie.wav"
+      },
+      {
         "id": 20,
-        "picture":  "./img/body/021 ankle.jpg",
-        "vocabulary": "ankle",
-        "sound":"./sound/body/ankle.wav"
-    },
-    {
+        "picture": "./img/020 gloves.jpg",
+        "vocabulary": "手套",
+        "sound": "./sound/gloves.wav"
+      },
+      {
         "id": 21,
-        "picture":  "./img/body/022 toes.jpg",
-        "vocabulary": "toes",
-        "sound":"./sound/body/toe.wav"
-    },
-    {
+        "picture": "./img/021 belt.jpg",
+        "vocabulary": "腰带",
+        "sound": "./sound/belt.wav"
+      },
+      {
         "id": 22,
-        "picture":  "./img/body/023 skin.png",
-        "vocabulary": "skin",
-        "sound":"./sound/body/skin.wav"
-    }
-]
-}
+        "picture": "./img/022 socks.jpg",
+        "vocabulary": "袜子",
+        "sound": "./sound/socks.wav"
+      },
+      {
+        "id": 23,
+        "picture": "./img/023 button.jpg",
+        "vocabulary": "钮扣",
+        "sound": "./sound/button.wav"
+      },
+      {
+        "id": 24,
+        "picture": "./img/024 pocket.jpg",
+        "vocabulary": "口袋",
+        "sound": "./sound/pocket.wav"
+      },
+      {
+        "id": 25,
+        "picture": "./img/025 shoes.jpg",
+        "vocabulary": "鞋",
+        "sound": "./sound/shoes.wav"
+      },
+      {
+        "id": 26,
+        "picture": "./img/026 sandals.png",
+        "vocabulary": "凉鞋",
+        "sound": "./sound/sandals.wav"
+      },
+      {
+        "id": 27,
+        "picture": "./img/027 slippers.jpg",
+        "vocabulary": "拖鞋",
+        "sound": "./sound/slippers.wav"
+      },
+      {
+        "id": 28,
+        "picture": "./img/028 boots.png",
+        "vocabulary": "皮靴",
+        "sound": "./sound/boots.wav"
+      },
+      {
+        "id": 29,
+        "picture": "./img/029 trainers.png",
+        "vocabulary": "运动鞋",
+        "sound": "./sound/trainers.wav"
+      },
+      {
+        "id": 30,
+        "picture": "./img/030 leather shoes.png",
+        "vocabulary": "皮鞋",
+        "sound": "./sound/leather shoes.wav"
+      },
+    ]

@@ -13,6 +13,7 @@
   <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
   <!-- <link href="./css/style.css" rel="stylesheet"> -->
   <link href="./css/styles.css" rel="stylesheet">
+  <link href="../../../public/css/main.css" rel="stylesheet">
   <title>Unit 6 </title>
 
 
@@ -190,14 +191,17 @@
                 <img src="../public/img/Ui-index.png" alt="" class="top-bar__icon__img">
               </a>
               <div class="top-bar__1a" id="1a_active">
-                1a
+                1A
               </div>
-              <div class="top-bar__name">
-                Unit 6: Food
-                <div class="top-bar__name__sub" style="font-size: 20px;">
+              <div>
+                <div class="top-bar__name" lang="title">
+                  Unit 6: Food
+                </div>
+                <div class="top-bar__name__sub" style="font-size: 20px;" lang="decription">
                   Match the correct food
                 </div>
               </div>
+
             </div>
           </div>
           <div class="col-3">
@@ -213,7 +217,7 @@
               <!-- function onSound -->
               <img src="../../../public/img/icon/Ui-xmute.png" alt="" class="top-bar__icon__sound" id="imgSoundTrack"
                 onclick="onSound('../../../public/img/icon/Ui-xmute.png','../../../public/img/icon/Ui-mute.png')">
-              <audio id="audioSoundTrack" preload="auto" loop>
+              <audio id="audioSoundTrack" preload="auto" loop autoplay>
                 <source src="../../../public/sound/soundtrack.wav" type="audio/wav">
               </audio>
               </img>
@@ -290,8 +294,8 @@
   <audio id='soundPopOut' src='../../../public/sound/popout.wav'></audio>
   <audio autoplay src='../../../public/sound/magic.wav'></audio>
   <!-- js -->
-  <script type="text/javascript" src="./js/index.js"></script>
   <script type="text/javascript" src="../../../public/js/index.js"></script>
+  <script type="text/javascript" src="../../../public/js/lang.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

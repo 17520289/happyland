@@ -1,0 +1,98 @@
+const data = [
+  {
+    "id": 0,
+    "picture": "./icon/logo.png",
+    "vocabulary": "Muka",
+    "sound": "./sound/unit 1 parts of body.mp3"
+  },
+  {
+    "id": 24,
+    "picture": "./img/024 face.jpg",
+    "vocabulary": "muka",
+    "sound": "./sound/muka.wav"
+  },
+  {
+    "id": 25,
+    "picture": "./img/025 hair.jpg",
+    "vocabulary": "rambut",
+    "sound": "./sound/rambut.wav"
+  },
+  {
+    "id": 26,
+    "picture": "./img/026 mouth.jpg",
+    "vocabulary": "mulut",
+    "sound": "./sound/mulut.wav"
+  },
+  {
+    "id": 27,
+    "picture": "./img/027 teeth.jpg",
+    "vocabulary": "gigi",
+    "sound": "./sound/gigi.wav"
+  },
+  {
+    "id": 28,
+    "picture": "./img/028 ears.jpg",
+    "vocabulary": "telinga",
+    "sound": "./sound/telinga.wav"
+  },
+  {
+    "id": 29,
+    "picture": "./img/029 nose.jpg",
+    "vocabulary": "hidung",
+    "sound": "./sound/hidung.wav"
+  },
+  {
+    "id": 30,
+    "picture": "./img/030 eyes.jpg",
+    "vocabulary": "mata",
+    "sound": "./sound/mata.wav"
+  },
+  {
+    "id": 31,
+    "picture": "./img/031 eyebrows.jpg",
+    "vocabulary": "kening",
+    "sound": "./sound/kening.wav"
+  },
+  {
+    "id": 32,
+    "picture": "./img/032 eyelashes.jpg",
+    "vocabulary": "bulu mata",
+    "sound": "./sound/bulu mata.wav"
+  },
+  {
+    "id": 33,
+    "picture": "./img/033 lips.jpg",
+    "vocabulary": "bibir",
+    "sound": "./sound/bibir.wav"
+  },
+  {
+    "id": 34,
+    "picture": "./img/034 tongue.jpg",
+    "vocabulary": "lidah",
+    "sound": "./sound/lidah.wav"
+  },
+  {
+    "id": 35,
+    "picture": "./img/035 cheek.jpg",
+    "vocabulary": "pipi",
+    "sound": "./sound/pipi.wav"
+  },
+  {
+    "id": 36,
+    "picture": "./img/036 forehead.jpg",
+    "vocabulary": "dahi",
+    "sound": "./sound/dahi.wav"
+  },
+  {
+    "id": 37,
+    "picture": "./img/037 sideburns.jpg",
+    "vocabulary": "bauk",
+    "sound": "./sound/bauk.wav"
+  },
+  {
+    "id": 38,
+    "picture": "./img/038 chin.jpg",
+    "vocabulary": "dagu",
+    "sound": "./sound/dagu.wav"
+  },
+  ]

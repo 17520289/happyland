@@ -1,0 +1,80 @@
+const data = [
+    {
+      "id": 0,
+      "picture": "./icon/logo.png",
+      "vocabulary": "颜色",
+      "sound": "./sound/unit 1 parts of body.mp3"
+    },
+      {
+        "id": 50,
+        "picture": "./img/050 red.jpg",
+        "vocabulary": "红",
+        "sound": "./sound/red.wav"
+      },
+      {
+        "id": 51,
+        "picture": "./img/051 orange.jpg",
+        "vocabulary": "橙",
+        "sound": "./sound/orange.wav"
+      },
+      {
+        "id": 52,
+        "picture": "./img/052 yellow.jpg",
+        "vocabulary": "黄",
+        "sound": "./sound/yellow.wav"
+      },
+      {
+        "id": 53,
+        "picture": "./img/053 green.jpg",
+        "vocabulary": "绿",
+        "sound": "./sound/green.wav"
+      },
+      {
+        "id": 54,
+        "picture": "./img/054 blue.jpg",
+        "vocabulary": "蓝",
+        "sound": "./sound/blue.wav"
+      },
+      {
+        "id": 55,
+        "picture": "./img/055 indigo.jpg",
+        "vocabulary": "靛",
+        "sound": "./sound/indigo.wav"
+      },
+      {
+        "id": 56,
+        "picture": "./img/056 purple.jpg",
+        "vocabulary": "紫",
+        "sound": "./sound/purple.wav"
+      },
+      {
+        "id": 57,
+        "picture": "./img/057 pink.jpg",
+        "vocabulary": "粉红",
+        "sound": "./sound/pink.wav"
+      },
+      {
+        "id": 58,
+        "picture": "./img/058 black.jpg",
+        "vocabulary": "黑",
+        "sound": "./sound/black.wav"
+      },
+      {
+        "id": 59,
+        "picture": "./img/059 white.jpg",
+        "vocabulary": "白",
+        "sound": "./sound/white.wav"
+      },
+      {
+        "id": 60,
+        "picture": "./img/060 gray.jpg",
+        "vocabulary": "灰",
+        "sound": "./sound/gray.wav"
+      },
+      {
+        "id": 61,
+        "picture": "./img/061 brown.jpg",
+        "vocabulary": "褐",
+        "sound": "./sound/brown.wav"
+      },
+    ]

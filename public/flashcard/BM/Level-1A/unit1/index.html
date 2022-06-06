@@ -2,174 +2,151 @@
 <html>
 
 <head>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+   <link href="../../Content/css/style.css" rel="stylesheet">
+   <style>
+    .modal {
+      bottom: initial !important;
+      position: relative;
+      z-index: 2000;
+    }
+  
+    .previous {
+      background-color: #0026ff;
+      color: white;
+    }
+  
+    .next {
+      background-color: #0026ff;
+      color: white;
+    }
+  
+    .top-bar__1a {
+      padding: 10px 20px;
+      border: 4px solid #fff;
+      background-color: #9EDCF8;
+      color: white;
+      font-size: 30px;
+      text-align: center;
+      border-radius: 100%;
+      width: 80px;
+    }
+  
+    .top-bar__1b {
+      padding: 5px 10px;
+      background-color: transparent;
+      font-size: 1.2rem;
+      text-align: center;
+      border-radius: 10%;
+      color: #2682ff;
+      width: 75px;
+      border: 4px solid #2682ff;
+    }
+  
+    .column {
+      display: flex;
+      flex-wrap: wrap;
+      align-content: center;
+    }
+  
+    .rightbuttons {
+      display: flex;
+      flex-flow: row wrap;
+    }
+  
+    .rightbutton {
+    }
+  
+    .round {
+      border-radius: 50%;
+    }
+  
+    .bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+  
+    button {
+      border: none;
+      background: none;
+    }
+  
+    button {
+      padding: 0;
+      border: none;
+      font: inherit;
+      color: inherit;
+      background-color: transparent;
+      cursor: pointer;
+    }
+  
+    button:focus {
+      outline: 0;
+    }
+  </style>
 </head>
-<style>
-  .modal {
-    bottom: initial !important;
-    position: relative;
-    z-index: 2000;
-  }
-
-  /* a {
-  text-decoration: none;
-  display: inline-block;
-  padding: 8px 16px;
-} */
-
-  /* a:hover {
-  background-color: #9EDCF8;
-  color: black;
-} */
-
-  .previous {
-    background-color: #0026ff;
-    color: white;
-  }
-
-  .next {
-    background-color: #0026ff;
-    color: white;
-  }
-
-  .top-bar__1a {
-    padding: 10px 20px;
-    border: 4px solid #fff;
-    background-color: #9EDCF8;
-    color: white;
-    font-size: 30px;
-    text-align: center;
-    border-radius: 100%;
-    width: 80px;
-  }
-
-  .top-bar__1b {
-    padding: 10px 10px;
-    background-color: #9EDCF8;
-    color: white;
-    font-size: 1rem;
-    text-align: center;
-    border-radius: 10%;
-    width: 60px;
-  }
-
-  .column {
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-  }
-
-  .rightbuttons {
-    display: flex;
-    flex-flow: column wrap;
-  }
-
-  .rightbutton {
-    margin-top: 10%
-  }
-
-  .round {
-    border-radius: 50%;
-  }
-
-  .bg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-  }
-
-  button {
-    border: none;
-    background: none;
-  }
-
-  button {
-    padding: 0;
-    border: none;
-    font: inherit;
-    color: inherit;
-    background-color: transparent;
-    cursor: pointer;
-  }
-
-  button:focus {
-    outline: 0;
-  }
-</style>
 
 <body>
   <div>
     <img class="bg" src="./icon/backgroundmauxanh.png"> </img>
-    <div class="row" style="padding-top: 10px">
-      <div class="col-2" style=" display: flex;flex-wrap: wrap;justify-content: flex-end">
-        <a href="../../Level-1A/lesson/lesson.html" style=" text-decoration: none;">
-          <img src="./icon/button1.png" style="width: 4vw; margin: 0;">
-          </img>
-        </a>
+    <div>
+      <div class="row pt-5">
+        <div class="col-md-2 text-end left-buttons">
+          <a class="rightbutton" href="../../Level-1A/lesson/lesson.html" style=" text-decoration: none;">
+            <img src="./icon/button1.png"></img>
+          </a>
+        </div>
+        <div class="col-md-8 text-center middle-buttons">
+          <button class="h-100 rightbutton" onclick="muteSound()">
+            <img id="img_mute" src="./icon/unmute.png" style="width: 70%;"></img>
+          </button>
+          <button class="h-100 rightbutton" onclick="playfunction()">
+            <img id="img_play" src="./icon/play.png" style="width: 70%;"></img>
+          </button>
+          <button class="h-100 rightbutton">
+            <img id="speed1" src="./icon/x25.png" onclick="changespeed(1)" style="width: 70%;"></img>
+          </button>
+          <button class="h-100 rightbutton">
+            <img id="speed15" src="./icon/x2.png" onclick="changespeed(1.5)" style="width: 70%;"></img>
+          </button>
+          <button class="h-100 rightbutton">
+            <img id="speed2" src="./icon/x15.png" onclick="changespeed(2)" style="width: 70%;"></img>
+          </button>
+          <button class="h-100 rightbutton">
+            <img id="speed25" src="./icon/x1.png" onclick="changespeed(2.5)" style="width: 70%;"></img>
+          </button>
+        </div>
+        <div class="col-md-2 text-left right-buttons">
+          <button class="h-100 rightbutton" style="cursor: text; pointer-events: none;">
+            <div id="questnumber" class="top-bar__1b">
+            1/28
+            </div>
+          </button>
+        </div>
       </div>
-      <div class="col-1">
-        <a href="../../Level-1A/lesson/lesson.html" style=" text-decoration: none;">
-          <div class="top-bar__1a">
-            1a
-        </a>
-      </div>
-    </div>
-    <div class="col-3 column" id="">
-      <p style="font-size: 2rem; font-weight: bold">Unit 1 : Angota Badan</p>
-    </div>
-    <div class="col-1 column">
-      <div class="top-bar__1b" id="questnumber">
-        1/28
-      </div>
-    </div>
-    <div class="col-3" style="width: 5vw;">
-
-    </div>
-
-    <div class="col-2" style=" display: flex;flex-wrap: wrap;justify-content: center;">
-      <img src="./icon/logo.png" style="width: 5vw; margin: 0;"></img>
     </div>
   </div>
-  </div>
-  <div class="container d-flex justify-content-between" style="height: 40vw;">
+  <div class="container d-flex justify-content-between" style="height: 40vw; pointer-events: none;">
     <div style="width: 100%;">
       <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
         aria-hidden="true" data-backdrop="false">
         <div class="modal-dialog modal-lg" style="max-width: 900px;">
-          <div class="modal-content d-flex flex-row justify-content-around">
+          <div class="modal-content d-flex flex-row justify-content-around px-2">
             <div style="height: 30vw; width: 30vw;" class="d-flex align-self-center ">
-              <img id="img" src="img/001 body.jpg" style="width: 100%;height: 100%;object-fit: contain"></img>
+              <img id="img" src="img/001 body.jpg" style="width: 100%;height: 100%;object-fit: contain;"></img>
             </div>
             <div class="d-flex align-self-center">
-              <b id="text" style=" font-size: 6rem; color: red; ">BODY</b>
+              <b id="text" style="text-align: center ;font-size: 6rem; color: red; ">BODY</b>
             </div>
+            <img src="./icon/logo.png" style="width: 5vw; height: 5vw;bottom: 2%;position: absolute;right: 1%;"></img>
           </div>
         </div>
       </div>
 
     </div>
-    <div class="rightbuttons" style="position:absolute; right:5%;top:15%">
-      <button class="rightbutton" onclick="muteSound()">
-        <img src="./icon/mute.png" style="width: 70%;"></img>
-      </button>
-      <button class="rightbutton" onclick="playfunction()">
-        <img src="./icon/play.png" style="width: 70%;"></img>
-      </button>
-      <button class="rightbutton">
-        <img src="./icon/x25.png" onclick="changespeed(1)" style="width: 70%;"></img>
-      </button>
-      <button class="rightbutton">
-        <img src="./icon/x2.png" onclick="playfunction(1.5)" style="width: 70%;"></img>
-      </button>
-      <button class="rightbutton">
-        <img src="./icon/x15.png" onclick="playfunction(2)" style="width: 70%;"></img>
-      </button>
-      <button class="rightbutton">
-        <img src="./icon/x1.png" onclick="playfunction(2.5)" style="width: 70%;"></img>
-      </button>
-    </div>
+
   </div>
   <div>
     <div style="position: absolute; left: 10%;bottom: 0%;">
@@ -184,157 +161,156 @@
     </div>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
   <script>
     const data = [
-      {
-        "id": 1,
-        "picture": "./img/001 body.jpg",
-        "vocabulary": "b\nadan",
-        "sound": "./sound/badan.wav"
-      },
-      {
-        "id": 2,
-        "picture": "./img/002 head.jpg",
-        "vocabulary": "kepala",
-        "sound": "./sound/kapala.wav"
-      },
-      {
-        "id": 3,
-        "picture": "./img/003 neck.jpg",
-        "vocabulary": "leher",
-        "sound": "./sound/leher.wav"
-      },
-      {
-        "id": 4,
-        "picture": "./img/004 shoulder.jpg",
-        "vocabulary": "bahu",
-        "sound": "./sound/bahu.wav"
-      },
-      {
-        "id": 5,
-        "picture": "./img/005 hand.jpg",
-        "vocabulary": "tangan",
-        "sound": "./sound/tangan.wav"
-      },
-      {
-        "id": 6,
-        "picture": "./img/006 arm.jpg",
-        "vocabulary": "lengan",
-        "sound": "./sound/lengan.wav"
-      },
-      {
-        "id": 7,
-        "picture": "./img/007 elbow.jpeg",
-        "vocabulary": "siku",
-        "sound": "./sound/siku.wav"
-      },
-      {
-        "id": 8,
-        "picture": "./img/008 wrist.jpg",
-        "vocabulary": "pergelangan tangan",
-        "sound": "./sound/pergelangan tangan.wav"
-      },
-      {
-        "id": 9,
-        "picture": "./img/009 fingers.jpg",
-        "vocabulary": "jari",
-        "sound": "./sound/jari.wav"
-      },
-      {
-        "id": 10,
-        "picture": "./img/010 nails.jpg",
-        "vocabulary": "kuku",
-        "sound": "./sound/kuku.wav"
-      },
-      {
-        "id": 11,
-        "picture": "./img/011 armpit.jpg",
-        "vocabulary": "ketiak",
-        "sound": "./sound/ketiak.wav"
-      },
-      {
-        "id": 12,
-        "picture": "./img/012 back.jpg",
-        "vocabulary": "belakang",
-        "sound": "./sound/belakang.wav"
-      },
-      {
-        "id": 13,
-        "picture": "./img/013 chest.jpg",
-        "vocabulary": "dada",
-        "sound": "./sound/dada.wav"
-      },
-      {
-        "id": 14,
-        "picture": "./img/014 waist.jpg",
-        "vocabulary": "pinggang",
-        "sound": "./sound/pinggan.wav"
-      },
-      {
-        "id": 15,
-        "picture": "./img/015 stomach.png",
-        "vocabulary": "perut",
-        "sound": "./sound/perut.wav"
-      },
-      {
-        "id": 16,
-        "picture": "./img/016 legs.jpg",
-        "vocabulary": "kaki",
-        "sound": "./sound/kaki.wav"
-      },
-      {
-        "id": 17,
-        "picture": "./img/017 knees.jpg",
-        "vocabulary": "lutut",
-        "sound": "./sound/lutut.wav"
-      },
-      {
-        "id": 18,
-        "picture": "./img/018 thigh.png",
-        "vocabulary": "paha",
-        "sound": "./sound/paha.wav"
-      },
-      {
-        "id": 19,
-        "picture": "./img/019 calf.jpg",
-        "vocabulary": "betis",
-        "sound": "./sound/betis.wav"
-      },
-      {
-        "id": 20,
-        "picture": "./img/020 feet.jpg",
-        "vocabulary": "tapak kaki",
-        "sound": "./sound/tapak kaki.wav"
-      },
-      {
-        "id": 21,
-        "picture": "./img/021 ankle.jpg",
-        "vocabulary": "buku lali",
-        "sound": "./sound/buku lali.wav"
-      },
-      {
-        "id": 22,
-        "picture": "./img/022 toes.jpg",
-        "vocabulary": "jari kaki",
-        "sound": "./sound/jari kaki.wav"
-      },
-      {
-        "id": 23,
-        "picture": "./img/023 skin.png",
-        "vocabulary": "kulit",
-        "sound": "./sound/kulit.wav"
-      },
+    {
+      "id": 0,
+      "picture": "./icon/logo.png",
+      "vocabulary": "Anggota Badan",
+      "sound": "./sound/unit 1 parts of body.mp3"
+    },
+    {
+      "id": 1,
+      "picture": "./img/001 body.jpg",
+      "vocabulary": "badan",
+      "sound": "./sound/badan.wav"
+    },
+    {
+      "id": 2,
+      "picture": "./img/002 head.jpg",
+      "vocabulary": "kepala",
+      "sound": "./sound/kapala.wav"
+    },
+    {
+      "id": 3,
+      "picture": "./img/003 neck.jpg",
+      "vocabulary": "leher",
+      "sound": "./sound/leher.wav"
+    },
+    {
+      "id": 4,
+      "picture": "./img/004 shoulder.jpg",
+      "vocabulary": "bahu",
+      "sound": "./sound/bahu.wav"
+    },
+    {
+      "id": 5,
+      "picture": "./img/005 hand.jpg",
+      "vocabulary": "tangan",
+      "sound": "./sound/tangan.wav"
+    },
+    {
+      "id": 6,
+      "picture": "./img/006 arm.jpg",
+      "vocabulary": "lengan",
+      "sound": "./sound/lengan.wav"
+    },
+    {
+      "id": 7,
+      "picture": "./img/007 elbow.jpeg",
+      "vocabulary": "siku",
+      "sound": "./sound/siku.wav"
+    },
+    {
+      "id": 8,
+      "picture": "./img/008 wrist.jpg",
+      "vocabulary": "pergelangan tangan",
+      "sound": "./sound/pergelangan tangan.wav"
+    },
+    {
+      "id": 9,
+      "picture": "./img/009 fingers.jpg",
+      "vocabulary": "jari",
+      "sound": "./sound/jari.wav"
+    },
+    {
+      "id": 10,
+      "picture": "./img/010 nails.jpg",
+      "vocabulary": "kuku",
+      "sound": "./sound/kuku.wav"
+    },
+    {
+      "id": 11,
+      "picture": "./img/011 armpit.jpg",
+      "vocabulary": "ketiak",
+      "sound": "./sound/ketiak.wav"
+    },
+    {
+      "id": 12,
+      "picture": "./img/012 back.jpg",
+      "vocabulary": "belakang",
+      "sound": "./sound/belakang.wav"
+    },
+    {
+      "id": 13,
+      "picture": "./img/013 chest.jpg",
+      "vocabulary": "dada",
+      "sound": "./sound/dada.wav"
+    },
+    {
+      "id": 14,
+      "picture": "./img/014 waist.jpg",
+      "vocabulary": "pinggang",
+      "sound": "./sound/pinggan.wav"
+    },
+    {
+      "id": 15,
+      "picture": "./img/015 stomach.png",
+      "vocabulary": "perut",
+      "sound": "./sound/perut.wav"
+    },
+    {
+      "id": 16,
+      "picture": "./img/016 legs.jpg",
+      "vocabulary": "kaki",
+      "sound": "./sound/kaki.wav"
+    },
+    {
+      "id": 17,
+      "picture": "./img/017 knees.jpg",
+      "vocabulary": "lutut",
+      "sound": "./sound/lutut.wav"
+    },
+    {
+      "id": 18,
+      "picture": "./img/018 thigh.png",
+      "vocabulary": "paha",
+      "sound": "./sound/paha.wav"
+    },
+    {
+      "id": 19,
+      "picture": "./img/019 calf.jpg",
+      "vocabulary": "betis",
+      "sound": "./sound/betis.wav"
+    },
+    {
+      "id": 20,
+      "picture": "./img/020 feet.jpg",
+      "vocabulary": "tapak kaki",
+      "sound": "./sound/tapak kaki.wav"
+    },
+    {
+      "id": 21,
+      "picture": "./img/021 ankle.jpg",
+      "vocabulary": "buku lali",
+      "sound": "./sound/buku lali.wav"
+    },
+    {
+      "id": 22,
+      "picture": "./img/022 toes.jpg",
+      "vocabulary": "jari kaki",
+      "sound": "./sound/jari kaki.wav"
+    },
+    {
+      "id": 23,
+      "picture": "./img/023 skin.png",
+      "vocabulary": "kulit",
+      "sound": "./sound/kulit.wav"
+    },
     ]
     $('.modal').modal('show');
 
@@ -372,12 +348,38 @@
     }
     init();
 
+    function resetSpeed(){
+      $("#speed1").attr("src", "./icon/x25.png");
+      $("#speed15").attr("src", "./icon/x2.png");
+      $("#speed2").attr("src", "./icon/x15.png");
+      $("#speed25").attr("src", "./icon/x1.png");
+    }
     function changespeed(_speed) {
       speed = _speed;
+      resetSpeed();
+      switch(speed){
+        case 1:
+          $("#speed1").attr("src", "./icon/p_x25.png");
+          break;
+        case 1.5:
+          $("#speed15").attr("src", "./icon/p_x2.png");
+          break;
+        case 2:
+          $("#speed2").attr("src", "./icon/p_x15.png");
+          break;
+        case 2.5: 
+          $("#speed25").attr("src", "./icon/p_x1.png");
+          break;
+      }
     }
 
     function muteSound() {
       mute = !mute;
+      if(mute){
+        $("#img_mute").attr("src","./icon/mute.png");
+      }else{
+        $("#img_mute").attr("src","./icon/unmute.png");
+      }
     }
 
     function nextButton(id) {
@@ -409,17 +411,32 @@
     }
     async function playfunction() {
       if (!play) {
-
+        if (index === data.length - 1) index = 0;
         play = true;
         clickchange = false;
 
+        $("#img_play").attr("src","./icon/pause.png");
+
         for (var i = index; i < data.length - 1; i++) {
-          if (clickchange)
+          if (clickchange){
+            $("#img_play").attr("src","./icon/play.png");
             break;
-          nextButton();
+          }
+
+          nextButton(); 
           await sleep(speed * 1000);
+          if (i === data.length - 2) {
+            play = false;
+
+            $("#img_play").attr("src","./icon/play.png");
+            clickchange = true;
+          }
+          console.log(`${play} ${i}`);
         }
       } else {
+        clickchange = true;
+        play = false;
+        $("#img_play").attr("src","./icon/play.png");
         return;
       }
 

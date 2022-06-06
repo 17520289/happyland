@@ -1,0 +1,134 @@
+const data = [
+    {
+        "id": 0,
+        "picture": "./icon/logo.png",
+        "vocabulary": "Sayur-sayuran",
+        "sound": "./sound/unit 1 parts of body.mp3"
+    },
+    {
+      "id": 136,
+      "picture": "./img/136 onion.jpg",
+      "vocabulary": "bawang besar",
+      "sound": "./sound/bawang besar.wav"
+    },
+    {
+      "id": 137,
+      "picture": "./img/137 garlic.jpg",
+      "vocabulary": "bawang putih",
+      "sound": "./sound/bawang putih.wav"
+    },
+    {
+      "id": 138,
+      "picture": "./img/138 potato.jpg",
+      "vocabulary": "kentang",
+      "sound": "./sound/kentang.wav"
+    },
+    {
+      "id": 139,
+      "picture": "./img/139 tomato.jpg",
+      "vocabulary": "tomato",
+      "sound": "./sound/tomato.wav"
+    },
+    {
+      "id": 140,
+      "picture": "./img/140 carrot.jpg",
+      "vocabulary": "lobak merah",
+      "sound": "./sound/lobak merah.wav"
+    },
+    {
+      "id": 141,
+      "picture": "./img/141 cauliflower.jpg",
+      "vocabulary": "kubis bunga",
+      "sound": "./sound/kubis bunga.wav"
+    },
+    {
+      "id": 142,
+      "picture": "./img/142 pumpkin.png",
+      "vocabulary": "labu",
+      "sound": "./sound/labu.wav"
+    },
+    {
+      "id": 143,
+      "picture": "./img/143 mustard.jpg",
+      "vocabulary": "sawi",
+      "sound": "./sound/sawi.wav"
+    },
+    {
+      "id": 144,
+      "picture": "./img/144 mushroom.jpg",
+      "vocabulary": "cendawan",
+      "sound": "./sound/cendawan.wav"
+    },
+    {
+      "id": 145,
+      "picture": "./img/145 cuccumber.jpeg",
+      "vocabulary": "timun",
+      "sound": "./sound/timun.wav"
+    },
+    {
+      "id": 146,
+      "picture": "./img/146 brinjal.jpg",
+      "vocabulary": "terung",
+      "sound": "./sound/terung.wav"
+    },
+    {
+      "id": 147,
+      "picture": "./img/147 corn.jpg",
+      "vocabulary": "jagung",
+      "sound": "./sound/jagung.wav"
+    },
+    {
+      "id": 148,
+      "picture": "./img/148 bitter gourd.jpg",
+      "vocabulary": "peria",
+      "sound": "./sound/peria.wav"
+    },
+    {
+      "id": 149,
+      "picture": "./img/149 okra.png",
+      "vocabulary": "bendi",
+      "sound": "./sound/bendi.wav"
+    },
+    {
+      "id": 150,
+      "picture": "./img/150 spring onion.png",
+      "vocabulary": "daun bawang",
+      "sound": "./sound/daun bawang.wav"
+    },
+    {
+      "id": 151,
+      "picture": "./img/151 radish.png",
+      "vocabulary": "lobak putih",
+      "sound": "./sound/lobak putih.wav"
+    },
+    {
+      "id": 152,
+      "picture": "./img/152 long bean.jpg",
+      "vocabulary": "kacang panjang",
+      "sound": "./sound/kacang panjang.wav"
+    },
+    {
+      "id": 153,
+      "picture": "./img/153 cabbage.png",
+      "vocabulary": "kubis",
+      "sound": "./sound/kubis.wav"
+    },
+    {
+      "id": 154,
+      "picture": "./img/154 celery.jpg",
+      "vocabulary": "saderi",
+      "sound": "./sound/saderi.wav"
+    },
+    {
+      "id": 155,
+      "picture": "./img/155 chili.jpeg",
+      "vocabulary": "cili",
+      "sound": "./sound/cili.wav"
+    },
+    {
+      "id": 156,
+      "picture": "./img/156 sweet potato.jpg",
+      "vocabulary": "keledek",
+      "sound": "./sound/keledek.wav"
+    }
+  ]

@@ -1,5 +1,5 @@
 body, html{
-    background-image: url("../img/unit2-2.jpg");
+    background-image: url("../../public/img/unit2-22.jpg");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     height: 100%;
@@ -42,6 +42,7 @@ body, html{
 .top-bar__name__sub{
     font-size: 20px;
 	color: black;
+    margin-left: 20px;
 }
 .exercise{
     text-align: center;

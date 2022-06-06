@@ -1,0 +1,128 @@
+const data = [
+    {
+      "id": 0,
+      "picture": "./icon/logo.png",
+      "vocabulary": "Sambutan Hari Jadi",
+      "sound": "./sound/unit 1 parts of body.mp3"
+    },
+      {
+        "id": 89,
+        "picture": "./img/089 birthday.jpg",
+        "vocabulary": "hari jadi",
+        "sound": "./sound/hari jadi.wav"
+      },
+      {
+        "id": 90,
+        "picture": "./img/090 decoration.jpg",
+        "vocabulary": "hiasan",
+        "sound": "./sound/hiasan.wav"
+      },
+      {
+        "id": 91,
+        "picture": "./img/091 ribbon.jpg",
+        "vocabulary": "reben",
+        "sound": "./sound/reben.wav"
+      },
+      {
+        "id": 92,
+        "picture": "./img/092 friends.jpg",
+        "vocabulary": "rakan-rakan",
+        "sound": "./sound/rakan-rakan.wav"
+      },
+      {
+        "id": 93,
+        "picture": "./img/093 present.jpg",
+        "vocabulary": "hadiah",
+        "sound": "./sound/hadiah.wav"
+      },
+      {
+        "id": 94,
+        "picture": "./img/094 party masks.jpg",
+        "vocabulary": "topeng",
+        "sound": "./sound/topeng.wav"
+      },
+      {
+        "id": 95,
+        "picture": "./img/095 party hats.jpg",
+        "vocabulary": "topi pesta",
+        "sound": "./sound/topi pesta.wav"
+      },
+      {
+        "id": 96,
+        "picture": "./img/096 card.jpg",
+        "vocabulary": "kad",
+        "sound": "./sound/kad.wav"
+      },
+      {
+        "id": 97,
+        "picture": "./img/097 cake.jpg",
+        "vocabulary": "kek",
+        "sound": "./sound/kek.wav"
+      },
+      {
+        "id": 98,
+        "picture": "./img/098 candles.jpg",
+        "vocabulary": "lilin",
+        "sound": "./sound/lilin.wav"
+      },
+      {
+        "id": 99,
+        "picture": "./img/099 snacks.jpg",
+        "vocabulary": "makanan ringan",
+        "sound": "./sound/makanan ringan.wav"
+      },
+      {
+        "id": 100,
+        "picture": "./img/100 popcorn.jpg",
+        "vocabulary": "bertih jagung",
+        "sound": "./sound/bertih jagung.wav"
+      },
+      {
+        "id": 101,
+        "picture": "./img/101 sweets.jpg",
+        "vocabulary": "gula-gula",
+        "sound": "./sound/gula-gula.wav"
+      },
+      {
+        "id": 102,
+        "picture": "./img/102 sandwiches.jpg",
+        "vocabulary": "sandwic",
+        "sound": "./sound/sandwic.wav"
+      },
+      {
+        "id": 103,
+        "picture": "./img/103 pudding.jpg",
+        "vocabulary": "puding",
+        "sound": "./sound/puding.wav"
+      },
+      {
+        "id": 104,
+        "picture": "./img/104 jelly.jpg",
+        "vocabulary": "agar-agar",
+        "sound": "./sound/agar-agar.wav"
+      },
+      {
+        "id": 105,
+        "picture": "./img/105 straws.jpg",
+        "vocabulary": "penyedut minuman",
+        "sound": "./sound/penyedut minuman.wav"
+      },
+      {
+        "id": 106,
+        "picture": "./img/106 camera.jpg",
+        "vocabulary": "kamera",
+        "sound": "./sound/kamera.wav"
+      },
+      {
+        "id": 107,
+        "picture": "./img/107 video camera.jpg",
+        "vocabulary": "kamera video",
+        "sound": "./sound/kamera video.wav"
+      },
+      {
+        "id": 108,
+        "picture": "./img/108 clown.jpg",
+        "vocabulary": "badut",
+        "sound": "./sound/badut.wav"
+      },
+    ]

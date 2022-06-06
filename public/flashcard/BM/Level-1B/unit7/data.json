@@ -1,0 +1,206 @@
+const data = [
+    {
+      "id": 0,
+      "picture": "./icon/logo.png",
+      "vocabulary": "Kenderaan",
+      "sound": "./sound/unit 1 parts of body.mp3"
+    },
+      {
+        "id": 141,
+        "picture": "./img/141 car.png",
+        "vocabulary": "kereta",
+        "sound": "./sound/kereta.wav"
+      },
+      {
+        "id": 142,
+        "picture": "./img/142 bus.png",
+        "vocabulary": "bas",
+        "sound": "./sound/bas.wav"
+      },
+      {
+        "id": 143,
+        "picture": "./img/143 motorcycle.png",
+        "vocabulary": "motosikal",
+        "sound": "./sound/motosikal.wav"
+      },
+      {
+        "id": 144,
+        "picture": "./img/144 bicycle.png",
+        "vocabulary": "basikal",
+        "sound": "./sound/basikal.wav"
+      },
+      {
+        "id": 145,
+        "picture": "./img/145 tricycle.png",
+        "vocabulary": "basikal roda tiga",
+        "sound": "./sound/basikal roda tiga.wav"
+      },
+      {
+        "id": 146,
+        "picture": "./img/146 jeep.png",
+        "vocabulary": "jip",
+        "sound": "./sound/jip.wav"
+      },
+      {
+        "id": 147,
+        "picture": "./img/147 trishaw.jpg",
+        "vocabulary": "beca",
+        "sound": "./sound/beca.wav"
+      },
+      {
+        "id": 148,
+        "picture": "./img/148 taxi.jpg",
+        "vocabulary": "teksi",
+        "sound": "./sound/teksi.wav"
+      },
+      {
+        "id": 149,
+        "picture": "./img/149 van.png",
+        "vocabulary": "van",
+        "sound": "./sound/van.wav"
+      },
+      {
+        "id": 150,
+        "picture": "./img/150 lorry.png",
+        "vocabulary": "lori",
+        "sound": "./sound/lori.wav"
+      },
+      {
+        "id": 151,
+        "picture": "./img/151 truck.jpg",
+        "vocabulary": "trak",
+        "sound": "./sound/trak.wav"
+      },
+      {
+        "id": 152,
+        "picture": "./img/152 bullock cart.jpg",
+        "vocabulary": "kereta lembu",
+        "sound": "./sound/kereta lembu.wav"
+      },
+      {
+        "id": 153,
+        "picture": "./img/153 patrol car.jpg",
+        "vocabulary": "kereta ronda",
+        "sound": "./sound/kereta ronda.wav"
+      },
+      {
+        "id": 154,
+        "picture": "./img/154 ambulance.png",
+        "vocabulary": "ambulans",
+        "sound": "./sound/ambulans.wav"
+      },
+      {
+        "id": 155,
+        "picture": "./img/155 fire engine.png",
+        "vocabulary": "kereta bomba",
+        "sound": "./sound/kereta bomba.wav"
+      },
+      {
+        "id": 156,
+        "picture": "./img/156 oil tanker.png",
+        "vocabulary": "lori minyak",
+        "sound": "./sound/lori minyak.wav"
+      },
+      {
+        "id": 157,
+        "picture": "./img/157 train.jpg",
+        "vocabulary": "kereta api",
+        "sound": "./sound/kereta api.wav"
+      },
+      {
+        "id": 158,
+        "picture": "./img/158 light rail transit.jpg",
+        "vocabulary": "transit aliran ringan",
+        "sound": "./sound/transit aliran ringan.wav"
+      },
+      {
+        "id": 159,
+        "picture": "./img/159 monorail.jpg",
+        "vocabulary": "monorel",
+        "sound": "./sound/monorel.wav"
+      },
+      {
+        "id": 160,
+        "picture": "./img/160 aeroplan.jpg",
+        "vocabulary": "kapal terbang",
+        "sound": "./sound/kapal terbang.wav"
+      },
+      {
+        "id": 161,
+        "picture": "./img/161 helicopter.jpg",
+        "vocabulary": "helikopter",
+        "sound": "./sound/helikopter.wav"
+      },
+      {
+        "id": 162,
+        "picture": "./img/162 cabble car.jpg",
+        "vocabulary": "kereta kabel",
+        "sound": "./sound/kereta kabel.wav"
+      },
+      {
+        "id": 163,
+        "picture": "./img/163 space shuttle.jpg",
+        "vocabulary": "kapal angkasa",
+        "sound": "./sound/kapal angkasa.wav"
+      },
+      {
+        "id": 164,
+        "picture": "./img/164 raft.jpg",
+        "vocabulary": "rakit",
+        "sound": "./sound/rakit.wav"
+      },
+      {
+        "id": 165,
+        "picture": "./img/165 boat.jpeg",
+        "vocabulary": "perahu",
+        "sound": "./sound/perahu.wav"
+      },
+      {
+        "id": 166,
+        "picture": "./img/166 sampan.jpg",
+        "vocabulary": "sampan",
+        "sound": "./sound/sampan.wav"
+      },
+      {
+        "id": 167,
+        "picture": "./img/167 ship.jpg",
+        "vocabulary": "kapal",
+        "sound": "./sound/kapal.wav"
+      },
+      {
+        "id": 168,
+        "picture": "./img/168 ferry.jpg",
+        "vocabulary": "feri",
+        "sound": "./sound/feri.wav"
+      },
+      {
+        "id": 169,
+        "picture": "./img/169 motorboard.jpg",
+        "vocabulary": "motobot",
+        "sound": "./sound/motobot.wav"
+      },
+      {
+        "id": 170,
+        "picture": "./img/170 submarine.jpg",
+        "vocabulary": "kapal selam",
+        "sound": "./sound/kapal selam.wav"
+      },
+      {
+        "id": 171,
+        "picture": "./img/171 tanker.jpg",
+        "vocabulary": "kapal tangli minyak",
+        "sound": "./sound/kapal tangli minyak.wav"
+      },
+      {
+        "id": 172,
+        "picture": "./img/172 sailboat.jpg",
+        "vocabulary": "perahu layar",
+        "sound": "./sound/perahu layar.wav"
+      },
+      {
+        "id": 173,
+        "picture": "./img/173 cruise.jpg",
+        "vocabulary": "kapal persiaran",
+        "sound": "./sound/kapal persiaran.wav"
+      },
+    ]

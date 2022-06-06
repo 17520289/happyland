@@ -1,0 +1,9 @@
+body, html{
+    font-family: "simkai";
+}
+
+@font-face {
+    font-family: 'simkai' ;
+    src: url('../font/simkai.ttf') format('truetype');
+ 
+ }

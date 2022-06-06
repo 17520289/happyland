@@ -1,0 +1,74 @@
+const data =[
+    {
+      "id": 0,
+      "picture": "./icon/logo.png",
+      "vocabulary": "Anggota Keluaraga",
+      "sound": "./sound/unit 1 parts of body.mp3"
+    },
+    {
+        "id": 39,
+        "picture": "./img/039 family.jpg",
+        "vocabulary": "keluarga",
+        "sound": "./sound/keluarga.wav"
+    },
+    {
+        "id": 40,
+        "picture": "./img/040 grandfather.jpg",
+        "vocabulary": "datuk",
+        "sound": "./sound/datuk.wav"
+    },
+    {
+        "id": 41,
+        "picture": "./img/041 grandmother.jpg",
+        "vocabulary": "nenek",
+        "sound": "./sound/nenek.wav"
+    },
+    {
+        "id": 42,
+        "picture": "./img/042 father.jpg",
+        "vocabulary": "bapa",
+        "sound": "./sound/bapa.wav"
+    },
+    {
+        "id": 43,
+        "picture": "./img/043 mother.jpg",
+        "vocabulary": "ibu",
+        "sound": "./sound/ibu.wav"
+    },
+    {
+        "id": 44,
+        "picture": "./img/044 uncle.jpg",
+        "vocabulary": "bapa saudara",
+        "sound": "./sound/bapa saudara.wav"
+    },
+    {
+        "id": 45,
+        "picture": "./img/045 aunt.jpg",
+        "vocabulary": "ibu saudara",
+        "sound": "./sound/ibu saudara.wav"
+    },
+    {
+        "id": 46,
+        "picture": "./img/046 elder brother.jpg",
+        "vocabulary": "abang",
+        "sound": "./sound/abang.wav"
+    },
+    {
+        "id": 47,
+        "picture": "./img/047 elder sister.jpg",
+        "vocabulary": "kakak",
+        "sound": "./sound/kakak.wav"
+    },
+    {
+        "id": 48,
+        "picture": "./img/048 younger sister.jpg",
+        "vocabulary": "adik perempuan",
+        "sound": "./sound/adik perempuan.wav"
+    },
+    {
+        "id": 49,
+        "picture": "./img/049 younger brother.jpg",
+        "vocabulary": "adik lelaki",
+        "sound": "./sound/adik lelaki.wav"
+    }
+]

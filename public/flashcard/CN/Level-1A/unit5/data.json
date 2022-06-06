@@ -1,0 +1,116 @@
+const data = [
+    {
+      "id": 0,
+      "picture": "./icon/logo.png",
+      "vocabulary": "数字与形状",
+      "sound": "./sound/unit 1 parts of body.mp3"
+    },
+      {
+        "id": 62,
+        "picture": "./img/062 zero.jpg",
+        "vocabulary": "零",
+        "sound": "./sound/zero.wav"
+      },
+      {
+        "id": 63,
+        "picture": "./img/063 one.jpg",
+        "vocabulary": "一",
+        "sound": "./sound/one.wav"
+      },
+      {
+        "id": 64,
+        "picture": "./img/064 two.jpg",
+        "vocabulary": "二",
+        "sound": "./sound/two.wav"
+      },
+      {
+        "id": 65,
+        "picture": "./img/065 three.jpg",
+        "vocabulary": "三",
+        "sound": "./sound/three.wav"
+      },
+      {
+        "id": 66,
+        "picture": "./img/066 four.jpg",
+        "vocabulary": "四",
+        "sound": "./sound/four.wav"
+      },
+      {
+        "id": 67,
+        "picture": "./img/067 five.jpg",
+        "vocabulary": "五",
+        "sound": "./sound/five.wav"
+      },
+      {
+        "id": 68,
+        "picture": "./img/068 six.jpg",
+        "vocabulary": "六",
+        "sound": "./sound/six.wav"
+      },
+      {
+        "id": 69,
+        "picture": "./img/069 seven.jpg",
+        "vocabulary": "七",
+        "sound": "./sound/seven.wav"
+      },
+      {
+        "id": 70,
+        "picture": "./img/070 eight.jpg",
+        "vocabulary": "八",
+        "sound": "./sound/eight.wav"
+      },
+      {
+        "id": 71,
+        "picture": "./img/071 nine.jpg",
+        "vocabulary": "九",
+        "sound": "./sound/nine.wav"
+      },
+      {
+        "id": 72,
+        "picture": "./img/072 ten.jpg",
+        "vocabulary": "十",
+        "sound": "./sound/ten.wav"
+      },
+      {
+        "id": 73,
+        "picture": "./img/073 triangle.jpg",
+        "vocabulary": "三角形",
+        "sound": "./sound/triangle.wav"
+      },
+      {
+        "id": 74,
+        "picture": "./img/074 square.jpg",
+        "vocabulary": "正方形",
+        "sound": "./sound/square.wav"
+      },
+      {
+        "id": 75,
+        "picture": "./img/075 rectangle.jpg",
+        "vocabulary": "长方形",
+        "sound": "./sound/rectangle.wav"
+      },
+      {
+        "id": 76,
+        "picture": "./img/076 oval.jpg",
+        "vocabulary": "椭圆形",
+        "sound": "./sound/oval.wav"
+      },
+      {
+        "id": 77,
+        "picture": "./img/077 heart.jpg",
+        "vocabulary": "心形",
+        "sound": "./sound/heart.wav"
+      },
+      {
+        "id": 78,
+        "picture": "./img/078 star.jpg",
+        "vocabulary": "星形",
+        "sound": "./sound/star.wav"
+      },
+      {
+        "id": 79,
+        "picture": "./img/079 circle.jpg",
+        "vocabulary": "圆形",
+        "sound": "./sound/circle.wav"
+      },
+    ]

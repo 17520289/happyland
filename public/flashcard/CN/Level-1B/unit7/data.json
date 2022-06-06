@@ -1,0 +1,206 @@
+const data = [
+    {
+      "id": 0,
+      "picture": "./icon/logo.png",
+      "vocabulary": "交通工具",
+      "sound": "./sound/unit 1 parts of body.mp3"
+    },
+      {
+        "id": 141,
+        "picture": "./img/141 car.png",
+        "vocabulary": "汽车",
+        "sound": "./sound/car.wav"
+      },
+      {
+        "id": 142,
+        "picture": "./img/142 bus.png",
+        "vocabulary": "巴士",
+        "sound": "./sound/bus.wav"
+      },
+      {
+        "id": 143,
+        "picture": "./img/143 motorcycle.png",
+        "vocabulary": "摩托车",
+        "sound": "./sound/motorcycle.wav"
+      },
+      {
+        "id": 144,
+        "picture": "./img/144 bicycle.png",
+        "vocabulary": "自行车",
+        "sound": "./sound/bicycle.wav"
+      },
+      {
+        "id": 145,
+        "picture": "./img/145 tricycle.png",
+        "vocabulary": "三轮脚踏车",
+        "sound": "./sound/tricycle.wav"
+      },
+      {
+        "id": 146,
+        "picture": "./img/146 jeep.png",
+        "vocabulary": "吉普车",
+        "sound": "./sound/jeep.wav"
+      },
+      {
+        "id": 147,
+        "picture": "./img/147 trishaw.jpg",
+        "vocabulary": "三轮车",
+        "sound": "./sound/trishaw.wav"
+      },
+      {
+        "id": 148,
+        "picture": "./img/148 taxi.jpg",
+        "vocabulary": "德士",
+        "sound": "./sound/taxi.wav"
+      },
+      {
+        "id": 149,
+        "picture": "./img/149 van.png",
+        "vocabulary": "小型货车",
+        "sound": "./sound/van.wav"
+      },
+      {
+        "id": 150,
+        "picture": "./img/150 lorry.png",
+        "vocabulary": "货车",
+        "sound": "./sound/lorry.wav"
+      },
+      {
+        "id": 151,
+        "picture": "./img/151 truck.jpg",
+        "vocabulary": "卡车",
+        "sound": "./sound/truck.wav"
+      },
+      {
+        "id": 152,
+        "picture": "./img/152 bullock cart.jpg",
+        "vocabulary": "牛车",
+        "sound": "./sound/bullock cart.wav"
+      },
+      {
+        "id": 153,
+        "picture": "./img/153 patrol car.jpg",
+        "vocabulary": "警车",
+        "sound": "./sound/police car.wav"
+      },
+      {
+        "id": 154,
+        "picture": "./img/154 ambulance.png",
+        "vocabulary": "救护车",
+        "sound": "./sound/ambulance.wav"
+      },
+      {
+        "id": 155,
+        "picture": "./img/155 fire engine.png",
+        "vocabulary": "消防车",
+        "sound": "./sound/fire engine.wav"
+      },
+      {
+        "id": 156,
+        "picture": "./img/156 oil tanker.png",
+        "vocabulary": "油罐车",
+        "sound": "./sound/oil tanker.wav"
+      },
+      {
+        "id": 157,
+        "picture": "./img/157 train.jpg",
+        "vocabulary": "火车",
+        "sound": "./sound/train.wav"
+      },
+      {
+        "id": 158,
+        "picture": "./img/158 light rail transit.jpg",
+        "vocabulary": "轻快铁",
+        "sound": "./sound/light rail transit.wav"
+      },
+      {
+        "id": 159,
+        "picture": "./img/159 monorail.jpg",
+        "vocabulary": "单轨火车",
+        "sound": "./sound/monorail train.wav"
+      },
+      {
+        "id": 160,
+        "picture": "./img/160 aeroplane.jpg",
+        "vocabulary": "飞机",
+        "sound": "./sound/aeroplane.wav"
+      },
+      {
+        "id": 161,
+        "picture": "./img/161 helicopter.jpg",
+        "vocabulary": "直升机",
+        "sound": "./sound/helicopter.wav"
+      },
+      {
+        "id": 162,
+        "picture": "./img/162 cable car.jpg",
+        "vocabulary": "缆车",
+        "sound": "./sound/cable car.wav"
+      },
+      {
+        "id": 163,
+        "picture": "./img/163 space shuttle.jpg",
+        "vocabulary": "太空船",
+        "sound": "./sound/spaceship.wav"
+      },
+      {
+        "id": 164,
+        "picture": "./img/164 raft.jpg",
+        "vocabulary": "木筏",
+        "sound": "./sound/raft.wav"
+      },
+      {
+        "id": 165,
+        "picture": "./img/165 boat.jpg",
+        "vocabulary": "小舟",
+        "sound": "./sound/boat.wav"
+      },
+      {
+        "id": 166,
+        "picture": "./img/166 sampan.jpg",
+        "vocabulary": "舢板",
+        "sound": "./sound/sampan.wav"
+      },
+      {
+        "id": 167,
+        "picture": "./img/167 ship.jpg",
+        "vocabulary": "轮船",
+        "sound": "./sound/ship.wav"
+      },
+      {
+        "id": 168,
+        "picture": "./img/168 ferry.jpg",
+        "vocabulary": "渡轮",
+        "sound": "./sound/ferry.wav"
+      },
+      {
+        "id": 169,
+        "picture": "./img/169 motorboard.jpg",
+        "vocabulary": "汽艇",
+        "sound": "./sound/motorboard.wav"
+      },
+      {
+        "id": 170,
+        "picture": "./img/170 submarine.jpg",
+        "vocabulary": "潜水艇",
+        "sound": "./sound/submarine.wav"
+      },
+      {
+        "id": 171,
+        "picture": "./img/171 tanker.jpg",
+        "vocabulary": "油船",
+        "sound": "./sound/tanker ship.wav"
+      },
+      {
+        "id": 172,
+        "picture": "./img/172 sailboat.jpg",
+        "vocabulary": "帆船",
+        "sound": "./sound/sailboat.wav"
+      },
+      {
+        "id": 173,
+        "picture": "./img/173 cruise.jpg",
+        "vocabulary": "邮轮",
+        "sound": "./sound/cruise.wav"
+      },
+    ]

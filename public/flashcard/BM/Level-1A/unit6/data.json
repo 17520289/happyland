@@ -1,0 +1,212 @@
+const data = [
+    {
+      "id": 0,
+      "picture": "./icon/logo.png",
+      "vocabulary": "Makanan",
+      "sound": "./sound/unit 1 parts of body.mp3"
+    },
+    {
+      "id": 80,
+      "picture": "./img/080 rice.jpg",
+      "vocabulary": "nasi",
+      "sound": "./sound/nasi.wav"
+    },
+    {
+      "id": 81,
+      "picture": "./img/081 biscuit.jpg",
+      "vocabulary": "biskut",
+      "sound": "./sound/biskut.wav"
+    },
+    {
+      "id": 82,
+      "picture": "./img/082 noodle.jpg",
+      "vocabulary": "mi",
+      "sound": "./sound/mi.wav"
+    },
+    {
+      "id": 83,
+      "picture": "./img/083 bread.jpg",
+      "vocabulary": "roti",
+      "sound": "./sound/roti.wav"
+    },
+    {
+      "id": 84,
+      "picture": "./img/084 butter.jpg",
+      "vocabulary": "mentega",
+      "sound": "./sound/mentega.wav"
+    },
+    {
+      "id": 85,
+      "picture": "./img/085 jam.jpg",
+      "vocabulary": "jem",
+      "sound": "./sound/jem.wav"
+    },
+    {
+      "id": 86,
+      "picture": "./img/086 cheese.jpg",
+      "vocabulary": "keju",
+      "sound": "./sound/keju.wav"
+    },
+    {
+      "id": 87,
+      "picture": "./img/087 egg.jpg",
+      "vocabulary": "telur",
+      "sound": "./sound/telur.wav"
+    },
+    {
+      "id": 88,
+      "picture": "./img/088 vegetables.jpg",
+      "vocabulary": "sayur-sayuran",
+      "sound": "./sound/sayur-sayuran.wav"
+    },
+    {
+      "id": 89,
+      "picture": "./img/089 fruits.jpg",
+      "vocabulary": "buah-buahan",
+      "sound": "./sound/buah-buahan.wav"
+    },
+    {
+      "id": 90,
+      "picture": "./img/090 seafood.jpg",
+      "vocabulary": "makanan laut",
+      "sound": "./sound/makanan laut.wav"
+    },
+    {
+      "id": 91,
+      "picture": "./img/091 cereal.png",
+      "vocabulary": "bijirin",
+      "sound": "./sound/bijirin.wav"
+    },
+    {
+      "id": 92,
+      "picture": "./img/092 beans.jpg",
+      "vocabulary": "kacang",
+      "sound": "./sound/kacang.wav"
+    },
+    {
+      "id": 93,
+      "picture": "./img/093 meet.jpg",
+      "vocabulary": "daging",
+      "sound": "./sound/daging.wav"
+    },
+    {
+      "id": 94,
+      "picture": "./img/094 beef.jpg",
+      "vocabulary": "daging lembu",
+      "sound": "./sound/daging lembu.wav"
+    },
+    {
+      "id": 95,
+      "picture": "./img/095 chicken.jpg",
+      "vocabulary": "daging ayam",
+      "sound": "./sound/daging ayam.wav"
+    },
+    {
+      "id": 96,
+      "picture": "./img/096 mutton.jpg",
+      "vocabulary": "daging kambing",
+      "sound": "./sound/daging kambing.wav"
+    },
+    {
+      "id": 97,
+      "picture": "./img/097 pork.jpg",
+      "vocabulary": "daging khinzir",
+      "sound": "./sound/daging khinzir.wav"
+    },
+    {
+      "id": 98,
+      "picture": "./img/098 fish.jpg",
+      "vocabulary": "ikan",
+      "sound": "./sound/ikan.wav"
+    },
+    {
+      "id": 99,
+      "picture": "./img/099 soup.png",
+      "vocabulary": "sup",
+      "sound": "./sound/sup.wav"
+    },
+    {
+      "id": 100,
+      "picture": "./img/100 salt.png",
+      "vocabulary": "garam",
+      "sound": "./sound/garam.wav"
+    },
+    {
+      "id": 101,
+      "picture": "./img/101 sugar.jpg",
+      "vocabulary": "gula",
+      "sound": "./sound/gula.wav"
+    },
+    {
+      "id": 102,
+      "picture": "./img/102 vinegar.jpg",
+      "vocabulary": "cuka",
+      "sound": "./sound/cuka.wav"
+    },
+    {
+      "id": 103,
+      "picture": "./img/103 beverage.png",
+      "vocabulary": "minuman",
+      "sound": "./sound/minuman.wav"
+    },
+    {
+      "id": 104,
+      "picture": "./img/104 milk.jpg",
+      "vocabulary": "susu",
+      "sound": "./sound/susu.wav"
+    },
+    {
+      "id": 105,
+      "picture": "./img/105 tea.jpg",
+      "vocabulary": "teh",
+      "sound": "./sound/teh.wav"
+    },
+    {
+      "id": 106,
+      "picture": "./img/106 coffee.jpg",
+      "vocabulary": "kopi",
+      "sound": "./sound/kopi.wav"
+    },
+    {
+      "id": 107,
+      "picture": "./img/107 juice.png",
+      "vocabulary": "jus",
+      "sound": "./sound/jus.wav"
+    },
+    {
+      "id": 108,
+      "picture": "./img/108 dessert.png",
+      "vocabulary": "manisan",
+      "sound": "./sound/manisan.wav"
+    },
+    {
+      "id": 109,
+      "picture": "./img/109 ice cream.jpg",
+      "vocabulary": "aiskrim",
+      "sound": "./sound/aiskrim.wav"
+    },
+    {
+      "id": 110,
+      "picture": "./img/110 chocolate.jpg",
+      "vocabulary": "coklat",
+      "sound": "./sound/coklat.wav"
+    },
+    {
+      "id": 111,
+      "picture": "./img/111 sweets.jpg",
+      "vocabulary": "gula-gula",
+      "sound": "./sound/gula-gula.wav"
+    },
+    {
+      "id": 112,
+      "picture": "./img/112 salad.png",
+      "vocabulary": "salad",
+      "sound": "./sound/salad.wav"
+    },
+    {
+      "id": 113,
+      "picture": "./img/113 flour.jpg",
+      "vocabulary": "tepung",
+      "sound": "./sound/tepung.wav"
+    },
+  ]

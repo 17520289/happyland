@@ -1,141 +1,146 @@
-[
+const data = [
     {
-        "id": 0,
-        "picture":  "./img/body/001 body.jpg",
-        "vocabulary": "body",
-        "sound":"./sound/body/body.wav"
+      "id": 0,
+      "picture": "./icon/logo.png",
+      "vocabulary": "身体各部分",
+      "sound": "./sound/unit 1 parts of body.mp3"
     },
-    {
+      {
         "id": 1,
-        "picture":  "./img/body/002 head.jpg",
-        "vocabulary": "head",
-        "sound":"./sound/body/head.wav"
-    },
-    {
+        "picture": "./img/001 body.jpg",
+        "vocabulary": "身体",
+        "sound": "./sound/body.wav"
+      },
+      {
         "id": 2,
-        "picture":  "./img/body/003 neck.jpg",
-        "vocabulary": "neck",
-        "sound":"./sound/body/neck.wav"
-    },
-    {
+        "picture": "./img/002 head.jpg",
+        "vocabulary": "头",
+        "sound": "./sound/head.wav"
+      },
+      {
         "id": 3,
-        "picture":  "./img/body/004 shoulder.jpg",
-        "vocabulary": "shoulder",
-        "sound":"./sound/body/shoulder.wav"
-    },
-    {
+        "picture": "./img/003 neck.jpg",
+        "vocabulary": "颈",
+        "sound": "./sound/neck.wav"
+      },
+      {
         "id": 4,
-        "picture":  "./img/body/005 hand.jpg",
-        "vocabulary": "hand",
-        "sound":"./sound/body/hand.wav"
-    },
-    {
+        "picture": "./img/004 shoulder.jpg",
+        "vocabulary": "肩膀",
+        "sound": "./sound/shoulder.wav"
+      },
+      {
         "id": 5,
-        "picture":  "./img/body/006 arm.jpg",
-        "vocabulary": "arm",
-        "sound":"./sound/body/arm.wav"
-    },
-    {
+        "picture": "./img/005 hand.jpg",
+        "vocabulary": "手",
+        "sound": "./sound/hand.wav"
+      },
+      {
         "id": 6,
-        "picture":  "./img/body/007 elbow.jpg",
-        "vocabulary": "elbow",
-        "sound":"./sound/body/elbow.wav"
-    },
-    {
+        "picture": "./img/006 arm.jpg",
+        "vocabulary": "手臂",
+        "sound": "./sound/arm.wav"
+      },
+      {
         "id": 7,
-        "picture":  "./img/body/008 wrist.jpg",
-        "vocabulary": "wrist",
-        "sound":"./sound/body/wrist.wav"
-    },
-    {
+        "picture": "./img/007 elbow.jpeg",
+        "vocabulary": "肘",
+        "sound": "./sound/elbow.wav"
+      },
+      {
         "id": 8,
-        "picture":  "./img/body/009 fingers.jpg",
-        "vocabulary": "fingers",
-        "sound":"./sound/body/fingers.wav"
-    },
-    {
+        "picture": "./img/008 wrist.jpg",
+        "vocabulary": "手腕",
+        "sound": "./sound/wrist.wav"
+      },
+      {
         "id": 9,
-        "picture":  "./img/body/010 nails.jpg",
-        "vocabulary": "nails",
-        "sound":"./sound/body/nails.wav"
-    },
-    {
+        "picture": "./img/009 fingers.jpg",
+        "vocabulary": "手指",
+        "sound": "./sound/fingers.wav"
+      },
+      {
         "id": 10,
-        "picture":  "./img/body/011 armpit.jpg",
-        "vocabulary": "armpit",
-        "sound":"./sound/body/armpit.wav"
-    },
-    {
+        "picture": "./img/010 nails.jpg",
+        "vocabulary": "指甲",
+        "sound": "./sound/nails.wav"
+      },
+      {
         "id": 11,
-        "picture":  "./img/body/012 back.jpg",
-        "vocabulary": "back",
-        "sound":"./sound/body/back.wav"
-    },
-    {
+        "picture": "./img/011 armpit.jpg",
+        "vocabulary": "腋下",
+        "sound": "./sound/armpit.wav"
+      },
+      {
         "id": 12,
-        "picture":  "./img/body/013 chest.jpg",
-        "vocabulary": "chest",
-        "sound":"./sound/body/chest.wav"
-    },
-    {
+        "picture": "./img/012 back.jpg",
+        "vocabulary": "背",
+        "sound": "./sound/back.wav"
+      },
+      {
         "id": 13,
-        "picture":  "./img/body/014 waist.jpg",
-        "vocabulary": "waist",
-        "sound":"./sound/body/waist.wav"
-    },
-    {
+        "picture": "./img/013 chest.jpg",
+        "vocabulary": "胸",
+        "sound": "./sound/chest.wav"
+      },
+      {
         "id": 14,
-        "picture":  "./img/body/015 stomach.png",
-        "vocabulary": "stomach",
-        "sound":"./sound/body/stomach.wav"
-    },
-    {
+        "picture": "./img/014 waist.jpg",
+        "vocabulary": "腰",
+        "sound": "./sound/waist.wav"
+      },
+      {
         "id": 15,
-        "picture":  "./img/body/016 legs.jpg",
-        "vocabulary": "legs",
-        "sound":"./sound/body/legs.wav"
-    },
-    {
+        "picture": "./img/015 stomach.png",
+        "vocabulary": "肚子",
+        "sound": "./sound/stomach.wav"
+      },
+      {
         "id": 16,
-        "picture":  "./img/body/017 knees.jpg",
-        "vocabulary": "knees",
-        "sound":"./sound/body/knees.wav"
-    },
-    {
+        "picture": "./img/016 legs.jpg",
+        "vocabulary": "脚",
+        "sound": "./sound/legs.wav"
+      },
+      {
         "id": 17,
-        "picture":  "./img/body/018 thigh.png",
-        "vocabulary": "thigh",
-        "sound":"./sound/body/thigh.wav"
-    },
-    {
+        "picture": "./img/017 knees.jpg",
+        "vocabulary": "膝盖",
+        "sound": "./sound/knees.wav"
+      },
+      {
         "id": 18,
-        "picture":  "./img/body/019 calf.jpg",
-        "vocabulary": "calf",
-        "sound":"./sound/body/calf.wav"
-    },
-    {
+        "picture": "./img/018 thigh.png",
+        "vocabulary": "大腿",
+        "sound": "./sound/thigh.wav"
+      },
+      {
         "id": 19,
-        "picture":  "./img/body/020 feet.jpg",
-        "vocabulary": "feet",
-        "sound":"./sound/body/feet.wav"
-    },
-    {
+        "picture": "./img/019 calf.jpg",
+        "vocabulary": "小腿",
+        "sound": "./sound/calf.wav"
+      },
+      {
         "id": 20,
-        "picture":  "./img/body/021 ankle.jpg",
-        "vocabulary": "ankle",
-        "sound":"./sound/body/ankle.wav"
-    },
-    {
+        "picture": "./img/020 feet.jpg",
+        "vocabulary": "足",
+        "sound": "./sound/feet.wav"
+      },
+      {
         "id": 21,
-        "picture":  "./img/body/022 toes.jpg",
-        "vocabulary": "toes",
-        "sound":"./sound/body/toe.wav"
-    },
-    {
+        "picture": "./img/021 ankle.jpg",
+        "vocabulary": "踝",
+        "sound": "./sound/ankle.wav"
+      },
+      {
         "id": 22,
-        "picture":  "./img/body/023 skin.png",
-        "vocabulary": "skin",
-        "sound":"./sound/body/skin.wav"
-    }
-]
-}
+        "picture": "./img/022 toes.jpg",
+        "vocabulary": "脚趾",
+        "sound": "./sound/toes.wav"
+      },
+      {
+        "id": 23,
+        "picture": "./img/023 skin.png",
+        "vocabulary": "皮肤",
+        "sound": "./sound/feet.wav"
+      },
+    ]

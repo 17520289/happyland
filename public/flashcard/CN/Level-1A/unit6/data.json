@@ -1,0 +1,212 @@
+const data = [
+    {
+      "id": 0,
+      "picture": "./icon/logo.png",
+      "vocabulary": "食物",
+      "sound": "./sound/unit 1 parts of body.mp3"
+    },
+      {
+        "id": 80,
+        "picture": "./img/080 rice.jpg",
+        "vocabulary": "饭",
+        "sound": "./sound/rice.wav"
+      },
+      {
+        "id": 81,
+        "picture": "./img/081 biscuit.jpg",
+        "vocabulary": "饼",
+        "sound": "./sound/biscuit.wav"
+      },
+      {
+        "id": 82,
+        "picture": "./img/082 noodle.jpg",
+        "vocabulary": "面条",
+        "sound": "./sound/noodle.wav"
+      },
+      {
+        "id": 83,
+        "picture": "./img/083 bread.jpg",
+        "vocabulary": "面包",
+        "sound": "./sound/bread.wav"
+      },
+      {
+        "id": 84,
+        "picture": "./img/084 butter.jpg",
+        "vocabulary": "牛油",
+        "sound": "./sound/butter.wav"
+      },
+      {
+        "id": 85,
+        "picture": "./img/085 jam.jpg",
+        "vocabulary": "果酱",
+        "sound": "./sound/jam.wav"
+      },
+      {
+        "id": 86,
+        "picture": "./img/086 cheese.jpg",
+        "vocabulary": "乳酪",
+        "sound": "./sound/cheese.wav"
+      },
+      {
+        "id": 87,
+        "picture": "./img/087 egg.jpg",
+        "vocabulary": "鸡蛋",
+        "sound": "./sound/egg.wav"
+      },
+      {
+        "id": 88,
+        "picture": "./img/088 vegetables.jpg",
+        "vocabulary": "蔬菜",
+        "sound": "./sound/vegetables.wav"
+      },
+      {
+        "id": 89,
+        "picture": "./img/089 fruits.jpg",
+        "vocabulary": "水果",
+        "sound": "./sound/fruits.wav"
+      },
+      {
+        "id": 90,
+        "picture": "./img/090 seafood.jpg",
+        "vocabulary": "海鲜",
+        "sound": "./sound/seafood.wav"
+      },
+      {
+        "id": 91,
+        "picture": "./img/091 cereal.png",
+        "vocabulary": "谷物",
+        "sound": "./sound/cereal.wav"
+      },
+      {
+        "id": 92,
+        "picture": "./img/092 beans.jpg",
+        "vocabulary": "豆类",
+        "sound": "./sound/beans.wav"
+      },
+      {
+        "id": 93,
+        "picture": "./img/093 meat.jpg",
+        "vocabulary": "肉类",
+        "sound": "./sound/meat.wav"
+      },
+      {
+        "id": 94,
+        "picture": "./img/094 beef.jpg",
+        "vocabulary": "牛肉",
+        "sound": "./sound/beef.wav"
+      },
+      {
+        "id": 95,
+        "picture": "./img/095 chicken.jpg",
+        "vocabulary": "鸡肉",
+        "sound": "./sound/chicken.wav"
+      },
+      {
+        "id": 96,
+        "picture": "./img/096 mutton.jpg",
+        "vocabulary": "羊肉",
+        "sound": "./sound/mutton.wav"
+      },
+      {
+        "id": 97,
+        "picture": "./img/097 pork.jpg",
+        "vocabulary": "猪肉",
+        "sound": "./sound/pork.wav"
+      },
+      {
+        "id": 98,
+        "picture": "./img/098 fish.jpg",
+        "vocabulary": "鱼肉",
+        "sound": "./sound/fish.wav"
+      },
+      {
+        "id": 99,
+        "picture": "./img/099 soup (new).png",
+        "vocabulary": "汤",
+        "sound": "./sound/soup.wav"
+      },
+      {
+        "id": 100,
+        "picture": "./img/100 salt (new).png",
+        "vocabulary": "盐",
+        "sound": "./sound/salt.wav"
+      },
+      {
+        "id": 101,
+        "picture": "./img/101 sugar.jpg",
+        "vocabulary": "糖",
+        "sound": "./sound/sugar.wav"
+      },
+      {
+        "id": 102,
+        "picture": "./img/102 vinegar.jpg",
+        "vocabulary": "醋",
+        "sound": "./sound/vinegar.wav"
+      },
+      {
+        "id": 103,
+        "picture": "./img/103 beverage.png",
+        "vocabulary": "饮料",
+        "sound": "./sound/beverage.wav"
+      },
+      {
+        "id": 104,
+        "picture": "./img/104 milk.jpg",
+        "vocabulary": "牛奶",
+        "sound": "./sound/milk.wav"
+      },
+      {
+        "id": 105,
+        "picture": "./img/105 tea.jpg",
+        "vocabulary": "茶",
+        "sound": "./sound/tea.wav"
+      },
+      {
+        "id": 106,
+        "picture": "./img/106 coffee.jpg",
+        "vocabulary": "咖啡",
+        "sound": "./sound/coffee.wav"
+      },
+      {
+        "id": 107,
+        "picture": "./img/107 juice.png",
+        "vocabulary": "果汁",
+        "sound": "./sound/juice.wav"
+      },
+      {
+        "id": 108,
+        "picture": "./img/108 dessert (new).png",
+        "vocabulary": "甜品",
+        "sound": "./sound/dessert.wav"
+      },
+      {
+        "id": 109,
+        "picture": "./img/109 ice cream.jpg",
+        "vocabulary": "冰激凌",
+        "sound": "./sound/ice cream.wav"
+      },
+      {
+        "id": 110,
+        "picture": "./img/110 chocolate.jpg",
+        "vocabulary": "巧克力",
+        "sound": "./sound/chocolate.wav"
+      },
+      {
+        "id": 111,
+        "picture": "./img/111 sweets.jpg",
+        "vocabulary": "糖果",
+        "sound": "./sound/sweets.wav"
+      },
+      {
+        "id": 112,
+        "picture": "./img/112 salad.png",
+        "vocabulary": "沙拉",
+        "sound": "./sound/salad.wav"
+      },
+      {
+        "id": 113,
+        "picture": "./img/113 flour.jpg",
+        "vocabulary": "面粉",
+        "sound": "./sound/flour.wav"
+      },
+    ]

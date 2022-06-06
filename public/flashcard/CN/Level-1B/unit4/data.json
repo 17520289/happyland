@@ -1,0 +1,129 @@
+const data = [
+    {
+      "id": 0,
+      "picture": "./icon/logo.png",
+      "vocabulary": "生日会",
+      "sound": "./sound/unit 1 parts of body.mp3"
+    },
+      {
+        "id": 89,
+        "picture": "./img/089 birthday.jpg",
+        "vocabulary": "生日",
+        "sound": "./sound/birthday.wav"
+      },
+      {
+        "id": 90,
+        "picture": "./img/090 decoration.jpg",
+        "vocabulary": "装饰品",
+        "sound": "./sound/decoration.wav"
+      },
+      {
+        "id": 91,
+        "picture": "./img/091 ribbon.jpg",
+        "vocabulary": "丝带",
+        "sound": "./sound/ribbon.wav"
+      },
+      {
+        "id": 92,
+        "picture": "./img/092 friends.jpg",
+        "vocabulary": "朋友",
+        "sound": "./sound/friends.wav"
+      },
+      {
+        "id": 93,
+        "picture": "./img/093 present.jpg",
+        "vocabulary": "礼物",
+        "sound": "./sound/present.wav"
+      },
+      {
+        "id": 94,
+        "picture": "./img/094 party masks.jpg",
+        "vocabulary": "面具",
+        "sound": "./sound/party masks.wav"
+      },
+      {
+        "id": 95,
+        "picture": "./img/095 party hats.jpg",
+        "vocabulary": "派对帽",
+        "sound": "./sound/party hats.wav"
+      },
+      {
+        "id": 96,
+        "picture": "./img/096 card.jpg",
+        "vocabulary": "卡片",
+        "sound": "./sound/card.wav"
+      },
+      {
+        "id": 97,
+        "picture": "./img/097 cake.jpg",
+        "vocabulary": "蛋糕",
+        "sound": "./sound/cake.wav"
+      },
+      {
+        "id": 98,
+        "picture": "./img/098 candles.jpg",
+        "vocabulary": "蜡烛",
+        "sound": "./sound/candles.wav"
+      },
+      {
+        "id": 99,
+        "picture": "./img/099 snacks.jpg",
+        "vocabulary": "零食",
+        "sound": "./sound/snacks.wav"
+      },
+      {
+        "id": 100,
+        "picture": "./img/100 popcorn.jpg",
+        "vocabulary": "爆米花",
+        "sound": "./sound/popcorn.wav"
+      },
+      {
+        "id": 101,
+        "picture": "./img/101 sweets.jpg",
+        "vocabulary": "糖果",
+        "sound": "./sound/sweets.wav"
+      },
+      {
+        "id": 102,
+        "picture": "./img/102 sandwiches.jpg",
+        "vocabulary": "三文治",
+        "sound": "./sound/sandwiches.wav"
+      },
+      {
+        "id": 103,
+        "picture": "./img/103 pudding.jpg",
+        "vocabulary": "布丁",
+        "sound": "./sound/pudding.wav"
+      },
+      {
+        "id": 104,
+        "picture": "./img/104 jelly.jpg",
+        "vocabulary": "果冻",
+        "sound": "./sound/jelly.wav"
+      },
+      {
+        "id": 105,
+        "picture": "./img/105 straws.jpg",
+        "vocabulary": "吸管",
+        "sound": "./sound/straws.wav"
+      },
+      {
+        "id": 106,
+        "picture": "./img/106 camera.jpg",
+        "vocabulary": "照相机",
+        "sound": "./sound/camera.wav"
+      },
+      {
+        "id": 107,
+        "picture": "./img/107 video camera.jpg",
+        "vocabulary": "摄像机",
+        "sound": "./sound/video camera.wav"
+      },
+      {
+        "id": 108,
+        "picture": "./img/108 clown.jpg",
+        "vocabulary": "小丑",
+        "sound": "./sound/clown.wav"
+      },
+
+    ]

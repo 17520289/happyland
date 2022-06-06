@@ -1,0 +1,140 @@
+const data = [
+    {
+      "id": 0,
+      "picture": "./icon/logo.png",
+      "vocabulary": "水果",
+      "sound": "./sound/unit 1 parts of body.mp3"
+    },
+      {
+        "id": 114,
+        "picture": "./img/114 apple.jpg",
+        "vocabulary": "苹果",
+        "sound": "./sound/apple.wav"
+      },
+      {
+        "id": 115,
+        "picture": "./img/115 banana.jpg",
+        "vocabulary": "香蕉",
+        "sound": "./sound/banana.wav"
+      },
+      {
+        "id": 116,
+        "picture": "./img/116 durian.jpg",
+        "vocabulary": "榴莲",
+        "sound": "./sound/durian.wav"
+      },
+      {
+        "id": 117,
+        "picture": "./img/117 grapes.jpg",
+        "vocabulary": "葡萄",
+        "sound": "./sound/grapes.wav"
+      },
+      {
+        "id": 118,
+        "picture": "./img/118 guava.jpg",
+        "vocabulary": "番石榴",
+        "sound": "./sound/guava.wav"
+      },
+      {
+        "id": 119,
+        "picture": "./img/119 honeydew.png",
+        "vocabulary": "蜜瓜",
+        "sound": "./sound/honeydew.wav"
+      },
+      {
+        "id": 120,
+        "picture": "./img/120 jackfruit.png",
+        "vocabulary": "菠萝蜜",
+        "sound": "./sound/jackfruit.wav"
+      },
+      {
+        "id": 121,
+        "picture": "./img/121 lychee.jpg",
+        "vocabulary": "荔枝",
+        "sound": "./sound/lychee.wav"
+      },
+      {
+        "id": 122,
+        "picture": "./img/122 mango.jpg",
+        "vocabulary": "芒果",
+        "sound": "./sound/mango.wav"
+      },
+      {
+        "id": 123,
+        "picture": "./img/123 mangosteen.jpg",
+        "vocabulary": "山竹",
+        "sound": "./sound/mangosteen.wav"
+      },
+      {
+        "id": 124,
+        "picture": "./img/124 orange.jpg",
+        "vocabulary": "橙",
+        "sound": "./sound/orange.wav"
+      },
+      {
+        "id": 125,
+        "picture": "./img/125 papaya.jpg",
+        "vocabulary": "木瓜",
+        "sound": "./sound/papaya.wav"
+      },
+      {
+        "id": 126,
+        "picture": "./img/126 pineapple.jpg",
+        "vocabulary": "凤梨",
+        "sound": "./sound/pineapple.wav"
+      },
+      {
+        "id": 127,
+        "picture": "./img/127 pomelo.jpg",
+        "vocabulary": "柚子",
+        "sound": "./sound/pomelo.wav"
+      },
+      {
+        "id": 128,
+        "picture": "./img/128 rambutan.jpg",
+        "vocabulary": "红毛丹",
+        "sound": "./sound/rambutan.wav"
+      },
+      {
+        "id": 129,
+        "picture": "./img/129 starfruit.jpg",
+        "vocabulary": "杨桃",
+        "sound": "./sound/starfruit.wav"
+      },
+      {
+        "id": 130,
+        "picture": "./img/130 watermelon.jpg",
+        "vocabulary": "西瓜",
+        "sound": "./sound/watermelon.wav"
+      },
+      {
+        "id": 131,
+        "picture": "./img/131 strawberry.jpg",
+        "vocabulary": "草莓",
+        "sound": "./sound/strawberry.wav"
+      },
+      {
+        "id": 132,
+        "picture": "./img/132 lemon.jpg",
+        "vocabulary": "柠檬",
+        "sound": "./sound/lemon.wav"
+      },
+      {
+        "id": 133,
+        "picture": "./img/133 cherry.jpg",
+        "vocabulary": "樱桃",
+        "sound": "./sound/cherry.wav"
+      },
+      {
+        "id": 134,
+        "picture": "./img/134 kiwi.jpg",
+        "vocabulary": "奇异果",
+        "sound": "./sound/kiwi.wav"
+      },
+      {
+        "id": 135,
+        "picture": "./img/135 coconut (new).png",
+        "vocabulary": "椰子",
+        "sound": "./sound/coconut.wav"
+      },
+    ]

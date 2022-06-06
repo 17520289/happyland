@@ -1,7 +1,7 @@
 const questions = [
   {
     question: "1-7",
-    picture: "./img/unit5-ex3.png",
+    picture: "./img/aerial.png",
     choose1: "window",
     choose2: "aerial",
     sound1: "./sound/window.wav",
@@ -10,7 +10,7 @@ const questions = [
   },
   {
     question: "2-7",
-    picture: "./img/unit5-ex3.png",
+    picture: "./img/roof.png",
     choose1: "roof",
     choose2: "stairs",
     sound1: "./sound/roof.wav",
@@ -19,7 +19,7 @@ const questions = [
   },
   {
     question: "3-7",
-    picture: "./img/unit5-ex3.png",
+    picture: "./img/window.png",
     choose1: "window",
     choose2: "door",
     sound1: "./sound/window.wav",
@@ -28,7 +28,7 @@ const questions = [
   },
   {
     question: "4-7",
-    picture: "./img/unit5-ex3.png",
+    picture: "./img/pillow.png",
     choose1: "wall",
     choose2: "pillow",
     sound1: "./sound/wall.wav",
@@ -37,7 +37,7 @@ const questions = [
   },
   {
     question: "5-7",
-    picture: "./img/unit5-ex3.png",
+    picture: "./img/door.png",
     choose1: "roof",
     choose2: "door",
     sound1: "./sound/roof.wav",
@@ -46,7 +46,7 @@ const questions = [
   },
   {
     question: "6-7",
-    picture: "./img/unit5-ex3.png",
+    picture: "./img/wall.png",
     choose1: "aerial",
     choose2: "wall",
     sound1: "./sound/aerial.wav",
@@ -55,7 +55,7 @@ const questions = [
   },
   {
     question: "7-7",
-    picture: "./img/unit5-ex3.png",
+    picture: "./img/stairs.png",
     choose1: "window",
     choose2: "stairs",
     sound1: "./sound/window.wav",

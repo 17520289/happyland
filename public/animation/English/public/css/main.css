@@ -3,3 +3,19 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body, html{
+    font-family: simkai
+}
+
+@font-face {
+    font-family: 'simkai' ;
+    src: url('../font/simkai.ttf') format('truetype');
+ 
+ }
+
+ @font-face {
+    font-family: 'LoveAndJoy' ;
+    src: url('../font/LoveAndJoy3.ttf') format('truetype');
+ 
+ }

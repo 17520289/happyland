@@ -1,0 +1,116 @@
+const data = [
+    {
+         "id": 0,
+         "picture": "./icon/logo.png",
+         "vocabulary": "Nombor Dan Bentuk",
+         "sound": "./sound/unit 1 parts of body.mp3"
+     },
+     {
+       "id": 62,
+       "picture": "./img/062 zero.jpg",
+       "vocabulary": "sifar",
+       "sound": "./sound/sifar.wav"
+     },
+     {
+       "id": 63,
+       "picture": "./img/063 one.jpg",
+       "vocabulary": "satu",
+       "sound": "./sound/satu.wav"
+     },
+     {
+       "id": 64,
+       "picture": "./img/064 two.jpg",
+       "vocabulary": "dua",
+       "sound": "./sound/dua.wav"
+     },
+     {
+       "id": 65,
+       "picture": "./img/065 three.jpg",
+       "vocabulary": "tiga",
+       "sound": "./sound/tiga.wav"
+     },
+     {
+       "id": 66,
+       "picture": "./img/066 four.jpg",
+       "vocabulary": "empat",
+       "sound": "./sound/empat.wav"
+     },
+     {
+       "id": 67,
+       "picture": "./img/067 five.jpg",
+       "vocabulary": "lima",
+       "sound": "./sound/lima.wav"
+     },
+     {
+       "id": 68,
+       "picture": "./img/068 six.jpg",
+       "vocabulary": "enam",
+       "sound": "./sound/enam.wav"
+     },
+     {
+       "id": 69,
+       "picture": "./img/069 seven.jpg",
+       "vocabulary": "tujuh",
+       "sound": "./sound/tujuh.wav"
+     },
+     {
+       "id": 70,
+       "picture": "./img/070 eight.jpg",
+       "vocabulary": "lapan",
+       "sound": "./sound/lapan.wav"
+     },
+     {
+       "id": 71,
+       "picture": "./img/071 nine.jpg",
+       "vocabulary": "sembilan",
+       "sound": "./sound/sembilan.wav"
+     },
+     {
+       "id": 72,
+       "picture": "./img/072 ten.jpg",
+       "vocabulary": "sepuluh",
+       "sound": "./sound/sepuluh.wav"
+     },
+     {
+       "id": 73,
+       "picture": "./img/073 triangle.jpg",
+       "vocabulary": "segi tiga",
+       "sound": "./sound/segi tiga.wav"
+     },
+     {
+       "id": 74,
+       "picture": "./img/074 square.jpg",
+       "vocabulary": "segi empat sama",
+       "sound": "./sound/segi empat sama.wav"
+     },
+     {
+       "id": 75,
+       "picture": "./img/075 rectangle.jpg",
+       "vocabulary": "segi empat tepat",
+       "sound": "./sound/segi empat tepat.wav"
+     },
+     {
+       "id": 76,
+       "picture": "./img/076 oval.jpg",
+       "vocabulary": "bujur",
+       "sound": "./sound/bujur.wav"
+     },
+     {
+       "id": 77,
+       "picture": "./img/077 heart.jpg",
+       "vocabulary": "bentuk hati",
+       "sound": "./sound/bentuk hati.wav"
+     },
+     {
+       "id": 78,
+       "picture": "./img/078 star.jpg",
+       "vocabulary": "bentuk bintang",
+       "sound": "./sound/bentuk bintang.wav"
+     },
+     {
+       "id": 79,
+       "picture": "./img/079 circle.jpg",
+       "vocabulary": "bulat",
+       "sound": "./sound/bulat.wav"
+     },
+   ]

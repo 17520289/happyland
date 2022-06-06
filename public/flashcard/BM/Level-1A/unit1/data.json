@@ -1,141 +1,146 @@
-[
+const data = [
     {
-        "id": 0,
-        "picture":  "./img/body/001 body.jpg",
-        "vocabulary": "body",
-        "sound":"./sound/body/body.wav"
+      "id": 0,
+      "picture": "./icon/logo.png",
+      "vocabulary": "Anggota Badan",
+      "sound": "./sound/unit 1 parts of body.mp3"
     },
     {
-        "id": 1,
-        "picture":  "./img/body/002 head.jpg",
-        "vocabulary": "head",
-        "sound":"./sound/body/head.wav"
+      "id": 1,
+      "picture": "./img/001 body.jpg",
+      "vocabulary": "badan",
+      "sound": "./sound/badan.wav"
     },
     {
-        "id": 2,
-        "picture":  "./img/body/003 neck.jpg",
-        "vocabulary": "neck",
-        "sound":"./sound/body/neck.wav"
+      "id": 2,
+      "picture": "./img/002 head.jpg",
+      "vocabulary": "kepala",
+      "sound": "./sound/kapala.wav"
     },
     {
-        "id": 3,
-        "picture":  "./img/body/004 shoulder.jpg",
-        "vocabulary": "shoulder",
-        "sound":"./sound/body/shoulder.wav"
+      "id": 3,
+      "picture": "./img/003 neck.jpg",
+      "vocabulary": "leher",
+      "sound": "./sound/leher.wav"
     },
     {
-        "id": 4,
-        "picture":  "./img/body/005 hand.jpg",
-        "vocabulary": "hand",
-        "sound":"./sound/body/hand.wav"
+      "id": 4,
+      "picture": "./img/004 shoulder.jpg",
+      "vocabulary": "bahu",
+      "sound": "./sound/bahu.wav"
     },
     {
-        "id": 5,
-        "picture":  "./img/body/006 arm.jpg",
-        "vocabulary": "arm",
-        "sound":"./sound/body/arm.wav"
+      "id": 5,
+      "picture": "./img/005 hand.jpg",
+      "vocabulary": "tangan",
+      "sound": "./sound/tangan.wav"
     },
     {
-        "id": 6,
-        "picture":  "./img/body/007 elbow.jpg",
-        "vocabulary": "elbow",
-        "sound":"./sound/body/elbow.wav"
+      "id": 6,
+      "picture": "./img/006 arm.jpg",
+      "vocabulary": "lengan",
+      "sound": "./sound/lengan.wav"
     },
     {
-        "id": 7,
-        "picture":  "./img/body/008 wrist.jpg",
-        "vocabulary": "wrist",
-        "sound":"./sound/body/wrist.wav"
+      "id": 7,
+      "picture": "./img/007 elbow.jpeg",
+      "vocabulary": "siku",
+      "sound": "./sound/siku.wav"
     },
     {
-        "id": 8,
-        "picture":  "./img/body/009 fingers.jpg",
-        "vocabulary": "fingers",
-        "sound":"./sound/body/fingers.wav"
+      "id": 8,
+      "picture": "./img/008 wrist.jpg",
+      "vocabulary": "pergelangan tangan",
+      "sound": "./sound/pergelangan tangan.wav"
     },
     {
-        "id": 9,
-        "picture":  "./img/body/010 nails.jpg",
-        "vocabulary": "nails",
-        "sound":"./sound/body/nails.wav"
+      "id": 9,
+      "picture": "./img/009 fingers.jpg",
+      "vocabulary": "jari",
+      "sound": "./sound/jari.wav"
     },
     {
-        "id": 10,
-        "picture":  "./img/body/011 armpit.jpg",
-        "vocabulary": "armpit",
-        "sound":"./sound/body/armpit.wav"
+      "id": 10,
+      "picture": "./img/010 nails.jpg",
+      "vocabulary": "kuku",
+      "sound": "./sound/kuku.wav"
     },
     {
-        "id": 11,
-        "picture":  "./img/body/012 back.jpg",
-        "vocabulary": "back",
-        "sound":"./sound/body/back.wav"
+      "id": 11,
+      "picture": "./img/011 armpit.jpg",
+      "vocabulary": "ketiak",
+      "sound": "./sound/ketiak.wav"
     },
     {
-        "id": 12,
-        "picture":  "./img/body/013 chest.jpg",
-        "vocabulary": "chest",
-        "sound":"./sound/body/chest.wav"
+      "id": 12,
+      "picture": "./img/012 back.jpg",
+      "vocabulary": "belakang",
+      "sound": "./sound/belakang.wav"
     },
     {
-        "id": 13,
-        "picture":  "./img/body/014 waist.jpg",
-        "vocabulary": "waist",
-        "sound":"./sound/body/waist.wav"
+      "id": 13,
+      "picture": "./img/013 chest.jpg",
+      "vocabulary": "dada",
+      "sound": "./sound/dada.wav"
     },
     {
-        "id": 14,
-        "picture":  "./img/body/015 stomach.png",
-        "vocabulary": "stomach",
-        "sound":"./sound/body/stomach.wav"
+      "id": 14,
+      "picture": "./img/014 waist.jpg",
+      "vocabulary": "pinggang",
+      "sound": "./sound/pinggan.wav"
     },
     {
-        "id": 15,
-        "picture":  "./img/body/016 legs.jpg",
-        "vocabulary": "legs",
-        "sound":"./sound/body/legs.wav"
+      "id": 15,
+      "picture": "./img/015 stomach.png",
+      "vocabulary": "perut",
+      "sound": "./sound/perut.wav"
     },
     {
-        "id": 16,
-        "picture":  "./img/body/017 knees.jpg",
-        "vocabulary": "knees",
-        "sound":"./sound/body/knees.wav"
+      "id": 16,
+      "picture": "./img/016 legs.jpg",
+      "vocabulary": "kaki",
+      "sound": "./sound/kaki.wav"
     },
     {
-        "id": 17,
-        "picture":  "./img/body/018 thigh.png",
-        "vocabulary": "thigh",
-        "sound":"./sound/body/thigh.wav"
+      "id": 17,
+      "picture": "./img/017 knees.jpg",
+      "vocabulary": "lutut",
+      "sound": "./sound/lutut.wav"
     },
     {
-        "id": 18,
-        "picture":  "./img/body/019 calf.jpg",
-        "vocabulary": "calf",
-        "sound":"./sound/body/calf.wav"
+      "id": 18,
+      "picture": "./img/018 thigh.png",
+      "vocabulary": "paha",
+      "sound": "./sound/paha.wav"
     },
     {
-        "id": 19,
-        "picture":  "./img/body/020 feet.jpg",
-        "vocabulary": "feet",
-        "sound":"./sound/body/feet.wav"
+      "id": 19,
+      "picture": "./img/019 calf.jpg",
+      "vocabulary": "betis",
+      "sound": "./sound/betis.wav"
     },
     {
-        "id": 20,
-        "picture":  "./img/body/021 ankle.jpg",
-        "vocabulary": "ankle",
-        "sound":"./sound/body/ankle.wav"
+      "id": 20,
+      "picture": "./img/020 feet.jpg",
+      "vocabulary": "tapak kaki",
+      "sound": "./sound/tapak kaki.wav"
     },
     {
-        "id": 21,
-        "picture":  "./img/body/022 toes.jpg",
-        "vocabulary": "toes",
-        "sound":"./sound/body/toe.wav"
+      "id": 21,
+      "picture": "./img/021 ankle.jpg",
+      "vocabulary": "buku lali",
+      "sound": "./sound/buku lali.wav"
     },
     {
-        "id": 22,
-        "picture":  "./img/body/023 skin.png",
-        "vocabulary": "skin",
-        "sound":"./sound/body/skin.wav"
-    }
-]
-}
+      "id": 22,
+      "picture": "./img/022 toes.jpg",
+      "vocabulary": "jari kaki",
+      "sound": "./sound/jari kaki.wav"
+    },
+    {
+      "id": 23,
+      "picture": "./img/023 skin.png",
+      "vocabulary": "kulit",
+      "sound": "./sound/kulit.wav"
+    },
+    ]

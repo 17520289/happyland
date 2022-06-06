@@ -32,3 +32,14 @@ function StopSound(soundObj) {
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
+
+function language(language) {
+  saveLanguageToLocalStorage(language);
+}
+
+function saveLanguageToLocalStorage(language) {
+  if (typeof (Storage) !== "undefined") {
+      localStorage.setItem('language', JSON.stringify(language));
+  }
+  window.location.href = "./Level-1A/lesson/lesson.html";
+}

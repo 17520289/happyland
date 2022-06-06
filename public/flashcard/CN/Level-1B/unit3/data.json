@@ -1,0 +1,176 @@
+const data = [
+    {
+      "id": 0,
+      "picture": "./icon/logo.png",
+      "vocabulary": "游戏",
+      "sound": "./sound/unit 1 parts of body.mp3"
+    },
+      {
+        "id": 61,
+        "picture": "./img/061 toys.jpg",
+        "vocabulary": "玩具",
+        "sound": "./sound/toys.wav"
+      },
+      {
+        "id": 62,
+        "picture": "./img/062 ball.jpg",
+        "vocabulary": "球",
+        "sound": "./sound/ball.wav"
+      },
+      {
+        "id": 63,
+        "picture": "./img/063 doll.png",
+        "vocabulary": "洋娃娃",
+        "sound": "./sound/doll.wav"
+      },
+      {
+        "id": 64,
+        "picture": "./img/064 marble.jpg",
+        "vocabulary": "弹珠",
+        "sound": "./sound/marble.wav"
+      },
+      {
+        "id": 65,
+        "picture": "./img/065 yoyo.jpg",
+        "vocabulary": "溜溜球",
+        "sound": "./sound/yoyo.wav"
+      },
+      {
+        "id": 66,
+        "picture": "./img/066 balloon.jpg",
+        "vocabulary": "气球",
+        "sound": "./sound/balloon.wav"
+      },
+      {
+        "id": 67,
+        "picture": "./img/067 chess.jpg",
+        "vocabulary": "棋",
+        "sound": "./sound/chess.wav"
+      },
+      {
+        "id": 68,
+        "picture": "./img/068 dice.jpg",
+        "vocabulary": "骰子",
+        "sound": "./sound/dice.wav"
+      },
+      {
+        "id": 69,
+        "picture": "./img/069 puppet.png",
+        "vocabulary": "玩偶",
+        "sound": "./sound/puppet.wav"
+      },
+      {
+        "id": 70,
+        "picture": "./img/070 robot.png",
+        "vocabulary": "机器人",
+        "sound": "./sound/robot.wav"
+      },
+      {
+        "id": 71,
+        "picture": "./img/071 teddy bear.jpg",
+        "vocabulary": "玩具熊",
+        "sound": "./sound/teddy bear.wav"
+      },
+      {
+        "id": 72,
+        "picture": "./img/072 toy car.jpg",
+        "vocabulary": "玩具车",
+        "sound": "./sound/toy car.wav"
+      },
+      {
+        "id": 73,
+        "picture": "./img/073 doll house.jpeg",
+        "vocabulary": "玩具洋房",
+        "sound": "./sound/doll house.wav"
+      },
+      {
+        "id": 74,
+        "picture": "./img/074 Rubik_s cube.jpg",
+        "vocabulary": "魔术方块",
+        "sound": "./sound/Rubik's cube.wav"
+      },
+      {
+        "id": 75,
+        "picture": "./img/075 top.jpg",
+        "vocabulary": "陀螺",
+        "sound": "./sound/top.wav"
+      },
+      {
+        "id": 76,
+        "picture": "./img/076 kite.jpg",
+        "vocabulary": "风筝",
+        "sound": "./sound/kite.wav"
+      },
+      {
+        "id": 77,
+        "picture": "./img/077 congkak.jpg",
+        "vocabulary": "冲格",
+        "sound": "./sound/congkak.wav"
+      },
+      {
+        "id": 78,
+        "picture": "./img/078 music box.jpg",
+        "vocabulary": "音乐盒",
+        "sound": "./sound/music box.wav"
+      },
+      {
+        "id": 79,
+        "picture": "./img/079 skateboard.jpg",
+        "vocabulary": "滑板",
+        "sound": "./sound/skateboard.wav"
+      },
+      {
+        "id": 80,
+        "picture": "./img/080 seven stones.jpg",
+        "vocabulary": "抛石子",
+        "sound": "./sound/seven stones.wav"
+      },
+      {
+        "id": 81,
+        "picture": "./img/081 hide-and-seek.jpg",
+        "vocabulary": "捉迷藏",
+        "sound": "./sound/hide and seek.wav"
+      },
+      {
+        "id": 82,
+        "picture": "./img/082 skipping rope.jpg",
+        "vocabulary": "跳绳",
+        "sound": "./sound/skipping rope.wav"
+      },
+      {
+        "id": 83,
+        "picture": "./img/083 three-legged race.jpg",
+        "vocabulary": "两人三足",
+        "sound": "./sound/three-legged race.wav"
+      },
+      {
+        "id": 84,
+        "picture": "./img/084 sack race.jpg",
+        "vocabulary": "袋鼠跳",
+        "sound": "./sound/sack race.wav"
+      },
+      {
+        "id": 85,
+        "picture": "./img/085 roller skates.jpg",
+        "vocabulary": "轮滑鞋",
+        "sound": "./sound/roller skates.wav"
+      },
+      {
+        "id": 86,
+        "picture": "./img/086 tug-of-war.jpg",
+        "vocabulary": "拔河",
+        "sound": "./sound/tug of war.wav"
+      },
+      {
+        "id": 87,
+        "picture": "./img/087 hopscotch.jpg",
+        "vocabulary": "跳格子",
+        "sound": "./sound/hopscotch.wav"
+      },
+      {
+        "id": 88,
+        "picture": "./img/088 stilt-walking.jpg",
+        "vocabulary": "踩高跷",
+        "sound": "./sound/stilt-walking.wav"
+      },
+    ]

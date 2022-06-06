@@ -55,7 +55,6 @@
     }
   
     .rightbutton {
-      margin-top: 10%
     }
   
     .round {
@@ -93,44 +92,49 @@
 <body>
   <div>
     <img class="bg" src="./icon/backgroundmauxanh.png"> </img>
-    <div style="position:absolute; top : 16%;left: 15%;">
-      <a href="../../Level-1B/lesson/lesson.html"  style=" text-decoration: none;">
-        <img src="./icon/button1.png" style="width: 4.4vw; margin: 0;">
-        </img>
-      </a>
-
-    </div>
-
-    <div style=" display: flex;flex-wrap: wrap;justify-content: center;">
-      <div class="rightbuttons">
-        <button class="rightbutton" onclick="muteSound()">
-          <img id="img_mute" src="./icon/unmute.png" style="width: 70%;"></img>
-        </button>
-        <button class="rightbutton" onclick="playfunction()">
-          <img id="img_play" src="./icon/play.png" style="width: 70%;"></img>
-        </button>
-        <button class="rightbutton">
-          <img id="speed1" src="./icon/x25.png" onclick="changespeed(1)" style="width: 70%;"></img>
-        </button>
-        <button class="rightbutton">
-          <img id="speed15" src="./icon/x2.png" onclick="changespeed(1.5)" style="width: 70%;"></img>
-        </button>
-        <button class="rightbutton">
-          <img id="speed2" src="./icon/x15.png" onclick="changespeed(2)" style="width: 70%;"></img>
-        </button>
-        <button class="rightbutton">
-          <img id="speed25" src="./icon/x1.png" onclick="changespeed(2.5)" style="width: 70%;"></img>
-        </button>
+    <div>
+      <div class="row pt-5">
+        <div class="col-md-2 text-end left-buttons">
+          <a class="rightbutton" href="../../Level-1B/lesson/lesson.html" style=" text-decoration: none;">
+            <img src="./icon/button1.png"></img>
+          </a>
+        </div>
+        <div class="col-md-8 text-center middle-buttons">
+          <button class="h-100 rightbutton" onclick="muteSound()">
+            <img id="img_mute" src="./icon/unmute.png" style="width: 70%;"></img>
+          </button>
+          <button class="h-100 rightbutton" onclick="playfunction()">
+            <img id="img_play" src="./icon/play.png" style="width: 70%;"></img>
+          </button>
+          <button class="h-100 rightbutton">
+            <img id="speed1" src="./icon/x25.png" onclick="changespeed(1)" style="width: 70%;"></img>
+          </button>
+          <button class="h-100 rightbutton">
+            <img id="speed15" src="./icon/x2.png" onclick="changespeed(1.5)" style="width: 70%;"></img>
+          </button>
+          <button class="h-100 rightbutton">
+            <img id="speed2" src="./icon/x15.png" onclick="changespeed(2)" style="width: 70%;"></img>
+          </button>
+          <button class="h-100 rightbutton">
+            <img id="speed25" src="./icon/x1.png" onclick="changespeed(2.5)" style="width: 70%;"></img>
+          </button>
+        </div>
+        <div class="col-md-2 text-left right-buttons">
+          <button class="h-100 rightbutton" style="cursor: text; pointer-events: none;">
+            <div id="questnumber" class="top-bar__1b">
+            1/28
+            </div>
+          </button>
+        </div>
       </div>
     </div>
-  </div>
   </div>
   <div class="container d-flex justify-content-between" style="height: 40vw; pointer-events: none;">
     <div style="width: 100%;">
       <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
         aria-hidden="true" data-backdrop="false">
         <div class="modal-dialog modal-lg" style="max-width: 900px;">
-          <div class="modal-content d-flex flex-row justify-content-around">
+          <div class="modal-content d-flex flex-row justify-content-around px-2">
             <div style="height: 30vw; width: 30vw;" class="d-flex align-self-center ">
               <img id="img" src="img/001 body.jpg" style="width: 100%;height: 100%;object-fit: contain"></img>
             </div>
@@ -151,11 +155,6 @@
         <img src="./icon/button4.png" style="width: 70%;"></img>
       </button>
     </div>
-    <div style="bottom: 10%;position: absolute;left: 50%;">
-      <div class="top-bar__1b" id="questnumber">
-        1/28
-      </div>
-    </div>
     <div style="position: absolute; right: 10%;bottom: 0%;">
       <button onclick="nextButton(true);">
         <img src="./icon/button5.png" style="width: 70%;"> </img>
@@ -173,7 +172,8 @@
       {
         "id": 0,
         "picture": "./icon/logo.png",
-        "vocabulary": "Park"
+        "vocabulary": "Park",
+        "sound": "./sound/unit 5 park.mp3"
       },
       {
         "id": 109,
@@ -348,21 +348,28 @@
     }
     async function playfunction() {
       if (!play) {
+        if (index === data.length - 1) index = 0;
+        play = true;
+        clickchange = false;
 
-      play = true;
-      clickchange = false;
+        $("#img_play").attr("src","./icon/pause.png");
 
-      $("#img_play").attr("src","./icon/pause.png");
+        for (var i = index; i < data.length - 1; i++) {
+          if (clickchange){
+            $("#img_play").attr("src","./icon/play.png");
+            break;
+          }
 
-      for (var i = index; i < data.length - 1; i++) {
-        if (clickchange){
-          $("#img_play").attr("src","./icon/play.png");
-          break;
+          nextButton(); 
+          await sleep(speed * 1000);
+          if (i === data.length - 2) {
+            play = false;
+
+            $("#img_play").attr("src","./icon/play.png");
+            clickchange = true;
+          }
+          console.log(`${play} ${i}`);
         }
-
-        nextButton(); 
-        await sleep(speed * 1000);
-      }
       } else {
         clickchange = true;
         play = false;

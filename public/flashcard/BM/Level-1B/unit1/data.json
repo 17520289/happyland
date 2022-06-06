@@ -1,141 +1,188 @@
-[
+const data = [
     {
-        "id": 0,
-        "picture":  "./img/body/001 body.jpg",
-        "vocabulary": "body",
-        "sound":"./sound/body/body.wav"
+      "id": 0,
+      "picture": "./icon/logo.png",
+      "vocabulary": "Pakaian",
+      "sound": "./sound/unit 1 parts of body.mp3"
     },
     {
-        "id": 1,
-        "picture":  "./img/body/002 head.jpg",
-        "vocabulary": "head",
-        "sound":"./sound/body/head.wav"
+      "id": 1,
+      "picture": "./img/001 clothes.jpg",
+      "vocabulary": "baju",
+      "sound": "./sound/baju.wav"
     },
     {
-        "id": 2,
-        "picture":  "./img/body/003 neck.jpg",
-        "vocabulary": "neck",
-        "sound":"./sound/body/neck.wav"
+      "id": 2,
+      "picture": "./img/002 T-shirt.jpg",
+      "vocabulary": "kemeja-T",
+      "sound": "./sound/kemeja-T.wav"
     },
     {
-        "id": 3,
-        "picture":  "./img/body/004 shoulder.jpg",
-        "vocabulary": "shoulder",
-        "sound":"./sound/body/shoulder.wav"
+      "id": 3,
+      "picture": "./img/003 shirt.jpg",
+      "vocabulary": "kemaja",
+      "sound": "./sound/kemaja.wav"
     },
     {
-        "id": 4,
-        "picture":  "./img/body/005 hand.jpg",
-        "vocabulary": "hand",
-        "sound":"./sound/body/hand.wav"
+      "id": 4,
+      "picture": "./img/004 blouse.jpg",
+      "vocabulary": "blaus",
+      "sound": "./sound/blaus.wav"
     },
     {
-        "id": 5,
-        "picture":  "./img/body/006 arm.jpg",
-        "vocabulary": "arm",
-        "sound":"./sound/body/arm.wav"
+      "id": 5,
+      "picture": "./img/005 singlet.jpg",
+      "vocabulary": "singlet",
+      "sound": "./sound/singlet.wav"
     },
     {
-        "id": 6,
-        "picture":  "./img/body/007 elbow.jpg",
-        "vocabulary": "elbow",
-        "sound":"./sound/body/elbow.wav"
+      "id": 6,
+      "picture": "./img/006 coat.jpg",
+      "vocabulary": "kot",
+      "sound": "./sound/kot.wav"
     },
     {
-        "id": 7,
-        "picture":  "./img/body/008 wrist.jpg",
-        "vocabulary": "wrist",
-        "sound":"./sound/body/wrist.wav"
+      "id": 7,
+      "picture": "./img/007 cardigan.jpg",
+      "vocabulary": "baju sejuk",
+      "sound": "./sound/baju sejuk.wav"
     },
     {
-        "id": 8,
-        "picture":  "./img/body/009 fingers.jpg",
-        "vocabulary": "fingers",
-        "sound":"./sound/body/fingers.wav"
+      "id": 8,
+      "picture": "./img/008 pants.jpg",
+      "vocabulary": "seluar",
+      "sound": "./sound/seluar.wav"
     },
     {
-        "id": 9,
-        "picture":  "./img/body/010 nails.jpg",
-        "vocabulary": "nails",
-        "sound":"./sound/body/nails.wav"
+      "id": 9,
+      "picture": "./img/009 shorts.jpg",
+      "vocabulary": "seluar pendek",
+      "sound": "./sound/seluar pendek.wav"
     },
     {
-        "id": 10,
-        "picture":  "./img/body/011 armpit.jpg",
-        "vocabulary": "armpit",
-        "sound":"./sound/body/armpit.wav"
+      "id": 10,
+      "picture": "./img/010 trousers.jpg",
+      "vocabulary": "seluar panjang",
+      "sound": "./sound/seluar panjang.wav"
     },
     {
-        "id": 11,
-        "picture":  "./img/body/012 back.jpg",
-        "vocabulary": "back",
-        "sound":"./sound/body/back.wav"
+      "id": 11,
+      "picture": "./img/011 skirt.jpg",
+      "vocabulary": "skirt",
+      "sound": "./sound/skirt.wav"
     },
     {
-        "id": 12,
-        "picture":  "./img/body/013 chest.jpg",
-        "vocabulary": "chest",
-        "sound":"./sound/body/chest.wav"
+      "id": 12,
+      "picture": "./img/012 dress.jpg",
+      "vocabulary": "gaun",
+      "sound": "./sound/gaun.wav"
     },
     {
-        "id": 13,
-        "picture":  "./img/body/014 waist.jpg",
-        "vocabulary": "waist",
-        "sound":"./sound/body/waist.wav"
+      "id": 13,
+      "picture": "./img/013 pyjamas.jpg",
+      "vocabulary": "baju tidur",
+      "sound": "./sound/baju tidur.wav"
     },
     {
-        "id": 14,
-        "picture":  "./img/body/015 stomach.png",
-        "vocabulary": "stomach",
-        "sound":"./sound/body/stomach.wav"
+      "id": 14,
+      "picture": "./img/014 raincoat.jpg",
+      "vocabulary": "baju hujan",
+      "sound": "./sound/baju hujan.wav"
     },
     {
-        "id": 15,
-        "picture":  "./img/body/016 legs.jpg",
-        "vocabulary": "legs",
-        "sound":"./sound/body/legs.wav"
+      "id": 15,
+      "picture": "./img/015 uniform.jpg",
+      "vocabulary": "pakaian seragam",
+      "sound": "./sound/pakaian seragam.wav"
     },
     {
-        "id": 16,
-        "picture":  "./img/body/017 knees.jpg",
-        "vocabulary": "knees",
-        "sound":"./sound/body/knees.wav"
+      "id": 16,
+      "picture": "./img/016 school uniform.jpg",
+      "vocabulary": "pakaian seragam sekolah",
+      "sound": "./sound/pakaian seragam sekolah.wav"
     },
     {
-        "id": 17,
-        "picture":  "./img/body/018 thigh.png",
-        "vocabulary": "thigh",
-        "sound":"./sound/body/thigh.wav"
+      "id": 17,
+      "picture": "./img/017 hat.jpg",
+      "vocabulary": "topi",
+      "sound": "./sound/topi.wav"
     },
     {
-        "id": 18,
-        "picture":  "./img/body/019 calf.jpg",
-        "vocabulary": "calf",
-        "sound":"./sound/body/calf.wav"
+      "id": 18,
+      "picture": "./img/018 scarf.jpg",
+      "vocabulary": "selendang",
+      "sound": "./sound/selendang.wav"
     },
     {
-        "id": 19,
-        "picture":  "./img/body/020 feet.jpg",
-        "vocabulary": "feet",
-        "sound":"./sound/body/feet.wav"
+      "id": 19,
+      "picture": "./img/019 necktie.jpg",
+      "vocabulary": "tali leher",
+      "sound": "./sound/tali leher.wav"
     },
     {
-        "id": 20,
-        "picture":  "./img/body/021 ankle.jpg",
-        "vocabulary": "ankle",
-        "sound":"./sound/body/ankle.wav"
+      "id": 20,
+      "picture": "./img/020 gloves.jpg",
+      "vocabulary": "sarung tangan",
+      "sound": "./sound/sarung tangan.wav"
     },
     {
-        "id": 21,
-        "picture":  "./img/body/022 toes.jpg",
-        "vocabulary": "toes",
-        "sound":"./sound/body/toe.wav"
+      "id": 21,
+      "picture": "./img/021 belt.jpg",
+      "vocabulary": "tali pinggang",
+      "sound": "./sound/tali pinggang.wav"
     },
     {
-        "id": 22,
-        "picture":  "./img/body/023 skin.png",
-        "vocabulary": "skin",
-        "sound":"./sound/body/skin.wav"
-    }
-]
-}
+      "id": 22,
+      "picture": "./img/022 socks.jpg",
+      "vocabulary": "sarung kaki",
+      "sound": "./sound/sarung kaki.wav"
+    },
+    {
+      "id": 23,
+      "picture": "./img/023 button.jpg",
+      "vocabulary": "butang",
+      "sound": "./sound/butang.wav"
+    },
+    {
+      "id": 24,
+      "picture": "./img/024 pocket.jpg",
+      "vocabulary": "poket",
+      "sound": "./sound/poket.wav"
+    },
+    {
+      "id": 25,
+      "picture": "./img/025 shoes.jpg",
+      "vocabulary": "kasut",
+      "sound": "./sound/kasut.wav"
+    },
+    {
+      "id": 26,
+      "picture": "./img/026 sandals.jpg",
+      "vocabulary": "sandal",
+      "sound": "./sound/sandal.wav"
+    },
+    {
+      "id": 27,
+      "picture": "./img/027 slippers.jpg",
+      "vocabulary": "selipar",
+      "sound": "./sound/selipar.wav"
+    },
+    {
+      "id": 28,
+      "picture": "./img/028 boots.jpg",
+      "vocabulary": "but",
+      "sound": "./sound/but.wav"
+    },
+    {
+      "id": 29,
+      "picture": "./img/029 trainers.jpg",
+      "vocabulary": "kasut sukan",
+      "sound": "./sound/kasut sukan.wav"
+    },
+    {
+      "id": 30,
+      "picture": "./img/030 leather shoes.jpg",
+      "vocabulary": "kasut kulit",
+      "sound": "./sound/kasut kulit.wav"
+    },
+  ]

@@ -1,0 +1,82 @@
+const data = [
+    {
+      "id": 0,
+      "picture": "./icon/logo.png",
+      "vocabulary": "公园",
+      "sound": "./sound/unit 1 parts of body.mp3"
+    },
+      {
+        "id": 109,
+        "picture": "./img/109 playground.jpg",
+        "vocabulary": "游乐场",
+        "sound": "./sound/playground.wav"
+      },
+      {
+        "id": 110,
+        "picture": "./img/110 swing.jpg",
+        "vocabulary": "秋千",
+        "sound": "./sound/swing.wav"
+      },
+      {
+        "id": 111,
+        "picture": "./img/111 see-saw.jpg",
+        "vocabulary": "跷跷板",
+        "sound": "./sound/see-saw.wav"
+      },
+      {
+        "id": 112,
+        "picture": "./img/112 slide.jpg",
+        "vocabulary": "滑梯",
+        "sound": "./sound/slide.wav"
+      },
+      {
+
+
+        "id": 113,
+        "picture": "./img/113 monkey bars.jpg",
+        "vocabulary": "单杠",
+        "sound": "./sound/monkey bars.wav"
+      },
+      {
+        "id": 114,
+        "picture": "./img/114 fountain.jpg",
+        "vocabulary": "喷水池",
+        "sound": "./sound/fountain.wav"
+      },
+      {
+        "id": 115,
+        "picture": "./img/115 bench.jpg",
+        "vocabulary": "长凳",
+        "sound": "./sound/bench.wav"
+      },
+      {
+        "id": 116,
+        "picture": "./img/116 bridge.jpg",
+        "vocabulary": "桥",
+        "sound": "./sound/bridge.wav"
+      },
+      {
+        "id": 117,
+        "picture": "./img/117 pond.jpg",
+        "vocabulary": "池塘",
+        "sound": "./sound/pond.wav"
+      },
+      {
+        "id": 118,
+        "picture": "./img/118 field.jpg",
+        "vocabulary": "草场",
+        "sound": "./sound/field.wav"
+      },
+      {
+        "id": 119,
+        "picture": "./img/119 lake.jpg",
+        "vocabulary": "湖",
+        "sound": "./sound/lake.wav"
+      },
+      {
+        "id": 120,
+        "picture": "./img/120 street lamp.jpg",
+        "vocabulary": "路灯",
+        "sound": "./sound/street lamp.wav"
+      },
+    ]

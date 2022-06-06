@@ -1,0 +1,98 @@
+const data = [
+    {
+      "id": 0,
+      "picture": "./icon/logo.png",
+      "vocabulary": "脸",
+      "sound": "./sound/unit 1 parts of body.mp3"
+    },
+      {
+        "id": 24,
+        "picture": "./img/024 face.jpg",
+        "vocabulary": "脸",
+        "sound": "./sound/face.wav"
+      },
+      {
+        "id": 25,
+        "picture": "./img/025 hair.jpg",
+        "vocabulary": "头发",
+        "sound": "./sound/hair.wav"
+      },
+      {
+        "id": 26,
+        "picture": "./img/026 mouth.jpg",
+        "vocabulary": "口",
+        "sound": "./sound/mouth.wav"
+      },
+      {
+        "id": 27,
+        "picture": "./img/027 teeth.jpg",
+        "vocabulary": "牙齿",
+        "sound": "./sound/teeth.wav"
+      },
+      {
+        "id": 28,
+        "picture": "./img/028 ears.jpg",
+        "vocabulary": "耳朵",
+        "sound": "./sound/ears.wav"
+      },
+      {
+        "id": 29,
+        "picture": "./img/029 nose.jpg",
+        "vocabulary": "鼻子",
+        "sound": "./sound/nose.wav"
+      },
+      {
+        "id": 30,
+        "picture": "./img/030 eyes.jpg",
+        "vocabulary": "眼睛",
+        "sound": "./sound/eyes.wav"
+      },
+      {
+        "id": 31,
+        "picture": "./img/031 eyebrows.jpg",
+        "vocabulary": "眉毛",
+        "sound": "./sound/eyebrows.wav"
+      },
+      {
+        "id": 32,
+        "picture": "./img/032 eyelashes.jpg",
+        "vocabulary": "睫毛",
+        "sound": "./sound/eyelashes.wav"
+      },
+      {
+        "id": 33,
+        "picture": "./img/033 lips.jpg",
+        "vocabulary": "嘴唇",
+        "sound": "./sound/lips.wav"
+      },
+      {
+        "id": 34,
+        "picture": "./img/034 tongue.jpg",
+        "vocabulary": "舌头",
+        "sound": "./sound/tongue.wav"
+      },
+      {
+        "id": 35,
+        "picture": "./img/035 cheek.jpg",
+        "vocabulary": "脸颊",
+        "sound": "./sound/cheek.wav"
+      },
+      {
+        "id": 36,
+        "picture": "./img/036 forehead.jpg",
+        "vocabulary": "额头",
+        "sound": "./sound/forehead.wav"
+      },
+      {
+        "id": 37,
+        "picture": "./img/037 sideburns.jpg",
+        "vocabulary": "鬓",
+        "sound": "./sound/sideburns.wav"
+      },
+      {
+        "id": 38,
+        "picture": "./img/038 chin.jpg",
+        "vocabulary": "下巴",
+        "sound": "./sound/chin.wav"
+      },
+    ]

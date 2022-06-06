@@ -28,7 +28,7 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
 
 @section('content')
     <div  style="padding: 0 10%">
-        
+
         <div class="row" style="width: 100%">
             @foreach ($courses as $course)
                 <div class="col-md-4" style="padding: 20px; display: block ">
@@ -43,17 +43,29 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
                                 }else{
                                 $url = route('course.show', ['id' => $course->id]);
                                 }
+                                $lang = '';
+                                switch ($course->lang) {
+                                    case 'ENG':
+                                        $lang = 'en';
+                                        break;
+                                    case 'BM':
+                                        $lang = 'bm';
+                                        break;
+                                    default:
+                                        $lang = 'cn';
+                                        break;
+                                }
                             @endphp
-                            <a href="{{$url}}" >
+                            <a href="{{$url}}" onclick="language('{{$lang}}')" >
                                 <img  class="center"  src="{{asset($url_image)}}" />
-                            </a>    
+                            </a>
                         </div>
                     </div>
                 </div>
               <br>
             @endforeach
         </div>
-        
+
 
     </div>
 
@@ -67,12 +79,12 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
         margin-right: auto;
         width: 100%;
         height: 250px;
-        
+
         }
         @media (max-width: 992px) {
             .center {
         height: 120px;
-        
+
         }
         }
         a {
@@ -199,6 +211,18 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
                 document.querySelector(".fa-gratipay").style.color = "#E74C3C";
             };
         });
+    </script>
+    <script>
+        function language(language) {
+            saveLanguageToLocalStorage(language);
+        }
+
+        function saveLanguageToLocalStorage(language) {
+        if (typeof (Storage) !== "undefined") {
+            localStorage.setItem('language', JSON.stringify(language));
+        }
+
+        }
     </script>
     <script src="{{ asset('packages/backpack/crud/js/crud.js') . '?v=' . config('backpack.base.cachebusting_string') }}">
     </script>

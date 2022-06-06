@@ -1,0 +1,140 @@
+const data = [
+    {
+      "id": 0,
+      "picture": "./icon/logo.png",
+      "vocabulary": "Buah-buahan",
+      "sound": "./sound/unit 1 parts of body.mp3"
+    },
+  {
+    "id": 114,
+    "picture": "./img/114 apple.jpg",
+    "vocabulary": "epal",
+    "sound": "./sound/epal.wav"
+  },
+  {
+    "id": 115,
+    "picture": "./img/115 bananas.jpeg",
+    "vocabulary": "pisang",
+    "sound": "./sound/pisang.wav"
+  },
+  {
+    "id": 116,
+    "picture": "./img/116 durian.jpg",
+    "vocabulary": "durian",
+    "sound": "./sound/durian.wav"
+  },
+  {
+    "id": 117,
+    "picture": "./img/117 grapes.jpg",
+    "vocabulary": "anggur",
+    "sound": "./sound/anggu.wav"
+  },
+  {
+    "id": 118,
+    "picture": "./img/118 guava.jpg",
+    "vocabulary": "jambu batu",
+    "sound": "./sound/jambu batu.wav"
+  },
+  {
+    "id": 119,
+    "picture": "./img/119 honeydew.png",
+    "vocabulary": "tembikai susu",
+    "sound": "./sound/tembikai susu.wav"
+  },
+  {
+    "id": 120,
+    "picture": "./img/120 jackfruit.png",
+    "vocabulary": "nangka",
+    "sound": "./sound/nangka.wav"
+  },
+  {
+    "id": 121,
+    "picture": "./img/121 lychee.jpg",
+    "vocabulary": "laici",
+    "sound": "./sound/laici.wav"
+  },
+  {
+    "id": 122,
+    "picture": "./img/122 mango.jpg",
+    "vocabulary": "mangga",
+    "sound": "./sound/mangga.wav"
+  },
+  {
+    "id": 123,
+    "picture": "./img/123 mangosteen.jpg",
+    "vocabulary": "manggis",
+    "sound": "./sound/manggis.wav"
+  },
+  {
+    "id": 124,
+    "picture": "./img/124 orange.jpg",
+    "vocabulary": "oren",
+    "sound": "./sound/orange.wav"
+  },
+  {
+    "id": 125,
+    "picture": "./img/125 papaya.jpg",
+    "vocabulary": "betik",
+    "sound": "./sound/betik.wav"
+  },
+  {
+    "id": 126,
+    "picture": "./img/126 pineapple.jpg",
+    "vocabulary": "nanas",
+    "sound": "./sound/nanas.wav"
+  },
+  {
+    "id": 127,
+    "picture": "./img/127 pomelo.jpg",
+    "vocabulary": "limau bali",
+    "sound": "./sound/limau bali.wav"
+  },
+  {
+    "id": 128,
+    "picture": "./img/128 rambutan.jpg",
+    "vocabulary": "rambutan",
+    "sound": "./sound/rambutan.wav"
+  },
+  {
+    "id": 129,
+    "picture": "./img/129 starfruit.jpg",
+    "vocabulary": "belimbing besi",
+    "sound": "./sound/belimbing besi.wav"
+  },
+  {
+    "id": 130,
+    "picture": "./img/130 watermelon.jpg",
+    "vocabulary": "tembikai",
+    "sound": "./sound/tembikai.wav"
+  },
+  {
+    "id": 131,
+    "picture": "./img/131 strawberry.jpg",
+    "vocabulary": "strawberi",
+    "sound": "./sound/stroberi.wav"
+  },
+  {
+    "id": 132,
+    "picture": "./img/132 lemon.jpg",
+    "vocabulary": "lemon",
+    "sound": "./sound/lemon.wav"
+  },
+  {
+    "id": 133,
+    "picture": "./img/133 cherry.jpg",
+    "vocabulary": "cheri",
+    "sound": "./sound/cheri.wav"
+  },
+  {
+    "id": 134,
+    "picture": "./img/134 kiwi.jpg",
+    "vocabulary": "buah-kiwi",
+    "sound": "./sound/buah-kiwi.wav"
+  },
+  {
+    "id": 135,
+    "picture": "./img/135 coconut.jpg",
+    "vocabulary": "kelapa",
+    "sound": "./sound/kelapa.wav"
+  },
+]

@@ -4,11 +4,20 @@
 
 <head>
   @include(backpack_view('inc.head'))
-  <style>
+ @if (session()->get('locale') === 'CN')
+ <style>
+    body {
+      font-family: simkai;
+    }
+  </style>
+ @else
+ <style>
     body {
       font-family: LoveAndJoy3;
     }
   </style>
+ @endif
+
 </head>
 
 <body class="{{ config('backpack.base.body_class') }}">
@@ -34,7 +43,7 @@
           @yield('before_content_widgets')
 
           @yield('content')
-          
+
           @yield('after_content_widgets')
 
         </div>
@@ -56,7 +65,7 @@
     $(".Langchange").change(function(){
         window.location.href = url + "?lang="+ $(this).val();
     });
-   
+
 </script>
   @yield('after_scripts')
   @stack('after_scripts')

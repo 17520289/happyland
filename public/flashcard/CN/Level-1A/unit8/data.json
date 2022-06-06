@@ -1,0 +1,134 @@
+const data = [
+    {
+      "id": 0,
+      "picture": "./icon/logo.png",
+      "vocabulary": "蔬菜",
+      "sound": "./sound/unit 1 parts of body.mp3"
+    },
+      {
+        "id": 136,
+        "picture": "./img/136 onion.jpg",
+        "vocabulary": "洋葱",
+        "sound": "./sound/onion.wav"
+      },
+      {
+        "id": 137,
+        "picture": "./img/137 garlic.jpg",
+        "vocabulary": "蒜头",
+        "sound": "./sound/garlic.wav"
+      },
+      {
+        "id": 138,
+        "picture": "./img/138 potato.jpg",
+        "vocabulary": "马铃薯",
+        "sound": "./sound/potato.wav"
+      },
+      {
+        "id": 139,
+        "picture": "./img/139 tomato.jpg",
+        "vocabulary": "番茄",
+        "sound": "./sound/tomato.wav"
+      },
+      {
+        "id": 140,
+        "picture": "./img/140 carrot.jpg",
+        "vocabulary": "胡萝卜",
+        "sound": "./sound/carrot.wav"
+      },
+      {
+        "id": 141,
+        "picture": "./img/141 cauliflower.jpg",
+        "vocabulary": "花椰菜",
+        "sound": "./sound/cauliflower.wav"
+      },
+      {
+        "id": 142,
+        "picture": "./img/142 pumpkin (new).png",
+        "vocabulary": "南瓜",
+        "sound": "./sound/pumpkin.wav"
+      },
+      {
+        "id": 143,
+        "picture": "./img/143 mustard.jpg",
+        "vocabulary": "菜心",
+        "sound": "./sound/mustard.wav"
+      },
+      {
+        "id": 144,
+        "picture": "./img/144 mushroom.jpg",
+        "vocabulary": "蘑菇",
+        "sound": "./sound/mushroom.wav"
+      },
+      {
+        "id": 145,
+        "picture": "./img/145 cucumber.jpg",
+        "vocabulary": "黄瓜",
+        "sound": "./sound/cucumber.wav"
+      },
+      {
+        "id": 146,
+        "picture": "./img/146 brinjal.jpg",
+        "vocabulary": "茄子",
+        "sound": "./sound/brinjal.wav"
+      },
+      {
+        "id": 147,
+        "picture": "./img/147 corn.jpg",
+        "vocabulary": "玉米",
+        "sound": "./sound/corn.wav"
+      },
+      {
+        "id": 148,
+        "picture": "./img/148 bitter gourd.jpg",
+        "vocabulary": "苦瓜",
+        "sound": "./sound/bitter gourd.wav"
+      },
+      {
+        "id": 149,
+        "picture": "./img/149 okra (new).png",
+        "vocabulary": "羊角豆",
+        "sound": "./sound/okra.wav"
+      },
+      {
+        "id": 150,
+        "picture": "./img/150 spring onion (new).png",
+        "vocabulary": "青葱",
+        "sound": "./sound/spring onion.wav"
+      },
+      {
+        "id": 151,
+        "picture": "./img/151 radish (new).png",
+        "vocabulary": "白萝卜",
+        "sound": "./sound/radish.wav"
+      },
+      {
+        "id": 152,
+        "picture": "./img/152 long bean.jpg",
+        "vocabulary": "长豆",
+        "sound": "./sound/long bean.wav"
+      },
+      {
+        "id": 153,
+        "picture": "./img/153 cabbage (new).png",
+        "vocabulary": "包菜",
+        "sound": "./sound/cabbage.wav"
+      },
+      {
+        "id": 154,
+        "picture": "./img/154 celery.jpg",
+        "vocabulary": "芹菜",
+        "sound": "./sound/celery.wav"
+      },
+      {
+        "id": 155,
+        "picture": "./img/155 chili.jpg",
+        "vocabulary": "辣椒",
+        "sound": "./sound/chili.wav"
+      },
+      {
+        "id": 156,
+        "picture": "./img/156 sweet potato.jpg",
+        "vocabulary": "番薯",
+        "sound": "./sound/sweet potato.wav"
+      }
+    ]

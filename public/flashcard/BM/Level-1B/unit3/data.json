@@ -1,0 +1,176 @@
+const data = [
+    {
+      "id": 0,
+      "picture": "./icon/logo.png",
+      "vocabulary": "Permainan",
+      "sound": "./sound/unit 1 parts of body.mp3"
+    },
+    {
+      "id": 61,
+      "picture": "./img/061 toys.jpg",
+      "vocabulary": "alat mainan",
+      "sound": "./sound/alat mainan.wav"
+    },
+    {
+      "id": 62,
+      "picture": "./img/062 ball.jpg",
+      "vocabulary": "bola",
+      "sound": "./sound/bola.wav"
+    },
+    {
+      "id": 63,
+      "picture": "./img/063 doll.jpg",
+      "vocabulary": "patung",
+      "sound": "./sound/patung.wav"
+    },
+    {
+      "id": 64,
+      "picture": "./img/064 marble.jpg",
+      "vocabulary": "guli",
+      "sound": "./sound/guli.wav"
+    },
+    {
+      "id": 65,
+      "picture": "./img/065 yoyo.jpg",
+      "vocabulary": "yoyo",
+      "sound": "./sound/yoyo.wav"
+    },
+    {
+      "id": 66,
+      "picture": "./img/066 balloon.jpg",
+      "vocabulary": "belon",
+      "sound": "./sound/belon.wav"
+    },
+    {
+      "id": 67,
+      "picture": "./img/067 chess.jpg",
+      "vocabulary": "cartur",
+      "sound": "./sound/cartur.wav"
+    },
+    {
+      "id": 68,
+      "picture": "./img/068 dice.jpg",
+      "vocabulary": "dadu",
+      "sound": "./sound/dadu.wav"
+    },
+    {
+      "id": 69,
+      "picture": "./img/069 puppet.png",
+      "vocabulary": "boneka",
+      "sound": "./sound/boneka.wav"
+    },
+    {
+      "id": 70,
+      "picture": "./img/070 robot.png",
+      "vocabulary": "robot",
+      "sound": "./sound/robot.wav"
+    },
+    {
+      "id": 71,
+      "picture": "./img/071 teddy bear.jpg",
+      "vocabulary": "patung beruang",
+      "sound": "./sound/patung beruang.wav"
+    },
+    {
+      "id": 72,
+      "picture": "./img/072 toy car.jpg",
+      "vocabulary": "kereta mainan",
+      "sound": "./sound/kereta mainan.wav"
+    },
+    {
+      "id": 73,
+      "picture": "./img/073 doll house.jpg",
+      "vocabulary": "rumah patung",
+      "sound": "./sound/rumah patung.wav"
+    },
+    {
+      "id": 74,
+      "picture": "./img/074 Rubik_s cube.jpg",
+      "vocabulary": "kiub Rubik",
+      "sound": "./sound/kiub Rubik.wav"
+    },
+    {
+      "id": 75,
+      "picture": "./img/075 top.jpg",
+      "vocabulary": "gasing",
+      "sound": "./sound/gasing.wav"
+    },
+    {
+      "id": 76,
+      "picture": "./img/076 kite.jpg",
+      "vocabulary": "layang-layang",
+      "sound": "./sound/layang-layang.wav"
+    },
+    {
+      "id": 77,
+      "picture": "./img/077 congkak.jpg",
+      "vocabulary": "congkak",
+      "sound": "./sound/congkak.wav"
+    },
+    {
+      "id": 78,
+      "picture": "./img/078 music box.jpg",
+      "vocabulary": "kotak muzik",
+      "sound": "./sound/kotak muzik.wav"
+    },
+    {
+      "id": 79,
+      "picture": "./img/079 skateboard.jpg",
+      "vocabulary": "papan selaju",
+      "sound": "./sound/papan selaju.wav"
+    },
+    {
+      "id": 80,
+      "picture": "./img/080 seven stones.jpg",
+      "vocabulary": "batu Seramban",
+      "sound": "./sound/batu Seramban.wav"
+    },
+    {
+      "id": 81,
+      "picture": "./img/081 hide-and-seek.jpg",
+      "vocabulary": "sorok-sorok",
+      "sound": "./sound/sorok-sorok.wav"
+    },
+    {
+      "id": 82,
+      "picture": "./img/082 skipping rope.jpg",
+      "vocabulary": "lompat tali",
+      "sound": "./sound/lompat tali.wav"
+    },
+    {
+      "id": 83,
+      "picture": "./img/083 three-legged race.jpg",
+      "vocabulary": "lari ikat kaki",
+      "sound": "./sound/lari ikat kaki.wav"
+    },
+    {
+      "id": 84,
+      "picture": "./img/084 sack race.jpg",
+      "vocabulary": "lari dalam guni",
+      "sound": "./sound/lari dalam guni.wav"
+    },
+    {
+      "id": 85,
+      "picture": "./img/085 roller skates.jpg",
+      "vocabulary": "kasut roda",
+      "sound": "./sound/kasut roda.wav"
+    },
+    {
+      "id": 86,
+      "picture": "./img/086 tug-of-war.jpg",
+      "vocabulary": "tarik tali",
+      "sound": "./sound/tarik tali.wav"
+    },
+    {
+      "id": 87,
+      "picture": "./img/087 hopscotch.jpg",
+      "vocabulary": "tingting",
+      "sound": "./sound/tingting.wav"
+    },
+    {
+      "id": 88,
+      "picture": "./img/088 stilt-walking.jpg",
+      "vocabulary": "lumba kaki kayu",
+      "sound": "./sound/lumba kaki kayu.wav"
+    },
+  ]
